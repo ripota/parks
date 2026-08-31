@@ -1,0 +1,45 @@
+{
+  "name": "@ripota/parks",
+  "version": "1.0.0",
+  "description": "Versioned Rhode Island Parks on the Air reference metadata and reviewed geospatial boundaries.",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.18"
+  },
+  "files": [
+    "data",
+    "dist",
+    "README.md",
+    "DATA_LICENSE.md",
+    "DATA_SOURCES.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./dist/catalog.json",
+    "./catalog.json": "./dist/catalog.json",
+    "./all.geojson": "./dist/all.geojson",
+    "./checksums.sha256": "./dist/checksums.sha256",
+    "./references.json": "./data/references.json",
+    "./manifest.json": "./data/manifest.json",
+    "./boundaries/*": "./data/boundaries/*"
+  },
+  "scripts": {
+    "update": "node --experimental-strip-types src/update.ts",
+    "package": "node --experimental-strip-types src/package.ts",
+    "package:check": "node --experimental-strip-types src/package.ts --check",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run typecheck && npm test && npm run package:check"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "ajv": "^8.17.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

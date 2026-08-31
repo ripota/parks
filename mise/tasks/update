@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# -*- mode: sh; sh-shell: bash; -*-
+#MISE description="Refresh the complete reviewed RI POTA data snapshot"
+
+set -euo pipefail
+npm run update

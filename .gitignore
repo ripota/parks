@@ -1,0 +1,4 @@
+node_modules/
+.update-*/
+*.tmp
+*.tgz
