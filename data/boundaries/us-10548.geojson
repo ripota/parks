@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-10548",
+    "potaName": "Barber Pond State Recreation Area",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Barber Pond Fishing Access'",
+    "sourceFeatureIds": [
+      649
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 649,
+      "properties": {
+        "potaReference": "US-10548",
+        "potaName": "Barber Pond State Recreation Area",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -88,40 +101,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 1.22190839,
-        "BondFund": "No",
-        "DeedAcres": 1.22909709,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Barber Pond Fishing Access",
-        "DEM_DIV": "Boat Ramps & Fishing Access",
-        "DEM_ID": "9066",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Barbers Pond",
-        "NPS_6f": "N",
-        "OBJECTID": 649,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Fishing  Access",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 53226.32963562012,
-        "Shape.STLength()": 1392.3858332552145,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1901"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-10548",
-    "potaName": "Barber Pond State Recreation Area",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Barber Pond Fishing Access'"
-  }
+  ]
 }

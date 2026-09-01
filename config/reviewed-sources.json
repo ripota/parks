@@ -16,7 +16,7 @@
     "sourceName": "U.S. Fish and Wildlife Service National Wildlife Refuge System Boundaries",
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'JOHN H. CHAFEE NATIONAL WILDLIFE REFUGE'",
-    "sourceFeatureIds": [491],
+    "sourceFeatureIds": [484],
     "localGeojson": "./boundaries/us-0514.geojson"
   },
   {
@@ -26,7 +26,7 @@
     "sourceName": "U.S. Fish and Wildlife Service National Wildlife Refuge System Boundaries",
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'NINIGRET NATIONAL WILDLIFE REFUGE'",
-    "sourceFeatureIds": [717],
+    "sourceFeatureIds": [709],
     "localGeojson": "./boundaries/us-0515.geojson"
   },
   {
@@ -36,7 +36,7 @@
     "sourceName": "U.S. Fish and Wildlife Service National Wildlife Refuge System Boundaries",
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'SACHUEST POINT NATIONAL WILDLIFE REFUGE'",
-    "sourceFeatureIds": [861],
+    "sourceFeatureIds": [852],
     "localGeojson": "./boundaries/us-0516.geojson"
   },
   {
@@ -46,7 +46,7 @@
     "sourceName": "U.S. Fish and Wildlife Service National Wildlife Refuge System Boundaries",
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'TRUSTOM POND NATIONAL WILDLIFE REFUGE'",
-    "sourceFeatureIds": [1001],
+    "sourceFeatureIds": [993],
     "localGeojson": "./boundaries/us-0517.geojson"
   },
   {
@@ -56,7 +56,7 @@
     "sourceName": "National Park Service Land Resources Division Boundary and Tract Data Service",
     "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2",
     "sourceQuery": "UNIT_CODE = 'ROWI'",
-    "sourceFeatureIds": [929],
+    "sourceFeatureIds": [1837],
     "localGeojson": "./boundaries/us-0789.geojson"
   },
   {
@@ -631,7 +631,7 @@
     "sourceName": "National Park Service Land Resources Division Boundary and Tract Data Service",
     "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2",
     "sourceQuery": "UNIT_CODE = 'BLRV'",
-    "sourceFeatureIds": [1247],
+    "sourceFeatureIds": [2131],
     "localGeojson": "./boundaries/us-7971.geojson"
   },
   {

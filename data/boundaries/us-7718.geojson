@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7718",
+    "potaName": "East Matunuck State Beach",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "NAME = 'East Matunuck State Beach'",
+    "sourceFeatureIds": [
+      609
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 609,
+      "properties": {
+        "potaReference": "US-7718",
+        "potaName": "East Matunuck State Beach",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -656,40 +669,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 31.81301448,
-        "BondFund": "Yes",
-        "DeedAcres": 31.81363393,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7003%20East%20Matunuck%20State%20Beach,%20South%20Kingstown%207003.pdf",
-        "DEM_AREA": "East Matununuck Beach State Park",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7003",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "East Matunuck State Beach",
-        "NPS_6f": "Y",
-        "OBJECTID": 609,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Beach",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 1385774.9107398987,
-        "Shape.STLength()": 9173.45971550152,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1967"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-7718",
-    "potaName": "East Matunuck State Beach",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "NAME = 'East Matunuck State Beach'"
-  }
+  ]
 }

@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7720",
+    "potaName": "Roger W. Wheeler State Beach",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Roger Wheeler Beach State Park'",
+    "sourceFeatureIds": [
+      263
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 263,
+      "properties": {
+        "potaReference": "US-7720",
+        "potaName": "Roger W. Wheeler State Beach",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -368,40 +381,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 28.95877038,
-        "BondFund": "No",
-        "DeedAcres": 28.9885835,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Roger Wheeler Beach State Park",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7077",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Roger Wheeler State Beach",
-        "NPS_6f": "Y",
-        "OBJECTID": 263,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Beach",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 1261444.0377082825,
-        "Shape.STLength()": 6079.202380374571,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1929"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-7720",
-    "potaName": "Roger W. Wheeler State Beach",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Roger Wheeler Beach State Park'"
-  }
+  ]
 }

@@ -1,6 +1,6 @@
 # Rhode Island POTA parks data
 
-`@ripota/parks` provides typed, lightweight Rhode Island Parks on the Air (POTA) reference metadata by default. Reviewed geometry, provenance, and raw artifacts remain available through explicit package subpaths.
+`@ripota/parks` provides typed, lightweight Rhode Island Parks on the Air (POTA) reference metadata by default. Display geometry and reviewed source features are available through explicit package subpaths.
 
 > [!IMPORTANT]
 > Rhode Island POTA is an unofficial community project. [Official POTA resources](https://parksontheair.com/) remain authoritative for current references and activation rules. These data are for general reference—not legal boundaries, property ownership, access, navigation, or surveying.
@@ -17,19 +17,20 @@ const park: PotaReference | undefined = references.find(
 );
 ```
 
-## Choose raw or geometry artifacts
+## Choose geometry artifacts
 
 Geometry-bearing imports are deliberately explicit and can add several megabytes to an application bundle.
 
-| Need                         | Package export                               |
-| ---------------------------- | -------------------------------------------- |
-| Raw reference metadata       | `@ripota/parks/references.json`              |
-| Metadata plus geometry       | `@ripota/parks/catalog.json`                 |
-| Map-ready aggregate          | `@ripota/parks/all.geojson`                  |
-| One reviewed boundary        | `@ripota/parks/boundaries/us-NNNN.geojson`   |
-| Provenance and review status | `@ripota/parks/manifest.json`                |
-| Byte-integrity verification  | `@ripota/parks/checksums.sha256`             |
-| Portable schemas             | `@ripota/parks/schemas/{catalog,geojson}...` |
+| Need                           | Package export                                  |
+| ------------------------------ | ----------------------------------------------- |
+| Reference metadata             | `@ripota/parks/references.json`                 |
+| Metadata plus display geometry | `@ripota/parks/catalog.json`                    |
+| Display aggregate              | `@ripota/parks/all.geojson`                     |
+| One display boundary           | `@ripota/parks/boundaries/us-NNNN.geojson`      |
+| Metadata plus source features  | `@ripota/parks/source-catalog.json`             |
+| One source-feature collection  | `@ripota/parks/source-features/us-NNNN.geojson` |
+| Review and derivation records  | `@ripota/parks/{manifest,derivations}.json`     |
+| Portable schema-v2 contracts   | `@ripota/parks/schemas/v2/*.schema.json`        |
 
 Node ESM consumers use JSON import attributes for JSON exports. Non-JSON extensions resolve as files:
 
@@ -38,6 +39,7 @@ import { readFile } from "node:fs/promises";
 
 import { references } from "@ripota/parks";
 import catalog from "@ripota/parks/catalog.json" with { type: "json" };
+import derivations from "@ripota/parks/derivations.json" with { type: "json" };
 import manifest from "@ripota/parks/manifest.json" with { type: "json" };
 import referencesJson from "@ripota/parks/references.json" with { type: "json" };
 
@@ -50,18 +52,26 @@ const checksums = await readExport("@ripota/parks/checksums.sha256");
 const boundary = JSON.parse(
   await readExport("@ripota/parks/boundaries/us-0513.geojson"),
 );
+const sourceFeatures = JSON.parse(
+  await readExport("@ripota/parks/source-features/us-0513.geojson"),
+);
+void catalog;
+void derivations;
+void manifest;
+void referencesJson;
+void aggregate;
+void checksums;
+void boundary;
+void sourceFeatures;
 ```
 
 The package checks verify that `references` and `referencesJson` are identical and report minified and Brotli sizes for the root runtime and full catalog.
 
 ## Version and compatibility
 
-Package API versions and artifact schema versions are independent:
+Package v3 introduces artifact schema v2. `catalog.json`, `all.geojson`, and `boundaries/*` now contain display geometry: touching and overlapping parcels are dissolved while genuine gaps, disconnected parcels, and interior holes remain. Normalized upstream features are explicit under the `source-*` exports; for the statewide trail, the source artifact retains the upstream route while the display artifact contains its derived activation zone.
 
-- Package API v2 changes `@ripota/parks` from the v1 catalog JSON default export to the lightweight ESM `references` named export and public `PotaReference` type.
-- To migrate v1 geometry consumers, change the old root JSON import to `@ripota/parks/catalog.json`; its shape is unchanged.
-- `references.json`, `catalog.json`, `all.geojson`, `manifest.json`, boundaries, checksums, and schemas retain their existing paths and meanings.
-- Catalog and GeoJSON artifacts remain at `schemaVersion: 1`. A package major does not by itself change data schemas.
+The lightweight package root introduced in v2 is unchanged. Historical schema-v1 files remain packaged; new artifacts identify the versioned schema-v2 contracts through `$schema`.
 
 Every geometry record labels its kind as `boundary`, `activation-zone`, or `point`. Draft-07 schemas use stable `$id` URLs under `https://ripota.org/schemas/`; repository checks enforce additional geometry, source-identity, inventory, and reproducibility gates.
 

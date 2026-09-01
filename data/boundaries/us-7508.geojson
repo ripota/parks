@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7508",
+    "potaName": "Pulaski State Park",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "NAME = 'Pulaski State Park'",
+    "sourceFeatureIds": [
+      916
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 916,
+      "properties": {
+        "potaReference": "US-7508",
+        "potaName": "Pulaski State Park",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -76,40 +89,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 342.66044073,
-        "BondFund": "No",
-        "DeedAcres": 3072.004351,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "George Washington Management Area",
-        "DEM_DIV": "Forest Environment",
-        "DEM_ID": "6077",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Pulaski State Park",
-        "NPS_6f": "Y",
-        "OBJECTID": 916,
-        "Poly_Src": "TGIS",
-        "PrimUse": "State Park",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 14926288.79814148,
-        "Shape.STLength()": 18366.301658731572,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1938"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-7508",
-    "potaName": "Pulaski State Park",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "NAME = 'Pulaski State Park'"
-  }
+  ]
 }

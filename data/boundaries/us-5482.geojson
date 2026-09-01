@@ -1,155 +1,29 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-5482",
+    "potaName": "Wickaboxet Wildlife Management Area",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Wickaboxet Management Area'",
+    "sourceFeatureIds": [
+      368,
+      411
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 368,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -71.73003038420397,
-              41.65556918366016
-            ],
-            [
-              -71.73019615914099,
-              41.65538515918301
-            ],
-            [
-              -71.73037934677815,
-              41.6551916601286
-            ],
-            [
-              -71.73380536630515,
-              41.656447344729195
-            ],
-            [
-              -71.73201588732265,
-              41.64879383364926
-            ],
-            [
-              -71.73530396161829,
-              41.64901346044122
-            ],
-            [
-              -71.73593810021259,
-              41.64484023831766
-            ],
-            [
-              -71.73621539028919,
-              41.64182180353442
-            ],
-            [
-              -71.73681011422299,
-              41.638947287819356
-            ],
-            [
-              -71.73699392838516,
-              41.63829091690653
-            ],
-            [
-              -71.73702940811287,
-              41.63797382317032
-            ],
-            [
-              -71.73707802960153,
-              41.63698759800163
-            ],
-            [
-              -71.73675524811252,
-              41.63655044556166
-            ],
-            [
-              -71.73618997206893,
-              41.63633857941735
-            ],
-            [
-              -71.73531438002514,
-              41.6359045391158
-            ],
-            [
-              -71.73396421224643,
-              41.63542990968573
-            ],
-            [
-              -71.73289378292944,
-              41.63845166191174
-            ],
-            [
-              -71.72674581388485,
-              41.63920381406276
-            ],
-            [
-              -71.72706010251997,
-              41.640532477351485
-            ],
-            [
-              -71.72365893790362,
-              41.64080370861586
-            ],
-            [
-              -71.72218686138885,
-              41.6454994731182
-            ],
-            [
-              -71.72408409940435,
-              41.64900990088666
-            ],
-            [
-              -71.72473965253675,
-              41.654165416730905
-            ],
-            [
-              -71.7266251109394,
-              41.65420330176685
-            ],
-            [
-              -71.72895741700921,
-              41.65515518233768
-            ],
-            [
-              -71.73003038420397,
-              41.65556918366016
-            ]
-          ]
-        ]
-      },
       "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 425.28966463,
-        "BondFund": "No",
-        "DeedAcres": 422.49418893,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/6073%20West%20Greenwich%206073.pdf",
-        "DEM_AREA": "Wickaboxet Management Area",
-        "DEM_DIV": "Forest Environment",
-        "DEM_ID": "6073",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "Yes",
-        "ManArea": "Yes",
-        "NAME": "Wilcox Farm",
-        "NPS_6f": "N",
-        "OBJECTID": 368,
-        "Poly_Src": "PSUR",
-        "PrimUse": "Management Area",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 18525617.791217804,
-        "Shape.STLength()": 21270.131091651645,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/6073_Wilcox_Survey.pdf",
-        "USFW_GrntID": "NA",
-        "Year": "1950"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 411,
+        "potaReference": "US-5482",
+        "potaName": "Wickaboxet Wildlife Management Area",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -615,24 +489,76 @@
               41.65556918366016
             ],
             [
-              -71.72895741700921,
-              41.65515518233768
+              -71.73019615914099,
+              41.65538515918301
             ],
             [
-              -71.7266251109394,
-              41.65420330176685
+              -71.73037934677815,
+              41.6551916601286
             ],
             [
-              -71.72473965253675,
-              41.654165416730905
+              -71.73380536630515,
+              41.656447344729195
             ],
             [
-              -71.72408409940435,
-              41.64900990088666
+              -71.73201588732265,
+              41.64879383364926
             ],
             [
-              -71.72218686138885,
-              41.6454994731182
+              -71.73530396161829,
+              41.64901346044122
+            ],
+            [
+              -71.73593810021259,
+              41.64484023831766
+            ],
+            [
+              -71.73621539028919,
+              41.64182180353442
+            ],
+            [
+              -71.73681011422299,
+              41.638947287819356
+            ],
+            [
+              -71.73699392838516,
+              41.63829091690653
+            ],
+            [
+              -71.73702940811287,
+              41.63797382317032
+            ],
+            [
+              -71.73707802960153,
+              41.63698759800163
+            ],
+            [
+              -71.73675524811252,
+              41.63655044556166
+            ],
+            [
+              -71.73618997206893,
+              41.63633857941735
+            ],
+            [
+              -71.73531438002514,
+              41.6359045391158
+            ],
+            [
+              -71.73396421224643,
+              41.63542990968573
+            ],
+            [
+              -71.73289378292944,
+              41.63845166191174
+            ],
+            [
+              -71.72674581388485,
+              41.63920381406276
+            ],
+            [
+              -71.72706010251997,
+              41.640532477351485
             ],
             [
               -71.72365893790362,
@@ -640,40 +566,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 242.09358065,
-        "BondFund": "No",
-        "DeedAcres": 239.33062141,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/6017%20Pratt%20West%20Greenwich%206017.pdf",
-        "DEM_AREA": "Wickaboxet Management Area",
-        "DEM_DIV": "Forest Environment",
-        "DEM_ID": "6017",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "Yes",
-        "ManArea": "Yes",
-        "NAME": "Robert Pratt / 4400274",
-        "NPS_6f": "Y",
-        "OBJECTID": 411,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Management Area",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 10545596.372924805,
-        "Shape.STLength()": 22317.668028371594,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1980"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-5482",
-    "potaName": "Wickaboxet Wildlife Management Area",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Wickaboxet Management Area'"
-  }
+  ]
 }

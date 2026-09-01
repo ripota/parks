@@ -3,6 +3,7 @@ import type { PotaReference } from "./index.ts";
 export type { PotaReference };
 
 export type GeometryKind = "boundary" | "activation-zone" | "point";
+export type GeometryRole = "display" | "source";
 export type ReviewStatus = "available" | "point-only" | "research-needed";
 
 export type PotaReferenceSource = {
@@ -41,6 +42,7 @@ export type GeoJsonFeature = {
 };
 
 export type GeoJsonFeatureCollection = {
+  $schema?: string;
   type: "FeatureCollection";
   properties?: Record<string, unknown>;
   features: GeoJsonFeature[];
@@ -54,14 +56,59 @@ export type CatalogRecord = PotaReference & {
     url: string;
     query?: string;
     featureIds: Array<string | number>;
+    artifact: string;
     notes?: string;
   };
   geojson: GeoJsonFeatureCollection;
 };
 
 export type Catalog = {
+  $schema: string;
   schemaVersion: number;
+  geometryRole: GeometryRole;
   referenceCount: number;
   featureCount: number;
+  sourceFeatureCount?: number;
   references: CatalogRecord[];
+};
+
+export type DerivationOperation =
+  | { operation: "identity" }
+  | { operation: "unary-union" }
+  | {
+      operation: "buffer";
+      distanceFeet: number;
+      distanceMeters: number;
+      ruleSourceUrl: string;
+    };
+
+export type DerivationRecord = {
+  reference: string;
+  sourceArtifact: string;
+  displayArtifact: string;
+  sourceSha256: string;
+  displaySha256: string;
+  sourceFeatureCount: number;
+  displayFeatureCount: number;
+  componentCount: number;
+  holeCount: number;
+  coordinateCount: number;
+  unionInputAreaSquareMeters?: number;
+  displayAreaSquareMeters?: number;
+  operations: DerivationOperation[];
+};
+
+export type DerivationManifest = {
+  $schema: "https://ripota.org/schemas/v2/manifest.schema.json";
+  schemaVersion: 2;
+  algorithmVersion: 1;
+  unionEngine: {
+    name: "jsts";
+    version: "2.12.1";
+  };
+  validationEngine: {
+    name: "jsts";
+    version: "2.12.1";
+  };
+  records: DerivationRecord[];
 };

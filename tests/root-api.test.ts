@@ -51,7 +51,8 @@ describe("lightweight root API", () => {
     );
 
     expect(catalogMetadata).toEqual(references);
-    expect(catalog.schemaVersion).toBe(1);
+    expect(catalog.schemaVersion).toBe(2);
+    expect(catalog.geometryRole).toBe("display");
   });
 
   it("has a closed runtime graph containing only the entry and references JSON", async () => {
@@ -86,7 +87,7 @@ describe("lightweight root API", () => {
     );
   });
 
-  it("publishes package API v2 while retaining artifact schema v1", async () => {
+  it("publishes package API v3 with artifact schema v2", async () => {
     const packageJson = await readJson<{
       version: string;
       exports: Record<string, unknown>;
@@ -96,12 +97,12 @@ describe("lightweight root API", () => {
       properties: { schemaVersion: number };
     }>("dist/all.geojson");
 
-    expect(packageJson.version).toMatch(/^2\./);
+    expect(packageJson.version).toMatch(/^3\./);
     expect(packageJson.exports["."]).toEqual({
       types: "./dist/index.d.ts",
       default: "./dist/index.js",
     });
-    expect(catalog.schemaVersion).toBe(1);
-    expect(aggregate.properties.schemaVersion).toBe(1);
+    expect(catalog.schemaVersion).toBe(2);
+    expect(aggregate.properties.schemaVersion).toBe(2);
   });
 });

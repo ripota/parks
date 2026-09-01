@@ -1,15 +1,29 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-10542",
+    "potaName": "Camp Cronin State Recreation Area",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Camp Cronin Fishing Access'",
+    "sourceFeatureIds": [
+      680,
+      681
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 680,
+      "properties": {
+        "potaReference": "US-10542",
+        "potaName": "Camp Cronin State Recreation Area",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -255,142 +269,6 @@
               41.36394296504857
             ],
             [
-              -71.48662512456315,
-              41.363873546761916
-            ],
-            [
-              -71.48667170829295,
-              41.36375802746411
-            ],
-            [
-              -71.48669915764906,
-              41.36368768232411
-            ],
-            [
-              -71.4868129760226,
-              41.363507814641615
-            ],
-            [
-              -71.48693890693703,
-              41.36330880905004
-            ],
-            [
-              -71.48702256436059,
-              41.36317660645613
-            ],
-            [
-              -71.48708644769525,
-              41.36307436010427
-            ],
-            [
-              -71.48656412694396,
-              41.36296025858543
-            ],
-            [
-              -71.48601197614937,
-              41.36283939077587
-            ],
-            [
-              -71.48631528103058,
-              41.36204660409481
-            ],
-            [
-              -71.4863814022494,
-              41.36187270084303
-            ],
-            [
-              -71.48641005566533,
-              41.36179733699126
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 26.23354684,
-        "BondFund": "Yes",
-        "DeedAcres": 26.23365177,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Camp Cronin Fishing Access",
-        "DEM_DIV": "Boat Ramps & Fishing Access",
-        "DEM_ID": "5032",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Camp Cronin",
-        "NPS_6f": "Y",
-        "OBJECTID": 680,
-        "Poly_Src": "TGIS",
-        "PrimUse": "State Park",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 1142733.300151825,
-        "Shape.STLength()": 5971.63493179712,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5032%20Camp%20Cronin%20N%20A%20R%204774%20Survey.pdf",
-        "USFW_GrntID": "NA",
-        "Year": "1985"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 681,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -71.48641005566533,
-              41.36179733699126
-            ],
-            [
-              -71.4863814022494,
-              41.36187270084303
-            ],
-            [
-              -71.48631528103058,
-              41.36204660409481
-            ],
-            [
-              -71.48601197614937,
-              41.36283939077587
-            ],
-            [
-              -71.48656412694396,
-              41.36296025858543
-            ],
-            [
-              -71.48708644769525,
-              41.36307436010427
-            ],
-            [
-              -71.48702256436059,
-              41.36317660645613
-            ],
-            [
-              -71.48693890693703,
-              41.36330880905004
-            ],
-            [
-              -71.4868129760226,
-              41.363507814641615
-            ],
-            [
-              -71.48669915764906,
-              41.36368768232411
-            ],
-            [
-              -71.48667170829295,
-              41.36375802746411
-            ],
-            [
-              -71.48662512456315,
-              41.363873546761916
-            ],
-            [
-              -71.48675056130452,
-              41.36394296504857
-            ],
-            [
               -71.48684301095774,
               41.36372477873663
             ],
@@ -428,40 +306,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 2.66122681,
-        "BondFund": "Yes",
-        "DeedAcres": 2.4,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Camp Cronin Fishing Access",
-        "DEM_DIV": "Boat Ramps & Fishing Access",
-        "DEM_ID": "5032",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Camp Cronin Fishing Access",
-        "NPS_6f": "N",
-        "OBJECTID": 681,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Fishing  Access",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 115923.03995132446,
-        "Shape.STLength()": 2187.3494992701485,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5032%20Camp%20Cronin%20N%20A%20R%204774%20Survey.pdf",
-        "USFW_GrntID": "F-39-L-1",
-        "Year": "1985"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-10542",
-    "potaName": "Camp Cronin State Recreation Area",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Camp Cronin Fishing Access'"
-  }
+  ]
 }

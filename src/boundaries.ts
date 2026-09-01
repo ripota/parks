@@ -5,8 +5,21 @@ import {
   sources,
   type BoundarySource,
 } from "../config/boundary-sources.ts";
+import area from "@turf/area";
+import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
+import GeoJSONWriter from "jsts/org/locationtech/jts/io/GeoJSONWriter.js";
+import GeometryFactory from "jsts/org/locationtech/jts/geom/GeometryFactory.js";
+import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
+import UnaryUnionOp from "jsts/org/locationtech/jts/operation/union/UnaryUnionOp.js";
+import type {
+  Feature as StandardFeature,
+  FeatureCollection as StandardFeatureCollection,
+  MultiPolygon,
+  Polygon,
+} from "geojson";
 import { fetchJson } from "./counties.ts";
 import type {
+  DerivationOperation,
   GeoJsonFeature,
   GeoJsonFeatureCollection,
   ManifestRecord,
@@ -14,12 +27,164 @@ import type {
 } from "./types.ts";
 
 export type GeometryResult = {
-  geojson: GeoJsonFeatureCollection;
+  sourceGeojson: GeoJsonFeatureCollection;
+  displayGeojson: GeoJsonFeatureCollection;
   manifest: ManifestRecord;
+  operations: DerivationOperation[];
+  unionInputAreaSquareMeters?: number;
+  displayAreaSquareMeters?: number;
 };
 
 function featureFilePath(reference: string): string {
   return `./boundaries/${reference.toLowerCase()}.geojson`;
+}
+
+function collectionProperties(
+  reference: PotaReference,
+  reviewed: ManifestRecord,
+  geometryRole: "display" | "source",
+): Record<string, unknown> {
+  return {
+    schemaVersion: 2,
+    geometryRole,
+    geometryKind: reviewed.geometryKind,
+    potaReference: reference.reference,
+    potaName: reference.name,
+    sourceName: reviewed.sourceName,
+    sourceUrl: reviewed.sourceUrl,
+    ...(reviewed.sourceQuery ? { sourceQuery: reviewed.sourceQuery } : {}),
+    sourceFeatureIds: reviewed.sourceFeatureIds,
+    ...(reviewed.notes ? { notes: reviewed.notes } : {}),
+  };
+}
+
+function sourceCollection(
+  reference: PotaReference,
+  reviewed: ManifestRecord,
+  features: GeoJsonFeature[],
+  extraProperties: Record<string, unknown> = {},
+): GeoJsonFeatureCollection {
+  return {
+    $schema: "https://ripota.org/schemas/v2/source-geojson.schema.json",
+    type: "FeatureCollection",
+    properties: {
+      ...collectionProperties(reference, reviewed, "source"),
+      ...extraProperties,
+    },
+    features,
+  };
+}
+
+function displayCollection(
+  reference: PotaReference,
+  reviewed: ManifestRecord,
+  feature: GeoJsonFeature,
+  extraProperties: Record<string, unknown> = {},
+): GeoJsonFeatureCollection {
+  return {
+    $schema: "https://ripota.org/schemas/v2/display-geojson.schema.json",
+    type: "FeatureCollection",
+    properties: {
+      ...collectionProperties(reference, reviewed, "display"),
+      ...extraProperties,
+    },
+    features: [feature],
+  };
+}
+
+function signedRingArea(ring: number[][]): number {
+  let result = 0;
+  for (let index = 0; index < ring.length - 1; index += 1) {
+    result +=
+      ring[index][0] * ring[index + 1][1] - ring[index + 1][0] * ring[index][1];
+  }
+  return result / 2;
+}
+
+function rewindRing(ring: number[][], counterclockwise: boolean): number[][] {
+  return signedRingArea(ring) > 0 === counterclockwise
+    ? ring
+    : [...ring].reverse();
+}
+
+function rewindPolygonalGeometry(
+  geometry: GeoJsonFeature["geometry"],
+): GeoJsonFeature["geometry"] {
+  const rewindPolygon = (rings: number[][][]) =>
+    rings.map((ring, index) => rewindRing(ring, index === 0));
+  if (geometry.type === "Polygon") {
+    return {
+      type: "Polygon",
+      coordinates: rewindPolygon(geometry.coordinates as number[][][]),
+    };
+  }
+  if (geometry.type === "MultiPolygon") {
+    return {
+      type: "MultiPolygon",
+      coordinates: (geometry.coordinates as number[][][][]).map(rewindPolygon),
+    };
+  }
+  throw new Error(`Cannot rewind non-polygon geometry ${geometry.type}`);
+}
+
+function dissolve(
+  reference: PotaReference,
+  reviewed: ManifestRecord,
+  features: GeoJsonFeature[],
+): {
+  geojson: GeoJsonFeatureCollection;
+  unionInputAreaSquareMeters: number;
+  displayAreaSquareMeters: number;
+  operation: DerivationOperation;
+} {
+  if (
+    features.some(
+      (feature) =>
+        feature.geometry.type !== "Polygon" &&
+        feature.geometry.type !== "MultiPolygon",
+    )
+  ) {
+    throw new Error(
+      `${reference.reference} display union received non-polygon geometry`,
+    );
+  }
+  const polygonFeatures = {
+    type: "FeatureCollection",
+    features,
+  } as unknown as StandardFeatureCollection<Polygon | MultiPolygon>;
+  const reader = new GeoJSONReader(new GeometryFactory());
+  const dissolved = UnaryUnionOp.union(
+    reader.read({
+      type: "GeometryCollection",
+      geometries: features.map((feature) => feature.geometry),
+    }),
+  );
+  const validity = new IsValidOp(dissolved);
+  if (!validity.isValid()) {
+    throw new Error(
+      `${reference.reference} display union is invalid: ${String(validity.getValidationError())}`,
+    );
+  }
+  const feature: GeoJsonFeature = {
+    type: "Feature",
+    properties: {
+      potaReference: reference.reference,
+      potaName: reference.name,
+      geometryKind: reviewed.geometryKind,
+      geometryRole: "display",
+    },
+    geometry: rewindPolygonalGeometry(
+      new GeoJSONWriter().write(dissolved) as GeoJsonFeature["geometry"],
+    ),
+  };
+  return {
+    geojson: displayCollection(reference, reviewed, feature),
+    unionInputAreaSquareMeters: area(polygonFeatures),
+    displayAreaSquareMeters: area(
+      feature as unknown as StandardFeature<Polygon | MultiPolygon>,
+    ),
+    operation: { operation: "unary-union" },
+  };
 }
 
 function queryUrl(source: BoundarySource, where: string): URL {
@@ -92,20 +257,16 @@ async function fetchBoundary(
     reviewed.sourceFeatureIds,
   );
 
+  const sourceGeojson = sourceCollection(reference, reviewed, features);
+  const display = dissolve(reference, reviewed, features);
+
   return {
-    geojson: {
-      type: "FeatureCollection",
-      properties: {
-        geometryKind: "boundary",
-        potaReference: reference.reference,
-        potaName: reference.name,
-        sourceName: source.name,
-        sourceUrl: source.url,
-        sourceQuery: reviewed.sourceQuery,
-      },
-      features,
-    },
+    sourceGeojson,
+    displayGeojson: display.geojson,
     manifest: { ...reviewed, sourceFeatureIds },
+    operations: [display.operation],
+    unionInputAreaSquareMeters: display.unionInputAreaSquareMeters,
+    displayAreaSquareMeters: display.displayAreaSquareMeters,
   };
 }
 
@@ -253,28 +414,49 @@ async function fetchBufferedTrail(
     getLineStrings(feature.geometry),
   );
 
+  const sourceFeatures = route.features
+    .map((feature) => ({
+      ...feature,
+      properties: sortFeatureProperties(feature.properties),
+    }))
+    .sort((left, right) =>
+      String(left.properties[source.idField]).localeCompare(
+        String(right.properties[source.idField]),
+        undefined,
+        { numeric: true },
+      ),
+    );
+  const bufferFeatures = bufferLineStrings(
+    lineStrings,
+    potaTrailActivationRule.bufferDistanceMeters,
+  );
+  const display = dissolve(reference, reviewed, bufferFeatures);
+
   return {
-    geojson: {
-      type: "FeatureCollection",
+    sourceGeojson: sourceCollection(reference, reviewed, sourceFeatures, {
+      sourceGeometryType: route.features[0].geometry.type,
+    }),
+    displayGeojson: {
+      ...display.geojson,
       properties: {
-        geometryKind: "activation-zone",
-        potaReference: reference.reference,
-        potaName: reference.name,
-        sourceName: source.name,
-        sourceUrl: source.url,
-        sourceQuery: reviewed.sourceQuery,
-        sourceFeatureIds,
-        sourceGeometryType: route.features[0].geometry.type,
+        ...display.geojson.properties,
         bufferDistanceFeet: potaTrailActivationRule.bufferDistanceFeet,
         bufferDistanceMeters: potaTrailActivationRule.bufferDistanceMeters,
         bufferRuleSourceUrl: potaTrailActivationRule.sourceUrl,
       },
-      features: bufferLineStrings(
-        lineStrings,
-        potaTrailActivationRule.bufferDistanceMeters,
-      ),
     },
     manifest: { ...reviewed, sourceFeatureIds },
+    operations: [
+      {
+        operation: "buffer",
+        distanceFeet: potaTrailActivationRule.bufferDistanceFeet,
+        distanceMeters: potaTrailActivationRule.bufferDistanceMeters,
+        ruleSourceUrl: potaTrailActivationRule.sourceUrl,
+      },
+      display.operation,
+    ],
+    unionInputAreaSquareMeters: display.unionInputAreaSquareMeters,
+    displayAreaSquareMeters: display.displayAreaSquareMeters,
   };
 }
 
@@ -287,33 +469,32 @@ function pointOnlyGeometry(
     [reference.reference],
     reviewed.sourceFeatureIds,
   );
-  return {
-    geojson: {
-      type: "FeatureCollection",
-      properties: {
-        geometryKind: "point",
-        potaReference: reference.reference,
-        potaName: reference.name,
-        sourceName: potaCoordinateSource.name,
-        sourceUrl: `${potaCoordinateSource.url}/${reference.reference}`,
-        notes: reviewed.notes,
-      },
-      features: [
-        {
-          type: "Feature",
-          properties: {
-            reference: reference.reference,
-            name: reference.name,
-            grid: reference.grid,
-          },
-          geometry: {
-            type: "Point",
-            coordinates: [reference.longitude, reference.latitude],
-          },
-        },
-      ],
+  const sourceFeature: GeoJsonFeature = {
+    type: "Feature",
+    properties: {
+      reference: reference.reference,
+      name: reference.name,
+      grid: reference.grid,
     },
+    geometry: {
+      type: "Point",
+      coordinates: [reference.longitude, reference.latitude],
+    },
+  };
+  const displayFeature: GeoJsonFeature = {
+    ...sourceFeature,
+    properties: {
+      potaReference: reference.reference,
+      potaName: reference.name,
+      geometryKind: "point",
+      geometryRole: "display",
+    },
+  };
+  return {
+    sourceGeojson: sourceCollection(reference, reviewed, [sourceFeature]),
+    displayGeojson: displayCollection(reference, reviewed, displayFeature),
     manifest: reviewed,
+    operations: [{ operation: "identity" }],
   };
 }
 

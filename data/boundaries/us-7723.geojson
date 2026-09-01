@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7723",
+    "potaName": "John H. Chaffee Rome Point State Nature Preserve",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'John H. Chafee Rome Point Preserve'",
+    "sourceFeatureIds": [
+      647
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 647,
+      "properties": {
+        "potaReference": "US-7723",
+        "potaName": "John H. Chaffee Rome Point State Nature Preserve",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -1366,40 +1379,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 243.94952496,
-        "BondFund": "No",
-        "DeedAcres": 248.30176093,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7100%20Rome%20Point%20North%20Kingstown%207100.pdf",
-        "DEM_AREA": "John H. Chafee Rome Point Preserve",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7100",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Rome Point",
-        "NPS_6f": "N",
-        "OBJECTID": 647,
-        "Poly_Src": "TGIS",
-        "PrimUse": "State Park",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 10626441.30740738,
-        "Shape.STLength()": 23108.937242176595,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "2001"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-7723",
-    "potaName": "John H. Chaffee Rome Point State Nature Preserve",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'John H. Chafee Rome Point Preserve'"
-  }
+  ]
 }

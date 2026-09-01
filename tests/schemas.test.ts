@@ -34,13 +34,27 @@ beforeAll(async () => {
       "utf8",
     ),
   );
+  const displayGeojsonSchema = JSON.parse(
+    await readFile(
+      path.join(rootDirectory, "schemas/v2/display-geojson.schema.json"),
+      "utf8",
+    ),
+  );
+  const sourceGeojsonSchema = JSON.parse(
+    await readFile(
+      path.join(rootDirectory, "schemas/v2/source-geojson.schema.json"),
+      "utf8",
+    ),
+  );
   const catalogSchema = JSON.parse(
     await readFile(
-      path.join(rootDirectory, "schemas/catalog.schema.json"),
+      path.join(rootDirectory, "schemas/v2/catalog.schema.json"),
       "utf8",
     ),
   );
   ajv.addSchema(geojsonSchema);
+  ajv.addSchema(displayGeojsonSchema);
+  ajv.addSchema(sourceGeojsonSchema);
   validateCatalog = ajv.compile(catalogSchema);
   validateGeojson = ajv.getSchema(
     "https://ripota.org/schemas/geojson.schema.json",

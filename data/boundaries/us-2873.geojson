@@ -1,19 +1,50 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-2873",
+    "potaName": "Fishermen's Memorial State Park",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Fishermans Memorial State Park Campground'",
+    "sourceFeatureIds": [
+      258,
+      275,
+      339
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 258,
+      "properties": {
+        "potaReference": "US-2873",
+        "potaName": "Fishermen's Memorial State Park",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
+            [
+              -71.49283695275876,
+              41.382029685218306
+            ],
+            [
+              -71.49234249915771,
+              41.383390635632686
+            ],
+            [
+              -71.49265940226418,
+              41.38346143384476
+            ],
+            [
+              -71.49332748722223,
+              41.38360632963982
+            ],
             [
               -71.49375405234595,
               41.38370365179084
@@ -145,102 +176,6 @@
             [
               -71.4979673131101,
               41.38197744842245
-            ],
-            [
-              -71.49791592377986,
-              41.381964540134824
-            ],
-            [
-              -71.49622216247593,
-              41.38187248059274
-            ],
-            [
-              -71.49351203875285,
-              41.381716461978144
-            ],
-            [
-              -71.49365444754332,
-              41.382156697214945
-            ],
-            [
-              -71.49366843833099,
-              41.382195562357744
-            ],
-            [
-              -71.49371592239446,
-              41.38232126121442
-            ],
-            [
-              -71.49381747861415,
-              41.38251916769441
-            ],
-            [
-              -71.49396799582624,
-              41.38275015949384
-            ],
-            [
-              -71.49390966393973,
-              41.383010671853135
-            ],
-            [
-              -71.49383412095871,
-              41.38334585419039
-            ],
-            [
-              -71.49375405234595,
-              41.38370365179084
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 19.44207361,
-        "BondFund": "Yes",
-        "DeedAcres": 19.44215138,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7037%20Fisherman's%20Memorial%20Salty%20Acres%20Narragansett%207037.pdf",
-        "DEM_AREA": "Fishermans Memorial State Park Campground",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7037",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Salty Acres",
-        "NPS_6f": "N",
-        "OBJECTID": 258,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Camp",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 846896.7264404297,
-        "Shape.STLength()": 4452.175151922616,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7037_Salty_Acres_Survey.pdf",
-        "USFW_GrntID": "NA",
-        "Year": "1990"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 275,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -71.49283695275876,
-              41.382029685218306
-            ],
-            [
-              -71.49365444754332,
-              41.382156697214945
-            ],
-            [
-              -71.49351203875285,
-              41.381716461978144
-            ],
-            [
-              -71.49622216247593,
-              41.38187248059274
             ],
             [
               -71.49791592377986,
@@ -396,128 +331,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 67.24886854,
-        "BondFund": "No",
-        "DeedAcres": 67.25018738,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Fishermans Memorial State Park Campground",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7078",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Fishermans Memorial State Park",
-        "NPS_6f": "Y",
-        "OBJECTID": 275,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Camp",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 2929360.7136650085,
-        "Shape.STLength()": 7885.3957246196005,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1950"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 339,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -71.49234249915771,
-              41.383390635632686
-            ],
-            [
-              -71.49265940226418,
-              41.38346143384476
-            ],
-            [
-              -71.49332748722223,
-              41.38360632963982
-            ],
-            [
-              -71.49375405234595,
-              41.38370365179084
-            ],
-            [
-              -71.49383412095871,
-              41.38334585419039
-            ],
-            [
-              -71.49390966393973,
-              41.383010671853135
-            ],
-            [
-              -71.49396799582624,
-              41.38275015949384
-            ],
-            [
-              -71.49381747861415,
-              41.38251916769441
-            ],
-            [
-              -71.49371592239446,
-              41.38232126121442
-            ],
-            [
-              -71.49366843833099,
-              41.382195562357744
-            ],
-            [
-              -71.49365444754332,
-              41.382156697214945
-            ],
-            [
-              -71.49283695275876,
-              41.382029685218306
-            ],
-            [
-              -71.49234249915771,
-              41.383390635632686
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 4.2807823,
-        "BondFund": "No",
-        "DeedAcres": 4.28079942,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7131%20Narragansett%20Salty%20Acres%207131.pdf",
-        "DEM_AREA": "Fishermans Memorial State Park Campground",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7131",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Salty Acres / Town Swap",
-        "NPS_6f": "N",
-        "OBJECTID": 339,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Camp",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 186470.87698745728,
-        "Shape.STLength()": 1732.71520670246,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1990"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-2873",
-    "potaName": "Fishermen's Memorial State Park",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Fishermans Memorial State Park Campground'"
-  }
+  ]
 }

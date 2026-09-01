@@ -1,8 +1,13 @@
 import { readFile, readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
+import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
+import GeometryFactory from "jsts/org/locationtech/jts/geom/GeometryFactory.js";
+import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
 
 import { sourceKeyByName, sources } from "../config/boundary-sources.ts";
 import type {
+  DerivationManifest,
   GeoJsonFeatureCollection,
   ManifestRecord,
   PotaReference,
@@ -18,8 +23,12 @@ const RI_BOUNDS = {
 export type SnapshotValidation = {
   references: PotaReference[];
   manifest: ManifestRecord[];
+  derivations: DerivationManifest;
   geojsonByReference: Map<string, GeoJsonFeatureCollection>;
+  sourceGeojsonByReference: Map<string, GeoJsonFeatureCollection>;
   featureCount: number;
+  displayFeatureCount: number;
+  sourceFeatureCount: number;
 };
 
 export async function readJson<T>(filePath: string): Promise<T> {
@@ -74,15 +83,54 @@ function assertRingClosed(ring: unknown, context: string): void {
   );
 }
 
+function assertRingWinding(
+  ring: unknown,
+  counterclockwise: boolean,
+  context: string,
+): void {
+  assert(Array.isArray(ring), `${context} has an invalid polygon ring`);
+  const coordinates = ring as number[][];
+  let signedArea = 0;
+  for (let index = 0; index < coordinates.length - 1; index += 1) {
+    signedArea +=
+      coordinates[index][0] * coordinates[index + 1][1] -
+      coordinates[index + 1][0] * coordinates[index][1];
+  }
+  assert(
+    signedArea > 0 === counterclockwise,
+    `${context} does not follow the GeoJSON right-hand rule`,
+  );
+}
+
 function validateGeometry(
   geojson: GeoJsonFeatureCollection,
   reference: string,
+  geometryRole: "display" | "source",
 ): void {
   assert(
     geojson.type === "FeatureCollection",
     `${reference} is not a FeatureCollection`,
   );
   assert(geojson.features.length > 0, `${reference} has no features`);
+  assert(
+    geojson.properties?.schemaVersion === 2,
+    `${reference} ${geometryRole} GeoJSON has wrong schema version`,
+  );
+  assert(
+    geojson.properties?.geometryRole === geometryRole,
+    `${reference} GeoJSON has wrong geometry role`,
+  );
+  assert(
+    geojson.$schema ===
+      `https://ripota.org/schemas/v2/${geometryRole === "display" ? "display" : "source"}-geojson.schema.json`,
+    `${reference} ${geometryRole} GeoJSON has wrong schema URL`,
+  );
+  if (geometryRole === "display") {
+    assert(
+      geojson.features.length === 1,
+      `${reference} display GeoJSON must contain one feature`,
+    );
+  }
   if ("crs" in geojson) {
     const crsName = String(
       (
@@ -104,8 +152,12 @@ function validateGeometry(
       feature.geometry && typeof feature.geometry === "object",
       `${context} has no geometry`,
     );
+    const supportedTypes =
+      geometryRole === "display"
+        ? ["Point", "Polygon", "MultiPolygon"]
+        : ["Point", "LineString", "MultiLineString", "Polygon", "MultiPolygon"];
     assert(
-      ["Point", "Polygon", "MultiPolygon"].includes(feature.geometry.type),
+      supportedTypes.includes(feature.geometry.type),
       `${context} has unsupported geometry ${feature.geometry.type}`,
     );
 
@@ -132,8 +184,11 @@ function validateGeometry(
         Array.isArray(feature.geometry.coordinates),
         `${context} polygon coordinates are invalid`,
       );
-      for (const ring of feature.geometry.coordinates) {
+      for (const [ringIndex, ring] of feature.geometry.coordinates.entries()) {
         assertRingClosed(ring, context);
+        if (geometryRole === "display") {
+          assertRingWinding(ring, ringIndex === 0, context);
+        }
       }
     }
 
@@ -147,12 +202,74 @@ function validateGeometry(
           Array.isArray(polygon),
           `${context} multipolygon member is invalid`,
         );
-        for (const ring of polygon) {
+        for (const [ringIndex, ring] of polygon.entries()) {
           assertRingClosed(ring, context);
+          if (geometryRole === "display") {
+            assertRingWinding(ring, ringIndex === 0, context);
+          }
         }
       }
     }
+
+    if (
+      geometryRole === "display" &&
+      ["Polygon", "MultiPolygon"].includes(feature.geometry.type)
+    ) {
+      const validity = new IsValidOp(
+        new GeoJSONReader(new GeometryFactory()).read(feature.geometry),
+      );
+      assert(
+        validity.isValid(),
+        `${context} is topologically invalid: ${String(validity.getValidationError())}`,
+      );
+    }
   }
+}
+
+function geometryMetrics(geojson: GeoJsonFeatureCollection): {
+  componentCount: number;
+  holeCount: number;
+  coordinateCount: number;
+} {
+  let componentCount = 0;
+  let holeCount = 0;
+  let coordinateCount = 0;
+  function countPositions(coordinates: unknown): void {
+    if (
+      Array.isArray(coordinates) &&
+      coordinates.length >= 2 &&
+      typeof coordinates[0] === "number" &&
+      typeof coordinates[1] === "number"
+    ) {
+      coordinateCount += 1;
+      return;
+    }
+    if (Array.isArray(coordinates)) {
+      coordinates.forEach(countPositions);
+    }
+  }
+  for (const feature of geojson.features) {
+    if (feature.geometry.type === "Polygon") {
+      const rings = feature.geometry.coordinates as unknown[];
+      componentCount += 1;
+      holeCount += Math.max(0, rings.length - 1);
+    } else if (feature.geometry.type === "MultiPolygon") {
+      const polygons = feature.geometry.coordinates as unknown[][];
+      componentCount += polygons.length;
+      holeCount += polygons.reduce(
+        (total, rings) => total + Math.max(0, rings.length - 1),
+        0,
+      );
+    } else if (feature.geometry.type === "Point") {
+      componentCount += 1;
+    }
+    countPositions(feature.geometry.coordinates);
+  }
+  return { componentCount, holeCount, coordinateCount };
+}
+
+function sha256(content: string): string {
+  return createHash("sha256").update(content).digest("hex");
 }
 
 export async function validateSnapshot(
@@ -164,6 +281,9 @@ export async function validateSnapshot(
   );
   const manifest = await readJson<ManifestRecord[]>(
     path.join(dataDirectory, "manifest.json"),
+  );
+  const derivations = await readJson<DerivationManifest>(
+    path.join(dataDirectory, "derivations.json"),
   );
   const reviewed = await readJson<ManifestRecord[]>(
     path.join(rootDirectory, "config/reviewed-sources.json"),
@@ -241,9 +361,33 @@ export async function validateSnapshot(
     }
   }
 
+  assert(
+    derivations.schemaVersion === 2 && derivations.algorithmVersion === 1,
+    "derivations.json has an unsupported schema or algorithm version",
+  );
+  assert(
+    derivations.unionEngine.name === "jsts" &&
+      derivations.unionEngine.version === "2.12.1",
+    "derivations.json has an unexpected union engine",
+  );
+  assert(
+    derivations.validationEngine.name === "jsts" &&
+      derivations.validationEngine.version === "2.12.1",
+    "derivations.json has an unexpected validation engine",
+  );
+  assert(
+    JSON.stringify(derivations.records.map((record) => record.reference)) ===
+      JSON.stringify(referenceIds),
+    "reference/derivation parity mismatch",
+  );
+  const derivationByReference = new Map(
+    derivations.records.map((record) => [record.reference, record]),
+  );
   const expectedFiles = new Set<string>();
   const geojsonByReference = new Map<string, GeoJsonFeatureCollection>();
-  let featureCount = 0;
+  const sourceGeojsonByReference = new Map<string, GeoJsonFeatureCollection>();
+  let displayFeatureCount = 0;
+  let sourceFeatureCount = 0;
 
   for (const record of manifest) {
     assert(
@@ -292,36 +436,48 @@ export async function validateSnapshot(
 
     const fileName = path.basename(record.localGeojson);
     expectedFiles.add(fileName);
-    const geojson = await readJson<GeoJsonFeatureCollection>(
-      path.join(dataDirectory, "boundaries", fileName),
-    );
-    validateGeometry(geojson, record.reference);
-    assert(
-      geojson.properties?.potaReference === record.reference,
-      `${record.reference} GeoJSON has wrong reference`,
-    );
-    assert(
-      geojson.properties?.geometryKind === record.geometryKind,
-      `${record.reference} GeoJSON has wrong geometry kind`,
-    );
-    assert(
-      geojson.properties?.sourceName === record.sourceName,
-      `${record.reference} GeoJSON has wrong source name`,
-    );
-    assert(
-      geojson.properties?.sourceUrl === record.sourceUrl,
-      `${record.reference} GeoJSON has wrong source URL`,
-    );
+    const displayPath = path.join(dataDirectory, "boundaries", fileName);
+    const sourcePath = path.join(dataDirectory, "source-features", fileName);
+    const [displayContent, sourceContent] = await Promise.all([
+      readFile(displayPath, "utf8"),
+      readFile(sourcePath, "utf8"),
+    ]);
+    const geojson = JSON.parse(displayContent) as GeoJsonFeatureCollection;
+    const sourceGeojson = JSON.parse(sourceContent) as GeoJsonFeatureCollection;
+    validateGeometry(geojson, record.reference, "display");
+    validateGeometry(sourceGeojson, record.reference, "source");
+    for (const candidate of [geojson, sourceGeojson]) {
+      assert(
+        candidate.properties?.potaReference === record.reference,
+        `${record.reference} GeoJSON has wrong reference`,
+      );
+      assert(
+        candidate.properties?.geometryKind === record.geometryKind,
+        `${record.reference} GeoJSON has wrong geometry kind`,
+      );
+      assert(
+        candidate.properties?.sourceName === record.sourceName,
+        `${record.reference} GeoJSON has wrong source name`,
+      );
+      assert(
+        candidate.properties?.sourceUrl === record.sourceUrl,
+        `${record.reference} GeoJSON has wrong source URL`,
+      );
+    }
     const sourceKey = sourceKeyByName.get(record.sourceName);
     const idsInGeojson =
       record.geometryKind === "activation-zone"
-        ? geojson.properties?.sourceFeatureIds
+        ? sourceGeojson.features.map(
+            (feature) =>
+              feature.properties?.[sources.waroRoute.idField] as
+                string | number,
+          )
         : record.geometryKind === "point"
-          ? geojson.features.map(
+          ? sourceGeojson.features.map(
               (feature) => feature.properties?.reference as string | number,
             )
           : sourceKey
-            ? geojson.features.map(
+            ? sourceGeojson.features.map(
                 (feature) =>
                   feature.properties?.[sources[sourceKey].idField] as
                     string | number,
@@ -331,20 +487,77 @@ export async function validateSnapshot(
       JSON.stringify(idsInGeojson) === JSON.stringify(record.sourceFeatureIds),
       `${record.reference} checked-in feature IDs do not match the reviewed manifest`,
     );
+    const derivation = derivationByReference.get(record.reference);
+    assert(derivation, `${record.reference} has no derivation record`);
+    assert(
+      derivation.sourceArtifact === `./source-features/${fileName}` &&
+        derivation.displayArtifact === `./boundaries/${fileName}`,
+      `${record.reference} has unstable derivation paths`,
+    );
+    assert(
+      derivation.sourceSha256 === sha256(sourceContent) &&
+        derivation.displaySha256 === sha256(displayContent),
+      `${record.reference} derivation checksum mismatch`,
+    );
+    assert(
+      derivation.sourceFeatureCount === sourceGeojson.features.length &&
+        derivation.displayFeatureCount === geojson.features.length,
+      `${record.reference} derivation feature count mismatch`,
+    );
+    const metrics = geometryMetrics(geojson);
+    assert(
+      derivation.componentCount === metrics.componentCount &&
+        derivation.holeCount === metrics.holeCount &&
+        derivation.coordinateCount === metrics.coordinateCount,
+      `${record.reference} derivation geometry metrics mismatch`,
+    );
+    if (derivation.unionInputAreaSquareMeters !== undefined) {
+      assert(
+        derivation.displayAreaSquareMeters !== undefined,
+        `${record.reference} derivation display area is missing`,
+      );
+      const tolerance = Math.max(
+        0.01,
+        derivation.unionInputAreaSquareMeters * 1e-9,
+      );
+      assert(
+        derivation.displayAreaSquareMeters <=
+          derivation.unionInputAreaSquareMeters + tolerance,
+        `${record.reference} display area unexpectedly exceeds its union input`,
+      );
+    } else {
+      assert(
+        derivation.displayAreaSquareMeters === undefined,
+        `${record.reference} point derivation unexpectedly has polygon area`,
+      );
+    }
     geojsonByReference.set(record.reference, geojson);
-    featureCount += geojson.features.length;
+    sourceGeojsonByReference.set(record.reference, sourceGeojson);
+    displayFeatureCount += geojson.features.length;
+    sourceFeatureCount += sourceGeojson.features.length;
   }
 
-  const actualFiles = new Set(
-    (await readdir(path.join(dataDirectory, "boundaries"))).filter((name) =>
-      name.endsWith(".geojson"),
-    ),
-  );
-  assert(
-    JSON.stringify(sorted([...actualFiles])) ===
-      JSON.stringify(sorted([...expectedFiles])),
-    `orphaned or missing boundary files: expected ${expectedFiles.size}, found ${actualFiles.size}`,
-  );
+  for (const directoryName of ["boundaries", "source-features"]) {
+    const actualFiles = new Set(
+      (await readdir(path.join(dataDirectory, directoryName))).filter((name) =>
+        name.endsWith(".geojson"),
+      ),
+    );
+    assert(
+      JSON.stringify(sorted([...actualFiles])) ===
+        JSON.stringify(sorted([...expectedFiles])),
+      `orphaned or missing ${directoryName} files: expected ${expectedFiles.size}, found ${actualFiles.size}`,
+    );
+  }
 
-  return { references, manifest, geojsonByReference, featureCount };
+  return {
+    references,
+    manifest,
+    derivations,
+    geojsonByReference,
+    sourceGeojsonByReference,
+    featureCount: displayFeatureCount,
+    displayFeatureCount,
+    sourceFeatureCount,
+  };
 }

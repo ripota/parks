@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ripota.org/schemas/v2/manifest.schema.json",
+  "title": "RI POTA display-geometry derivation manifest",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "algorithmVersion",
+    "unionEngine",
+    "validationEngine",
+    "records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "https://ripota.org/schemas/v2/manifest.schema.json"
+    },
+    "schemaVersion": { "const": 2 },
+    "algorithmVersion": { "const": 1 },
+    "unionEngine": {
+      "type": "object",
+      "required": ["name", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "jsts" },
+        "version": { "const": "2.12.1" }
+      }
+    },
+    "validationEngine": {
+      "type": "object",
+      "required": ["name", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "jsts" },
+        "version": { "const": "2.12.1" }
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "reference",
+          "sourceArtifact",
+          "displayArtifact",
+          "sourceSha256",
+          "displaySha256",
+          "sourceFeatureCount",
+          "displayFeatureCount",
+          "componentCount",
+          "holeCount",
+          "coordinateCount",
+          "operations"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "reference": { "type": "string", "pattern": "^US-[0-9]+$" },
+          "sourceArtifact": {
+            "type": "string",
+            "pattern": "^\\./source-features/us-[0-9]+\\.geojson$"
+          },
+          "displayArtifact": {
+            "type": "string",
+            "pattern": "^\\./boundaries/us-[0-9]+\\.geojson$"
+          },
+          "sourceSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "displaySha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "sourceFeatureCount": { "type": "integer", "minimum": 1 },
+          "displayFeatureCount": { "const": 1 },
+          "componentCount": { "type": "integer", "minimum": 1 },
+          "holeCount": { "type": "integer", "minimum": 0 },
+          "coordinateCount": { "type": "integer", "minimum": 1 },
+          "unionInputAreaSquareMeters": { "type": "number", "minimum": 0 },
+          "displayAreaSquareMeters": { "type": "number", "minimum": 0 },
+          "operations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["operation"],
+                  "additionalProperties": false,
+                  "properties": { "operation": { "const": "identity" } }
+                },
+                {
+                  "type": "object",
+                  "required": ["operation"],
+                  "additionalProperties": false,
+                  "properties": { "operation": { "const": "unary-union" } }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "operation",
+                    "distanceFeet",
+                    "distanceMeters",
+                    "ruleSourceUrl"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "operation": { "const": "buffer" },
+                    "distanceFeet": { "type": "number", "exclusiveMinimum": 0 },
+                    "distanceMeters": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "ruleSourceUrl": {
+                      "type": "string",
+                      "pattern": "^https://"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

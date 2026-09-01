@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7518",
+    "potaName": "Kimball Wildlife Refuge",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "NAME = 'Kimball Refuge'",
+    "sourceFeatureIds": [
+      768
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 768,
+      "properties": {
+        "potaReference": "US-7518",
+        "potaName": "Kimball Wildlife Refuge",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -120,40 +133,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 28.86120662,
-        "BondFund": "Yes",
-        "DeedAcres": 28.86132067,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7141%20Burlingame%20Charlestown%207141.pdf",
-        "DEM_AREA": "Burlingame State Park - Sanctuary Road",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7141",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Kimball Refuge",
-        "NPS_6f": "N",
-        "OBJECTID": 768,
-        "Poly_Src": "TGIS",
-        "PrimUse": "State Park",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 1257194.1602840424,
-        "Shape.STLength()": 4803.777134453929,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7141%20Kimball%20Refuge%20Survey.pdf",
-        "USFW_GrntID": "NA",
-        "Year": "2015"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-7518",
-    "potaName": "Kimball Wildlife Refuge",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "NAME = 'Kimball Refuge'"
-  }
+  ]
 }

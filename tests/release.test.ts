@@ -64,7 +64,9 @@ describe("release asset integrity", () => {
   it("defines the complete stable-release asset set", () => {
     expect(releaseAssetNames(version)).toEqual([
       "catalog.json",
+      "source-catalog.json",
       "all.geojson",
+      "source-all.geojson",
       "checksums.sha256",
       "ripota-parks-1.2.3.tgz",
       "checksums.release.sha256",

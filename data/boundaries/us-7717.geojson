@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7717",
+    "potaName": "Charlestown Breachway State Park",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Charlestown Breachway State Park Campground'",
+    "sourceFeatureIds": [
+      265
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 265,
+      "properties": {
+        "potaReference": "US-7717",
+        "potaName": "Charlestown Breachway State Park",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -312,40 +325,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 30.64022461,
-        "BondFund": "No",
-        "DeedAcres": 33.10558107,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7072%20Charlestown%20Breachway%20Campground%20Charlestown%207072.pdf",
-        "DEM_AREA": "Charlestown Breachway State Park Campground",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7072",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Charlestown Breachway Campground",
-        "NPS_6f": "Y",
-        "OBJECTID": 265,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Camp",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 1334688.1839199066,
-        "Shape.STLength()": 6378.272974379696,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1950"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-7717",
-    "potaName": "Charlestown Breachway State Park",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Charlestown Breachway State Park Campground'"
-  }
+  ]
 }

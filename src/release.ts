@@ -29,7 +29,9 @@ type DownloadAssets = (directory: string) => Promise<void>;
 
 const BUILT_ASSET_NAMES = [
   "catalog.json",
+  "source-catalog.json",
   "all.geojson",
+  "source-all.geojson",
   "checksums.sha256",
 ] as const;
 const RELEASE_CHECKSUM_NAME = "checksums.release.sha256";

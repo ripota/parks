@@ -68,14 +68,23 @@ describe("packed package consumer", () => {
       "package/LICENSE",
       "package/data/references.json",
       "package/data/manifest.json",
+      "package/data/derivations.json",
       "package/data/boundaries/us-0513.geojson",
+      "package/data/source-features/us-0513.geojson",
       "package/dist/index.js",
       "package/dist/index.d.ts",
       "package/dist/catalog.json",
+      "package/dist/source-catalog.json",
       "package/dist/all.geojson",
+      "package/dist/source-all.geojson",
       "package/dist/checksums.sha256",
       "package/schemas/catalog.schema.json",
       "package/schemas/geojson.schema.json",
+      "package/schemas/v2/catalog.schema.json",
+      "package/schemas/v2/source-catalog.schema.json",
+      "package/schemas/v2/display-geojson.schema.json",
+      "package/schemas/v2/source-geojson.schema.json",
+      "package/schemas/v2/manifest.schema.json",
     ]) {
       expect(entries.has(requiredPath), `${requiredPath} is missing`).toBe(
         true,
@@ -120,10 +129,12 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { references as rootReferences } from "@ripota/parks";
 import namedCatalog from "@ripota/parks/catalog.json" with { type: "json" };
+import sourceCatalog from "@ripota/parks/source-catalog.json" with { type: "json" };
 import referencesJson from "@ripota/parks/references.json" with { type: "json" };
 import manifest from "@ripota/parks/manifest.json" with { type: "json" };
-import catalogSchema from "@ripota/parks/schemas/catalog.schema.json" with { type: "json" };
-import geojsonSchema from "@ripota/parks/schemas/geojson.schema.json" with { type: "json" };
+import derivations from "@ripota/parks/derivations.json" with { type: "json" };
+import catalogSchema from "@ripota/parks/schemas/v2/catalog.schema.json" with { type: "json" };
+import geojsonSchema from "@ripota/parks/schemas/v2/display-geojson.schema.json" with { type: "json" };
 
 async function readExport(specifier) {
   return readFile(new URL(import.meta.resolve(specifier)), "utf8");
@@ -132,14 +143,20 @@ async function readExport(specifier) {
 assert.deepEqual(rootReferences, referencesJson);
 assert.equal(rootReferences.length, namedCatalog.referenceCount);
 assert.equal(manifest.length, namedCatalog.referenceCount);
-assert.equal(catalogSchema.$id, "https://ripota.org/schemas/catalog.schema.json");
-assert.equal(geojsonSchema.$id, "https://ripota.org/schemas/geojson.schema.json");
+assert.equal(derivations.records.length, namedCatalog.referenceCount);
+assert.equal(catalogSchema.$id, "https://ripota.org/schemas/v2/catalog.schema.json");
+assert.equal(geojsonSchema.$id, "https://ripota.org/schemas/v2/display-geojson.schema.json");
 const aggregate = JSON.parse(await readExport("@ripota/parks/all.geojson"));
+const sourceAggregate = JSON.parse(await readExport("@ripota/parks/source-all.geojson"));
 const checksums = await readExport("@ripota/parks/checksums.sha256");
 const boundary = JSON.parse(await readExport("@ripota/parks/boundaries/us-0513.geojson"));
+const sourceFeatures = JSON.parse(await readExport("@ripota/parks/source-features/us-0513.geojson"));
 assert.equal(aggregate.features.length, namedCatalog.featureCount);
+assert.equal(sourceAggregate.features.length, sourceCatalog.featureCount);
 assert.match(checksums, /dist\\/catalog\\.json/);
 assert.equal(boundary.properties.potaReference, "US-0513");
+assert.equal(boundary.properties.geometryRole, "display");
+assert.equal(sourceFeatures.properties.geometryRole, "source");
 `,
     );
 

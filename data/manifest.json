@@ -19,7 +19,7 @@
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'JOHN H. CHAFEE NATIONAL WILDLIFE REFUGE'",
     "sourceFeatureIds": [
-      491
+      484
     ],
     "localGeojson": "./boundaries/us-0514.geojson"
   },
@@ -31,7 +31,7 @@
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'NINIGRET NATIONAL WILDLIFE REFUGE'",
     "sourceFeatureIds": [
-      717
+      709
     ],
     "localGeojson": "./boundaries/us-0515.geojson"
   },
@@ -43,7 +43,7 @@
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'SACHUEST POINT NATIONAL WILDLIFE REFUGE'",
     "sourceFeatureIds": [
-      861
+      852
     ],
     "localGeojson": "./boundaries/us-0516.geojson"
   },
@@ -55,7 +55,7 @@
     "sourceUrl": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0",
     "sourceQuery": "ORGNAME = 'TRUSTOM POND NATIONAL WILDLIFE REFUGE'",
     "sourceFeatureIds": [
-      1001
+      993
     ],
     "localGeojson": "./boundaries/us-0517.geojson"
   },
@@ -67,7 +67,7 @@
     "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2",
     "sourceQuery": "UNIT_CODE = 'ROWI'",
     "sourceFeatureIds": [
-      929
+      1837
     ],
     "localGeojson": "./boundaries/us-0789.geojson"
   },
@@ -1090,7 +1090,7 @@
     "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2",
     "sourceQuery": "UNIT_CODE = 'BLRV'",
     "sourceFeatureIds": [
-      1247
+      2131
     ],
     "localGeojson": "./boundaries/us-7971.geojson"
   },

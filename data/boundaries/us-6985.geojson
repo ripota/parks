@@ -1,19 +1,134 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-6985",
+    "potaName": "Round Top Wildlife Management Area",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Round Top Management Area'",
+    "sourceFeatureIds": [
+      2,
+      278,
+      919
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 2,
+      "properties": {
+        "potaReference": "US-6985",
+        "potaName": "Round Top Wildlife Management Area",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
+            [
+              -71.70209894957196,
+              42.0108688139824
+            ],
+            [
+              -71.70217875008021,
+              42.01102156409928
+            ],
+            [
+              -71.70575346712505,
+              42.01095379490907
+            ],
+            [
+              -71.70800475599434,
+              42.01091056502166
+            ],
+            [
+              -71.70780483689904,
+              42.009864546266485
+            ],
+            [
+              -71.70846299344304,
+              42.00937108582094
+            ],
+            [
+              -71.70908778927227,
+              42.008902622729735
+            ],
+            [
+              -71.70872474396832,
+              42.0087485822208
+            ],
+            [
+              -71.70856178053499,
+              42.00866758310553
+            ],
+            [
+              -71.70833183262222,
+              42.0085315640404
+            ],
+            [
+              -71.70796610212491,
+              42.00824681983464
+            ],
+            [
+              -71.70772640831939,
+              42.0080440915963
+            ],
+            [
+              -71.70755774173949,
+              42.00790143820296
+            ],
+            [
+              -71.70738106036397,
+              42.007752429341316
+            ],
+            [
+              -71.70622772174815,
+              42.006770445246445
+            ],
+            [
+              -71.7037270397792,
+              42.007632885887986
+            ],
+            [
+              -71.70329963986462,
+              42.00737517888514
+            ],
+            [
+              -71.7023650907213,
+              42.00680338638545
+            ],
+            [
+              -71.70332714849283,
+              42.0061436420527
+            ],
+            [
+              -71.7029534407234,
+              42.005837845705514
+            ],
+            [
+              -71.70464320632556,
+              42.00469000861759
+            ],
+            [
+              -71.70428078564146,
+              42.0042419130376
+            ],
+            [
+              -71.70410697961702,
+              42.004038647474616
+            ],
+            [
+              -71.7036564107297,
+              42.00355568266429
+            ],
+            [
+              -71.70228197709972,
+              42.00418416129812
+            ],
             [
               -71.70109407809468,
               42.00287771097638
@@ -213,311 +328,10 @@
             [
               -71.70209894957196,
               42.0108688139824
-            ],
-            [
-              -71.70247513984553,
-              42.01086145273382
-            ],
-            [
-              -71.70244651595573,
-              42.01082797297416
-            ],
-            [
-              -71.70303937111277,
-              42.00930572136157
-            ],
-            [
-              -71.70540792083837,
-              42.0086634071309
-            ],
-            [
-              -71.70738106036397,
-              42.007752429341316
-            ],
-            [
-              -71.70622772174815,
-              42.006770445246445
-            ],
-            [
-              -71.7037270397792,
-              42.007632885887986
-            ],
-            [
-              -71.70329963986462,
-              42.00737517888514
-            ],
-            [
-              -71.7023650907213,
-              42.00680338638545
-            ],
-            [
-              -71.70124846886708,
-              42.00612017069746
-            ],
-            [
-              -71.70093831350178,
-              42.00617465345288
-            ],
-            [
-              -71.70091711160275,
-              42.00608636377712
-            ],
-            [
-              -71.70120752449452,
-              42.006043063332896
-            ],
-            [
-              -71.7012327500844,
-              42.00448922747108
-            ],
-            [
-              -71.70109407809468,
-              42.00287771097638
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 135.32780884,
-        "BondFund": "No",
-        "DeedAcres": 135.3283509,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5113%20Round%20Top%20MA.pdf",
-        "DEM_AREA": "Round Top Management Area",
-        "DEM_DIV": "Fish & Wildlife",
-        "DEM_ID": "5113",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "Yes",
-        "ManArea": "Yes",
-        "NAME": "Round Top",
-        "NPS_6f": "N",
-        "OBJECTID": 2,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Management Area",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 5894879.352989197,
-        "Shape.STLength()": 16067.015273784338,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5113%20Round%20Top%20M%20A%20Survey.pdf",
-        "USFW_GrntID": "F-3-L-1",
-        "Year": "1979"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 278,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -71.70209894957196,
-              42.0108688139824
-            ],
-            [
-              -71.70217875008021,
-              42.01102156409928
-            ],
-            [
-              -71.70575346712505,
-              42.01095379490907
-            ],
-            [
-              -71.70800475599434,
-              42.01091056502166
-            ],
-            [
-              -71.70780483689904,
-              42.009864546266485
-            ],
-            [
-              -71.70846299344304,
-              42.00937108582094
-            ],
-            [
-              -71.70908778927227,
-              42.008902622729735
-            ],
-            [
-              -71.70872474396832,
-              42.0087485822208
-            ],
-            [
-              -71.70856178053499,
-              42.00866758310553
-            ],
-            [
-              -71.70833183262222,
-              42.0085315640404
-            ],
-            [
-              -71.70796610212491,
-              42.00824681983464
-            ],
-            [
-              -71.70772640831939,
-              42.0080440915963
-            ],
-            [
-              -71.70755774173949,
-              42.00790143820296
-            ],
-            [
-              -71.70738106036397,
-              42.007752429341316
-            ],
-            [
-              -71.70540792083837,
-              42.0086634071309
-            ],
-            [
-              -71.70303937111277,
-              42.00930572136157
-            ],
-            [
-              -71.70244651595573,
-              42.01082797297416
-            ],
-            [
-              -71.70247513984553,
-              42.01086145273382
-            ],
-            [
-              -71.70209894957196,
-              42.0108688139824
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 29.90971875,
-        "BondFund": "Yes",
-        "DeedAcres": 29.90983839,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5145%20Harrisville%20Fire%20District%20Burrillville%205145.pdf",
-        "DEM_AREA": "Round Top Management Area",
-        "DEM_DIV": "Fish & Wildlife",
-        "DEM_ID": "5145",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "Yes",
-        "ManArea": "Yes",
-        "NAME": "Harrisville Fire District",
-        "NPS_6f": "N",
-        "OBJECTID": 278,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Management Area",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 1302867.34866333,
-        "Shape.STLength()": 5163.615739173064,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5145%20Harrisvile%20Fire%20District%20B%20U%20R%205547%20Survey.pdf",
-        "USFW_GrntID": "NA",
-        "Year": "2001"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": 919,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -71.70109407809468,
-              42.00287771097638
-            ],
-            [
-              -71.7012327500844,
-              42.00448922747108
-            ],
-            [
-              -71.70120752449452,
-              42.006043063332896
-            ],
-            [
-              -71.70091711160275,
-              42.00608636377712
-            ],
-            [
-              -71.70093831350178,
-              42.00617465345288
-            ],
-            [
-              -71.70124846886708,
-              42.00612017069746
-            ],
-            [
-              -71.7023650907213,
-              42.00680338638545
-            ],
-            [
-              -71.70332714849283,
-              42.0061436420527
-            ],
-            [
-              -71.7029534407234,
-              42.005837845705514
-            ],
-            [
-              -71.70464320632556,
-              42.00469000861759
-            ],
-            [
-              -71.70428078564146,
-              42.0042419130376
-            ],
-            [
-              -71.70410697961702,
-              42.004038647474616
-            ],
-            [
-              -71.7036564107297,
-              42.00355568266429
-            ],
-            [
-              -71.70228197709972,
-              42.00418416129812
-            ],
-            [
-              -71.70109407809468,
-              42.00287771097638
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 16.34900792,
-        "BondFund": "Yes",
-        "DeedAcres": 165,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5287%20Farley%20Burrillville.pdf",
-        "DEM_AREA": "Round Top Management Area",
-        "DEM_DIV": "Fish & Wildlife",
-        "DEM_ID": "5287",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "Yes",
-        "ManArea": "Yes",
-        "NAME": "Farley",
-        "NPS_6f": "N",
-        "OBJECTID": 919,
-        "Poly_Src": "PSUR",
-        "PrimUse": "Management Area",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 712162.784942627,
-        "Shape.STLength()": 4380.669221634808,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/5287%20Farley%20Survey.pdf",
-        "USFW_GrntID": "Not Found",
-        "Year": "2017"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-6985",
-    "potaName": "Round Top Wildlife Management Area",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Round Top Management Area'"
-  }
+  ]
 }

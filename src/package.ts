@@ -19,7 +19,7 @@ import type {
 } from "./types.ts";
 import { validateSnapshot } from "./validate.ts";
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 const sourceDirectory = path.dirname(fileURLToPath(import.meta.url));
 
@@ -98,10 +98,15 @@ export async function buildPackageArtifacts(
     snapshot.manifest.map((record) => [record.reference, record]),
   );
 
-  const catalogReferences: CatalogRecord[] = snapshot.references.map(
-    (reference) => {
+  function catalogReferences(
+    geometryRole: "display" | "source",
+  ): CatalogRecord[] {
+    return snapshot.references.map((reference) => {
       const manifest = manifestByReference.get(reference.reference);
-      const geojson = snapshot.geojsonByReference.get(reference.reference);
+      const geojson =
+        geometryRole === "display"
+          ? snapshot.geojsonByReference.get(reference.reference)
+          : snapshot.sourceGeojsonByReference.get(reference.reference);
       if (!manifest?.geometryKind || !manifest.sourceFeatureIds || !geojson) {
         throw new Error(
           `${reference.reference} cannot be included in the package catalog`,
@@ -117,48 +122,81 @@ export async function buildPackageArtifacts(
           url: manifest.sourceUrl,
           ...(manifest.sourceQuery ? { query: manifest.sourceQuery } : {}),
           featureIds: manifest.sourceFeatureIds,
+          artifact: `source-features/${reference.reference.toLowerCase()}.geojson`,
           ...(manifest.notes ? { notes: manifest.notes } : {}),
         },
         geojson,
       };
-    },
-  );
-
-  const catalog: Catalog = {
-    schemaVersion: SCHEMA_VERSION,
-    referenceCount: catalogReferences.length,
-    featureCount: snapshot.featureCount,
-    references: catalogReferences,
-  };
-
-  const allFeatures: GeoJsonFeature[] = [];
-  for (const record of catalogReferences) {
-    for (const feature of record.geojson.features) {
-      allFeatures.push({
-        ...feature,
-        properties: {
-          ...(feature.properties ?? {}),
-          potaReference: record.reference,
-          geometryKind: record.geometryKind,
-        },
-      });
-    }
+    });
   }
 
-  const aggregate: GeoJsonFeatureCollection = {
-    type: "FeatureCollection",
-    properties: {
-      schemaVersion: SCHEMA_VERSION,
-      referenceCount: catalogReferences.length,
-      featureCount: allFeatures.length,
-    },
-    features: allFeatures,
+  const displayReferences = catalogReferences("display");
+  const sourceReferences = catalogReferences("source");
+
+  const catalog: Catalog = {
+    $schema: "https://ripota.org/schemas/v2/catalog.schema.json",
+    schemaVersion: SCHEMA_VERSION,
+    geometryRole: "display",
+    referenceCount: displayReferences.length,
+    featureCount: snapshot.displayFeatureCount,
+    sourceFeatureCount: snapshot.sourceFeatureCount,
+    references: displayReferences,
   };
+  const sourceCatalog: Catalog = {
+    $schema: "https://ripota.org/schemas/v2/source-catalog.schema.json",
+    schemaVersion: SCHEMA_VERSION,
+    geometryRole: "source",
+    referenceCount: sourceReferences.length,
+    featureCount: snapshot.sourceFeatureCount,
+    references: sourceReferences,
+  };
+
+  function aggregate(
+    references: CatalogRecord[],
+    geometryRole: "display" | "source",
+  ): GeoJsonFeatureCollection {
+    const allFeatures: GeoJsonFeature[] = [];
+    for (const record of references) {
+      for (const feature of record.geojson.features) {
+        allFeatures.push({
+          ...feature,
+          properties: {
+            ...(feature.properties ?? {}),
+            potaReference: record.reference,
+            geometryKind: record.geometryKind,
+            geometryRole,
+          },
+        });
+      }
+    }
+    return {
+      $schema:
+        geometryRole === "display"
+          ? "https://ripota.org/schemas/v2/display-geojson.schema.json"
+          : "https://ripota.org/schemas/v2/source-geojson.schema.json",
+      type: "FeatureCollection",
+      properties: {
+        schemaVersion: SCHEMA_VERSION,
+        geometryRole,
+        referenceCount: references.length,
+        featureCount: allFeatures.length,
+        ...(geometryRole === "display"
+          ? { sourceFeatureCount: snapshot.sourceFeatureCount }
+          : {}),
+      },
+      features: allFeatures,
+    };
+  }
+
+  const displayAggregate = aggregate(displayReferences, "display");
+  const sourceAggregate = aggregate(sourceReferences, "source");
 
   const artifacts = new Map<string, string>([
     ...(await buildRootEntry()),
     ["dist/catalog.json", json(catalog)],
-    ["dist/all.geojson", json(aggregate)],
+    ["dist/source-catalog.json", json(sourceCatalog)],
+    ["dist/all.geojson", json(displayAggregate)],
+    ["dist/source-all.geojson", json(sourceAggregate)],
   ]);
 
   const checksumInputs = new Map<string, string>();
@@ -169,6 +207,10 @@ export async function buildPackageArtifacts(
   checksumInputs.set(
     "data/manifest.json",
     await readFile(path.join(dataDirectory, "manifest.json"), "utf8"),
+  );
+  checksumInputs.set(
+    "data/derivations.json",
+    await readFile(path.join(dataDirectory, "derivations.json"), "utf8"),
   );
   for (const manifest of snapshot.manifest) {
     if (!manifest.localGeojson) {
@@ -182,11 +224,25 @@ export async function buildPackageArtifacts(
         "utf8",
       ),
     );
+    const sourceRelativePath = `data/source-features/${path.basename(manifest.localGeojson)}`;
+    checksumInputs.set(
+      sourceRelativePath,
+      await readFile(
+        path.join(
+          dataDirectory,
+          "source-features",
+          path.basename(sourceRelativePath),
+        ),
+        "utf8",
+      ),
+    );
   }
   for (const [relativePath, content] of artifacts) {
     if (
       relativePath === "dist/catalog.json" ||
-      relativePath === "dist/all.geojson"
+      relativePath === "dist/source-catalog.json" ||
+      relativePath === "dist/all.geojson" ||
+      relativePath === "dist/source-all.geojson"
     ) {
       checksumInputs.set(relativePath, content);
     }

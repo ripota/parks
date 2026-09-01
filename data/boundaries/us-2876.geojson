@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-2876",
+    "potaName": "Goddard Memorial State Park",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Goddard State Park'",
+    "sourceFeatureIds": [
+      94
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 94,
+      "properties": {
+        "potaReference": "US-2876",
+        "potaName": "Goddard Memorial State Park",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -2144,40 +2157,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 478.3673985,
-        "BondFund": "No",
-        "DeedAcres": 478.40150118,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Goddard State Park",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7051",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Goddard Park",
-        "NPS_6f": "Y",
-        "OBJECTID": 94,
-        "Poly_Src": "TGIS",
-        "PrimUse": "State Park",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 20837683.878837585,
-        "Shape.STLength()": 28109.923039378227,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1927"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-2876",
-    "potaName": "Goddard Memorial State Park",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Goddard State Park'"
-  }
+  ]
 }

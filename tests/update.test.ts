@@ -99,11 +99,41 @@ function normalized(record: ManifestRecord): PotaReference {
 function geometryResult(record: ManifestRecord): GeometryResult {
   const reference = normalized(record);
   if (record.status === "point-only") {
+    const sourceFeature = {
+      type: "Feature" as const,
+      properties: {
+        reference: record.reference,
+        name: reference.name,
+        grid: reference.grid,
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [reference.longitude, reference.latitude],
+      },
+    };
     return {
       manifest: record,
-      geojson: {
+      sourceGeojson: {
+        $schema: "https://ripota.org/schemas/v2/source-geojson.schema.json",
         type: "FeatureCollection",
         properties: {
+          schemaVersion: 2,
+          geometryRole: "source",
+          geometryKind: "point",
+          potaReference: record.reference,
+          potaName: reference.name,
+          sourceName: record.sourceName,
+          sourceUrl: record.sourceUrl,
+          notes: record.notes,
+        },
+        features: [sourceFeature],
+      },
+      displayGeojson: {
+        $schema: "https://ripota.org/schemas/v2/display-geojson.schema.json",
+        type: "FeatureCollection",
+        properties: {
+          schemaVersion: 2,
+          geometryRole: "display",
           geometryKind: "point",
           potaReference: record.reference,
           potaName: reference.name,
@@ -113,19 +143,17 @@ function geometryResult(record: ManifestRecord): GeometryResult {
         },
         features: [
           {
-            type: "Feature",
+            ...sourceFeature,
             properties: {
-              reference: record.reference,
-              name: reference.name,
-              grid: reference.grid,
-            },
-            geometry: {
-              type: "Point",
-              coordinates: [reference.longitude, reference.latitude],
+              potaReference: record.reference,
+              potaName: reference.name,
+              geometryKind: "point",
+              geometryRole: "display",
             },
           },
         ],
       },
+      operations: [{ operation: "identity" }],
     };
   }
 
@@ -133,11 +161,26 @@ function geometryResult(record: ManifestRecord): GeometryResult {
   const east = reference.longitude + 0.01;
   const south = reference.latitude - 0.01;
   const north = reference.latitude + 0.01;
+  const geometry = {
+    type: "Polygon",
+    coordinates: [
+      [
+        [west, south],
+        [east, south],
+        [east, north],
+        [west, north],
+        [west, south],
+      ],
+    ],
+  };
   return {
     manifest: record,
-    geojson: {
+    sourceGeojson: {
+      $schema: "https://ripota.org/schemas/v2/source-geojson.schema.json",
       type: "FeatureCollection",
       properties: {
+        schemaVersion: 2,
+        geometryRole: "source",
         geometryKind: "boundary",
         potaReference: record.reference,
         potaName: reference.name,
@@ -149,21 +192,37 @@ function geometryResult(record: ManifestRecord): GeometryResult {
         {
           type: "Feature",
           properties: { OBJECTID: record.sourceFeatureIds![0] },
-          geometry: {
-            type: "Polygon",
-            coordinates: [
-              [
-                [west, south],
-                [east, south],
-                [east, north],
-                [west, north],
-                [west, south],
-              ],
-            ],
-          },
+          geometry,
         },
       ],
     },
+    displayGeojson: {
+      $schema: "https://ripota.org/schemas/v2/display-geojson.schema.json",
+      type: "FeatureCollection",
+      properties: {
+        schemaVersion: 2,
+        geometryRole: "display",
+        geometryKind: "boundary",
+        potaReference: record.reference,
+        potaName: reference.name,
+        sourceName: record.sourceName,
+        sourceUrl: record.sourceUrl,
+        sourceQuery: record.sourceQuery,
+      },
+      features: [
+        {
+          type: "Feature",
+          properties: {
+            potaReference: record.reference,
+            potaName: reference.name,
+            geometryKind: "boundary",
+            geometryRole: "display",
+          },
+          geometry,
+        },
+      ],
+    },
+    operations: [{ operation: "unary-union" }],
   };
 }
 
@@ -199,21 +258,11 @@ async function createRepositoryFixture(
     path.join(root, "config/reviewed-sources.json"),
     reviewedRecords,
   );
-  await writeJson(
-    path.join(root, "data/references.json"),
+  await writeCandidateSnapshot(
+    path.join(root, "data"),
     liveRecords.map(normalized),
+    liveRecords.map(geometryResult),
   );
-  await writeJson(path.join(root, "data/manifest.json"), liveRecords);
-  for (const record of liveRecords) {
-    await writeJson(
-      path.join(
-        root,
-        "data/boundaries",
-        `${record.reference.toLowerCase()}.geojson`,
-      ),
-      geometryResult(record).geojson,
-    );
-  }
   await mkdir(path.join(root, "dist"), { recursive: true });
   await writeFile(path.join(root, "dist/catalog.json"), "old catalog\n");
   await writeFile(path.join(root, "dist/all.geojson"), "old aggregate\n");

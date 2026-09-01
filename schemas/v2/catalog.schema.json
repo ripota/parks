@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ripota.org/schemas/v2/catalog.schema.json",
+  "title": "RI POTA schema-v2 display catalog",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "geometryRole",
+    "referenceCount",
+    "featureCount",
+    "sourceFeatureCount",
+    "references"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "const": "https://ripota.org/schemas/v2/catalog.schema.json" },
+    "schemaVersion": { "const": 2 },
+    "geometryRole": { "const": "display" },
+    "referenceCount": { "type": "integer", "minimum": 1 },
+    "featureCount": { "type": "integer", "minimum": 1 },
+    "sourceFeatureCount": { "type": "integer", "minimum": 1 },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "reference",
+          "name",
+          "latitude",
+          "longitude",
+          "grid",
+          "counties",
+          "locationDesc",
+          "potaUrl",
+          "status",
+          "geometryKind",
+          "source",
+          "geojson"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "reference": { "type": "string", "pattern": "^US-[0-9]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" },
+          "grid": { "type": "string", "minLength": 1 },
+          "counties": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "pattern": " County$" }
+          },
+          "locationDesc": { "type": "string", "pattern": "(^|,)US-RI(,|$)" },
+          "potaUrl": {
+            "type": "string",
+            "pattern": "^https://pota\\.app/#/park/US-[0-9]+$"
+          },
+          "status": { "enum": ["available", "point-only"] },
+          "geometryKind": { "enum": ["boundary", "activation-zone", "point"] },
+          "source": {
+            "type": "object",
+            "required": ["name", "url", "featureIds", "artifact"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "pattern": "^https://" },
+              "query": { "type": "string", "minLength": 1 },
+              "featureIds": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": ["string", "number"] }
+              },
+              "artifact": {
+                "type": "string",
+                "pattern": "^source-features/us-[0-9]+\\.geojson$"
+              },
+              "notes": { "type": "string", "minLength": 1 }
+            }
+          },
+          "geojson": {
+            "$ref": "https://ripota.org/schemas/v2/display-geojson.schema.json"
+          }
+        }
+      }
+    }
+  }
+}

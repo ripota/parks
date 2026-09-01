@@ -1,0 +1,1178 @@
+{
+  "$schema": "https://ripota.org/schemas/v2/manifest.schema.json",
+  "schemaVersion": 2,
+  "algorithmVersion": 1,
+  "unionEngine": {
+    "name": "jsts",
+    "version": "2.12.1"
+  },
+  "validationEngine": {
+    "name": "jsts",
+    "version": "2.12.1"
+  },
+  "records": [
+    {
+      "reference": "US-0513",
+      "sourceArtifact": "./source-features/us-0513.geojson",
+      "displayArtifact": "./boundaries/us-0513.geojson",
+      "sourceSha256": "3947761be7ea49795101b75c1b9d9119b1b300f0f1eb2ae5dc260d0da56ff09b",
+      "displaySha256": "a656ba6102b6c36e3e2852fc93c1991934237ba044df5a1aa674c6f4475810bc",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 5,
+      "holeCount": 0,
+      "coordinateCount": 403,
+      "unionInputAreaSquareMeters": 522658.32776458643,
+      "displayAreaSquareMeters": 521956.31165188045,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-0514",
+      "sourceArtifact": "./source-features/us-0514.geojson",
+      "displayArtifact": "./boundaries/us-0514.geojson",
+      "sourceSha256": "5bd3ed6fc1a70cec0448fb65985e2bb2c1ff845b4975e793bfa72468a4392c45",
+      "displaySha256": "ff98f82274533015fcff850c3d54b44036959aac5df50ff46a3f58e7a138a01f",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 29,
+      "holeCount": 0,
+      "coordinateCount": 5231,
+      "unionInputAreaSquareMeters": 2284757.061295903,
+      "displayAreaSquareMeters": 2284757.061295504,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-0515",
+      "sourceArtifact": "./source-features/us-0515.geojson",
+      "displayArtifact": "./boundaries/us-0515.geojson",
+      "sourceSha256": "75b559d31e8f46fde572b85eb978910f6e23d4156c1f320fffcf3bb23d618282",
+      "displaySha256": "bfe4c1994788cb1ab96907078b6513ec105d79a6ed3a28613b7005245200f604",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 10,
+      "holeCount": 0,
+      "coordinateCount": 1661,
+      "unionInputAreaSquareMeters": 3567297.718061283,
+      "displayAreaSquareMeters": 3567297.718063889,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-0516",
+      "sourceArtifact": "./source-features/us-0516.geojson",
+      "displayArtifact": "./boundaries/us-0516.geojson",
+      "sourceSha256": "6ccc3ec63931b03786ea6493a73c6502820dc9f7e47d1b6ed7ef41039e634dc8",
+      "displaySha256": "ffa2801619ad5ac7dd6aa032573e680cfac20a63031a0b1f2f2c79c9a66c2f6f",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 241,
+      "unionInputAreaSquareMeters": 984548.6737081499,
+      "displayAreaSquareMeters": 984548.6737077717,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-0517",
+      "sourceArtifact": "./source-features/us-0517.geojson",
+      "displayArtifact": "./boundaries/us-0517.geojson",
+      "sourceSha256": "71622f944f810cef308d59214f5168b083238c88c1ef5144433d0363ae4bb5b3",
+      "displaySha256": "6d3750e0bd1610a0978d4a66cef5c8a11607954dc56caeb4be15d3365b05dbdf",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 4,
+      "holeCount": 0,
+      "coordinateCount": 401,
+      "unionInputAreaSquareMeters": 3387226.8893764927,
+      "displayAreaSquareMeters": 3312828.942315185,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-0789",
+      "sourceArtifact": "./source-features/us-0789.geojson",
+      "displayArtifact": "./boundaries/us-0789.geojson",
+      "sourceSha256": "98e45931b3aa6da857308623299b1b02de64c6c880e3f3a4db10699b2a137d14",
+      "displaySha256": "5bfa64acc525f92aa6de0408c17052eb4e808fd5c2def469b64f885b837f8194",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 190,
+      "unionInputAreaSquareMeters": 18348.923791019075,
+      "displayAreaSquareMeters": 18348.923790944402,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10541",
+      "sourceArtifact": "./source-features/us-10541.geojson",
+      "displayArtifact": "./boundaries/us-10541.geojson",
+      "sourceSha256": "70aa5bc6dd00ba3abc98aa938b08e3c77f24e6ba4cb09cd42d14f2f3e213277b",
+      "displaySha256": "51213e81864bcee38cecf6745ae0f942abe7ecdb374e36cb5164b0339e2e4e70",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 67,
+      "unionInputAreaSquareMeters": 11585.612521935182,
+      "displayAreaSquareMeters": 11585.612521935182,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10542",
+      "sourceArtifact": "./source-features/us-10542.geojson",
+      "displayArtifact": "./boundaries/us-10542.geojson",
+      "sourceSha256": "69a2c05acc8fbdfe4b9d13e4fa8772b8397d8001fc2031ce69d8a07fac2eb1e4",
+      "displaySha256": "001f7bf2c32ee5205af5b4668e44ea6211005705da19241789bdb9b8f73a786f",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 69,
+      "unionInputAreaSquareMeters": 116774.24176160773,
+      "displayAreaSquareMeters": 116774.24176161633,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10543",
+      "sourceArtifact": "./source-features/us-10543.geojson",
+      "displayArtifact": "./boundaries/us-10543.geojson",
+      "sourceSha256": "36cb6acbc9ada3189c073f0aeb5c0607f1d9d17b1dff03273cfbc11a53707967",
+      "displaySha256": "aa8e963ff11673261f37a7bf941045744a12f3f4422122cca937fcfedf297ed0",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 22,
+      "unionInputAreaSquareMeters": 4700.86574518024,
+      "displayAreaSquareMeters": 4700.86574518024,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10544",
+      "sourceArtifact": "./source-features/us-10544.geojson",
+      "displayArtifact": "./boundaries/us-10544.geojson",
+      "sourceSha256": "4670f9c5c9d4e8845d28ef492395a59981785978150f06a7d8ce9760934cc528",
+      "displaySha256": "0569d5d6657260e0a344e8c73127067595ffb203d5b6b4d17adf71af95f79d1a",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 12,
+      "unionInputAreaSquareMeters": 40873.434074119206,
+      "displayAreaSquareMeters": 40873.43407404615,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10545",
+      "sourceArtifact": "./source-features/us-10545.geojson",
+      "displayArtifact": "./boundaries/us-10545.geojson",
+      "sourceSha256": "fece5bf2dc31fba0d6234fc8c611fe1a8c6c64d8e1d7de8b228d1ebb49d9ff81",
+      "displaySha256": "faaa71dce31d0e80a60c5d260bb7a99a556d3c6e2c5e917cffc76dce4224d319",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 59,
+      "unionInputAreaSquareMeters": 448746.2468716074,
+      "displayAreaSquareMeters": 448746.246871573,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10546",
+      "sourceArtifact": "./source-features/us-10546.geojson",
+      "displayArtifact": "./boundaries/us-10546.geojson",
+      "sourceSha256": "0e80c269e48ebe3a032e749e4d6bf77e7861e8d17535613f882c1680e93aa188",
+      "displaySha256": "b60597e34bf1f37e2dd889d3690c44279051f8b9d68ca90c0612ed5f58338e37",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 78,
+      "unionInputAreaSquareMeters": 1802295.6811391877,
+      "displayAreaSquareMeters": 1802241.0765659995,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10547",
+      "sourceArtifact": "./source-features/us-10547.geojson",
+      "displayArtifact": "./boundaries/us-10547.geojson",
+      "sourceSha256": "03c1ed790042eaac2e8e089a712b49735d4d916e93d7132cfe99b7bbc8f868a4",
+      "displaySha256": "46e277d9b2a493549761ab222b5165629adbc5ea08af850ce5dd6fd5a5fd1b2b",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 0,
+      "coordinateCount": 238,
+      "unionInputAreaSquareMeters": 575533.6340132278,
+      "displayAreaSquareMeters": 575533.6340132278,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-10548",
+      "sourceArtifact": "./source-features/us-10548.geojson",
+      "displayArtifact": "./boundaries/us-10548.geojson",
+      "sourceSha256": "6ec44e6209709292f6bb5f2a08559aecd8f577a7e90a20b1f0f45fc4fdad5c4e",
+      "displaySha256": "1f8c6f0a72efb58fa4ed6fe19c7713699089dad0e50de6063b80bfa3dc68ec93",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 18,
+      "unionInputAreaSquareMeters": 4938.031408773744,
+      "displayAreaSquareMeters": 4938.031408773744,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2868",
+      "sourceArtifact": "./source-features/us-2868.geojson",
+      "displayArtifact": "./boundaries/us-2868.geojson",
+      "sourceSha256": "d86ee7de1caf8310e13fe9ef4705c1630497a5d46045ca8e23e813f2175f6c72",
+      "displaySha256": "413e480c7444d2c06d00ffb291f74b7e3f571ddff332befe6d7d39e1d33abaca",
+      "sourceFeatureCount": 4,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 3,
+      "coordinateCount": 207,
+      "unionInputAreaSquareMeters": 789113.148078445,
+      "displayAreaSquareMeters": 789113.1467854497,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2869",
+      "sourceArtifact": "./source-features/us-2869.geojson",
+      "displayArtifact": "./boundaries/us-2869.geojson",
+      "sourceSha256": "0e54e83f5576e71fc506b5c17748d234c68adbe1fce0770c757b13ddf2f9e19d",
+      "displaySha256": "835c7409685588231e6895d840cffeae9436419cc39e1f539347609becdaca44",
+      "sourceFeatureCount": 24,
+      "displayFeatureCount": 1,
+      "componentCount": 23,
+      "holeCount": 2,
+      "coordinateCount": 2052,
+      "unionInputAreaSquareMeters": 2119277.446795861,
+      "displayAreaSquareMeters": 2119277.446792124,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2870",
+      "sourceArtifact": "./source-features/us-2870.geojson",
+      "displayArtifact": "./boundaries/us-2870.geojson",
+      "sourceSha256": "f62f182f8288458ee3a2d77288a3473c00a0fd1d80776f9ef2db7c5088d181a6",
+      "displaySha256": "a5e38f172d52ee382edf9ce6c96853a1853f9daa9c82a1720fb101185d334457",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 1,
+      "coordinateCount": 13556,
+      "unionInputAreaSquareMeters": 361827.8320359514,
+      "displayAreaSquareMeters": 358201.1915243569,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2871",
+      "sourceArtifact": "./source-features/us-2871.geojson",
+      "displayArtifact": "./boundaries/us-2871.geojson",
+      "sourceSha256": "f73817894ab2de2ba7ed3ab63adb1a2a1fa9da55c1944feaacf60e7146d9660c",
+      "displaySha256": "061b886f573ca947f91bb5ebf96dc70d138e9e14c47e3f07ffa339eaeb28f558",
+      "sourceFeatureCount": 15,
+      "displayFeatureCount": 1,
+      "componentCount": 7,
+      "holeCount": 1,
+      "coordinateCount": 1858,
+      "unionInputAreaSquareMeters": 16610316.157904206,
+      "displayAreaSquareMeters": 16610039.87843518,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2872",
+      "sourceArtifact": "./source-features/us-2872.geojson",
+      "displayArtifact": "./boundaries/us-2872.geojson",
+      "sourceSha256": "b91e2d5fbc263a828c40a971797195cefa8b74fba19dc420b73b0f4e5c230f90",
+      "displaySha256": "db9cc847e3529f2acab0eb195e104dd8319810e5e7e8379610b4e8eda7cb3c95",
+      "sourceFeatureCount": 4,
+      "displayFeatureCount": 1,
+      "componentCount": 5,
+      "holeCount": 1,
+      "coordinateCount": 380,
+      "unionInputAreaSquareMeters": 1872606.9158150193,
+      "displayAreaSquareMeters": 1872606.9158192764,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2873",
+      "sourceArtifact": "./source-features/us-2873.geojson",
+      "displayArtifact": "./boundaries/us-2873.geojson",
+      "sourceSha256": "a7a5a64c637a369f8e8c3daa034c31a0b7cde4a158b9940e8e797e35aacdc1e3",
+      "displaySha256": "268d3860ad57eba317bccbf3e1a469040dcbc9aaf9511d997af54e156aae16a0",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 75,
+      "unionInputAreaSquareMeters": 367653.9027234785,
+      "displayAreaSquareMeters": 367653.9027233495,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2874",
+      "sourceArtifact": "./source-features/us-2874.geojson",
+      "displayArtifact": "./boundaries/us-2874.geojson",
+      "sourceSha256": "b84628695855969a122fbec4d85774ae69a8b8e63671416beb77d11dbf9a3ddb",
+      "displaySha256": "f551b2d2b904fd4b5c9d55bf6e479d7c04d2cabde7f83f1ffd0d5bdd7acfb4b8",
+      "sourceFeatureCount": 8,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 1,
+      "coordinateCount": 141,
+      "unionInputAreaSquareMeters": 507862.37407303014,
+      "displayAreaSquareMeters": 507862.37407175,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2875",
+      "sourceArtifact": "./source-features/us-2875.geojson",
+      "displayArtifact": "./boundaries/us-2875.geojson",
+      "sourceSha256": "705dac9ce38e73d9f7a4fb9e55ce9e3862e62d08b582850e93ae7bef16425e93",
+      "displaySha256": "2e9fc3f371d66416fa9f46b4635d391049730be1cd8b5064208b1c0390e58d39",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 0,
+      "coordinateCount": 333,
+      "unionInputAreaSquareMeters": 246460.77195326192,
+      "displayAreaSquareMeters": 246460.77195326192,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2876",
+      "sourceArtifact": "./source-features/us-2876.geojson",
+      "displayArtifact": "./boundaries/us-2876.geojson",
+      "sourceSha256": "2a1c792011d8cae6a2c018a04fe468697c1514e84d2b0dc674bbf2c1cb0c23c9",
+      "displaySha256": "75a150dc18775d7afcf88763489565f334551083b8defb5f5541a84cc3b671d9",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 532,
+      "unionInputAreaSquareMeters": 1933122.6684703724,
+      "displayAreaSquareMeters": 1933122.6684703724,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2877",
+      "sourceArtifact": "./source-features/us-2877.geojson",
+      "displayArtifact": "./boundaries/us-2877.geojson",
+      "sourceSha256": "df942363f1dd926ce96bd15e83d3438801b6efbd25462fb431f946b9dc1e67ce",
+      "displaySha256": "c38d2ad3a2072f629d1baa2364c64fafc870529ee7f0c2ff36730ed7afad214d",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 5,
+      "holeCount": 0,
+      "coordinateCount": 129,
+      "unionInputAreaSquareMeters": 326191.65928750543,
+      "displayAreaSquareMeters": 326191.65928853356,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2878",
+      "sourceArtifact": "./source-features/us-2878.geojson",
+      "displayArtifact": "./boundaries/us-2878.geojson",
+      "sourceSha256": "4cf0741db66eedaec6443186a13dec53fba5ae3c906ac4c4ce0129b2d24906f4",
+      "displaySha256": "c6860d33df1825efecbe1a5f53c9ad7259222410c3e590695a30f50bac0406f1",
+      "sourceFeatureCount": 5,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 2,
+      "coordinateCount": 581,
+      "unionInputAreaSquareMeters": 2643143.2525954884,
+      "displayAreaSquareMeters": 2643143.199334769,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2879",
+      "sourceArtifact": "./source-features/us-2879.geojson",
+      "displayArtifact": "./boundaries/us-2879.geojson",
+      "sourceSha256": "209b00ebcd83aeaa7907647f2c3fbcdb1b8ccf55898129f1fb63752d84ba7685",
+      "displaySha256": "61639de81916253532158dd28b02414d477f02561e567091f029e585c80761a2",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 0,
+      "coordinateCount": 377,
+      "unionInputAreaSquareMeters": 512337.45725714223,
+      "displayAreaSquareMeters": 512337.4572592395,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2880",
+      "sourceArtifact": "./source-features/us-2880.geojson",
+      "displayArtifact": "./boundaries/us-2880.geojson",
+      "sourceSha256": "3a8f629a642254c24442cb0ef30642f7ef22301f01d6a7c1c6c15256a081aa38",
+      "displaySha256": "9270bd25def11c9dc2b860a441629adb0fa5b3c17f0cc99261052d06b924a37d",
+      "sourceFeatureCount": 7,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 149,
+      "unionInputAreaSquareMeters": 3594356.7412362765,
+      "displayAreaSquareMeters": 3593985.5804875223,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-2881",
+      "sourceArtifact": "./source-features/us-2881.geojson",
+      "displayArtifact": "./boundaries/us-2881.geojson",
+      "sourceSha256": "4a69373e1eda345fe74aafb988c7c2c40860a7dbd70ac7ac3d536ef536694879",
+      "displaySha256": "8155b6f875739aabf8c8b6748245f177931065fb5451c7bae5c688716908d907",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 38,
+      "unionInputAreaSquareMeters": 26207.774360138745,
+      "displayAreaSquareMeters": 26207.774360138745,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-4582",
+      "sourceArtifact": "./source-features/us-4582.geojson",
+      "displayArtifact": "./boundaries/us-4582.geojson",
+      "sourceSha256": "e5a6aa267b2447eb9ed9f7a176f97704c66f89aa12b75114648fb8e0857bb960",
+      "displaySha256": "752125e45d7e3ebaa884f0af66604a548df46df7df722439b55ffb267a8459b1",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 891,
+      "unionInputAreaSquareMeters": 5755389.487636296,
+      "displayAreaSquareMeters": 5389376.190793088,
+      "operations": [
+        {
+          "operation": "buffer",
+          "distanceFeet": 100,
+          "distanceMeters": 30.48,
+          "ruleSourceUrl": "https://docs.pota.app/docs/activator_reference/activator_guide-english.html#special-considerations-for-trails"
+        },
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-5482",
+      "sourceArtifact": "./source-features/us-5482.geojson",
+      "displayArtifact": "./boundaries/us-5482.geojson",
+      "sourceSha256": "2bddf785440bae6fa26f944a1cb997cd5ac4ecddf9af4c3c2774fadbfe695625",
+      "displaySha256": "f1113a30365d1365519704c688ea204e6d93d7a8e0bf56c2e11a771eda9c2902",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 134,
+      "unionInputAreaSquareMeters": 2696942.283578521,
+      "displayAreaSquareMeters": 2696942.2835797933,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-5483",
+      "sourceArtifact": "./source-features/us-5483.geojson",
+      "displayArtifact": "./boundaries/us-5483.geojson",
+      "sourceSha256": "c73aa270c3c4b205e331c35c00150e80b14ff99bd8626cc155e8b3613052fc49",
+      "displaySha256": "ebca83eb2ae6602c72a26b78be173d2d167811a83929270d68ef3dce4cc1c80a",
+      "sourceFeatureCount": 5,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 2,
+      "coordinateCount": 581,
+      "unionInputAreaSquareMeters": 2643143.2525954884,
+      "displayAreaSquareMeters": 2643143.199334769,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-5484",
+      "sourceArtifact": "./source-features/us-5484.geojson",
+      "displayArtifact": "./boundaries/us-5484.geojson",
+      "sourceSha256": "6ef3251386aa7f7db004457e5b0ae3e38f16ba496aa6c6006c4a8defde053fed",
+      "displaySha256": "4fdff4db2bb74c686816848ff662be6210dd2e241ef6befa45a587fc5168f464",
+      "sourceFeatureCount": 10,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 4,
+      "coordinateCount": 372,
+      "unionInputAreaSquareMeters": 14573508.928958904,
+      "displayAreaSquareMeters": 14573508.928960836,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6979",
+      "sourceArtifact": "./source-features/us-6979.geojson",
+      "displayArtifact": "./boundaries/us-6979.geojson",
+      "sourceSha256": "f42572ef4fc73587bc57aa3074338cbb5802ea262857de8b9410d07fbdf584c5",
+      "displaySha256": "7e5901afaef76dfae96629870b4ea84bdebd3821fddbc9513b9a97559c1f4a38",
+      "sourceFeatureCount": 127,
+      "displayFeatureCount": 1,
+      "componentCount": 25,
+      "holeCount": 17,
+      "coordinateCount": 2586,
+      "unionInputAreaSquareMeters": 63373649.49684398,
+      "displayAreaSquareMeters": 63343420.24296594,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6980",
+      "sourceArtifact": "./source-features/us-6980.geojson",
+      "displayArtifact": "./boundaries/us-6980.geojson",
+      "sourceSha256": "db3b48e4d11eac344e1807de73c533852da0cce5b4b55392344a8cccf10e0e62",
+      "displaySha256": "1343aaf3d3290e5507d3fbdb11c085b191ec519f517446f89062560b144f0f86",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 1,
+      "operations": [
+        {
+          "operation": "identity"
+        }
+      ]
+    },
+    {
+      "reference": "US-6981",
+      "sourceArtifact": "./source-features/us-6981.geojson",
+      "displayArtifact": "./boundaries/us-6981.geojson",
+      "sourceSha256": "1c638184b02d7ae609eab230dd2baef23f068cb192363c80bcb908b7b2968e3e",
+      "displaySha256": "f680d4b6e76c623c7d9199d263dbc5b3cf8cb542719305d00f6f4dc2fa580043",
+      "sourceFeatureCount": 18,
+      "displayFeatureCount": 1,
+      "componentCount": 4,
+      "holeCount": 2,
+      "coordinateCount": 1564,
+      "unionInputAreaSquareMeters": 14511297.602942228,
+      "displayAreaSquareMeters": 14511297.602989368,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6982",
+      "sourceArtifact": "./source-features/us-6982.geojson",
+      "displayArtifact": "./boundaries/us-6982.geojson",
+      "sourceSha256": "e4957ead14545d0e5a031fcbe23ad2183e8a3790acf2fcd14a8ed3ef2bde182a",
+      "displaySha256": "c1e43ffe2631b4f2716bce0dfa58d718e5f48e908f8b740efcd4004df5282f87",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 2,
+      "coordinateCount": 362,
+      "unionInputAreaSquareMeters": 34393975.28393083,
+      "displayAreaSquareMeters": 34393966.24708004,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6983",
+      "sourceArtifact": "./source-features/us-6983.geojson",
+      "displayArtifact": "./boundaries/us-6983.geojson",
+      "sourceSha256": "ef60c3b21f4b1337c8826494d4fbf7616549bba53dfca6ee916c79ed8456294b",
+      "displaySha256": "2a109f828ee231ceac15b8b4052f32913f7cca80c918876e9df205098c78abde",
+      "sourceFeatureCount": 6,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 8,
+      "coordinateCount": 540,
+      "unionInputAreaSquareMeters": 5112017.08705887,
+      "displayAreaSquareMeters": 5108050.154311226,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6984",
+      "sourceArtifact": "./source-features/us-6984.geojson",
+      "displayArtifact": "./boundaries/us-6984.geojson",
+      "sourceSha256": "e46ec6f10dc008b7dbd291a5e21c5ec9916ec2869dba254abed1806f72f97630",
+      "displaySha256": "f8201dbdf17c9afa29078f524690bf4721f96a66764276bd4f314fc2c28212bb",
+      "sourceFeatureCount": 19,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 13,
+      "coordinateCount": 540,
+      "unionInputAreaSquareMeters": 7528943.572700131,
+      "displayAreaSquareMeters": 7528942.482229728,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6985",
+      "sourceArtifact": "./source-features/us-6985.geojson",
+      "displayArtifact": "./boundaries/us-6985.geojson",
+      "sourceSha256": "3ac009eda62a0eb48ff8d74ba53ee75dbe3c0157fcf0d123c15642ea07cddbe2",
+      "displaySha256": "f92db7015bdbde8305ae5f66f224a9c15ca657f2f973dafd0ef2c628d92df5ca",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 75,
+      "unionInputAreaSquareMeters": 733742.7171899315,
+      "displayAreaSquareMeters": 733742.7171906449,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6986",
+      "sourceArtifact": "./source-features/us-6986.geojson",
+      "displayArtifact": "./boundaries/us-6986.geojson",
+      "sourceSha256": "487fe6cd98dbed762f8d19fe4dda4867c9bafd52a646253d40d0f04c2c76eaa7",
+      "displaySha256": "f1b4be240d6a286e7dccbad69036b460b42e12f801afb0828a9bc93fa9dbf932",
+      "sourceFeatureCount": 4,
+      "displayFeatureCount": 1,
+      "componentCount": 5,
+      "holeCount": 1,
+      "coordinateCount": 128,
+      "unionInputAreaSquareMeters": 1835043.690962904,
+      "displayAreaSquareMeters": 1835042.703118501,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6987",
+      "sourceArtifact": "./source-features/us-6987.geojson",
+      "displayArtifact": "./boundaries/us-6987.geojson",
+      "sourceSha256": "82b32f2a8a13d3d9415ffd79591100f6978c3e5c7c678198c6eedb85ea9858c8",
+      "displaySha256": "3b3d87975399ac16547fa3dd9f4b93ba9fdc69b8473bfe10586ee0e514523ba6",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 368,
+      "unionInputAreaSquareMeters": 1697299.260263841,
+      "displayAreaSquareMeters": 1697299.260263841,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6988",
+      "sourceArtifact": "./source-features/us-6988.geojson",
+      "displayArtifact": "./boundaries/us-6988.geojson",
+      "sourceSha256": "346097c791f87e5c298a42c5eaa93c5d75756ec5e9a7d28229b58f198c94afac",
+      "displaySha256": "f4836c8972cc1c77f6dc1f5c7dd3ce2138a1c4df1b286a015b1070d2c5ba20cb",
+      "sourceFeatureCount": 5,
+      "displayFeatureCount": 1,
+      "componentCount": 4,
+      "holeCount": 0,
+      "coordinateCount": 561,
+      "unionInputAreaSquareMeters": 3610928.8293262953,
+      "displayAreaSquareMeters": 3583619.5053746114,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6989",
+      "sourceArtifact": "./source-features/us-6989.geojson",
+      "displayArtifact": "./boundaries/us-6989.geojson",
+      "sourceSha256": "bd90e25d2297d6cd16519170eb21e119b6921c6debb3a3cd43111f4916ea936a",
+      "displaySha256": "abe5354ba905ebc4300e26bc4f9f7a43f88da5223f2e63825ed309c5f70296a7",
+      "sourceFeatureCount": 4,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 1,
+      "coordinateCount": 874,
+      "unionInputAreaSquareMeters": 1262178.966540144,
+      "displayAreaSquareMeters": 1262178.9665379815,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6990",
+      "sourceArtifact": "./source-features/us-6990.geojson",
+      "displayArtifact": "./boundaries/us-6990.geojson",
+      "sourceSha256": "e25ec06da62e69ccd1309575d18ba2f23126748f97c98144ea67c17ffd0cf709",
+      "displaySha256": "4fb8bcfb10f9262948d1cf0b7f405c7a6bfd62bf6c53c85ad4cc5f64a11cec37",
+      "sourceFeatureCount": 11,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 0,
+      "coordinateCount": 500,
+      "unionInputAreaSquareMeters": 6558244.5725949835,
+      "displayAreaSquareMeters": 6558244.572601422,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6991",
+      "sourceArtifact": "./source-features/us-6991.geojson",
+      "displayArtifact": "./boundaries/us-6991.geojson",
+      "sourceSha256": "337d799273f860b564c8769c7ed7ecea6dd0e23248377181ff1921d97693409b",
+      "displaySha256": "7848eee6295f17d1f2a5eea1f213e808647a3f8fe3c2ed6835832cd32ec3887f",
+      "sourceFeatureCount": 16,
+      "displayFeatureCount": 1,
+      "componentCount": 7,
+      "holeCount": 3,
+      "coordinateCount": 1348,
+      "unionInputAreaSquareMeters": 4533486.919510338,
+      "displayAreaSquareMeters": 4482396.322199545,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-6992",
+      "sourceArtifact": "./source-features/us-6992.geojson",
+      "displayArtifact": "./boundaries/us-6992.geojson",
+      "sourceSha256": "fc9fda5990f5ed676a14f6025c7d0181c4cf7fa69d819d5418d91ffc198cfe5b",
+      "displaySha256": "518d144f44cec368772dd96b72e20c25d4aedced1d64670de5b016f6e8ad835f",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 4,
+      "holeCount": 0,
+      "coordinateCount": 257,
+      "unionInputAreaSquareMeters": 1880090.9693736138,
+      "displayAreaSquareMeters": 1880090.9693721698,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7508",
+      "sourceArtifact": "./source-features/us-7508.geojson",
+      "displayArtifact": "./boundaries/us-7508.geojson",
+      "sourceSha256": "b85d6caae3fee87cf0227b48d769c523760dc64d0f0637451cb9c8dd6d5d05f7",
+      "displaySha256": "d927255fcbdf992cb5c469ec28dd40e3281ae50162de26db61a3c91f32d0bab9",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 15,
+      "unionInputAreaSquareMeters": 1384615.6169778563,
+      "displayAreaSquareMeters": 1384615.6169778563,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7518",
+      "sourceArtifact": "./source-features/us-7518.geojson",
+      "displayArtifact": "./boundaries/us-7518.geojson",
+      "sourceSha256": "77b8cd1d2e409a4773fe56813eab46d69fc0c2142a1e231098d29df6c0b43812",
+      "displaySha256": "fb27f317d03440916c895dca20f3c4ab191948c7a067a527e3437f7e4d302eb7",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 26,
+      "unionInputAreaSquareMeters": 116637.69497559208,
+      "displayAreaSquareMeters": 116637.69497559208,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7714",
+      "sourceArtifact": "./source-features/us-7714.geojson",
+      "displayArtifact": "./boundaries/us-7714.geojson",
+      "sourceSha256": "1470d352918c72352942388e617c763bff3da0797f07a62ad34baf669127625a",
+      "displaySha256": "62a0d4006cccd057f71f4644180ece1b76c4795573c94ee2c110a7cca16980f7",
+      "sourceFeatureCount": 47,
+      "displayFeatureCount": 1,
+      "componentCount": 3,
+      "holeCount": 14,
+      "coordinateCount": 1093,
+      "unionInputAreaSquareMeters": 13166783.473186085,
+      "displayAreaSquareMeters": 13166775.816296354,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7715",
+      "sourceArtifact": "./source-features/us-7715.geojson",
+      "displayArtifact": "./boundaries/us-7715.geojson",
+      "sourceSha256": "346d016345402d3f9888d7ae926739ef188be240984f03daad62113e84a72ef6",
+      "displaySha256": "7ce791a57408f4564d4351f757c0d3e3720699537e2e15fe016af835386ccd55",
+      "sourceFeatureCount": 20,
+      "displayFeatureCount": 1,
+      "componentCount": 7,
+      "holeCount": 2,
+      "coordinateCount": 387,
+      "unionInputAreaSquareMeters": 9736107.03907563,
+      "displayAreaSquareMeters": 9736107.039078709,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7716",
+      "sourceArtifact": "./source-features/us-7716.geojson",
+      "displayArtifact": "./boundaries/us-7716.geojson",
+      "sourceSha256": "db3ee97a1a475ad5a26bcbcad74235a670197205c2bc202ac7c78a07926f6325",
+      "displaySha256": "29040bdd61742361742cd689c8555e2a49137a0208f526c75e0395a164d68d92",
+      "sourceFeatureCount": 9,
+      "displayFeatureCount": 1,
+      "componentCount": 5,
+      "holeCount": 0,
+      "coordinateCount": 892,
+      "unionInputAreaSquareMeters": 9196295.294829678,
+      "displayAreaSquareMeters": 9196295.294836741,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7717",
+      "sourceArtifact": "./source-features/us-7717.geojson",
+      "displayArtifact": "./boundaries/us-7717.geojson",
+      "sourceSha256": "11964d3805adb49c2529ca57b7a5c9b0ae5ce9fc96d855e318205401bd193821",
+      "displaySha256": "10189e27c67019c089f98f214977041d6582c96210eca49be3a652a5bbcbf685",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 74,
+      "unionInputAreaSquareMeters": 123827.94350242827,
+      "displayAreaSquareMeters": 123827.94350242827,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7718",
+      "sourceArtifact": "./source-features/us-7718.geojson",
+      "displayArtifact": "./boundaries/us-7718.geojson",
+      "sourceSha256": "be54a8bda1cab62eff687dffb1fbf7fb0c96af446e7421214aea32a343e578df",
+      "displaySha256": "485a7379c21121d3377e66dad8b6c99f7541b869af18a36b86c4c924dd11d33b",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 160,
+      "unionInputAreaSquareMeters": 128567.52939854913,
+      "displayAreaSquareMeters": 128567.52939854913,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7719",
+      "sourceArtifact": "./source-features/us-7719.geojson",
+      "displayArtifact": "./boundaries/us-7719.geojson",
+      "sourceSha256": "053d453ad0fac810466e4bd91cba60ba54f7df3eba0a33962bf50d7ee4d7aa65",
+      "displaySha256": "04f9f5933425fc20eb852bfd64894d628a6d601b0eeade2c7a759365f8ebd764",
+      "sourceFeatureCount": 2,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 798,
+      "unionInputAreaSquareMeters": 265393.71811686386,
+      "displayAreaSquareMeters": 265393.71811686386,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7720",
+      "sourceArtifact": "./source-features/us-7720.geojson",
+      "displayArtifact": "./boundaries/us-7720.geojson",
+      "sourceSha256": "585dacfafb42c6bc1ee5bd65a8ba38e00b35b5e1237514e6b2c050def53d9bd1",
+      "displaySha256": "a64e5f48571998019727b8c71d538426fe8bffe21735a7550311e6a3192a6e52",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 88,
+      "unionInputAreaSquareMeters": 117032.67274342626,
+      "displayAreaSquareMeters": 117032.67274342626,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7721",
+      "sourceArtifact": "./source-features/us-7721.geojson",
+      "displayArtifact": "./boundaries/us-7721.geojson",
+      "sourceSha256": "4347b054f082ffdbe0aa7f2c1f48bbd4b72da2d1b15425a7bb92328655eb0d23",
+      "displaySha256": "a97d3c47cc1b98a2944d27bc1de78100f5a06481e8ba091774754dfbf1715dab",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 1,
+      "holeCount": 0,
+      "coordinateCount": 20,
+      "unionInputAreaSquareMeters": 8629.063926952604,
+      "displayAreaSquareMeters": 8629.063926952604,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7722",
+      "sourceArtifact": "./source-features/us-7722.geojson",
+      "displayArtifact": "./boundaries/us-7722.geojson",
+      "sourceSha256": "3c2bb5e6d103b7478f5a12ddb3f31726d0773c87db245072c54c55227421017a",
+      "displaySha256": "f91b0478af4bbc1875978210f7a309d750fd8b753ec55e5f8838919304dd06d1",
+      "sourceFeatureCount": 5,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 1,
+      "coordinateCount": 93,
+      "unionInputAreaSquareMeters": 247277.64949799358,
+      "displayAreaSquareMeters": 247277.64949883427,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7723",
+      "sourceArtifact": "./source-features/us-7723.geojson",
+      "displayArtifact": "./boundaries/us-7723.geojson",
+      "sourceSha256": "f1b33532d089c6a228c368e8f6f25df82a4aee5fe4b8fe6a2373d44582b2330d",
+      "displaySha256": "0c361acef05cfa4e46f8395fbc79c565dcc1c08eea40ff50d2f3320425d0fd1d",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 336,
+      "unionInputAreaSquareMeters": 985846.9758380671,
+      "displayAreaSquareMeters": 985846.9758380671,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7865",
+      "sourceArtifact": "./source-features/us-7865.geojson",
+      "displayArtifact": "./boundaries/us-7865.geojson",
+      "sourceSha256": "7db6683d5807c233448d00bc835b0ae0d7eaf5fdfe19af262587a1e7bb2062a7",
+      "displaySha256": "d994a3688046daa16ba06107295223591a894b7310b0323f0bd669b766956c79",
+      "sourceFeatureCount": 3,
+      "displayFeatureCount": 1,
+      "componentCount": 2,
+      "holeCount": 0,
+      "coordinateCount": 568,
+      "unionInputAreaSquareMeters": 863673.2729247856,
+      "displayAreaSquareMeters": 863673.2729049994,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-7971",
+      "sourceArtifact": "./source-features/us-7971.geojson",
+      "displayArtifact": "./boundaries/us-7971.geojson",
+      "sourceSha256": "05d0328e133a4a5754992bb37924c65cffaca80e6e6bfc7904f2feae91590ab2",
+      "displaySha256": "743fdbee674813d17be4a39a362a924f0056572162f5dc88ee7109341317533c",
+      "sourceFeatureCount": 1,
+      "displayFeatureCount": 1,
+      "componentCount": 10,
+      "holeCount": 0,
+      "coordinateCount": 1076,
+      "unionInputAreaSquareMeters": 609028.9586349666,
+      "displayAreaSquareMeters": 609028.9586352869,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    },
+    {
+      "reference": "US-8293",
+      "sourceArtifact": "./source-features/us-8293.geojson",
+      "displayArtifact": "./boundaries/us-8293.geojson",
+      "sourceSha256": "59bd7e258460ed2fd730ec55f9152cebcc7a735a13dd24fe48b5f9868c2c904c",
+      "displaySha256": "589d0e8c16f212fbc88adf9d2e163e42b87a0bd878e740bde8dc3a21d0ddff3b",
+      "sourceFeatureCount": 5,
+      "displayFeatureCount": 1,
+      "componentCount": 4,
+      "holeCount": 2,
+      "coordinateCount": 1124,
+      "unionInputAreaSquareMeters": 1183010.9278188348,
+      "displayAreaSquareMeters": 1180854.2868055631,
+      "operations": [
+        {
+          "operation": "unary-union"
+        }
+      ]
+    }
+  ]
+}

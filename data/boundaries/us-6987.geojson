@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-6987",
+    "potaName": "Cocumcussoc State Park",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Cocumcussoc'",
+    "sourceFeatureIds": [
+      436
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 436,
+      "properties": {
+        "potaReference": "US-6987",
+        "potaName": "Cocumcussoc State Park",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1488,40 +1501,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 420.00312444,
-        "BondFund": "Yes",
-        "DeedAcres": 419.99940496,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7050%20Coccamscussoc%20North%20Kingstown%207050.pdf",
-        "DEM_AREA": "Cocumcussoc",
-        "DEM_DIV": "Fish & Wildlife",
-        "DEM_ID": "7050",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "Yes",
-        "ManArea": "No",
-        "NAME": "Cocumcussoc",
-        "NPS_6f": "Y",
-        "OBJECTID": 436,
-        "Poly_Src": "TGIS",
-        "PrimUse": "State Park (Undeveloped)",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 18295336.10076523,
-        "Shape.STLength()": 22415.271043380275,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records/7050_Cocumcussoc_Survey.pdf",
-        "USFW_GrntID": "NA",
-        "Year": "1967"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-6987",
-    "potaName": "Cocumcussoc State Park",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Cocumcussoc'"
-  }
+  ]
 }

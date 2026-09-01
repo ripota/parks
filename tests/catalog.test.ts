@@ -24,7 +24,8 @@ describe("reviewed RI POTA snapshot", () => {
     const snapshot = await validateSnapshot(rootDirectory);
     expect(snapshot.references).toHaveLength(61);
     expect(snapshot.manifest).toHaveLength(61);
-    expect(snapshot.featureCount).toBe(690);
+    expect(snapshot.displayFeatureCount).toBe(61);
+    expect(snapshot.sourceFeatureCount).toBe(439);
     expect(
       snapshot.manifest.filter((record) => record.geometryKind === "boundary"),
     ).toHaveLength(59);
@@ -39,7 +40,7 @@ describe("reviewed RI POTA snapshot", () => {
   });
 
   it("keeps the special reviewed source decisions visible", async () => {
-    const { manifest, geojsonByReference } =
+    const { derivations, manifest, geojsonByReference } =
       await validateSnapshot(rootDirectory);
     const byReference = new Map(
       manifest.map((record) => [record.reference, record] as const),
@@ -65,32 +66,71 @@ describe("reviewed RI POTA snapshot", () => {
       sourceFeatureIds: ["US-6980"],
     });
     expect(byReference.get("US-6980")?.notes).toMatch(/41\.5739, -71\.7864/);
+    expect(
+      derivations.records.find((record) => record.reference === "US-6979"),
+    ).toMatchObject({
+      sourceFeatureCount: 127,
+      displayFeatureCount: 1,
+      componentCount: 25,
+      holeCount: 17,
+      operations: [{ operation: "unary-union" }],
+    });
   });
 
   it("validates source and package GeoJSON against the public schemas", async () => {
     const ajv = new Ajv({ allErrors: true, allowUnionTypes: true });
-    const geojsonSchema = JSON.parse(
+    const displayGeojsonSchema = JSON.parse(
       await readFile(
-        path.join(rootDirectory, "schemas/geojson.schema.json"),
+        path.join(rootDirectory, "schemas/v2/display-geojson.schema.json"),
+        "utf8",
+      ),
+    );
+    const sourceGeojsonSchema = JSON.parse(
+      await readFile(
+        path.join(rootDirectory, "schemas/v2/source-geojson.schema.json"),
         "utf8",
       ),
     );
     const catalogSchema = JSON.parse(
       await readFile(
-        path.join(rootDirectory, "schemas/catalog.schema.json"),
+        path.join(rootDirectory, "schemas/v2/catalog.schema.json"),
         "utf8",
       ),
     );
-    ajv.addSchema(geojsonSchema);
+    const sourceCatalogSchema = JSON.parse(
+      await readFile(
+        path.join(rootDirectory, "schemas/v2/source-catalog.schema.json"),
+        "utf8",
+      ),
+    );
+    const manifestSchema = JSON.parse(
+      await readFile(
+        path.join(rootDirectory, "schemas/v2/manifest.schema.json"),
+        "utf8",
+      ),
+    );
+    ajv.addSchema(displayGeojsonSchema);
+    ajv.addSchema(sourceGeojsonSchema);
     const validateCatalog = ajv.compile(catalogSchema);
-    const validateGeojson = ajv.getSchema(
-      "https://ripota.org/schemas/geojson.schema.json",
+    const validateSourceCatalog = ajv.compile(sourceCatalogSchema);
+    const validateManifest = ajv.compile(manifestSchema);
+    const validateDisplayGeojson = ajv.getSchema(
+      "https://ripota.org/schemas/v2/display-geojson.schema.json",
+    );
+    const validateSourceGeojson = ajv.getSchema(
+      "https://ripota.org/schemas/v2/source-geojson.schema.json",
     );
     const snapshot = await validateSnapshot(rootDirectory);
     for (const geojson of snapshot.geojsonByReference.values()) {
       expect(
-        validateGeojson?.(geojson),
-        JSON.stringify(validateGeojson?.errors),
+        validateDisplayGeojson?.(geojson),
+        JSON.stringify(validateDisplayGeojson?.errors),
+      ).toBe(true);
+    }
+    for (const geojson of snapshot.sourceGeojsonByReference.values()) {
+      expect(
+        validateSourceGeojson?.(geojson),
+        JSON.stringify(validateSourceGeojson?.errors),
       ).toBe(true);
     }
     const artifacts = await buildPackageArtifacts(rootDirectory);
@@ -98,18 +138,41 @@ describe("reviewed RI POTA snapshot", () => {
     const aggregate = JSON.parse(
       artifacts.get("dist/all.geojson")!,
     ) as GeoJsonFeatureCollection;
+    const sourceCatalog = JSON.parse(
+      artifacts.get("dist/source-catalog.json")!,
+    ) as Catalog;
+    const sourceAggregate = JSON.parse(
+      artifacts.get("dist/source-all.geojson")!,
+    ) as GeoJsonFeatureCollection;
     expect(
       validateCatalog(catalog),
       JSON.stringify(validateCatalog.errors),
     ).toBe(true);
     expect(
-      validateGeojson?.(aggregate),
-      JSON.stringify(validateGeojson?.errors),
+      validateSourceCatalog(sourceCatalog),
+      JSON.stringify(validateSourceCatalog.errors),
     ).toBe(true);
-    expect(catalog.schemaVersion).toBe(1);
+    expect(
+      validateManifest(snapshot.derivations),
+      JSON.stringify(validateManifest.errors),
+    ).toBe(true);
+    expect(
+      validateDisplayGeojson?.(aggregate),
+      JSON.stringify(validateDisplayGeojson?.errors),
+    ).toBe(true);
+    expect(
+      validateSourceGeojson?.(sourceAggregate),
+      JSON.stringify(validateSourceGeojson?.errors),
+    ).toBe(true);
+    expect(catalog.schemaVersion).toBe(2);
+    expect(catalog.geometryRole).toBe("display");
     expect(catalog.referenceCount).toBe(61);
-    expect(catalog.featureCount).toBe(690);
-    expect(aggregate.features).toHaveLength(690);
+    expect(catalog.featureCount).toBe(61);
+    expect(catalog.sourceFeatureCount).toBe(439);
+    expect(aggregate.features).toHaveLength(61);
+    expect(sourceCatalog.geometryRole).toBe("source");
+    expect(sourceCatalog.featureCount).toBe(439);
+    expect(sourceAggregate.features).toHaveLength(439);
     for (const feature of aggregate.features) {
       expect(feature.properties).toEqual(
         expect.objectContaining({
@@ -128,7 +191,7 @@ describe("reviewed RI POTA snapshot", () => {
       .get("dist/checksums.sha256")!
       .trim()
       .split("\n");
-    expect(checksumLines).toHaveLength(65);
+    expect(checksumLines).toHaveLength(129);
     const manifest = JSON.parse(
       await readFile(path.join(rootDirectory, "data/manifest.json"), "utf8"),
     ) as ManifestRecord[];

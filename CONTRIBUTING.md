@@ -32,7 +32,7 @@ The initial offline check must pass before a data refresh.
 | `config/reviewed-sources.json` | Human-reviewed per-reference mappings, queries, and source IDs |
 | `config/boundary-sources.ts`   | Human-reviewed service endpoints and shared derivation rules   |
 | `schemas/`                     | Intentionally maintained public contracts                      |
-| `data/`                        | Generated checked-in snapshot; do not hand-edit                |
+| `data/`                        | Generated display, source-feature, and derivation snapshot     |
 | `dist/`                        | Generated package artifacts; rebuild with `mise run package`   |
 | `src/`, `tests/`               | Updater, validation, packaging, release, and regression logic  |
 
@@ -55,9 +55,10 @@ Stale live boundary files are an error and must be removed only after explicit r
 - [ ] Added, removed, or renamed POTA references are accounted for.
 - [ ] Official names, coordinates, grids, and locations match the reviewed source.
 - [ ] Source URLs, queries, feature IDs, and per-reference feature counts are expected.
-- [ ] Geometry type, extent, obvious shape changes, and the 100-foot trail activation-zone derivation are correct.
+- [ ] Source geometry type, extent, properties, IDs, and feature counts are expected.
+- [ ] Display unions retain expected components and holes without bridging gaps; the trail retains its reviewed 100-foot activation-zone derivation.
 - [ ] County assignments reflect geometry intersection, including boundary contact.
-- [ ] Boundary inventory has no orphaned or unexpectedly missing files.
+- [ ] Display and source-feature inventories have no orphaned or unexpectedly missing files.
 - [ ] Aggregate reference and feature counts are explained.
 - [ ] Attribution, linked terms, limitations, snapshot version, and review date remain current.
 - [ ] Rebuilt `dist/` files and byte-level SHA-256 checksums are deterministic.
@@ -70,7 +71,7 @@ Do not bypass a reported gate. Inspect `git status` and the error, preserve unre
 
 [`src/release.ts`](src/release.ts) is the executable source of truth for asset construction, required filenames, publication state, and digest comparison. The [tag workflow](.github/workflows/release.yml) invokes it; the `release-assets` Mise task exposes safe local build and verification commands.
 
-The contract includes the combined data files, data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Source metadata remain available inside the tarball and tagged repository, not as separate release assets. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
+The contract includes display and source-feature catalogs and aggregates, the data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Per-reference source features and derivation metadata remain available inside the tarball and tagged repository. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
 
 ### Prepare and rehearse
 

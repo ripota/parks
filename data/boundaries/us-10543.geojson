@@ -1,15 +1,28 @@
 {
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
   "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "EPSG:4326"
-    }
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-10543",
+    "potaName": "Patriots Park State Historic Site",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Patriot Park'",
+    "sourceFeatureIds": [
+      869
+    ]
   },
   "features": [
     {
       "type": "Feature",
-      "id": 869,
+      "properties": {
+        "potaReference": "US-10543",
+        "potaName": "Patriots Park State Historic Site",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -104,40 +117,7 @@
             ]
           ]
         ]
-      },
-      "properties": {
-        "ACQ_TYPE": "Fee Title",
-        "Acres": 1.16326386,
-        "BondFund": "No",
-        "DeedAcres": 1.16498831,
-        "DeedURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "DEM_AREA": "Patriot Park",
-        "DEM_DIV": "Parks & Recreation",
-        "DEM_ID": "7091",
-        "DEM_Managed": "Yes",
-        "FISHING": "Yes",
-        "HUNTING": "No",
-        "ManArea": "No",
-        "NAME": "Patriot Park",
-        "NPS_6f": "N",
-        "OBJECTID": 869,
-        "Poly_Src": "TGIS",
-        "PrimUse": "Historic Site",
-        "Pub_Access": "YES",
-        "Shape.STArea()": 50671.7737197876,
-        "Shape.STLength()": 893.2605440633262,
-        "SurvURL": "https://rigov.sharepoint.com/sites/DEM-NR-PD-Team/Shared%20Documents/LandAcquisition/Legal_Records",
-        "USFW_GrntID": "NA",
-        "Year": "1901"
       }
     }
-  ],
-  "properties": {
-    "geometryKind": "boundary",
-    "potaReference": "US-10543",
-    "potaName": "Patriots Park State Historic Site",
-    "sourceName": "Rhode Island DEM State Conservation Land",
-    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-    "sourceQuery": "DEM_AREA = 'Patriot Park'"
-  }
+  ]
 }

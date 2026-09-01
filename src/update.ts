@@ -1,6 +1,7 @@
 #!/usr/bin/env -S node --experimental-strip-types
 
 import { mkdtemp, readdir, rename, rm } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -15,6 +16,9 @@ import { atomicWrite, writePackageArtifacts } from "./package.ts";
 import { normalizePotaReferences } from "./references.ts";
 import type { GeometryResult } from "./boundaries.ts";
 import type {
+  DerivationManifest,
+  DerivationRecord,
+  GeoJsonFeatureCollection,
   ManifestRecord,
   PotaReference,
   PotaReferenceSource,
@@ -53,6 +57,52 @@ export class SnapshotRollbackError extends AggregateError {
 
 function json(value: unknown): string {
   return `${JSON.stringify(value, null, 2)}\n`;
+}
+
+function sha256(content: string): string {
+  return createHash("sha256").update(content).digest("hex");
+}
+
+function geometryMetrics(geojson: GeoJsonFeatureCollection): {
+  componentCount: number;
+  holeCount: number;
+  coordinateCount: number;
+} {
+  let componentCount = 0;
+  let holeCount = 0;
+  let coordinateCount = 0;
+  function countPositions(coordinates: unknown): void {
+    if (
+      Array.isArray(coordinates) &&
+      coordinates.length >= 2 &&
+      typeof coordinates[0] === "number" &&
+      typeof coordinates[1] === "number"
+    ) {
+      coordinateCount += 1;
+      return;
+    }
+    if (Array.isArray(coordinates)) {
+      coordinates.forEach(countPositions);
+    }
+  }
+  for (const feature of geojson.features) {
+    if (feature.geometry.type === "Polygon") {
+      const rings = feature.geometry.coordinates as unknown[];
+      componentCount += 1;
+      holeCount += Math.max(0, rings.length - 1);
+    } else if (feature.geometry.type === "MultiPolygon") {
+      const polygons = feature.geometry.coordinates as unknown[][];
+      componentCount += polygons.length;
+      holeCount += polygons.reduce(
+        (total, rings) => total + Math.max(0, rings.length - 1),
+        0,
+      );
+    } else if (feature.geometry.type === "Point") {
+      componentCount += 1;
+    }
+    countPositions(feature.geometry.coordinates);
+  }
+  return { componentCount, holeCount, coordinateCount };
 }
 
 function assertReviewCoverage(
@@ -114,11 +164,20 @@ export async function assertNoStaleBoundaryFiles(
       .filter((value): value is string => Boolean(value))
       .map((filePath) => path.basename(filePath)),
   );
-  const actual = new Set(
-    (await readdir(boundaryDirectory)).filter((name) =>
-      name.endsWith(".geojson"),
-    ),
-  );
+  let names: string[] = [];
+  try {
+    names = await readdir(boundaryDirectory);
+  } catch (error) {
+    if (
+      !error ||
+      typeof error !== "object" ||
+      !("code" in error) ||
+      error.code !== "ENOENT"
+    ) {
+      throw error;
+    }
+  }
+  const actual = new Set(names.filter((name) => name.endsWith(".geojson")));
   const orphaned = [...actual].filter((name) => !expected.has(name));
   if (orphaned.length) {
     throw new Error(
@@ -140,13 +199,51 @@ export async function writeCandidateSnapshot(
     path.join(candidateDataDirectory, "manifest.json"),
     json(results.map((result) => result.manifest)),
   );
+  const derivationRecords: DerivationRecord[] = [];
   for (const result of results) {
     const fileName = `${result.manifest.reference.toLowerCase()}.geojson`;
+    const sourceContent = json(result.sourceGeojson);
+    const displayContent = json(result.displayGeojson);
     await atomicWrite(
       path.join(candidateDataDirectory, "boundaries", fileName),
-      json(result.geojson),
+      displayContent,
     );
+    await atomicWrite(
+      path.join(candidateDataDirectory, "source-features", fileName),
+      sourceContent,
+    );
+    derivationRecords.push({
+      reference: result.manifest.reference,
+      sourceArtifact: `./source-features/${fileName}`,
+      displayArtifact: `./boundaries/${fileName}`,
+      sourceSha256: sha256(sourceContent),
+      displaySha256: sha256(displayContent),
+      sourceFeatureCount: result.sourceGeojson.features.length,
+      displayFeatureCount: result.displayGeojson.features.length,
+      ...geometryMetrics(result.displayGeojson),
+      ...(result.unionInputAreaSquareMeters === undefined
+        ? {}
+        : {
+            unionInputAreaSquareMeters: result.unionInputAreaSquareMeters,
+          }),
+      ...(result.displayAreaSquareMeters === undefined
+        ? {}
+        : { displayAreaSquareMeters: result.displayAreaSquareMeters }),
+      operations: result.operations,
+    });
   }
+  const derivations: DerivationManifest = {
+    $schema: "https://ripota.org/schemas/v2/manifest.schema.json",
+    schemaVersion: 2,
+    algorithmVersion: 1,
+    unionEngine: { name: "jsts", version: "2.12.1" },
+    validationEngine: { name: "jsts", version: "2.12.1" },
+    records: derivationRecords,
+  };
+  await atomicWrite(
+    path.join(candidateDataDirectory, "derivations.json"),
+    json(derivations),
+  );
 }
 
 async function runCommitStep(
@@ -245,10 +342,27 @@ export async function update(options: UpdateOptions = {}): Promise<void> {
   });
 
   const counties = await fetchCounties();
-  const referencesWithCounties = references.map((reference, index) => ({
-    ...reference,
-    counties: deriveCounties(reference, results[index].geojson, counties),
-  }));
+  const referencesWithCounties = references.map((reference, index) => {
+    const result = results[index];
+    const displayCounties = deriveCounties(
+      reference,
+      result.displayGeojson,
+      counties,
+    );
+    if (result.manifest.geometryKind === "boundary") {
+      const sourceCounties = deriveCounties(
+        reference,
+        result.sourceGeojson,
+        counties,
+      );
+      if (JSON.stringify(sourceCounties) !== JSON.stringify(displayCounties)) {
+        throw new Error(
+          `${reference.reference} display union changed county membership`,
+        );
+      }
+    }
+    return { ...reference, counties: displayCounties };
+  });
 
   const candidateRoot = await mkdtemp(path.join(rootDirectory, ".update-"));
   const candidateDataDirectory = path.join(candidateRoot, "data");
@@ -266,6 +380,13 @@ export async function update(options: UpdateOptions = {}): Promise<void> {
     await assertNoStaleBoundaryFiles(
       path.join(rootDirectory, "data/boundaries"),
       validation.manifest,
+    );
+    await assertNoStaleBoundaryFiles(
+      path.join(rootDirectory, "data/source-features"),
+      validation.manifest.map((record) => ({
+        ...record,
+        localGeojson: `./source-features/${record.reference.toLowerCase()}.geojson`,
+      })),
     );
     await writePackageArtifacts(
       rootDirectory,
@@ -286,7 +407,7 @@ export async function update(options: UpdateOptions = {}): Promise<void> {
       options.commitStep,
     );
     console.log(
-      `Updated ${validation.references.length} references and ${validation.featureCount} features from reviewed sources.`,
+      `Updated ${validation.references.length} references, ${validation.displayFeatureCount} display features, and ${validation.sourceFeatureCount} source features from reviewed sources.`,
     );
   } catch (error) {
     preserveCandidate = error instanceof SnapshotRollbackError;
