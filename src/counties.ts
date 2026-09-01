@@ -1,3 +1,5 @@
+import { booleanIntersects } from "@turf/boolean-intersects";
+
 import { countyBoundaryUrl } from "../config/boundary-sources.ts";
 import type {
   GeoJsonFeatureCollection,
@@ -5,7 +7,7 @@ import type {
   PotaReference,
 } from "./types.ts";
 
-type CountyBoundary = {
+export type CountyBoundary = {
   county: string;
   geometry: GeoJsonGeometry;
 };
@@ -52,69 +54,47 @@ function countyName(name: string): string {
     .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())} County`;
 }
 
-function ringContainsPoint(ring: number[][], point: number[]): boolean {
-  const [x, y] = point;
-  let contains = false;
-  for (
-    let current = 0, previous = ring.length - 1;
-    current < ring.length;
-    previous = current, current += 1
-  ) {
-    const [currentX, currentY] = ring[current];
-    const [previousX, previousY] = ring[previous];
-    const intersects =
-      currentY > y !== previousY > y &&
-      x <
-        ((previousX - currentX) * (y - currentY)) / (previousY - currentY) +
-          currentX;
-    if (intersects) {
-      contains = !contains;
+type Bounds = [west: number, south: number, east: number, north: number];
+
+const boundsByGeometry = new WeakMap<GeoJsonGeometry, Bounds>();
+
+function geometryBounds(geometry: GeoJsonGeometry): Bounds {
+  const cached = boundsByGeometry.get(geometry);
+  if (cached) {
+    return cached;
+  }
+  const bounds: Bounds = [Infinity, Infinity, -Infinity, -Infinity];
+  function visit(value: unknown): void {
+    if (
+      Array.isArray(value) &&
+      value.length >= 2 &&
+      typeof value[0] === "number" &&
+      typeof value[1] === "number"
+    ) {
+      bounds[0] = Math.min(bounds[0], value[0]);
+      bounds[1] = Math.min(bounds[1], value[1]);
+      bounds[2] = Math.max(bounds[2], value[0]);
+      bounds[3] = Math.max(bounds[3], value[1]);
+      return;
+    }
+    if (Array.isArray(value)) {
+      for (const child of value) {
+        visit(child);
+      }
     }
   }
-  return contains;
+  visit(geometry.coordinates);
+  boundsByGeometry.set(geometry, bounds);
+  return bounds;
 }
 
-function polygonContainsPoint(polygon: number[][][], point: number[]): boolean {
-  return (
-    ringContainsPoint(polygon[0], point) &&
-    !polygon.slice(1).some((ring) => ringContainsPoint(ring, point))
+function boundsIntersect(left: Bounds, right: Bounds): boolean {
+  return !(
+    left[2] < right[0] ||
+    left[0] > right[2] ||
+    left[3] < right[1] ||
+    left[1] > right[3]
   );
-}
-
-function geometryContainsPoint(
-  geometry: GeoJsonGeometry,
-  point: number[],
-): boolean {
-  if (geometry.type === "Polygon") {
-    return polygonContainsPoint(geometry.coordinates as number[][][], point);
-  }
-  if (geometry.type === "MultiPolygon") {
-    return (geometry.coordinates as number[][][][]).some((polygon) =>
-      polygonContainsPoint(polygon, point),
-    );
-  }
-  return false;
-}
-
-function flattenCoordinatePoints(
-  coordinates: unknown,
-  points: number[][] = [],
-): number[][] {
-  if (
-    Array.isArray(coordinates) &&
-    coordinates.length >= 2 &&
-    typeof coordinates[0] === "number" &&
-    typeof coordinates[1] === "number"
-  ) {
-    points.push(coordinates as number[]);
-    return points;
-  }
-  if (Array.isArray(coordinates)) {
-    for (const coordinate of coordinates) {
-      flattenCoordinatePoints(coordinate, points);
-    }
-  }
-  return points;
 }
 
 function concise(message: string, maximumLength = 300): string {
@@ -306,17 +286,32 @@ export function deriveCounties(
   geojson: GeoJsonFeatureCollection,
   countyBoundaries: CountyBoundary[],
 ): string[] {
-  const geometryPoints = geojson.features.flatMap((feature) =>
-    flattenCoordinatePoints(feature.geometry.coordinates),
-  );
-  const points =
-    geometryPoints.length > 0
-      ? geometryPoints
-      : [[reference.longitude, reference.latitude]];
-  return countyBoundaries
-    .filter((county) =>
-      points.some((point) => geometryContainsPoint(county.geometry, point)),
-    )
-    .map((county) => county.county)
-    .sort((left, right) => left.localeCompare(right));
+  const geometries =
+    geojson.features.length > 0
+      ? geojson.features.map((feature) => feature.geometry)
+      : [
+          {
+            type: "Point",
+            coordinates: [reference.longitude, reference.latitude],
+          },
+        ];
+  return [
+    ...new Set(
+      countyBoundaries
+        .filter((county) =>
+          geometries.some(
+            (geometry) =>
+              boundsIntersect(
+                geometryBounds(geometry),
+                geometryBounds(county.geometry),
+              ) &&
+              booleanIntersects(
+                geometry as Parameters<typeof booleanIntersects>[0],
+                county.geometry as Parameters<typeof booleanIntersects>[1],
+              ),
+          ),
+        )
+        .map((county) => county.county),
+    ),
+  ].sort((left, right) => left.localeCompare(right));
 }

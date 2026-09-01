@@ -6,7 +6,7 @@ Reviewed for the `v1.0.0` snapshot on 2026-08-31. The exact service URL, query, 
 
 These files are a community-maintained, time-stamped interpretation for general reference. They are not legal boundary, property ownership, access, navigation, or survey documents; they do not establish that an area is open to the public; and they do not replace current POTA rules. Geometry can be generalized, incomplete, stale, or different from an activation area. Always consult official POTA resources, the managing agency, posted signs, and landowners as appropriate.
 
-All output coordinates are normalized to EPSG:4326. County membership is derived from the final reviewed geometry using the Rhode Island county layer, with the official POTA coordinate as a fallback.
+All output coordinates are normalized to EPSG:4326. County membership is derived from any nonempty intersection between the final reviewed geometry and the Rhode Island county layer, including boundary-only contact, with the official POTA coordinate as a fallback.
 
 ## Source audit
 
