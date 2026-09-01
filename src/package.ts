@@ -35,8 +35,9 @@ function sha256(content: string): string {
 
 export async function buildPackageArtifacts(
   rootDirectory: string,
+  dataDirectory = path.join(rootDirectory, "data"),
 ): Promise<Map<string, string>> {
-  const snapshot = await validateSnapshot(rootDirectory);
+  const snapshot = await validateSnapshot(rootDirectory, dataDirectory);
   const manifestByReference = new Map(
     snapshot.manifest.map((record) => [record.reference, record]),
   );
@@ -106,11 +107,11 @@ export async function buildPackageArtifacts(
   const checksumInputs = new Map<string, string>();
   checksumInputs.set(
     "data/references.json",
-    await readFile(path.join(rootDirectory, "data/references.json"), "utf8"),
+    await readFile(path.join(dataDirectory, "references.json"), "utf8"),
   );
   checksumInputs.set(
     "data/manifest.json",
-    await readFile(path.join(rootDirectory, "data/manifest.json"), "utf8"),
+    await readFile(path.join(dataDirectory, "manifest.json"), "utf8"),
   );
   for (const manifest of snapshot.manifest) {
     if (!manifest.localGeojson) {
@@ -119,7 +120,10 @@ export async function buildPackageArtifacts(
     const relativePath = `data/boundaries/${path.basename(manifest.localGeojson)}`;
     checksumInputs.set(
       relativePath,
-      await readFile(path.join(rootDirectory, relativePath), "utf8"),
+      await readFile(
+        path.join(dataDirectory, "boundaries", path.basename(relativePath)),
+        "utf8",
+      ),
     );
   }
   for (const [relativePath, content] of artifacts) {
@@ -138,10 +142,12 @@ export async function buildPackageArtifacts(
 export async function writePackageArtifacts(
   rootDirectory: string,
   checkOnly = false,
+  dataDirectory = path.join(rootDirectory, "data"),
+  outputDirectory = rootDirectory,
 ): Promise<void> {
-  const artifacts = await buildPackageArtifacts(rootDirectory);
+  const artifacts = await buildPackageArtifacts(rootDirectory, dataDirectory);
   for (const [relativePath, content] of artifacts) {
-    const filePath = path.join(rootDirectory, relativePath);
+    const filePath = path.join(outputDirectory, relativePath);
     if (checkOnly) {
       let actual: string;
       try {

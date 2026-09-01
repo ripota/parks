@@ -1,6 +1,6 @@
 #!/usr/bin/env -S node --experimental-strip-types
 
-import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
+import { mkdtemp, readdir, rename, rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -21,10 +21,35 @@ import type {
 } from "./types.ts";
 import { readJson, validateSnapshot } from "./validate.ts";
 
-const rootDirectory = path.resolve(
+const defaultRootDirectory = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
 );
+
+type CommitStep =
+  | "after-data-backup"
+  | "after-data-install"
+  | "after-dist-backup"
+  | "after-dist-install";
+
+export type UpdateOptions = {
+  beforeCommit?: (candidateRoot: string) => Promise<void> | void;
+  commitStep?: (step: CommitStep) => Promise<void> | void;
+  fetchCounties?: typeof fetchCountyBoundaries;
+  fetchGeometry?: typeof fetchReviewedGeometry;
+  fetchReferences?: () => Promise<PotaReferenceSource[]>;
+  rootDirectory?: string;
+};
+
+export class SnapshotRollbackError extends AggregateError {
+  constructor(errors: unknown[]) {
+    super(
+      errors,
+      "Snapshot commit failed and rollback was incomplete; preserve the update directory for recovery.",
+    );
+    this.name = "SnapshotRollbackError";
+  }
+}
 
 function json(value: unknown): string {
   return `${JSON.stringify(value, null, 2)}\n`;
@@ -79,7 +104,7 @@ async function mapWithConcurrency<T, U>(
   return output;
 }
 
-async function assertNoOrphanFiles(
+export async function assertNoStaleBoundaryFiles(
   boundaryDirectory: string,
   manifest: ManifestRecord[],
 ): Promise<void> {
@@ -95,15 +120,14 @@ async function assertNoOrphanFiles(
     ),
   );
   const orphaned = [...actual].filter((name) => !expected.has(name));
-  const missing = [...expected].filter((name) => !actual.has(name));
-  if (orphaned.length || missing.length) {
+  if (orphaned.length) {
     throw new Error(
-      `Boundary inventory needs explicit review. Orphaned: ${orphaned.join(", ") || "none"}; missing: ${missing.join(", ") || "none"}.`,
+      `Boundary inventory needs explicit review. Stale live files: ${orphaned.join(", ")}.`,
     );
   }
 }
 
-async function writeCandidateSnapshot(
+export async function writeCandidateSnapshot(
   candidateDataDirectory: string,
   references: PotaReference[],
   results: GeometryResult[],
@@ -125,43 +149,87 @@ async function writeCandidateSnapshot(
   }
 }
 
-async function installCandidateSnapshot(
-  candidateDataDirectory: string,
-  manifest: ManifestRecord[],
+async function runCommitStep(
+  hook: UpdateOptions["commitStep"],
+  step: CommitStep,
 ): Promise<void> {
-  const dataDirectory = path.join(rootDirectory, "data");
-  await atomicWrite(
-    path.join(dataDirectory, "references.json"),
-    await readFile(
-      path.join(candidateDataDirectory, "references.json"),
-      "utf8",
-    ),
-  );
-  await atomicWrite(
-    path.join(dataDirectory, "manifest.json"),
-    await readFile(path.join(candidateDataDirectory, "manifest.json"), "utf8"),
-  );
-  for (const record of manifest) {
-    if (!record.localGeojson) {
-      continue;
-    }
-    const fileName = path.basename(record.localGeojson);
-    await atomicWrite(
-      path.join(dataDirectory, "boundaries", fileName),
-      await readFile(
-        path.join(candidateDataDirectory, "boundaries", fileName),
-        "utf8",
-      ),
-    );
+  if (hook) {
+    await hook(step);
   }
 }
 
-export async function update(): Promise<void> {
+export async function commitStagedSnapshot(
+  rootDirectory: string,
+  candidateRoot: string,
+  commitStep?: UpdateOptions["commitStep"],
+): Promise<void> {
+  const liveData = path.join(rootDirectory, "data");
+  const liveDist = path.join(rootDirectory, "dist");
+  const stagedData = path.join(candidateRoot, "data");
+  const stagedDist = path.join(candidateRoot, "dist");
+  const previousData = path.join(candidateRoot, "previous-data");
+  const previousDist = path.join(candidateRoot, "previous-dist");
+  const failedData = path.join(candidateRoot, "failed-data");
+  const failedDist = path.join(candidateRoot, "failed-dist");
+  let dataBackedUp = false;
+  let dataInstalled = false;
+  let distBackedUp = false;
+  let distInstalled = false;
+
+  try {
+    await rename(liveData, previousData);
+    dataBackedUp = true;
+    await runCommitStep(commitStep, "after-data-backup");
+    await rename(stagedData, liveData);
+    dataInstalled = true;
+    await runCommitStep(commitStep, "after-data-install");
+    await rename(liveDist, previousDist);
+    distBackedUp = true;
+    await runCommitStep(commitStep, "after-dist-backup");
+    await rename(stagedDist, liveDist);
+    distInstalled = true;
+    await runCommitStep(commitStep, "after-dist-install");
+  } catch (error) {
+    const rollbackErrors: unknown[] = [];
+    async function rollback(operation: () => Promise<void>): Promise<void> {
+      try {
+        await operation();
+      } catch (rollbackError) {
+        rollbackErrors.push(rollbackError);
+      }
+    }
+
+    if (distInstalled) {
+      await rollback(() => rename(liveDist, failedDist));
+    }
+    if (distBackedUp) {
+      await rollback(() => rename(previousDist, liveDist));
+    }
+    if (dataInstalled) {
+      await rollback(() => rename(liveData, failedData));
+    }
+    if (dataBackedUp) {
+      await rollback(() => rename(previousData, liveData));
+    }
+
+    if (rollbackErrors.length > 0) {
+      throw new SnapshotRollbackError([error, ...rollbackErrors]);
+    }
+    throw error;
+  }
+}
+
+export async function update(options: UpdateOptions = {}): Promise<void> {
+  const rootDirectory = options.rootDirectory ?? defaultRootDirectory;
+  const fetchReferences =
+    options.fetchReferences ??
+    (() => fetchJson<PotaReferenceSource[]>(potaReferencesUrl));
+  const fetchGeometry = options.fetchGeometry ?? fetchReviewedGeometry;
+  const fetchCounties = options.fetchCounties ?? fetchCountyBoundaries;
   const reviewedSources = await readJson<ManifestRecord[]>(
     path.join(rootDirectory, "config/reviewed-sources.json"),
   );
-  const upstreamReferences =
-    await fetchJson<PotaReferenceSource[]>(potaReferencesUrl);
+  const upstreamReferences = await fetchReferences();
   const references = normalizePotaReferences(upstreamReferences);
   assertReviewCoverage(references, reviewedSources);
   const reviewedByReference = new Map(
@@ -173,10 +241,10 @@ export async function update(): Promise<void> {
     if (!reviewed) {
       throw new Error(`${reference.reference} has no reviewed source mapping`);
     }
-    return fetchReviewedGeometry(reference, reviewed);
+    return fetchGeometry(reference, reviewed);
   });
 
-  const counties = await fetchCountyBoundaries();
+  const counties = await fetchCounties();
   const referencesWithCounties = references.map((reference, index) => ({
     ...reference,
     counties: deriveCounties(reference, results[index].geojson, counties),
@@ -184,6 +252,7 @@ export async function update(): Promise<void> {
 
   const candidateRoot = await mkdtemp(path.join(rootDirectory, ".update-"));
   const candidateDataDirectory = path.join(candidateRoot, "data");
+  let preserveCandidate = false;
   try {
     await writeCandidateSnapshot(
       candidateDataDirectory,
@@ -194,17 +263,38 @@ export async function update(): Promise<void> {
       rootDirectory,
       candidateDataDirectory,
     );
-    await assertNoOrphanFiles(
+    await assertNoStaleBoundaryFiles(
       path.join(rootDirectory, "data/boundaries"),
       validation.manifest,
     );
-    await installCandidateSnapshot(candidateDataDirectory, validation.manifest);
-    await writePackageArtifacts(rootDirectory);
+    await writePackageArtifacts(
+      rootDirectory,
+      false,
+      candidateDataDirectory,
+      candidateRoot,
+    );
+    await writePackageArtifacts(
+      rootDirectory,
+      true,
+      candidateDataDirectory,
+      candidateRoot,
+    );
+    await options.beforeCommit?.(candidateRoot);
+    await commitStagedSnapshot(
+      rootDirectory,
+      candidateRoot,
+      options.commitStep,
+    );
     console.log(
       `Updated ${validation.references.length} references and ${validation.featureCount} features from reviewed sources.`,
     );
+  } catch (error) {
+    preserveCandidate = error instanceof SnapshotRollbackError;
+    throw error;
   } finally {
-    await rm(candidateRoot, { recursive: true, force: true });
+    if (!preserveCandidate) {
+      await rm(candidateRoot, { recursive: true, force: true });
+    }
   }
 }
 
