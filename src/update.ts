@@ -208,7 +208,10 @@ export async function update(): Promise<void> {
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(process.argv[1]).href
+) {
   try {
     await update();
   } catch (error) {
