@@ -5,7 +5,7 @@
 `mise run update` is the single networked generation pipeline. Normal validation and packaging are offline.
 
 1. Start from a clean checkout and run `npm ci` and `mise run check`.
-2. Run `mise run update`. It fetches the current `US-RI` list, applies only mappings in `config/reviewed-sources.json`, fetches geometry in EPSG:4326, builds the trail activation zone, derives counties, validates the complete candidate, and writes atomically.
+2. Run `mise run update`. It fetches the current `US-RI` list, applies only mappings in `config/reviewed-sources.json`, fetches geometry in EPSG:4326, builds the trail activation zone, derives counties, validates the complete candidate, and writes atomically. Each upstream request is limited to three attempts of at most 15 seconds, with capped delays for transient failures.
 3. If the command reports a new/missing reference, empty query, or changed source feature IDs, stop. Research the upstream change and update the reviewed mapping deliberately. Do not weaken or remove the check.
 4. Review every source-data diff, including names, coordinates, queries, IDs, geometry, counties, and feature counts. Confirm source attribution and terms remain current.
 5. Run `mise run package` and `mise run check`. The package check must prove that committed distributable files reproduce byte-for-byte offline.
