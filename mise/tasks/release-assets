@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# -*- mode: sh; sh-shell: bash; -*-
+#MISE description="Build or verify the canonical GitHub release assets"
+#USAGE arg "<command>" help="Release action" {
+#USAGE   choices "build" "verify"
+#USAGE }
+#USAGE arg "[tag]" help="Existing vX.Y.Z tag required by verify"
+#USAGE flag "--directory <directory>" default="release-assets" help="Asset directory"
+
+set -euo pipefail
+
+if [[ "$usage_command" == "build" ]]; then
+  node --experimental-strip-types src/release.ts build "$usage_directory"
+elif [[ -n "${usage_tag:-}" ]]; then
+  node --experimental-strip-types src/release.ts verify "$usage_tag" "$usage_directory"
+else
+  echo "verify requires a vX.Y.Z tag" >&2
+  exit 2
+fi

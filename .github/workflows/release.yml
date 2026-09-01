@@ -21,25 +21,8 @@ jobs:
       - name: Verify tag matches package version
         run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
       - name: Build release assets
-        run: |
-          mkdir release-assets
-          cp dist/catalog.json dist/all.geojson dist/checksums.sha256 release-assets/
-          npm pack --pack-destination release-assets
-          cd release-assets
-          sha256sum catalog.json all.geojson checksums.sha256 *.tgz > checksums.release.sha256
+        run: node --experimental-strip-types src/release.ts build release-assets
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            existing_assets="$(gh release view "$GITHUB_REF_NAME" --json assets --jq '.assets[].name')"
-            for required_asset in catalog.json all.geojson checksums.sha256 "ripota-parks-${GITHUB_REF_NAME#v}.tgz"; do
-              if ! grep -Fxq "$required_asset" <<<"$existing_assets"; then
-                echo "Existing release $GITHUB_REF_NAME is missing required asset: $required_asset" >&2
-                exit 1
-              fi
-            done
-            echo "Release $GITHUB_REF_NAME already exists with all required assets."
-          else
-            gh release create "$GITHUB_REF_NAME" release-assets/* --verify-tag --generate-notes --title "$GITHUB_REF_NAME"
-          fi
+        run: node --experimental-strip-types src/release.ts publish "$GITHUB_REF_NAME" release-assets
