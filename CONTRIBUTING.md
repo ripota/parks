@@ -14,12 +14,14 @@ The initial offline check must pass before a data refresh.
 
 ## Maintenance commands
 
-| Command            | Network | Tracked writes   | Purpose                                                                                            |
-| ------------------ | ------- | ---------------- | -------------------------------------------------------------------------------------------------- |
-| `mise run check`   | No      | No               | Check formatting, types, tests, snapshot validity, packed consumption, and package reproducibility |
-| `mise run test`    | No      | No               | Run offline data, failure-path, release-contract, and packaging tests                              |
-| `mise run package` | No      | `dist/`          | Rebuild distributable artifacts from checked-in data                                               |
-| `mise run update`  | Yes     | `data/`, `dist/` | Refresh the complete reviewed snapshot from upstream services                                      |
+| Command                                                     | Network | Tracked writes     | Purpose                                                                                            |
+| ----------------------------------------------------------- | ------- | ------------------ | -------------------------------------------------------------------------------------------------- |
+| `mise run check`                                            | No      | No                 | Check formatting, types, tests, snapshot validity, packed consumption, and package reproducibility |
+| `mise run test`                                             | No      | No                 | Run offline data, failure-path, release-contract, and packaging tests                              |
+| `mise run package`                                          | No      | `dist/`            | Rebuild distributable artifacts from checked-in data                                               |
+| `mise run update`                                           | Yes     | `data/`, `dist/`   | Refresh the complete reviewed snapshot from upstream services                                      |
+| `mise run release-assets -- build --directory <dir>`        | No      | Selected directory | Rehearse the canonical release build without publishing                                            |
+| `mise run release-assets -- verify <tag> --directory <dir>` | Yes     | No                 | Compare a public release with a local canonical build                                              |
 
 `mise run update` is the only networked snapshot path. Each request has at most three 15-second attempts with capped transient-failure delays. The updater stages and validates complete `data/` and `dist/` trees before swapping them; handled commit failures restore the prior trees.
 
@@ -66,11 +68,53 @@ Do not bypass a reported gate. Inspect `git status` and the error, preserve unre
 
 ## Release procedure
 
-1. Decide the semantic version: patch for a reviewed snapshot refresh, minor for backward-compatible contract additions, major for breaking paths or schema changes.
-2. Update `package.json`, regenerate package artifacts, and run `mise run check` from a clean checkout.
-3. Verify `npm pack --dry-run` contains `data/`, `dist/`, and the attribution documents.
-4. Land the signed commit on `main`, push `main`, and create the signed `vX.Y.Z` tag from that exact commit.
-5. Build release assets from the tag. Attach `dist/catalog.json`, `dist/all.geojson`, `dist/checksums.sha256`, and the `npm pack` tarball to the GitHub release.
-6. A consumer may update only after the tag and release assets are public and independently verified.
+[`src/release.ts`](src/release.ts) is the executable source of truth for asset construction, required filenames, publication state, and digest comparison. The [tag workflow](.github/workflows/release.yml) invokes it; the `release-assets` Mise task exposes safe local build and verification commands.
+
+The contract includes the combined data files, data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Source metadata remain available inside the tarball and tagged repository, not as separate release assets. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
+
+### Prepare and rehearse
+
+1. Start on current `main` with no unrelated changes and a passing `mise run check`.
+2. Choose the version: patch for a reviewed snapshot refresh, minor for backward-compatible fields or exports, major for breaking paths, required fields, meanings, or schema version.
+3. Keep both package files synchronized:
+
+   ```sh
+   npm version <version> --no-git-tag-version
+   ```
+
+4. Rebuild and validate, including the installed-tarball consumer test:
+
+   ```sh
+   mise run package
+   mise run check
+   ```
+
+5. Rehearse the exact asset build in a new temporary directory and verify its digests:
+
+   ```sh
+   release_assets_dir="$(mktemp -d)"
+   mise run release-assets -- build --directory "$release_assets_dir"
+   (cd "$release_assets_dir" && shasum -a 256 -c checksums.release.sha256)
+   ```
+
+### Publish and verify
+
+1. Land the reviewed signed release commit on `main`, push it, and wait for CI to pass.
+2. From that exact commit, create and push the signed matching tag with the maintainer's configured signing backend:
+
+   ```sh
+   release_tag="v$(node -p "require('./package.json').version")"
+   git tag -s "$release_tag"
+   git push origin "$release_tag"
+   ```
+
+3. The tag workflow rebuilds the canonical assets, creates the public release, then downloads and digest-compares every published asset.
+4. Verify the Actions run and public release URL before announcing or consuming it. Stable version tags require a published, non-draft, non-prerelease release.
+
+Tagging and publishing are explicit external actions, never part of ordinary validation. This repository supports stable releases only. Do not upload assets manually or run `npm publish`.
+
+### Failures and reruns
+
+Inspect the failed Actions step first. A rerun is safe only for the unchanged tag: an existing public release succeeds when every required asset is byte-identical. Drafts, prereleases, missing assets, and same-name content mismatches fail with specific filenames and are never overwritten. Diagnose mismatches explicitly; do not replace immutable published assets silently. From the exact tagged checkout, the local `verify` command above can compare a rehearsed build with the public release.
 
 Geometry changes are never auto-released. CI validates proposed changes; a maintainer must review and publish them.
