@@ -31,6 +31,8 @@ Raw tagged GitHub URLs are also stable, for example:
 https://raw.githubusercontent.com/ripota/parks/v1.0.0/data/boundaries/us-0513.geojson
 ```
 
+The packaged draft-07 schemas are exported as `./schemas/catalog.schema.json` and `./schemas/geojson.schema.json`. Their stable `$id` URLs use `https://ripota.org/schemas/`; they validate portable data shapes, while `mise run check` additionally enforces ring closure, Rhode Island review bounds, reviewed source identity, inventory, and reproducibility.
+
 Within schema version 1, patch releases are reviewed snapshot refreshes and minor releases may add backward-compatible fields or exports. Breaking field meanings, required fields, or stable paths require a new major release and schema version.
 
 ## Verified initial inventory

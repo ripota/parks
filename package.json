@@ -11,6 +11,7 @@
   "files": [
     "data",
     "dist",
+    "schemas",
     "README.md",
     "DATA_LICENSE.md",
     "DATA_SOURCES.md",
@@ -23,7 +24,9 @@
     "./checksums.sha256": "./dist/checksums.sha256",
     "./references.json": "./data/references.json",
     "./manifest.json": "./data/manifest.json",
-    "./boundaries/*": "./data/boundaries/*"
+    "./boundaries/*": "./data/boundaries/*",
+    "./schemas/catalog.schema.json": "./schemas/catalog.schema.json",
+    "./schemas/geojson.schema.json": "./schemas/geojson.schema.json"
   },
   "scripts": {
     "update": "node --experimental-strip-types src/update.ts",
