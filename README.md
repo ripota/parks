@@ -18,12 +18,28 @@ The `v1` contract uses `schemaVersion: 1` in combined artifacts and keeps these 
 - `dist/all.geojson` — every feature with `potaReference` and `geometryKind` properties.
 - `dist/checksums.sha256` — SHA-256 checksums for every source and combined data file.
 
-JavaScript consumers can use the package exports:
+After installing a GitHub release tarball, Node ESM consumers can use JSON import attributes and resolve raw-text exports through the package map:
 
-```ts
-import catalog from "@ripota/parks/catalog.json";
-import references from "@ripota/parks/references.json";
+```js
+import { readFile } from "node:fs/promises";
+
+import catalog from "@ripota/parks" with { type: "json" };
+import catalogByName from "@ripota/parks/catalog.json" with { type: "json" };
+import manifest from "@ripota/parks/manifest.json" with { type: "json" };
+import references from "@ripota/parks/references.json" with { type: "json" };
+
+async function readExport(specifier) {
+  return readFile(new URL(import.meta.resolve(specifier)), "utf8");
+}
+
+const aggregate = JSON.parse(await readExport("@ripota/parks/all.geojson"));
+const checksums = await readExport("@ripota/parks/checksums.sha256");
+const boundary = JSON.parse(
+  await readExport("@ripota/parks/boundaries/us-0513.geojson"),
+);
 ```
+
+`catalog` and `catalogByName` are equivalent. `manifest` and `references` are structured JSON; `aggregate`, `checksums`, and `boundary` demonstrate the supported raw-file path for `.geojson` and checksum exports. Browsers and bundlers should fetch the equivalent file from a versioned tag URL rather than a mutable branch.
 
 Raw tagged GitHub URLs are also stable, for example:
 
