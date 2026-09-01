@@ -51,16 +51,6 @@ The packaged draft-07 schemas are exported as `./schemas/catalog.schema.json` an
 
 Within schema version 1, patch releases are reviewed snapshot refreshes and minor releases may add backward-compatible fields or exports. Breaking field meanings, required fields, or stable paths require a new major release and schema version.
 
-## Verified initial inventory
-
-The initial snapshot was extracted from `ripota/ripota.org` commit [`6cbe59be37e5e5545848daf3cd4b65827034ce16`](https://github.com/ripota/ripota.org/commit/6cbe59be37e5e5545848daf3cd4b65827034ce16) and contains:
-
-- 61 references and explicit reviewed statuses;
-- 59 boundary records;
-- one 100-foot Washington-Rochambeau trail activation zone;
-- one deliberate Beach Pond point fallback; and
-- 690 source or derived GeoJSON features.
-
 ## Development
 
 Install dependencies, validate the checked-in snapshot, and reproduce the distributable files entirely offline:

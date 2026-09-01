@@ -1,6 +1,10 @@
 # Sources, attribution, and limitations
 
-Reviewed for the `v1.0.0` snapshot on 2026-08-31. The exact service URL, query, feature IDs, geometry kind, local path, and record-specific research notes are preserved in `data/manifest.json` and `config/reviewed-sources.json`.
+Reviewed for the `v1.0.0` snapshot on 2026-08-31. The exact service URL, query, feature IDs, geometry kind, local path, and record-specific research notes are preserved in [`data/manifest.json`](data/manifest.json) and [`config/reviewed-sources.json`](config/reviewed-sources.json). Evergreen redistribution responsibilities are in [DATA_LICENSE.md](DATA_LICENSE.md).
+
+## Snapshot origin and inventory
+
+The initial snapshot was extracted from `ripota/ripota.org` commit [`6cbe59be37e5e5545848daf3cd4b65827034ce16`](https://github.com/ripota/ripota.org/commit/6cbe59be37e5e5545848daf3cd4b65827034ce16). This release contains 61 reviewed references: 59 boundary records, one derived Washington-Rochambeau trail activation zone, and one deliberate Beach Pond point fallback, totaling 690 source or derived GeoJSON features.
 
 ## Shared limitations
 
