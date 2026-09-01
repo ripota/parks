@@ -1,3 +1,7 @@
+import type { PotaReference } from "./index.ts";
+
+export type { PotaReference };
+
 export type GeometryKind = "boundary" | "activation-zone" | "point";
 export type ReviewStatus = "available" | "point-only" | "research-needed";
 
@@ -11,17 +15,6 @@ export type PotaReferenceSource = {
   location?: string;
   locationDesc?: string;
   [key: string]: unknown;
-};
-
-export type PotaReference = {
-  reference: string;
-  name: string;
-  latitude: number;
-  longitude: number;
-  grid: string;
-  counties: string[];
-  locationDesc: string;
-  potaUrl: string;
 };
 
 export type ManifestRecord = {

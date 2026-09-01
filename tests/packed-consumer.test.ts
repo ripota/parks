@@ -15,6 +15,7 @@ const rootDirectory = path.resolve(
 
 let consumerDirectory: string;
 let tarballPath: string;
+let packedFiles: Array<{ path: string; size: number }>;
 
 beforeAll(async () => {
   consumerDirectory = await mkdtemp(
@@ -25,8 +26,12 @@ beforeAll(async () => {
     ["pack", "--json", "--pack-destination", consumerDirectory],
     { cwd: rootDirectory },
   );
-  const packResult = JSON.parse(stdout) as Array<{ filename: string }>;
+  const packResult = JSON.parse(stdout) as Array<{
+    filename: string;
+    files: Array<{ path: string; size: number }>;
+  }>;
   tarballPath = path.join(consumerDirectory, packResult[0].filename);
+  packedFiles = packResult[0].files;
   await writeFile(
     path.join(consumerDirectory, "package.json"),
     `${JSON.stringify({ private: true, type: "module" }, null, 2)}\n`,
@@ -64,6 +69,8 @@ describe("packed package consumer", () => {
       "package/data/references.json",
       "package/data/manifest.json",
       "package/data/boundaries/us-0513.geojson",
+      "package/dist/index.js",
+      "package/dist/index.d.ts",
       "package/dist/catalog.json",
       "package/dist/all.geojson",
       "package/dist/checksums.sha256",
@@ -74,6 +81,15 @@ describe("packed package consumer", () => {
         true,
       );
     }
+
+    const packedPaths = packedFiles.map((file) => file.path);
+    expect(packedPaths).toContain("dist/index.js");
+    expect(packedPaths).toContain("dist/index.d.ts");
+    expect(
+      packedPaths.some((filePath) =>
+        /^(src|tests|config|node_modules)\//.test(filePath),
+      ),
+    ).toBe(false);
   });
 
   it("executes the installed README Node example unchanged", async () => {
@@ -102,9 +118,9 @@ describe("packed package consumer", () => {
       `
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import rootCatalog from "@ripota/parks" with { type: "json" };
+import { references as rootReferences } from "@ripota/parks";
 import namedCatalog from "@ripota/parks/catalog.json" with { type: "json" };
-import references from "@ripota/parks/references.json" with { type: "json" };
+import referencesJson from "@ripota/parks/references.json" with { type: "json" };
 import manifest from "@ripota/parks/manifest.json" with { type: "json" };
 import catalogSchema from "@ripota/parks/schemas/catalog.schema.json" with { type: "json" };
 import geojsonSchema from "@ripota/parks/schemas/geojson.schema.json" with { type: "json" };
@@ -113,15 +129,15 @@ async function readExport(specifier) {
   return readFile(new URL(import.meta.resolve(specifier)), "utf8");
 }
 
-assert.deepEqual(rootCatalog, namedCatalog);
-assert.equal(references.length, rootCatalog.referenceCount);
-assert.equal(manifest.length, rootCatalog.referenceCount);
+assert.deepEqual(rootReferences, referencesJson);
+assert.equal(rootReferences.length, namedCatalog.referenceCount);
+assert.equal(manifest.length, namedCatalog.referenceCount);
 assert.equal(catalogSchema.$id, "https://ripota.org/schemas/catalog.schema.json");
 assert.equal(geojsonSchema.$id, "https://ripota.org/schemas/geojson.schema.json");
 const aggregate = JSON.parse(await readExport("@ripota/parks/all.geojson"));
 const checksums = await readExport("@ripota/parks/checksums.sha256");
 const boundary = JSON.parse(await readExport("@ripota/parks/boundaries/us-0513.geojson"));
-assert.equal(aggregate.features.length, rootCatalog.featureCount);
+assert.equal(aggregate.features.length, namedCatalog.featureCount);
 assert.match(checksums, /dist\\/catalog\\.json/);
 assert.equal(boundary.properties.potaReference, "US-0513");
 `,
@@ -131,6 +147,40 @@ assert.equal(boundary.properties.potaReference, "US-0513");
       execFileAsync(process.execPath, [scriptPath], {
         cwd: consumerDirectory,
       }),
+    ).resolves.toMatchObject({ stdout: "" });
+  });
+
+  it("typechecks the root API from the installed declaration file", async () => {
+    const sourcePath = path.join(consumerDirectory, "consumer.ts");
+    await writeFile(
+      sourcePath,
+      `
+import { references, type PotaReference } from "@ripota/parks";
+
+const first: PotaReference = references[0];
+const label: string = first.name;
+void label;
+`,
+    );
+    const tscPath = path.join(rootDirectory, "node_modules/typescript/bin/tsc");
+
+    await expect(
+      execFileAsync(
+        process.execPath,
+        [
+          tscPath,
+          "--noEmit",
+          "--strict",
+          "--target",
+          "ES2024",
+          "--module",
+          "NodeNext",
+          "--moduleResolution",
+          "NodeNext",
+          sourcePath,
+        ],
+        { cwd: consumerDirectory },
+      ),
     ).resolves.toMatchObject({ stdout: "" });
   });
 });

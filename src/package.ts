@@ -5,6 +5,12 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import ts from "typescript";
+
+import {
+  formatPackagePayloadMeasurements,
+  measurePackagePayloads,
+} from "./package-size.ts";
 import type {
   Catalog,
   CatalogRecord,
@@ -14,6 +20,8 @@ import type {
 import { validateSnapshot } from "./validate.ts";
 
 export const SCHEMA_VERSION = 1;
+
+const sourceDirectory = path.dirname(fileURLToPath(import.meta.url));
 
 export async function atomicWrite(
   filePath: string,
@@ -31,6 +39,54 @@ function json(value: unknown): string {
 
 function sha256(content: string): string {
   return createHash("sha256").update(content).digest("hex");
+}
+
+function assertNoTypeScriptErrors(
+  diagnostics: readonly ts.Diagnostic[] | undefined,
+): void {
+  const errors = diagnostics?.filter(
+    (diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error,
+  );
+  if (!errors?.length) {
+    return;
+  }
+  throw new Error(
+    ts.formatDiagnostics(errors, {
+      getCanonicalFileName: (fileName) => fileName,
+      getCurrentDirectory: () => sourceDirectory,
+      getNewLine: () => "\n",
+    }),
+  );
+}
+
+async function buildRootEntry(): Promise<Map<string, string>> {
+  const fileName = path.join(sourceDirectory, "index.ts");
+  const source = await readFile(fileName, "utf8");
+  const compilerOptions = {
+    target: ts.ScriptTarget.ES2024,
+    module: ts.ModuleKind.ESNext,
+    verbatimModuleSyntax: true,
+    newLine: ts.NewLineKind.LineFeed,
+  } satisfies ts.CompilerOptions;
+  const runtime = ts.transpileModule(source, {
+    compilerOptions,
+    fileName,
+    reportDiagnostics: true,
+  });
+  const declarations = ts.transpileDeclaration(source, {
+    compilerOptions: {
+      ...compilerOptions,
+      isolatedDeclarations: true,
+    },
+    fileName,
+    reportDiagnostics: true,
+  });
+  assertNoTypeScriptErrors(runtime.diagnostics);
+  assertNoTypeScriptErrors(declarations.diagnostics);
+  return new Map([
+    ["dist/index.js", runtime.outputText],
+    ["dist/index.d.ts", declarations.outputText],
+  ]);
 }
 
 export async function buildPackageArtifacts(
@@ -100,6 +156,7 @@ export async function buildPackageArtifacts(
   };
 
   const artifacts = new Map<string, string>([
+    ...(await buildRootEntry()),
     ["dist/catalog.json", json(catalog)],
     ["dist/all.geojson", json(aggregate)],
   ]);
@@ -127,7 +184,12 @@ export async function buildPackageArtifacts(
     );
   }
   for (const [relativePath, content] of artifacts) {
-    checksumInputs.set(relativePath, content);
+    if (
+      relativePath === "dist/catalog.json" ||
+      relativePath === "dist/all.geojson"
+    ) {
+      checksumInputs.set(relativePath, content);
+    }
   }
 
   const checksumFile = [...checksumInputs]
@@ -177,6 +239,11 @@ if (
     await writePackageArtifacts(
       rootDirectory,
       process.argv.includes("--check"),
+    );
+    console.log(
+      formatPackagePayloadMeasurements(
+        await measurePackagePayloads(rootDirectory),
+      ),
     );
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);

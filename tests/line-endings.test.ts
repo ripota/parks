@@ -10,6 +10,8 @@ describe("stable generated-file line endings", () => {
     const paths = [
       "data/references.json",
       "data/boundaries/us-0513.geojson",
+      "dist/index.js",
+      "dist/index.d.ts",
       "dist/catalog.json",
       "dist/all.geojson",
       "dist/checksums.sha256",

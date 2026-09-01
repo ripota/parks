@@ -1,10 +1,11 @@
 {
   "name": "@ripota/parks",
-  "version": "1.1.0",
-  "description": "Versioned Rhode Island Parks on the Air reference metadata and reviewed geospatial boundaries.",
+  "version": "2.0.0",
+  "description": "Typed Rhode Island Parks on the Air reference metadata with opt-in reviewed geospatial artifacts.",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE",
   "sideEffects": false,
+  "types": "./dist/index.d.ts",
   "engines": {
     "node": ">=22.18"
   },
@@ -18,7 +19,10 @@
     "LICENSE"
   ],
   "exports": {
-    ".": "./dist/catalog.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
     "./catalog.json": "./dist/catalog.json",
     "./all.geojson": "./dist/all.geojson",
     "./checksums.sha256": "./dist/checksums.sha256",
@@ -42,6 +46,7 @@
     "@turf/boolean-intersects": "^7.2.0",
     "@types/node": "^24.0.0",
     "ajv": "^8.17.1",
+    "esbuild": "^0.28.2",
     "prettier": "^3.6.2",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"

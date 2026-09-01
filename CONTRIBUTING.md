@@ -75,7 +75,7 @@ The contract includes the combined data files, data checksum manifest, npm tarba
 ### Prepare and rehearse
 
 1. Start on current `main` with no unrelated changes and a passing `mise run check`.
-2. Choose the version: patch for a reviewed snapshot refresh, minor for backward-compatible fields or exports, major for breaking paths, required fields, meanings, or schema version.
+2. Choose the package API version: patch for a reviewed snapshot refresh, minor for backward-compatible fields or exports, and major for breaking package exports, paths, types, or meanings. Version artifact schemas separately when their fields or meanings change; a package major alone does not change `schemaVersion`.
 3. Keep both package files synchronized:
 
    ```sh
