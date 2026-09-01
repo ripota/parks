@@ -1,0 +1,1 @@
+commit-message-default: auto
