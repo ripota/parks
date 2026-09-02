@@ -75,7 +75,15 @@ describe("reviewed RI POTA snapshot", () => {
       displayFeatureCount: 1,
       componentCount: 3,
       holeCount: 0,
-      operations: [{ operation: "unary-union" }],
+      operations: [
+        { operation: "unary-union" },
+        {
+          operation: "remove-small-holes",
+          maximumAreaSquareMeters: 1,
+          removedHoleCount: 0,
+          removedAreaSquareMeters: 0,
+        },
+      ],
     });
     expect(
       derivations.records.find((record) => record.reference === "US-6979"),
@@ -83,8 +91,34 @@ describe("reviewed RI POTA snapshot", () => {
       sourceFeatureCount: 127,
       displayFeatureCount: 1,
       componentCount: 25,
-      holeCount: 17,
-      operations: [{ operation: "unary-union" }],
+      holeCount: 12,
+      operations: [
+        { operation: "unary-union" },
+        {
+          operation: "remove-small-holes",
+          maximumAreaSquareMeters: 1,
+          removedHoleCount: 5,
+          removedAreaSquareMeters: 1.2134447616196593,
+        },
+      ],
+    });
+    expect(
+      derivations.records.find((record) => record.reference === "US-2868"),
+    ).toMatchObject({
+      sourceFeatureCount: 4,
+      displayFeatureCount: 1,
+      componentCount: 1,
+      holeCount: 0,
+      coordinateCount: 195,
+      operations: [
+        { operation: "unary-union" },
+        {
+          operation: "remove-small-holes",
+          maximumAreaSquareMeters: 1,
+          removedHoleCount: 3,
+          removedAreaSquareMeters: 0.0600588898018374,
+        },
+      ],
     });
   });
 

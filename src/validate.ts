@@ -5,7 +5,11 @@ import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
 import GeometryFactory from "jsts/org/locationtech/jts/geom/GeometryFactory.js";
 import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
 
-import { sourceKeyByName, sources } from "../config/boundary-sources.ts";
+import {
+  displayGeometryRule,
+  sourceKeyByName,
+  sources,
+} from "../config/boundary-sources.ts";
 import type {
   DerivationManifest,
   GeoJsonFeatureCollection,
@@ -362,7 +366,8 @@ export async function validateSnapshot(
   }
 
   assert(
-    derivations.schemaVersion === 2 && derivations.algorithmVersion === 1,
+    derivations.schemaVersion === 2 &&
+      [1, 2].includes(derivations.algorithmVersion),
     "derivations.json has an unsupported schema or algorithm version",
   );
   assert(
@@ -511,6 +516,29 @@ export async function validateSnapshot(
         derivation.coordinateCount === metrics.coordinateCount,
       `${record.reference} derivation geometry metrics mismatch`,
     );
+    const holeRemovalOperations = derivation.operations.filter(
+      (operation) => operation.operation === "remove-small-holes",
+    );
+    if (derivations.algorithmVersion === 1) {
+      assert(
+        holeRemovalOperations.length === 0,
+        `${record.reference} algorithm v1 unexpectedly removes small holes`,
+      );
+    } else if (record.geometryKind === "point") {
+      assert(
+        holeRemovalOperations.length === 0,
+        `${record.reference} point derivation unexpectedly removes small holes`,
+      );
+    } else {
+      assert(
+        holeRemovalOperations.length === 1 &&
+          derivation.operations.at(-1)?.operation === "remove-small-holes" &&
+          holeRemovalOperations[0].operation === "remove-small-holes" &&
+          holeRemovalOperations[0].maximumAreaSquareMeters ===
+            displayGeometryRule.maximumArtifactHoleAreaSquareMeters,
+        `${record.reference} has an unexpected small-hole derivation`,
+      );
+    }
     if (derivation.unionInputAreaSquareMeters !== undefined) {
       assert(
         derivation.displayAreaSquareMeters !== undefined,
@@ -520,9 +548,18 @@ export async function validateSnapshot(
         0.01,
         derivation.unionInputAreaSquareMeters * 1e-9,
       );
+      const removedHoleAreaSquareMeters = derivation.operations.reduce(
+        (total, operation) =>
+          operation.operation === "remove-small-holes"
+            ? total + operation.removedAreaSquareMeters
+            : total,
+        0,
+      );
       assert(
         derivation.displayAreaSquareMeters <=
-          derivation.unionInputAreaSquareMeters + tolerance,
+          derivation.unionInputAreaSquareMeters +
+            removedHoleAreaSquareMeters +
+            tolerance,
         `${record.reference} display area unexpectedly exceeds its union input`,
       );
     } else {

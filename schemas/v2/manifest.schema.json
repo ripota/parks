@@ -17,7 +17,7 @@
       "const": "https://ripota.org/schemas/v2/manifest.schema.json"
     },
     "schemaVersion": { "const": 2 },
-    "algorithmVersion": { "const": 1 },
+    "algorithmVersion": { "enum": [1, 2] },
     "unionEngine": {
       "type": "object",
       "required": ["name", "version"],
@@ -90,6 +90,28 @@
                   "required": ["operation"],
                   "additionalProperties": false,
                   "properties": { "operation": { "const": "unary-union" } }
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "operation",
+                    "maximumAreaSquareMeters",
+                    "removedHoleCount",
+                    "removedAreaSquareMeters"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "operation": { "const": "remove-small-holes" },
+                    "maximumAreaSquareMeters": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "removedHoleCount": { "type": "integer", "minimum": 0 },
+                    "removedAreaSquareMeters": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
                 },
                 {
                   "type": "object",

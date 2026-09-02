@@ -235,7 +235,7 @@ export async function writeCandidateSnapshot(
   const derivations: DerivationManifest = {
     $schema: "https://ripota.org/schemas/v2/manifest.schema.json",
     schemaVersion: 2,
-    algorithmVersion: 1,
+    algorithmVersion: 2,
     unionEngine: { name: "jsts", version: "2.12.1" },
     validationEngine: { name: "jsts", version: "2.12.1" },
     records: derivationRecords,

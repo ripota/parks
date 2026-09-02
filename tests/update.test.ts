@@ -222,7 +222,15 @@ function geometryResult(record: ManifestRecord): GeometryResult {
         },
       ],
     },
-    operations: [{ operation: "unary-union" }],
+    operations: [
+      { operation: "unary-union" },
+      {
+        operation: "remove-small-holes",
+        maximumAreaSquareMeters: 1,
+        removedHoleCount: 0,
+        removedAreaSquareMeters: 0,
+      },
+    ],
   };
 }
 

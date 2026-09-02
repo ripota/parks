@@ -1,7 +1,7 @@
 {
   "$schema": "https://ripota.org/schemas/v2/manifest.schema.json",
   "schemaVersion": 2,
-  "algorithmVersion": 1,
+  "algorithmVersion": 2,
   "unionEngine": {
     "name": "jsts",
     "version": "2.12.1"
@@ -27,6 +27,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -46,6 +52,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -65,6 +77,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -84,6 +102,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -103,6 +127,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -122,6 +152,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -141,6 +177,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -160,6 +202,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -179,6 +227,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -198,6 +252,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -217,6 +277,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -236,6 +302,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -255,6 +327,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -274,6 +352,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -282,17 +366,23 @@
       "sourceArtifact": "./source-features/us-2868.geojson",
       "displayArtifact": "./boundaries/us-2868.geojson",
       "sourceSha256": "d86ee7de1caf8310e13fe9ef4705c1630497a5d46045ca8e23e813f2175f6c72",
-      "displaySha256": "413e480c7444d2c06d00ffb291f74b7e3f571ddff332befe6d7d39e1d33abaca",
+      "displaySha256": "ba5adc41908d895b9de11d0644da9d625b9b8f78ce6dbc0dfacb17b920453883",
       "sourceFeatureCount": 4,
       "displayFeatureCount": 1,
       "componentCount": 1,
-      "holeCount": 3,
-      "coordinateCount": 207,
+      "holeCount": 0,
+      "coordinateCount": 195,
       "unionInputAreaSquareMeters": 789113.148078445,
-      "displayAreaSquareMeters": 789113.1467854497,
+      "displayAreaSquareMeters": 789113.2068443395,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 3,
+          "removedAreaSquareMeters": 0.0600588898018374
         }
       ]
     },
@@ -312,6 +402,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -320,17 +416,23 @@
       "sourceArtifact": "./source-features/us-2870.geojson",
       "displayArtifact": "./boundaries/us-2870.geojson",
       "sourceSha256": "f62f182f8288458ee3a2d77288a3473c00a0fd1d80776f9ef2db7c5088d181a6",
-      "displaySha256": "a5e38f172d52ee382edf9ce6c96853a1853f9daa9c82a1720fb101185d334457",
+      "displaySha256": "0e05b2102107b18d542584e25a7da6c25e73055ee469e2ae19703f44ad8dccf1",
       "sourceFeatureCount": 2,
       "displayFeatureCount": 1,
       "componentCount": 3,
-      "holeCount": 1,
-      "coordinateCount": 13556,
+      "holeCount": 0,
+      "coordinateCount": 13552,
       "unionInputAreaSquareMeters": 361827.8320359514,
-      "displayAreaSquareMeters": 358201.1915243569,
+      "displayAreaSquareMeters": 358201.19269941474,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 1,
+          "removedAreaSquareMeters": 0.0011750578253842707
         }
       ]
     },
@@ -350,6 +452,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -369,6 +477,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -388,6 +502,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -407,6 +527,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -426,6 +552,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -445,6 +577,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -464,6 +602,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -483,6 +627,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -502,6 +652,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -521,6 +677,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -540,6 +702,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -565,6 +733,12 @@
         },
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -584,6 +758,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -603,6 +783,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -622,6 +808,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -630,17 +822,23 @@
       "sourceArtifact": "./source-features/us-6979.geojson",
       "displayArtifact": "./boundaries/us-6979.geojson",
       "sourceSha256": "f42572ef4fc73587bc57aa3074338cbb5802ea262857de8b9410d07fbdf584c5",
-      "displaySha256": "7e5901afaef76dfae96629870b4ea84bdebd3821fddbc9513b9a97559c1f4a38",
+      "displaySha256": "6f2893f78b6bcb3fa423a5b83b00a7ce6097769687ea6db3d3cacb71627b0718",
       "sourceFeatureCount": 127,
       "displayFeatureCount": 1,
       "componentCount": 25,
-      "holeCount": 17,
-      "coordinateCount": 2586,
+      "holeCount": 12,
+      "coordinateCount": 2558,
       "unionInputAreaSquareMeters": 63373649.49684398,
-      "displayAreaSquareMeters": 63343420.24296594,
+      "displayAreaSquareMeters": 63343421.45641072,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 5,
+          "removedAreaSquareMeters": 1.2134447616196593
         }
       ]
     },
@@ -660,6 +858,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -679,6 +883,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -698,6 +908,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -706,17 +922,23 @@
       "sourceArtifact": "./source-features/us-6983.geojson",
       "displayArtifact": "./boundaries/us-6983.geojson",
       "sourceSha256": "ef60c3b21f4b1337c8826494d4fbf7616549bba53dfca6ee916c79ed8456294b",
-      "displaySha256": "2a109f828ee231ceac15b8b4052f32913f7cca80c918876e9df205098c78abde",
+      "displaySha256": "37848159d0f7285ed31a11b4a45495a3d8d20b18d78e4538bc0b2f6cb1037148",
       "sourceFeatureCount": 6,
       "displayFeatureCount": 1,
       "componentCount": 3,
-      "holeCount": 8,
-      "coordinateCount": 540,
+      "holeCount": 6,
+      "coordinateCount": 532,
       "unionInputAreaSquareMeters": 5112017.08705887,
-      "displayAreaSquareMeters": 5108050.154311226,
+      "displayAreaSquareMeters": 5108050.157317582,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 2,
+          "removedAreaSquareMeters": 0.00300635547664628
         }
       ]
     },
@@ -725,17 +947,23 @@
       "sourceArtifact": "./source-features/us-6984.geojson",
       "displayArtifact": "./boundaries/us-6984.geojson",
       "sourceSha256": "e46ec6f10dc008b7dbd291a5e21c5ec9916ec2869dba254abed1806f72f97630",
-      "displaySha256": "f8201dbdf17c9afa29078f524690bf4721f96a66764276bd4f314fc2c28212bb",
+      "displaySha256": "ac2788c683e24cf3a5872feca1cceb93b4e433547d5de64210d4517b2f78aa66",
       "sourceFeatureCount": 19,
       "displayFeatureCount": 1,
       "componentCount": 1,
-      "holeCount": 13,
-      "coordinateCount": 540,
+      "holeCount": 4,
+      "coordinateCount": 499,
       "unionInputAreaSquareMeters": 7528943.572700131,
-      "displayAreaSquareMeters": 7528942.482229728,
+      "displayAreaSquareMeters": 7528942.490617118,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 9,
+          "removedAreaSquareMeters": 0.008387388965712117
         }
       ]
     },
@@ -755,6 +983,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -774,6 +1008,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -793,6 +1033,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -812,6 +1058,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -831,6 +1083,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -850,6 +1108,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -869,6 +1133,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -888,6 +1158,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -907,6 +1183,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -926,6 +1208,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -934,17 +1222,23 @@
       "sourceArtifact": "./source-features/us-7714.geojson",
       "displayArtifact": "./boundaries/us-7714.geojson",
       "sourceSha256": "1470d352918c72352942388e617c763bff3da0797f07a62ad34baf669127625a",
-      "displaySha256": "62a0d4006cccd057f71f4644180ece1b76c4795573c94ee2c110a7cca16980f7",
+      "displaySha256": "93e43246c287feac1ecad6dd2b46e43b67791ebef748e63125cf3ec76ba4cd74",
       "sourceFeatureCount": 47,
       "displayFeatureCount": 1,
       "componentCount": 3,
-      "holeCount": 14,
-      "coordinateCount": 1093,
+      "holeCount": 4,
+      "coordinateCount": 1048,
       "unionInputAreaSquareMeters": 13166783.473186085,
-      "displayAreaSquareMeters": 13166775.816296354,
+      "displayAreaSquareMeters": 13166776.58011378,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 10,
+          "removedAreaSquareMeters": 0.7638174246710391
         }
       ]
     },
@@ -953,17 +1247,23 @@
       "sourceArtifact": "./source-features/us-7715.geojson",
       "displayArtifact": "./boundaries/us-7715.geojson",
       "sourceSha256": "346d016345402d3f9888d7ae926739ef188be240984f03daad62113e84a72ef6",
-      "displaySha256": "7ce791a57408f4564d4351f757c0d3e3720699537e2e15fe016af835386ccd55",
+      "displaySha256": "654c22d9b1396ac55dd7722c10b93b2012646f22fc7f74db7f04501469dd1fac",
       "sourceFeatureCount": 20,
       "displayFeatureCount": 1,
       "componentCount": 7,
-      "holeCount": 2,
-      "coordinateCount": 387,
+      "holeCount": 0,
+      "coordinateCount": 379,
       "unionInputAreaSquareMeters": 9736107.03907563,
-      "displayAreaSquareMeters": 9736107.039078709,
+      "displayAreaSquareMeters": 9736107.188152064,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 2,
+          "removedAreaSquareMeters": 0.14907335558846607
         }
       ]
     },
@@ -983,6 +1283,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1002,6 +1308,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1021,6 +1333,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1040,6 +1358,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1059,6 +1383,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1078,6 +1408,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1097,6 +1433,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1116,6 +1458,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1135,6 +1483,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1154,6 +1508,12 @@
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 0,
+          "removedAreaSquareMeters": 0
         }
       ]
     },
@@ -1162,17 +1522,23 @@
       "sourceArtifact": "./source-features/us-8293.geojson",
       "displayArtifact": "./boundaries/us-8293.geojson",
       "sourceSha256": "59bd7e258460ed2fd730ec55f9152cebcc7a735a13dd24fe48b5f9868c2c904c",
-      "displaySha256": "589d0e8c16f212fbc88adf9d2e163e42b87a0bd878e740bde8dc3a21d0ddff3b",
+      "displaySha256": "0958d82f996c8971a9c7d4dfe895c06067386753a8a8d6e341df2eea1639f741",
       "sourceFeatureCount": 5,
       "displayFeatureCount": 1,
       "componentCount": 4,
-      "holeCount": 2,
-      "coordinateCount": 1124,
+      "holeCount": 1,
+      "coordinateCount": 1120,
       "unionInputAreaSquareMeters": 1183010.9278188348,
-      "displayAreaSquareMeters": 1180854.2868055631,
+      "displayAreaSquareMeters": 1180854.3010472837,
       "operations": [
         {
           "operation": "unary-union"
+        },
+        {
+          "operation": "remove-small-holes",
+          "maximumAreaSquareMeters": 1,
+          "removedHoleCount": 1,
+          "removedAreaSquareMeters": 0.01424172042463052
         }
       ]
     }

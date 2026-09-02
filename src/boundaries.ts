@@ -1,4 +1,5 @@
 import {
+  displayGeometryRule,
   potaCoordinateSource,
   potaTrailActivationRule,
   sourceKeyByName,
@@ -127,6 +128,66 @@ function rewindPolygonalGeometry(
   throw new Error(`Cannot rewind non-polygon geometry ${geometry.type}`);
 }
 
+function ringAreaSquareMeters(ring: number[][]): number {
+  return area({
+    type: "Feature",
+    properties: {},
+    geometry: { type: "Polygon", coordinates: [ring] },
+  } as StandardFeature<Polygon>);
+}
+
+export function removeSmallHoles(
+  geometry: GeoJsonFeature["geometry"],
+  maximumAreaSquareMeters = displayGeometryRule.maximumArtifactHoleAreaSquareMeters,
+): {
+  geometry: GeoJsonFeature["geometry"];
+  operation: DerivationOperation;
+} {
+  if (maximumAreaSquareMeters <= 0) {
+    throw new Error("Small-hole removal threshold must be positive");
+  }
+
+  let removedHoleCount = 0;
+  let removedAreaSquareMeters = 0;
+  const filterPolygon = (rings: number[][][]): number[][][] => [
+    rings[0],
+    ...rings.slice(1).filter((ring) => {
+      const holeAreaSquareMeters = ringAreaSquareMeters(ring);
+      if (holeAreaSquareMeters > maximumAreaSquareMeters) {
+        return true;
+      }
+      removedHoleCount += 1;
+      removedAreaSquareMeters += holeAreaSquareMeters;
+      return false;
+    }),
+  ];
+
+  let filteredGeometry: GeoJsonFeature["geometry"];
+  if (geometry.type === "Polygon") {
+    filteredGeometry = {
+      type: "Polygon",
+      coordinates: filterPolygon(geometry.coordinates as number[][][]),
+    };
+  } else if (geometry.type === "MultiPolygon") {
+    filteredGeometry = {
+      type: "MultiPolygon",
+      coordinates: (geometry.coordinates as number[][][][]).map(filterPolygon),
+    };
+  } else {
+    throw new Error(`Cannot remove holes from ${geometry.type}`);
+  }
+
+  return {
+    geometry: filteredGeometry,
+    operation: {
+      operation: "remove-small-holes",
+      maximumAreaSquareMeters,
+      removedHoleCount,
+      removedAreaSquareMeters,
+    },
+  };
+}
+
 function dissolve(
   reference: PotaReference,
   reviewed: ManifestRecord,
@@ -135,7 +196,7 @@ function dissolve(
   geojson: GeoJsonFeatureCollection;
   unionInputAreaSquareMeters: number;
   displayAreaSquareMeters: number;
-  operation: DerivationOperation;
+  operations: DerivationOperation[];
 } {
   if (
     features.some(
@@ -165,6 +226,9 @@ function dissolve(
       `${reference.reference} display union is invalid: ${String(validity.getValidationError())}`,
     );
   }
+  const cleaned = removeSmallHoles(
+    new GeoJSONWriter().write(dissolved) as GeoJsonFeature["geometry"],
+  );
   const feature: GeoJsonFeature = {
     type: "Feature",
     properties: {
@@ -173,9 +237,7 @@ function dissolve(
       geometryKind: reviewed.geometryKind,
       geometryRole: "display",
     },
-    geometry: rewindPolygonalGeometry(
-      new GeoJSONWriter().write(dissolved) as GeoJsonFeature["geometry"],
-    ),
+    geometry: rewindPolygonalGeometry(cleaned.geometry),
   };
   return {
     geojson: displayCollection(reference, reviewed, feature),
@@ -183,7 +245,7 @@ function dissolve(
     displayAreaSquareMeters: area(
       feature as unknown as StandardFeature<Polygon | MultiPolygon>,
     ),
-    operation: { operation: "unary-union" },
+    operations: [{ operation: "unary-union" }, cleaned.operation],
   };
 }
 
@@ -264,7 +326,7 @@ async function fetchBoundary(
     sourceGeojson,
     displayGeojson: display.geojson,
     manifest: { ...reviewed, sourceFeatureIds },
-    operations: [display.operation],
+    operations: display.operations,
     unionInputAreaSquareMeters: display.unionInputAreaSquareMeters,
     displayAreaSquareMeters: display.displayAreaSquareMeters,
   };
@@ -453,7 +515,7 @@ async function fetchBufferedTrail(
         distanceMeters: potaTrailActivationRule.bufferDistanceMeters,
         ruleSourceUrl: potaTrailActivationRule.sourceUrl,
       },
-      display.operation,
+      ...display.operations,
     ],
     unionInputAreaSquareMeters: display.unionInputAreaSquareMeters,
     displayAreaSquareMeters: display.displayAreaSquareMeters,

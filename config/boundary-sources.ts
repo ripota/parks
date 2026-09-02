@@ -45,6 +45,10 @@ export const potaCoordinateSource = {
   url: "https://pota.app/#/park",
 };
 
+export const displayGeometryRule = {
+  maximumArtifactHoleAreaSquareMeters: 1,
+};
+
 export const potaTrailActivationRule = {
   bufferDistanceFeet: 100,
   bufferDistanceMeters: 30.48,

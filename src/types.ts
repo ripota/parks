@@ -76,6 +76,12 @@ export type DerivationOperation =
   | { operation: "identity" }
   | { operation: "unary-union" }
   | {
+      operation: "remove-small-holes";
+      maximumAreaSquareMeters: number;
+      removedHoleCount: number;
+      removedAreaSquareMeters: number;
+    }
+  | {
       operation: "buffer";
       distanceFeet: number;
       distanceMeters: number;
@@ -101,7 +107,7 @@ export type DerivationRecord = {
 export type DerivationManifest = {
   $schema: "https://ripota.org/schemas/v2/manifest.schema.json";
   schemaVersion: 2;
-  algorithmVersion: 1;
+  algorithmVersion: 1 | 2;
   unionEngine: {
     name: "jsts";
     version: "2.12.1";
