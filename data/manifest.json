@@ -611,15 +611,23 @@
   },
   {
     "reference": "US-6980",
-    "status": "point-only",
-    "geometryKind": "point",
-    "sourceName": "Parks on the Air reference coordinate",
-    "sourceUrl": "https://pota.app/#/park/US-6980",
+    "status": "available",
+    "geometryKind": "boundary",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_ID IN ('6163', '6166', '6167', '6168', '6169', '6170', '6173', '6174')",
     "sourceFeatureIds": [
-      "US-6980"
+      807,
+      808,
+      809,
+      810,
+      852,
+      854,
+      855,
+      857
     ],
     "localGeojson": "./boundaries/us-6980.geojson",
-    "notes": "No reviewed Beach Pond Wildlife Management Area polygon was found in RI DEM State Conservation Land. RI Parks lists Beach Pond as a DEM site managed from the Arcadia Management Area context, and the POTA coordinate is 41.5739, -71.7864."
+    "notes": "Boundary is a reviewed interpretation of the eight RIDEM parcels clustered around the Beach Pond access and POTA coordinate within Arcadia. The selection follows the parcel group associated with 6163-6174 Beach Pond Quitclaim Deed.pdf but includes only DEM_ID 6163, 6166-6170, and 6173-6174 (406.84 GIS acres); DEM_ID 6164, 6165, 6171, and 6172 are excluded. The official Beach Pond access point is inside DEM_ID 6173, while the approximate POTA coordinate is about 3.3 meters outside the selected union."
   },
   {
     "reference": "US-6981",

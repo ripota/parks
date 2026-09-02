@@ -25,10 +25,10 @@ describe("reviewed RI POTA snapshot", () => {
     expect(snapshot.references).toHaveLength(61);
     expect(snapshot.manifest).toHaveLength(61);
     expect(snapshot.displayFeatureCount).toBe(61);
-    expect(snapshot.sourceFeatureCount).toBe(439);
+    expect(snapshot.sourceFeatureCount).toBe(446);
     expect(
       snapshot.manifest.filter((record) => record.geometryKind === "boundary"),
-    ).toHaveLength(59);
+    ).toHaveLength(60);
     expect(
       snapshot.manifest.filter(
         (record) => record.geometryKind === "activation-zone",
@@ -36,7 +36,7 @@ describe("reviewed RI POTA snapshot", () => {
     ).toHaveLength(1);
     expect(
       snapshot.manifest.filter((record) => record.geometryKind === "point"),
-    ).toHaveLength(1);
+    ).toHaveLength(0);
   });
 
   it("keeps the special reviewed source decisions visible", async () => {
@@ -61,11 +61,22 @@ describe("reviewed RI POTA snapshot", () => {
       bufferDistanceFeet: 100,
     });
     expect(byReference.get("US-6980")).toMatchObject({
-      status: "point-only",
-      geometryKind: "point",
-      sourceFeatureIds: ["US-6980"],
+      status: "available",
+      geometryKind: "boundary",
+      sourceFeatureIds: [807, 808, 809, 810, 852, 854, 855, 857],
     });
-    expect(byReference.get("US-6980")?.notes).toMatch(/41\.5739, -71\.7864/);
+    expect(byReference.get("US-6980")?.notes).toMatch(
+      /DEM_ID 6163, 6166-6170, and 6173-6174/,
+    );
+    expect(
+      derivations.records.find((record) => record.reference === "US-6980"),
+    ).toMatchObject({
+      sourceFeatureCount: 8,
+      displayFeatureCount: 1,
+      componentCount: 3,
+      holeCount: 0,
+      operations: [{ operation: "unary-union" }],
+    });
     expect(
       derivations.records.find((record) => record.reference === "US-6979"),
     ).toMatchObject({
@@ -168,11 +179,11 @@ describe("reviewed RI POTA snapshot", () => {
     expect(catalog.geometryRole).toBe("display");
     expect(catalog.referenceCount).toBe(61);
     expect(catalog.featureCount).toBe(61);
-    expect(catalog.sourceFeatureCount).toBe(439);
+    expect(catalog.sourceFeatureCount).toBe(446);
     expect(aggregate.features).toHaveLength(61);
     expect(sourceCatalog.geometryRole).toBe("source");
-    expect(sourceCatalog.featureCount).toBe(439);
-    expect(sourceAggregate.features).toHaveLength(439);
+    expect(sourceCatalog.featureCount).toBe(446);
+    expect(sourceAggregate.features).toHaveLength(446);
     for (const feature of aggregate.features) {
       expect(feature.properties).toEqual(
         expect.objectContaining({

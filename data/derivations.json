@@ -648,16 +648,18 @@
       "reference": "US-6980",
       "sourceArtifact": "./source-features/us-6980.geojson",
       "displayArtifact": "./boundaries/us-6980.geojson",
-      "sourceSha256": "db3b48e4d11eac344e1807de73c533852da0cce5b4b55392344a8cccf10e0e62",
-      "displaySha256": "1343aaf3d3290e5507d3fbdb11c085b191ec519f517446f89062560b144f0f86",
-      "sourceFeatureCount": 1,
+      "sourceSha256": "3c263925280738346b9a04261e0c335fa019bcba41a06d8c09489c622f8eceea",
+      "displaySha256": "36878162b9f16d2cab4b4ceb126be6189d4935e14d449c570fa8d06fe2b81df3",
+      "sourceFeatureCount": 8,
       "displayFeatureCount": 1,
-      "componentCount": 1,
+      "componentCount": 3,
       "holeCount": 0,
-      "coordinateCount": 1,
+      "coordinateCount": 146,
+      "unionInputAreaSquareMeters": 1644093.5074199194,
+      "displayAreaSquareMeters": 1644093.5074153123,
       "operations": [
         {
-          "operation": "identity"
+          "operation": "unary-union"
         }
       ]
     },

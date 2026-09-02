@@ -1,10 +1,10 @@
 # Sources, attribution, and limitations
 
-Reviewed for the `v3.0.0` snapshot on 2026-09-01. The exact service URL, query, feature IDs, geometry kind, local path, and record-specific research notes are preserved in [`data/manifest.json`](data/manifest.json) and [`config/reviewed-sources.json`](config/reviewed-sources.json). Reproducible source-to-display lineage is preserved in [`data/derivations.json`](data/derivations.json). Evergreen redistribution responsibilities are in [DATA_LICENSE.md](DATA_LICENSE.md).
+Reviewed for the `v3.0.1` snapshot on 2026-09-01. The exact service URL, query, feature IDs, geometry kind, local path, and record-specific research notes are preserved in [`data/manifest.json`](data/manifest.json) and [`config/reviewed-sources.json`](config/reviewed-sources.json). Reproducible source-to-display lineage is preserved in [`data/derivations.json`](data/derivations.json). Evergreen redistribution responsibilities are in [DATA_LICENSE.md](DATA_LICENSE.md).
 
 ## Snapshot origin and inventory
 
-The initial snapshot was extracted from `ripota/ripota.org` commit [`6cbe59be37e5e5545848daf3cd4b65827034ce16`](https://github.com/ripota/ripota.org/commit/6cbe59be37e5e5545848daf3cd4b65827034ce16). This release contains 61 reviewed references: 59 boundary records, one derived Washington-Rochambeau trail activation zone, and one deliberate Beach Pond point fallback. Schema v2 publishes 61 park-level display features derived from 439 reviewed source features.
+The initial snapshot was extracted from `ripota/ripota.org` commit [`6cbe59be37e5e5545848daf3cd4b65827034ce16`](https://github.com/ripota/ripota.org/commit/6cbe59be37e5e5545848daf3cd4b65827034ce16). This release contains 61 reviewed references: 60 boundary records and one derived Washington-Rochambeau trail activation zone. Schema v2 publishes 61 park-level display features derived from 446 reviewed source features.
 
 Display polygons use a topological unary union to remove internal parcel seams and duplicated overlap without coordinate simplification, gap closing, or convex hulls. Genuine disconnected components and interior holes remain. The pinned JSTS engine produces the geometry and enforces Simple Features validity; display rings are normalized to the GeoJSON right-hand rule. Input and output hashes, feature counts, component counts, holes, coordinates, areas, operations, and exact engine versions are recorded for every reference.
 
@@ -16,19 +16,20 @@ All output coordinates are normalized to EPSG:4326. County membership is derived
 
 ## Source audit
 
-### Parks on the Air reference list and coordinate fallback
+### Parks on the Air reference list
 
-- **Use:** 61 current `US-RI` reference records from the [official POTA API](https://api.pota.app/location/parks/US-RI); one official coordinate is retained as the deliberate point fallback for `US-6980`.
+- **Use:** 61 current `US-RI` reference records from the [official POTA API](https://api.pota.app/location/parks/US-RI).
 - **Attribution:** Parks on the Air (POTA); each catalog record links to its official park page.
 - **Terms finding:** The public API and documentation reviewed for this release did not state a separate machine-readable data license. Only minimal factual interoperability fields are retained. No POTA logo or claim of affiliation is used.
 - **Limitations:** POTA remains authoritative for current references and activation rules. A listed coordinate is not a boundary or an access determination.
 
 ### Rhode Island DEM / RIGIS State Conservation Land
 
-- **Use:** 52 reviewed reference mappings from the [RI DEM State Conservation Land service](https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0).
+- **Use:** 53 reviewed reference mappings from the [RI DEM State Conservation Land service](https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0).
 - **Attribution:** Rhode Island Department of Environmental Management (primary producer) and Rhode Island Geographic Information System (RIGIS).
 - **Terms finding:** The [signed RIGIS license-retirement notice](https://data.rigis.org/assets/docs/2014/20140619-RIGISLicenseAgreementRetired-signed.pdf) rescinded the old license effective September 1, 2014. The replacement notice distributes data as-is, disclaims warranties and liability, and asks derived products to acknowledge RIGIS and the primary producer.
 - **Limitations:** RIGIS data are general-reference data, not verified land surveys. Accuracy, completeness, scale, and currency vary; the producer and distributors provide no warranty.
+- **Snapshot review:** `US-6980` is a reviewed interpretation of the eight parcels clustered around the Beach Pond access and POTA coordinate within Arcadia. It selects DEM_ID `6163`, `6166`-`6170`, and `6173`-`6174` (OBJECTID `807`, `808`, `809`, `810`, `852`, `854`, `855`, and `857`), totaling 406.84 GIS acres, from the parcel group associated with `6163-6174 Beach Pond Quitclaim Deed.pdf`; DEM_ID `6164`, `6165`, `6171`, and `6172` are excluded. The official Beach Pond access point falls inside DEM_ID `6173`, while the approximate POTA coordinate is about 3.3 meters outside the selected union.
 
 ### Rhode Island county boundaries
 
