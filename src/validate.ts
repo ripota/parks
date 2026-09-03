@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import GeoJSONReader from "jsts/org/locationtech/jts/io/GeoJSONReader.js";
 import GeometryFactory from "jsts/org/locationtech/jts/geom/GeometryFactory.js";
+import PointLocator from "jsts/org/locationtech/jts/algorithm/PointLocator.js";
 import IsValidOp from "jsts/org/locationtech/jts/operation/valid/IsValidOp.js";
 
 import {
@@ -14,6 +15,7 @@ import type {
   DerivationManifest,
   GeoJsonFeatureCollection,
   ManifestRecord,
+  MapPointOverride,
   PotaReference,
 } from "./types.ts";
 
@@ -30,6 +32,7 @@ export type SnapshotValidation = {
   derivations: DerivationManifest;
   geojsonByReference: Map<string, GeoJsonFeatureCollection>;
   sourceGeojsonByReference: Map<string, GeoJsonFeatureCollection>;
+  mapPointOverridesByReference: Map<string, MapPointOverride>;
   featureCount: number;
   displayFeatureCount: number;
   sourceFeatureCount: number;
@@ -292,6 +295,9 @@ export async function validateSnapshot(
   const reviewed = await readJson<ManifestRecord[]>(
     path.join(rootDirectory, "config/reviewed-sources.json"),
   );
+  const mapPointOverrides = await readJson<MapPointOverride[]>(
+    path.join(rootDirectory, "config/map-point-overrides.json"),
+  );
 
   assert(
     Array.isArray(references) && references.length > 0,
@@ -328,6 +334,13 @@ export async function validateSnapshot(
   assert(
     JSON.stringify(referenceIds) === JSON.stringify(manifestIds),
     "reference/manifest parity mismatch",
+  );
+  const mapPointOverridesByReference = new Map(
+    mapPointOverrides.map((record) => [record.reference, record]),
+  );
+  assert(
+    mapPointOverridesByReference.size === mapPointOverrides.length,
+    "duplicate map point override references",
   );
 
   for (const reference of references) {
@@ -587,12 +600,53 @@ export async function validateSnapshot(
     );
   }
 
+  for (const mapPoint of mapPointOverrides) {
+    assert(
+      referenceIds.includes(mapPoint.reference),
+      `${mapPoint.reference} map point override has no matching reference`,
+    );
+    assert(
+      Number.isFinite(mapPoint.latitude) && Number.isFinite(mapPoint.longitude),
+      `${mapPoint.reference} map point override has invalid coordinates`,
+    );
+    assert(
+      mapPoint.longitude >= RI_BOUNDS.west &&
+        mapPoint.longitude <= RI_BOUNDS.east &&
+        mapPoint.latitude >= RI_BOUNDS.south &&
+        mapPoint.latitude <= RI_BOUNDS.north,
+      `${mapPoint.reference} map point override is outside the Rhode Island review area`,
+    );
+    assert(
+      mapPoint.notes.length > 0 && !mapPoint.notes.match(/todo/i),
+      `${mapPoint.reference} map point override has no reviewed rationale`,
+    );
+    const displayGeojson = geojsonByReference.get(mapPoint.reference);
+    assert(
+      displayGeojson,
+      `${mapPoint.reference} map point override has no display geometry`,
+    );
+    const point = new GeoJSONReader(new GeometryFactory()).read({
+      type: "Point",
+      coordinates: [mapPoint.longitude, mapPoint.latitude],
+    });
+    assert(
+      displayGeojson.features.some((feature) =>
+        new PointLocator().intersects(
+          point.getCoordinate(),
+          new GeoJSONReader(new GeometryFactory()).read(feature.geometry),
+        ),
+      ),
+      `${mapPoint.reference} map point override is outside its display geometry`,
+    );
+  }
+
   return {
     references,
     manifest,
     derivations,
     geojsonByReference,
     sourceGeojsonByReference,
+    mapPointOverridesByReference,
     featureCount: displayFeatureCount,
     displayFeatureCount,
     sourceFeatureCount,

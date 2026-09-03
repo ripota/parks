@@ -34,6 +34,16 @@
           "name": { "type": "string", "minLength": 1 },
           "latitude": { "type": "number" },
           "longitude": { "type": "number" },
+          "mapPoint": {
+            "type": "object",
+            "required": ["latitude", "longitude", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "latitude": { "type": "number" },
+              "longitude": { "type": "number" },
+              "notes": { "type": "string", "minLength": 1 }
+            }
+          },
           "grid": { "type": "string", "minLength": 1 },
           "counties": {
             "type": "array",

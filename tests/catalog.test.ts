@@ -40,8 +40,12 @@ describe("reviewed RI POTA snapshot", () => {
   });
 
   it("keeps the special reviewed source decisions visible", async () => {
-    const { derivations, manifest, geojsonByReference } =
-      await validateSnapshot(rootDirectory);
+    const {
+      derivations,
+      manifest,
+      geojsonByReference,
+      mapPointOverridesByReference,
+    } = await validateSnapshot(rootDirectory);
     const byReference = new Map(
       manifest.map((record) => [record.reference, record] as const),
     );
@@ -56,6 +60,10 @@ describe("reviewed RI POTA snapshot", () => {
       status: "available",
       geometryKind: "activation-zone",
       sourceFeatureIds: [2],
+    });
+    expect(mapPointOverridesByReference.get("US-4582")).toMatchObject({
+      latitude: 41.7445710002769,
+      longitude: -71.594458000176,
     });
     expect(geojsonByReference.get("US-4582")?.properties).toMatchObject({
       bufferDistanceFeet: 100,
@@ -214,6 +222,13 @@ describe("reviewed RI POTA snapshot", () => {
     expect(catalog.referenceCount).toBe(61);
     expect(catalog.featureCount).toBe(61);
     expect(catalog.sourceFeatureCount).toBe(446);
+    expect(
+      catalog.references.find(({ reference }) => reference === "US-4582")
+        ?.mapPoint,
+    ).toMatchObject({
+      latitude: 41.7445710002769,
+      longitude: -71.594458000176,
+    });
     expect(aggregate.features).toHaveLength(61);
     expect(sourceCatalog.geometryRole).toBe("source");
     expect(sourceCatalog.featureCount).toBe(446);

@@ -103,6 +103,9 @@ export async function buildPackageArtifacts(
   ): CatalogRecord[] {
     return snapshot.references.map((reference) => {
       const manifest = manifestByReference.get(reference.reference);
+      const mapPoint = snapshot.mapPointOverridesByReference.get(
+        reference.reference,
+      );
       const geojson =
         geometryRole === "display"
           ? snapshot.geojsonByReference.get(reference.reference)
@@ -115,6 +118,15 @@ export async function buildPackageArtifacts(
 
       return {
         ...reference,
+        ...(mapPoint
+          ? {
+              mapPoint: {
+                latitude: mapPoint.latitude,
+                longitude: mapPoint.longitude,
+                notes: mapPoint.notes,
+              },
+            }
+          : {}),
         status: manifest.status,
         geometryKind: manifest.geometryKind,
         source: {

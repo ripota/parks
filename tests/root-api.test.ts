@@ -44,6 +44,7 @@ describe("lightweight root API", () => {
       ({
         status: _status,
         geometryKind: _kind,
+        mapPoint: _mapPoint,
         source: _source,
         geojson: _geojson,
         ...reference

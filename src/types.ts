@@ -18,6 +18,13 @@ export type PotaReferenceSource = {
   [key: string]: unknown;
 };
 
+export type MapPointOverride = {
+  reference: string;
+  latitude: number;
+  longitude: number;
+  notes: string;
+};
+
 export type ManifestRecord = {
   reference: string;
   status: ReviewStatus;
@@ -49,6 +56,7 @@ export type GeoJsonFeatureCollection = {
 };
 
 export type CatalogRecord = PotaReference & {
+  mapPoint?: Omit<MapPointOverride, "reference">;
   status: ReviewStatus;
   geometryKind: GeometryKind;
   source: {

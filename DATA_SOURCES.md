@@ -14,6 +14,12 @@ These files are a community-maintained, time-stamped interpretation for general 
 
 All output coordinates are normalized to EPSG:4326. County membership is derived from any nonempty intersection between the display geometry and the Rhode Island county layer, including boundary-only contact, with the official POTA coordinate as a fallback.
 
+## Map point overrides
+
+Official POTA coordinates remain unchanged in each reference's `latitude` and `longitude` fields. [`config/map-point-overrides.json`](config/map-point-overrides.json) is a narrow exception mechanism for map presentation when an official coordinate does not meaningfully represent the reference's Rhode Island geometry, such as a single coordinate for a multi-state trail.
+
+An override adds an optional `mapPoint` to the full display and source catalogs without changing the lightweight reference API or any boundary data. Every override must document its rationale, stay inside the Rhode Island review area, and fall within the reference's published display geometry.
+
 ## Source audit
 
 ### Parks on the Air reference list

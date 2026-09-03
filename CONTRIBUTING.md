@@ -27,14 +27,15 @@ The initial offline check must pass before a data refresh.
 
 ## Sources of truth
 
-| Path                           | Ownership                                                      |
-| ------------------------------ | -------------------------------------------------------------- |
-| `config/reviewed-sources.json` | Human-reviewed per-reference mappings, queries, and source IDs |
-| `config/boundary-sources.ts`   | Human-reviewed service endpoints and shared derivation rules   |
-| `schemas/`                     | Intentionally maintained public contracts                      |
-| `data/`                        | Generated display, source-feature, and derivation snapshot     |
-| `dist/`                        | Generated package artifacts; rebuild with `mise run package`   |
-| `src/`, `tests/`               | Updater, validation, packaging, release, and regression logic  |
+| Path                              | Ownership                                                                  |
+| --------------------------------- | -------------------------------------------------------------------------- |
+| `config/reviewed-sources.json`    | Human-reviewed per-reference mappings, queries, and source IDs             |
+| `config/map-point-overrides.json` | Explicit display-point exceptions when official coordinates are unsuitable |
+| `config/boundary-sources.ts`      | Human-reviewed service endpoints and shared derivation rules               |
+| `schemas/`                        | Intentionally maintained public contracts                                  |
+| `data/`                           | Generated display, source-feature, and derivation snapshot                 |
+| `dist/`                           | Generated package artifacts; rebuild with `mise run package`               |
+| `src/`, `tests/`                  | Updater, validation, packaging, release, and regression logic              |
 
 Resolve blocked updates in reviewed configuration or pipeline code. Never make an update pass by weakening validation or patching `data/` or `dist/` directly.
 
