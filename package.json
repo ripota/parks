@@ -1,6 +1,6 @@
 {
   "name": "@ripota/parks",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Typed Rhode Island Parks on the Air reference metadata with opt-in reviewed geospatial artifacts.",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE",
