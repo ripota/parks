@@ -266,6 +266,7 @@ async function createRepositoryFixture(
     path.join(root, "config/reviewed-sources.json"),
     reviewedRecords,
   );
+  await writeJson(path.join(root, "config/map-point-overrides.json"), []);
   await writeCandidateSnapshot(
     path.join(root, "data"),
     liveRecords.map(normalized),

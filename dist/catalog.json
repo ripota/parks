@@ -118533,6 +118533,11 @@
       ],
       "locationDesc": "US-CT,US-DC,US-DE,US-MA,US-MD,US-NJ,US-NY,US-PA,US-RI,US-VA",
       "potaUrl": "https://pota.app/#/park/US-4582",
+      "mapPoint": {
+        "latitude": 41.7445710002769,
+        "longitude": -71.594458000176,
+        "notes": "Reviewed map point on the NPS Rhode Island route segment near the center of the state. The official POTA coordinate represents the multi-state trail and is outside Rhode Island."
+      },
       "status": "available",
       "geometryKind": "activation-zone",
       "source": {
