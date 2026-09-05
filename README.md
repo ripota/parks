@@ -86,3 +86,6 @@ Run `mise install`, `npm ci`, and `mise run check` from a clean checkout. Read [
 Use `@ripota/parks/display` for reviewed map points, bounds, attribution, and
 selective boundary exports without geometry payloads. Readonly types are exported
 from `@ripota/parks/types`. See [API contracts and examples](API.md).
+
+Use `@ripota/parks/compare` to compare a caller-fetched inventory offline;
+[API.md](API.md) documents normalization, structured diagnostics, and failure policy.

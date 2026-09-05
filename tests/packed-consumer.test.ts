@@ -144,6 +144,8 @@ const { getDisplayReference, displayReferences, dataset } = await import("@ripot
 assert.equal(getDisplayReference("us-4582").displayPoint.source, "reviewed");
 assert.equal(getDisplayReference("unknown"), undefined);
 assert.equal(displayReferences.length, dataset.referenceCount);
+const { diffReferences } = await import("@ripota/parks/compare");
+assert.deepEqual(diffReferences(rootReferences, referencesJson).changed, []);
 assert.deepEqual(rootReferences, referencesJson);
 assert.equal(rootReferences.length, namedCatalog.referenceCount);
 assert.equal(manifest.length, namedCatalog.referenceCount);
@@ -189,6 +191,11 @@ const kind: GeometryKind | undefined = display?.geometryKind;
 const status: ReviewStatus | undefined = display?.status;
 const contracts: [Catalog?, CatalogRecord?, GeoJsonFeatureCollection?] = [];
 void [dataset, kind, status, contracts];
+import { diffReferences, type ReferenceDiff, type ReferenceDiffOptions, type ReferenceInput } from "@ripota/parks/compare";
+const diff: ReferenceDiff = diffReferences(references, references, { fields: ["name", "counties"] });
+// @ts-expect-error unknown fields are rejected for typed inputs
+ diffReferences(references, references, { fields: ["typo"] });
+void diff;
 const first: PotaReference = references[0];
 const label: string = first.name;
 void label;

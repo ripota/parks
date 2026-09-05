@@ -212,6 +212,7 @@ export async function buildPackageArtifacts(
 
   const artifacts = new Map<string, string>([
     ...(await buildEntry("index")),
+    ...(await buildEntry("compare")),
     ...(await buildEntry("public-types")),
     ...(await buildEntry("display", displayModule(displayReferences))),
     ["dist/catalog.json", json(catalog)],

@@ -48,6 +48,10 @@
     "./types": {
       "types": "./dist/public-types.d.ts",
       "default": "./dist/public-types.js"
+    },
+    "./compare": {
+      "types": "./dist/compare.d.ts",
+      "default": "./dist/compare.js"
     }
   },
   "scripts": {
