@@ -11,6 +11,7 @@ export type PayloadMeasurement = {
 
 export type PackagePayloadMeasurements = {
   root: PayloadMeasurement;
+  display: PayloadMeasurement;
   catalog: PayloadMeasurement;
   rootInputs: string[];
 };
@@ -45,7 +46,16 @@ export async function measurePackagePayloads(
   ) as unknown;
   const catalogContent = Buffer.from(JSON.stringify(catalog));
 
+  const display = await build({
+    absWorkingDir: packageRoot,
+    bundle: true,
+    entryPoints: ["./dist/display.js"],
+    minify: true,
+    write: false,
+    logLevel: "silent",
+  });
   return {
+    display: measure(display.outputFiles[0].contents),
     root: measure(rootContent),
     catalog: measure(catalogContent),
     rootInputs: Object.keys(bundle.metafile.inputs).sort(),
@@ -56,6 +66,7 @@ export function formatPackagePayloadMeasurements(
   measurements: PackagePayloadMeasurements,
 ): string {
   return [
+    `Display runtime: ${measurements.display.minifiedBytes} bytes minified; ${measurements.display.brotliBytes} bytes Brotli`,
     `Root runtime: ${measurements.root.minifiedBytes} bytes minified; ${measurements.root.brotliBytes} bytes Brotli`,
     `Full catalog: ${measurements.catalog.minifiedBytes} bytes minified; ${measurements.catalog.brotliBytes} bytes Brotli`,
   ].join("\n");

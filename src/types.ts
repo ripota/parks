@@ -49,6 +49,7 @@ export type GeoJsonFeature = {
 };
 
 export type GeoJsonFeatureCollection = {
+  bbox?: readonly [number, number, number, number];
   $schema?: string;
   type: "FeatureCollection";
   properties?: Record<string, unknown>;

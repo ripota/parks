@@ -12,3 +12,10 @@ export type PotaReference = {
 };
 
 export const references: PotaReference[] = referencesJson;
+
+/** Case-insensitive lookup; unknown or malformed IDs return undefined. */
+export function getReference(reference: string): PotaReference | undefined {
+  return references.find(
+    (record) => record.reference === reference.toUpperCase(),
+  );
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://ripota.org/schemas/v2/display-geojson.schema.json",
+  "type": "FeatureCollection",
+  "properties": {
+    "schemaVersion": 2,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-7508",
+    "potaName": "Pulaski State Park",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "NAME = 'Pulaski State Park'",
+    "sourceFeatureIds": [
+      916
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "potaReference": "US-7508",
+        "potaName": "Pulaski State Park",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.79268271826508,
+              41.92616613302855
+            ],
+            [
+              -71.78637979856663,
+              41.922975096361995
+            ],
+            [
+              -71.78682123712844,
+              41.92618846797316
+            ],
+            [
+              -71.78671602715147,
+              41.94075134718753
+            ],
+            [
+              -71.79259179072335,
+              41.94102158276414
+            ],
+            [
+              -71.7925808093476,
+              41.936659560764404
+            ],
+            [
+              -71.79467881263533,
+              41.936781542304296
+            ],
+            [
+              -71.79655314912706,
+              41.9369810156308
+            ],
+            [
+              -71.79806277189994,
+              41.93711205578006
+            ],
+            [
+              -71.79797828805346,
+              41.930855106350876
+            ],
+            [
+              -71.7978851906022,
+              41.928605974324974
+            ],
+            [
+              -71.79783088400316,
+              41.92757163857678
+            ],
+            [
+              -71.7957810125019,
+              41.92675333759548
+            ],
+            [
+              -71.79527885353723,
+              41.92602304681085
+            ],
+            [
+              -71.79268271826508,
+              41.92616613302855
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "bbox": [
+    -71.79806277189994,
+    41.922975096361995,
+    -71.78637979856663,
+    41.94102158276414
+  ]
+}

@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import ts from "typescript";
+import { bounds, displayModule } from "./display-build.ts";
 
 import {
   formatPackagePayloadMeasurements,
@@ -59,9 +60,12 @@ function assertNoTypeScriptErrors(
   );
 }
 
-async function buildRootEntry(): Promise<Map<string, string>> {
-  const fileName = path.join(sourceDirectory, "index.ts");
-  const source = await readFile(fileName, "utf8");
+async function buildEntry(
+  name: string,
+  input?: string,
+): Promise<Map<string, string>> {
+  const fileName = path.join(sourceDirectory, `${name}.ts`);
+  const source = input ?? (await readFile(fileName, "utf8"));
   const compilerOptions = {
     target: ts.ScriptTarget.ES2024,
     module: ts.ModuleKind.ESNext,
@@ -84,8 +88,8 @@ async function buildRootEntry(): Promise<Map<string, string>> {
   assertNoTypeScriptErrors(runtime.diagnostics);
   assertNoTypeScriptErrors(declarations.diagnostics);
   return new Map([
-    ["dist/index.js", runtime.outputText],
-    ["dist/index.d.ts", declarations.outputText],
+    [`dist/${name}.js`, runtime.outputText],
+    [`dist/${name}.d.ts`, declarations.outputText],
   ]);
 }
 
@@ -137,7 +141,10 @@ export async function buildPackageArtifacts(
           artifact: `source-features/${reference.reference.toLowerCase()}.geojson`,
           ...(manifest.notes ? { notes: manifest.notes } : {}),
         },
-        geojson,
+        geojson:
+          geometryRole === "display"
+            ? { ...geojson, bbox: bounds(geojson) }
+            : geojson,
       };
     });
   }
@@ -204,12 +211,21 @@ export async function buildPackageArtifacts(
   const sourceAggregate = aggregate(sourceReferences, "source");
 
   const artifacts = new Map<string, string>([
-    ...(await buildRootEntry()),
+    ...(await buildEntry("index")),
+    ...(await buildEntry("public-types")),
+    ...(await buildEntry("display", displayModule(displayReferences))),
     ["dist/catalog.json", json(catalog)],
     ["dist/source-catalog.json", json(sourceCatalog)],
     ["dist/all.geojson", json(displayAggregate)],
     ["dist/source-all.geojson", json(sourceAggregate)],
   ]);
+
+  for (const record of displayReferences) {
+    artifacts.set(
+      `dist/boundaries/${record.reference.toLowerCase()}.geojson`,
+      json(record.geojson),
+    );
+  }
 
   const checksumInputs = new Map<string, string>();
   checksumInputs.set(
@@ -251,6 +267,7 @@ export async function buildPackageArtifacts(
   }
   for (const [relativePath, content] of artifacts) {
     if (
+      relativePath.startsWith("dist/boundaries/") ||
       relativePath === "dist/catalog.json" ||
       relativePath === "dist/source-catalog.json" ||
       relativePath === "dist/all.geojson" ||

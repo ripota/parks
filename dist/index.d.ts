@@ -9,3 +9,5 @@ export type PotaReference = {
     potaUrl: string;
 };
 export declare const references: PotaReference[];
+/** Case-insensitive lookup; unknown or malformed IDs return undefined. */
+export declare function getReference(reference: string): PotaReference | undefined;

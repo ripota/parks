@@ -16,7 +16,8 @@
     "README.md",
     "DATA_LICENSE.md",
     "DATA_SOURCES.md",
-    "LICENSE"
+    "LICENSE",
+    "API.md"
   ],
   "exports": {
     ".": {
@@ -31,7 +32,7 @@
     "./references.json": "./data/references.json",
     "./manifest.json": "./data/manifest.json",
     "./derivations.json": "./data/derivations.json",
-    "./boundaries/*": "./data/boundaries/*",
+    "./boundaries/*": "./dist/boundaries/*",
     "./source-features/*": "./data/source-features/*",
     "./schemas/catalog.schema.json": "./schemas/catalog.schema.json",
     "./schemas/geojson.schema.json": "./schemas/geojson.schema.json",
@@ -39,7 +40,15 @@
     "./schemas/v2/source-catalog.schema.json": "./schemas/v2/source-catalog.schema.json",
     "./schemas/v2/display-geojson.schema.json": "./schemas/v2/display-geojson.schema.json",
     "./schemas/v2/source-geojson.schema.json": "./schemas/v2/source-geojson.schema.json",
-    "./schemas/v2/manifest.schema.json": "./schemas/v2/manifest.schema.json"
+    "./schemas/v2/manifest.schema.json": "./schemas/v2/manifest.schema.json",
+    "./display": {
+      "types": "./dist/display.d.ts",
+      "default": "./dist/display.js"
+    },
+    "./types": {
+      "types": "./dist/public-types.d.ts",
+      "default": "./dist/public-types.js"
+    }
   },
   "scripts": {
     "update": "node --experimental-strip-types src/update.ts",

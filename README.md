@@ -80,3 +80,9 @@ Every geometry record labels its kind as `boundary`, `activation-zone`, or `poin
 Download and install the versioned `ripota-parks-<version>.tgz` from [GitHub Releases](https://github.com/ripota/parks/releases); this package is not published to the npm registry. Pin immutable releases or tags rather than `main` URLs.
 
 Run `mise install`, `npm ci`, and `mise run check` from a clean checkout. Read [CONTRIBUTING.md](CONTRIBUTING.md) before refreshing data or preparing a release. Versioned provenance and limitations live in [DATA_SOURCES.md](DATA_SOURCES.md); redistribution responsibilities live in [DATA_LICENSE.md](DATA_LICENSE.md).
+
+## Display metadata
+
+Use `@ripota/parks/display` for reviewed map points, bounds, attribution, and
+selective boundary exports without geometry payloads. Readonly types are exported
+from `@ripota/parks/types`. See [API contracts and examples](API.md).

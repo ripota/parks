@@ -140,6 +140,10 @@ async function readExport(specifier) {
   return readFile(new URL(import.meta.resolve(specifier)), "utf8");
 }
 
+const { getDisplayReference, displayReferences, dataset } = await import("@ripota/parks/display");
+assert.equal(getDisplayReference("us-4582").displayPoint.source, "reviewed");
+assert.equal(getDisplayReference("unknown"), undefined);
+assert.equal(displayReferences.length, dataset.referenceCount);
 assert.deepEqual(rootReferences, referencesJson);
 assert.equal(rootReferences.length, namedCatalog.referenceCount);
 assert.equal(manifest.length, namedCatalog.referenceCount);
@@ -174,6 +178,17 @@ assert.equal(sourceFeatures.properties.geometryRole, "source");
       `
 import { references, type PotaReference } from "@ripota/parks";
 
+import { dataset, displayReferences, getDisplayReference, type DisplayReference } from "@ripota/parks/display";
+import type { Catalog, CatalogRecord, GeoJsonFeatureCollection, GeometryKind, ReviewStatus } from "@ripota/parks/types";
+const display: DisplayReference | undefined = getDisplayReference("us-4582");
+// @ts-expect-error display collections are readonly
+ displayReferences.push(display!);
+// @ts-expect-error nested bounds are readonly
+ display!.bbox![0] = 0;
+const kind: GeometryKind | undefined = display?.geometryKind;
+const status: ReviewStatus | undefined = display?.status;
+const contracts: [Catalog?, CatalogRecord?, GeoJsonFeatureCollection?] = [];
+void [dataset, kind, status, contracts];
 const first: PotaReference = references[0];
 const label: string = first.name;
 void label;
