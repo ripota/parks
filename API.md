@@ -60,7 +60,7 @@ if (
 ```
 
 IDs are uppercased, with no whitespace trimming, and must match `US-` followed
-by at least four digits. Invalid IDs are excluded and reported as zero-based
+by one or more digits (the artifact ID contract). Invalid IDs are excluded and reported as zero-based
 input indices. Duplicate normalized IDs are reported once, sorted; ambiguous
 records are excluded from field comparison, but still participate in inventory
 membership. Inputs are never mutated.

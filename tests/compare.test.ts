@@ -76,3 +76,16 @@ it("defines whitespace, missing values, county order, and exact precision", () =
       .actual,
   ).toEqual([0]);
 });
+
+it("uses the artifact ID grammar and numeric zero equivalence", () => {
+  expect(
+    diffReferences(
+      [{ reference: "US-1", latitude: 0 }],
+      [{ reference: "us-1", latitude: "-0" }],
+    ).changed,
+  ).toEqual([]);
+  expect(
+    diffReferences([{ reference: "US-1" }], [{ reference: "US-1" }]).invalid
+      .expected,
+  ).toEqual([]);
+});

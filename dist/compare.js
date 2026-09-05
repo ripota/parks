@@ -20,7 +20,7 @@ export function diffReferences(expected, actual, options = {}) {
             const id = typeof record?.reference === "string"
                 ? record.reference.toUpperCase()
                 : "";
-            if (!/^US-\d{4,}$/.test(id)) {
+            if (!/^US-\d+$/.test(id)) {
                 diff.invalid[side].push(offset);
                 return;
             }
@@ -49,7 +49,7 @@ export function diffReferences(expected, actual, options = {}) {
         return result;
     }
     function equal(left, right) {
-        if (Object.is(left, right))
+        if (left === right || Object.is(left, right))
             return true;
         if (Array.isArray(left) && Array.isArray(right))
             return (left.length === right.length &&
