@@ -134,9 +134,9 @@ export function simplifyWeb(input: GeoJsonFeatureCollection): {
       outputCoordinateCount: geometryCounts(geometry).coordinates,
       componentCount: before.components,
       holeCount: before.holes,
-      inputAreaSquareMeters: inputArea,
-      outputAreaSquareMeters: outputArea,
-      areaDeltaSquareMeters: outputArea - inputArea,
+      inputAreaSquareMeters: Number(inputArea.toFixed(3)),
+      outputAreaSquareMeters: Number(outputArea.toFixed(3)),
+      areaDeltaSquareMeters: Number((outputArea - inputArea).toFixed(3)),
       inputSha256: hash(json(input)),
       outputSha256: hash(json(geojson)),
       ...(input.properties?.geometryKind === "activation-zone"

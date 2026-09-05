@@ -135,7 +135,9 @@ Web artifacts use their own schema `web/v1`, `fidelity: "web"`, and an explicit
 link to the detailed artifact. `web-derivations.json` records algorithm/engine
 version, tolerance, coordinate/component/hole counts, areas, and SHA-256 hashes
 of both exact input and output files. `web-measurements.json` records raw/gzip
-bytes for every reference and the aggregate. Packaging deterministically rebuilds
+bytes for every reference and the aggregate. Reported areas are rounded to
+0.001 square meters to avoid platform-specific floating-point serialization;
+geometry and the area gate retain full precision. Packaging deterministically rebuilds
 and checks these measurements; the aggregate and US-2870 must each retain at
 least a 30% gzip reduction. Root/display JavaScript imports no web geometry.
 
