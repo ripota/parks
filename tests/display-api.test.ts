@@ -57,3 +57,10 @@ it("keeps the display graph geometry-free and within explicit budgets", async ()
   expect(content.length).toBeLessThan(30000);
   expect(brotliCompressSync(content).length).toBeLessThan(8000);
 });
+
+it("publishes exact bounds on the detailed aggregate", async () => {
+  const aggregate = JSON.parse(
+    await readFile(new URL("../dist/all.geojson", import.meta.url), "utf8"),
+  );
+  expect(aggregate.bbox).toEqual(bounds(aggregate));
+});

@@ -141,7 +141,7 @@ geometry and the area gate retain full precision. Packaging deterministically re
 and checks these measurements; the aggregate and US-2870 must each retain at
 least a 30% gzip reduction. Root/display JavaScript imports no web geometry.
 
-The measured aggregate drops from 728,254 to 239,496 gzip bytes (67.1%); US-2870
+The measured aggregate drops from 728,316 to 239,496 gzip bytes (67.1%); US-2870
 from 187,960 to 9,706 (94.8%). All 50 interior holes are retained. The largest
 per-reference absolute area change is 0.439%. US-4582's unchanged coordinates
 make its metadata-bearing web file slightly larger. The aggregate, derivations,

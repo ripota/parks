@@ -216,6 +216,8 @@ export async function buildPackageArtifacts(
   }
 
   const displayAggregate = aggregate(displayReferences, "display");
+  if (displayAggregate.features.length)
+    displayAggregate.bbox = bounds(displayAggregate);
   const sourceAggregate = aggregate(sourceReferences, "source");
 
   const v3 = v3Artifacts(

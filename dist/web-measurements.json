@@ -677,8 +677,8 @@
     {
       "reference": "ALL",
       "detailed": {
-        "raw": 4858761,
-        "gzip": 728254
+        "raw": 4858867,
+        "gzip": 728316
       },
       "web": {
         "raw": 1479220,
