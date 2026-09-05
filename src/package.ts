@@ -1,11 +1,12 @@
 #!/usr/bin/env -S node --experimental-strip-types
 
 import { createHash } from "node:crypto";
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import ts from "typescript";
+import { buildWebArtifacts } from "./web-geometry.ts";
 import { v3Artifacts } from "./fallback.ts";
 import { bounds, displayModule } from "./display-build.ts";
 
@@ -224,6 +225,15 @@ export async function buildPackageArtifacts(
   );
   const artifacts = new Map<string, string>([
     ...v3.artifacts,
+    ...buildWebArtifacts(
+      v3.records.map(
+        (record) =>
+          displayReferences.find(
+            (reviewed) => reviewed.reference === record.reference,
+          )?.geojson ?? record.geojson,
+      ),
+      displayAggregate,
+    ),
     ...(await buildEntry("index")),
     ...(await buildEntry("compare")),
     ...(await buildEntry("public-types")),
@@ -281,6 +291,9 @@ export async function buildPackageArtifacts(
   }
   for (const [relativePath, content] of artifacts) {
     if (
+      relativePath.startsWith("dist/boundaries-web/") ||
+      relativePath.startsWith("dist/web-") ||
+      relativePath === "dist/all-web.geojson" ||
       relativePath.startsWith("dist/v3/") ||
       relativePath.startsWith("dist/boundaries/") ||
       relativePath === "dist/catalog.json" ||
@@ -308,6 +321,25 @@ export async function writePackageArtifacts(
   outputDirectory = rootDirectory,
 ): Promise<void> {
   const artifacts = await buildPackageArtifacts(rootDirectory, dataDirectory);
+  if (checkOnly) {
+    const entries = await readdir(path.join(outputDirectory, "dist"), {
+      recursive: true,
+      withFileTypes: true,
+    });
+    const actual = entries
+      .filter((entry) => entry.isFile())
+      .map((entry) =>
+        path.relative(outputDirectory, path.join(entry.parentPath, entry.name)),
+      )
+      .sort();
+    const expected = [...artifacts.keys()]
+      .filter((name) => name.startsWith("dist/"))
+      .sort();
+    if (JSON.stringify(actual) !== JSON.stringify(expected))
+      throw new Error(
+        "Orphaned or missing dist artifacts; review the generated inventory",
+      );
+  }
   for (const [relativePath, content] of artifacts) {
     const filePath = path.join(outputDirectory, relativePath);
     if (checkOnly) {
@@ -344,6 +376,21 @@ if (
       formatPackagePayloadMeasurements(
         await measurePackagePayloads(rootDirectory),
       ),
+    );
+    const webMeasurements = JSON.parse(
+      await readFile(
+        path.join(rootDirectory, "dist/web-measurements.json"),
+        "utf8",
+      ),
+    ) as {
+      records: Array<{
+        reference: string;
+        detailed: { raw: number; gzip: number };
+        web: { raw: number; gzip: number };
+      }>;
+    };
+    console.log(
+      `Web payload measurements: ${JSON.stringify(webMeasurements.records.filter((record) => ["ALL", "US-2870"].includes(record.reference)))}`,
     );
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);

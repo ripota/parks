@@ -1,0 +1,108 @@
+{
+  "$schema": "https://ripota.org/schemas/web/v1/display-geojson.schema.json",
+  "type": "FeatureCollection",
+  "properties": {
+    "schemaVersion": 1,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-10543",
+    "potaName": "Patriots Park State Historic Site",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Patriot Park'",
+    "sourceFeatureIds": [
+      869
+    ],
+    "fidelity": "web",
+    "detailedArtifact": "@ripota/parks/boundaries/us-10543.geojson"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "potaReference": "US-10543",
+        "potaName": "Patriots Park State Historic Site",
+        "geometryKind": "boundary",
+        "geometryRole": "display",
+        "fidelity": "web"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.25855126423446,
+              41.60168673440399
+            ],
+            [
+              -71.25865528667963,
+              41.601590059066446
+            ],
+            [
+              -71.25871538587275,
+              41.601452312737834
+            ],
+            [
+              -71.25874246147677,
+              41.60129075061594
+            ],
+            [
+              -71.25869812639175,
+              41.601115955291355
+            ],
+            [
+              -71.25865149838917,
+              41.60103217574997
+            ],
+            [
+              -71.25841137584203,
+              41.60091128870955
+            ],
+            [
+              -71.2582316524435,
+              41.60106560508869
+            ],
+            [
+              -71.25812870139654,
+              41.60118669504834
+            ],
+            [
+              -71.25805762374583,
+              41.60130883610039
+            ],
+            [
+              -71.25801261477424,
+              41.60143371959411
+            ],
+            [
+              -71.25798835921091,
+              41.60158131637182
+            ],
+            [
+              -71.25799751372281,
+              41.60174869805952
+            ],
+            [
+              -71.2580332338745,
+              41.60189478238631
+            ],
+            [
+              -71.25837472555398,
+              41.60182289622974
+            ],
+            [
+              -71.25855126423446,
+              41.60168673440399
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "bbox": [
+    -71.25874246147677,
+    41.60091128870955,
+    -71.25798835921091,
+    41.60189478238631
+  ]
+}

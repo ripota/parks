@@ -58,7 +58,12 @@
     "./v3/derivations.json": "./dist/v3/derivations.json",
     "./v3/boundaries/*": "./dist/v3/boundaries/*",
     "./schemas/v3/catalog.schema.json": "./schemas/v3/catalog.schema.json",
-    "./schemas/v3/display-geojson.schema.json": "./schemas/v3/display-geojson.schema.json"
+    "./schemas/v3/display-geojson.schema.json": "./schemas/v3/display-geojson.schema.json",
+    "./boundaries-web/*": "./dist/boundaries-web/*",
+    "./all-web.geojson": "./dist/all-web.geojson",
+    "./web-derivations.json": "./dist/web-derivations.json",
+    "./web-measurements.json": "./dist/web-measurements.json",
+    "./schemas/web/v1/display-geojson.schema.json": "./schemas/web/v1/display-geojson.schema.json"
   },
   "scripts": {
     "update": "node --experimental-strip-types src/update.ts",

@@ -92,3 +92,6 @@ Use `@ripota/parks/compare` to compare a caller-fetched inventory offline;
 
 Opt into `/v3/catalog.json` for explicitly labeled research-needed point fallbacks;
 existing detailed and source paths retain their reviewed contracts. See [API.md](API.md).
+
+For smaller map payloads, opt into `boundaries-web/*` or `all-web.geojson`.
+[API.md](API.md) explains fidelity, provenance, size budgets, and limitations.

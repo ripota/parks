@@ -1,0 +1,689 @@
+{
+  "schemaVersion": 1,
+  "compression": "gzip",
+  "maximumGzipRatio": 0.7,
+  "records": [
+    {
+      "reference": "US-0513",
+      "detailed": {
+        "raw": 41984,
+        "gzip": 6578
+      },
+      "web": {
+        "raw": 14084,
+        "gzip": 2504
+      }
+    },
+    {
+      "reference": "US-0514",
+      "detailed": {
+        "raw": 529808,
+        "gzip": 73772
+      },
+      "web": {
+        "raw": 97498,
+        "gzip": 14640
+      }
+    },
+    {
+      "reference": "US-0515",
+      "detailed": {
+        "raw": 169020,
+        "gzip": 24560
+      },
+      "web": {
+        "raw": 51927,
+        "gzip": 8112
+      }
+    },
+    {
+      "reference": "US-0516",
+      "detailed": {
+        "raw": 23486,
+        "gzip": 4136
+      },
+      "web": {
+        "raw": 12210,
+        "gzip": 2402
+      }
+    },
+    {
+      "reference": "US-0517",
+      "detailed": {
+        "raw": 41754,
+        "gzip": 6529
+      },
+      "web": {
+        "raw": 15666,
+        "gzip": 2730
+      }
+    },
+    {
+      "reference": "US-0789",
+      "detailed": {
+        "raw": 18749,
+        "gzip": 2976
+      },
+      "web": {
+        "raw": 2349,
+        "gzip": 755
+      }
+    },
+    {
+      "reference": "US-10541",
+      "detailed": {
+        "raw": 7420,
+        "gzip": 1535
+      },
+      "web": {
+        "raw": 5546,
+        "gzip": 1289
+      }
+    },
+    {
+      "reference": "US-10542",
+      "detailed": {
+        "raw": 7625,
+        "gzip": 1600
+      },
+      "web": {
+        "raw": 4516,
+        "gzip": 1139
+      }
+    },
+    {
+      "reference": "US-10543",
+      "detailed": {
+        "raw": 3132,
+        "gzip": 844
+      },
+      "web": {
+        "raw": 2683,
+        "gzip": 804
+      }
+    },
+    {
+      "reference": "US-10544",
+      "detailed": {
+        "raw": 2212,
+        "gzip": 697
+      },
+      "web": {
+        "raw": 2239,
+        "gzip": 732
+      }
+    },
+    {
+      "reference": "US-10545",
+      "detailed": {
+        "raw": 7200,
+        "gzip": 1441
+      },
+      "web": {
+        "raw": 4026,
+        "gzip": 989
+      }
+    },
+    {
+      "reference": "US-10546",
+      "detailed": {
+        "raw": 9209,
+        "gzip": 1799
+      },
+      "web": {
+        "raw": 6864,
+        "gzip": 1485
+      }
+    },
+    {
+      "reference": "US-10547",
+      "detailed": {
+        "raw": 25785,
+        "gzip": 4306
+      },
+      "web": {
+        "raw": 11588,
+        "gzip": 2196
+      }
+    },
+    {
+      "reference": "US-10548",
+      "detailed": {
+        "raw": 2765,
+        "gzip": 794
+      },
+      "web": {
+        "raw": 2605,
+        "gzip": 800
+      }
+    },
+    {
+      "reference": "US-2868",
+      "detailed": {
+        "raw": 19602,
+        "gzip": 3626
+      },
+      "web": {
+        "raw": 10124,
+        "gzip": 2090
+      }
+    },
+    {
+      "reference": "US-2869",
+      "detailed": {
+        "raw": 214010,
+        "gzip": 33570
+      },
+      "web": {
+        "raw": 92253,
+        "gzip": 14913
+      }
+    },
+    {
+      "reference": "US-2870",
+      "detailed": {
+        "raw": 1397828,
+        "gzip": 187960
+      },
+      "web": {
+        "raw": 60267,
+        "gzip": 9706
+      }
+    },
+    {
+      "reference": "US-2871",
+      "detailed": {
+        "raw": 193068,
+        "gzip": 30578
+      },
+      "web": {
+        "raw": 77047,
+        "gzip": 12823
+      }
+    },
+    {
+      "reference": "US-2872",
+      "detailed": {
+        "raw": 40474,
+        "gzip": 6673
+      },
+      "web": {
+        "raw": 28640,
+        "gzip": 4846
+      }
+    },
+    {
+      "reference": "US-2873",
+      "detailed": {
+        "raw": 8226,
+        "gzip": 1705
+      },
+      "web": {
+        "raw": 5211,
+        "gzip": 1256
+      }
+    },
+    {
+      "reference": "US-2874",
+      "detailed": {
+        "raw": 14529,
+        "gzip": 2765
+      },
+      "web": {
+        "raw": 10090,
+        "gzip": 2077
+      }
+    },
+    {
+      "reference": "US-2875",
+      "detailed": {
+        "raw": 35487,
+        "gzip": 5768
+      },
+      "web": {
+        "raw": 21184,
+        "gzip": 3618
+      }
+    },
+    {
+      "reference": "US-2876",
+      "detailed": {
+        "raw": 51609,
+        "gzip": 9058
+      },
+      "web": {
+        "raw": 13131,
+        "gzip": 2612
+      }
+    },
+    {
+      "reference": "US-2877",
+      "detailed": {
+        "raw": 14618,
+        "gzip": 2530
+      },
+      "web": {
+        "raw": 6396,
+        "gzip": 1338
+      }
+    },
+    {
+      "reference": "US-2878",
+      "detailed": {
+        "raw": 56351,
+        "gzip": 9958
+      },
+      "web": {
+        "raw": 35847,
+        "gzip": 6529
+      }
+    },
+    {
+      "reference": "US-2879",
+      "detailed": {
+        "raw": 40021,
+        "gzip": 6550
+      },
+      "web": {
+        "raw": 10777,
+        "gzip": 2047
+      }
+    },
+    {
+      "reference": "US-2880",
+      "detailed": {
+        "raw": 16500,
+        "gzip": 2930
+      },
+      "web": {
+        "raw": 11984,
+        "gzip": 2269
+      }
+    },
+    {
+      "reference": "US-2881",
+      "detailed": {
+        "raw": 5097,
+        "gzip": 1129
+      },
+      "web": {
+        "raw": 3566,
+        "gzip": 929
+      }
+    },
+    {
+      "reference": "US-4582",
+      "detailed": {
+        "raw": 86136,
+        "gzip": 15318
+      },
+      "web": {
+        "raw": 86258,
+        "gzip": 15403
+      }
+    },
+    {
+      "reference": "US-5482",
+      "detailed": {
+        "raw": 13812,
+        "gzip": 2682
+      },
+      "web": {
+        "raw": 9461,
+        "gzip": 1989
+      }
+    },
+    {
+      "reference": "US-5483",
+      "detailed": {
+        "raw": 56355,
+        "gzip": 9963
+      },
+      "web": {
+        "raw": 35851,
+        "gzip": 6533
+      }
+    },
+    {
+      "reference": "US-5484",
+      "detailed": {
+        "raw": 39745,
+        "gzip": 6562
+      },
+      "web": {
+        "raw": 22458,
+        "gzip": 3911
+      }
+    },
+    {
+      "reference": "US-6979",
+      "detailed": {
+        "raw": 267632,
+        "gzip": 42389
+      },
+      "web": {
+        "raw": 163879,
+        "gzip": 26439
+      }
+    },
+    {
+      "reference": "US-6980",
+      "detailed": {
+        "raw": 16873,
+        "gzip": 3241
+      },
+      "web": {
+        "raw": 13594,
+        "gzip": 2759
+      }
+    },
+    {
+      "reference": "US-6981",
+      "detailed": {
+        "raw": 162661,
+        "gzip": 25649
+      },
+      "web": {
+        "raw": 58590,
+        "gzip": 9773
+      }
+    },
+    {
+      "reference": "US-6982",
+      "detailed": {
+        "raw": 35518,
+        "gzip": 6586
+      },
+      "web": {
+        "raw": 26037,
+        "gzip": 4942
+      }
+    },
+    {
+      "reference": "US-6983",
+      "detailed": {
+        "raw": 56221,
+        "gzip": 9096
+      },
+      "web": {
+        "raw": 24823,
+        "gzip": 4241
+      }
+    },
+    {
+      "reference": "US-6984",
+      "detailed": {
+        "raw": 48771,
+        "gzip": 8554
+      },
+      "web": {
+        "raw": 23820,
+        "gzip": 4516
+      }
+    },
+    {
+      "reference": "US-6985",
+      "detailed": {
+        "raw": 8201,
+        "gzip": 1757
+      },
+      "web": {
+        "raw": 5753,
+        "gzip": 1374
+      }
+    },
+    {
+      "reference": "US-6986",
+      "detailed": {
+        "raw": 14548,
+        "gzip": 2577
+      },
+      "web": {
+        "raw": 12093,
+        "gzip": 2236
+      }
+    },
+    {
+      "reference": "US-6987",
+      "detailed": {
+        "raw": 35973,
+        "gzip": 6416
+      },
+      "web": {
+        "raw": 5793,
+        "gzip": 1370
+      }
+    },
+    {
+      "reference": "US-6988",
+      "detailed": {
+        "raw": 59049,
+        "gzip": 9725
+      },
+      "web": {
+        "raw": 40011,
+        "gzip": 6766
+      }
+    },
+    {
+      "reference": "US-6989",
+      "detailed": {
+        "raw": 84205,
+        "gzip": 14311
+      },
+      "web": {
+        "raw": 31744,
+        "gzip": 5745
+      }
+    },
+    {
+      "reference": "US-6990",
+      "detailed": {
+        "raw": 52831,
+        "gzip": 8692
+      },
+      "web": {
+        "raw": 26671,
+        "gzip": 4623
+      }
+    },
+    {
+      "reference": "US-6991",
+      "detailed": {
+        "raw": 140590,
+        "gzip": 22119
+      },
+      "web": {
+        "raw": 54311,
+        "gzip": 8967
+      }
+    },
+    {
+      "reference": "US-6992",
+      "detailed": {
+        "raw": 27697,
+        "gzip": 4629
+      },
+      "web": {
+        "raw": 11753,
+        "gzip": 2208
+      }
+    },
+    {
+      "reference": "US-7508",
+      "detailed": {
+        "raw": 2436,
+        "gzip": 731
+      },
+      "web": {
+        "raw": 2369,
+        "gzip": 748
+      }
+    },
+    {
+      "reference": "US-7518",
+      "detailed": {
+        "raw": 3495,
+        "gzip": 912
+      },
+      "web": {
+        "raw": 3042,
+        "gzip": 869
+      }
+    },
+    {
+      "reference": "US-7714",
+      "detailed": {
+        "raw": 109906,
+        "gzip": 17380
+      },
+      "web": {
+        "raw": 35695,
+        "gzip": 6174
+      }
+    },
+    {
+      "reference": "US-7715",
+      "detailed": {
+        "raw": 40669,
+        "gzip": 6842
+      },
+      "web": {
+        "raw": 27515,
+        "gzip": 4777
+      }
+    },
+    {
+      "reference": "US-7716",
+      "detailed": {
+        "raw": 93304,
+        "gzip": 15005
+      },
+      "web": {
+        "raw": 34692,
+        "gzip": 5895
+      }
+    },
+    {
+      "reference": "US-7717",
+      "detailed": {
+        "raw": 8095,
+        "gzip": 1670
+      },
+      "web": {
+        "raw": 5465,
+        "gzip": 1294
+      }
+    },
+    {
+      "reference": "US-7718",
+      "detailed": {
+        "raw": 16248,
+        "gzip": 2988
+      },
+      "web": {
+        "raw": 8000,
+        "gzip": 1696
+      }
+    },
+    {
+      "reference": "US-7719",
+      "detailed": {
+        "raw": 83362,
+        "gzip": 13041
+      },
+      "web": {
+        "raw": 13715,
+        "gzip": 2499
+      }
+    },
+    {
+      "reference": "US-7720",
+      "detailed": {
+        "raw": 9409,
+        "gzip": 1914
+      },
+      "web": {
+        "raw": 3831,
+        "gzip": 1028
+      }
+    },
+    {
+      "reference": "US-7721",
+      "detailed": {
+        "raw": 2930,
+        "gzip": 810
+      },
+      "web": {
+        "raw": 2009,
+        "gzip": 675
+      }
+    },
+    {
+      "reference": "US-7722",
+      "detailed": {
+        "raw": 10781,
+        "gzip": 2030
+      },
+      "web": {
+        "raw": 6475,
+        "gzip": 1406
+      }
+    },
+    {
+      "reference": "US-7723",
+      "detailed": {
+        "raw": 35813,
+        "gzip": 5900
+      },
+      "web": {
+        "raw": 15319,
+        "gzip": 2763
+      }
+    },
+    {
+      "reference": "US-7865",
+      "detailed": {
+        "raw": 59612,
+        "gzip": 9605
+      },
+      "web": {
+        "raw": 25854,
+        "gzip": 4416
+      }
+    },
+    {
+      "reference": "US-7971",
+      "detailed": {
+        "raw": 110063,
+        "gzip": 16202
+      },
+      "web": {
+        "raw": 31489,
+        "gzip": 5188
+      }
+    },
+    {
+      "reference": "US-8293",
+      "detailed": {
+        "raw": 116732,
+        "gzip": 18263
+      },
+      "web": {
+        "raw": 44714,
+        "gzip": 7396
+      }
+    },
+    {
+      "reference": "ALL",
+      "detailed": {
+        "raw": 4858761,
+        "gzip": 728254
+      },
+      "web": {
+        "raw": 1479220,
+        "gzip": 239496
+      }
+    }
+  ]
+}

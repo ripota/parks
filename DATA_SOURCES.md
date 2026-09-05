@@ -65,3 +65,15 @@ An override adds an optional `mapPoint` to the full display and source catalogs 
 - **Attribution:** National Park Service and Washington-Rochambeau National Historic Trail.
 - **Derivation:** the source export retains the official route feature. Display geometry buffers it by 30.48 meters following the [POTA trail activation guidance](https://docs.pota.app/docs/activator_reference/activator_guide-english.html#special-considerations-for-trails), then dissolves overlapping segment and cap polygons. The output is explicitly labeled `activation-zone`, not `boundary`.
 - **Limitations:** The approximation uses a local planar projection before the display union; it is a visualization of the reviewed rule and route snapshot, not a legal or official POTA geometry.
+
+## Optional web display derivation
+
+The web tier is derived offline from the validated detailed display snapshot with
+JSTS 2.12.1 TopologyPreservingSimplifier. Maximum angular tolerance is 0.00002
+degrees, reduced deterministically to retain the 0.5% area-change bound. All
+components and 50 interior holes are retained; points and US-4582's existing
+100-foot activation zone remain geometrically identical. This does not replace
+the canonical detailed geometry or change source attribution/rights. Exact input
+and output hashes, counts, tolerances, areas, and payload measurements are in
+`dist/web-derivations.json` and `dist/web-measurements.json`; [API.md](API.md)
+describes the explicit opt-in exports and limitations.

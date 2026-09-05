@@ -120,3 +120,16 @@ Tagging and publishing are explicit external actions, never part of ordinary val
 Inspect the failed Actions step first. A rerun is safe only for the unchanged tag: an existing public release succeeds when every required asset is byte-identical. Drafts, prereleases, missing assets, and same-name content mismatches fail with specific filenames and are never overwritten. Diagnose mismatches explicitly; do not replace immutable published assets silently. From the exact tagged checkout, the local `verify` command above can compare a rehearsed build with the public release.
 
 Geometry changes are never auto-released. CI validates proposed changes; a maintainer must review and publish them.
+
+### Additive display tiers
+
+Package API v3.1 adds readonly `/types`, lightweight `/display`, pure `/compare`,
+opt-in `/v3/*` fallback contracts, and `boundaries-web/*`/`all-web.geojson`.
+Unversioned detailed/source contracts remain schema v2; web has a separate
+`web/v1` schema. Web aggregate, derivations, and measurements are required release
+assets. Canonical source data remains unchanged by offline packaging. Review web
+maps for US-2870, US-6979 (including holes), US-6992, US-0513, and US-4582 before
+release. Compare sizes and derivation hashes; never relax topology or size gates
+to force a release. A research-needed record requires explicitly accepted metadata
+and configuration, then the ordinary update workflow; it is not automatic inventory
+acceptance. Such records only enter the opt-in v3 geometry inventory.

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://ripota.org/schemas/web/v1/display-geojson.schema.json",
+  "type": "FeatureCollection",
+  "properties": {
+    "schemaVersion": 1,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-0789",
+    "potaName": "Roger Williams National Memorial",
+    "sourceName": "National Park Service Land Resources Division Boundary and Tract Data Service",
+    "sourceUrl": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2",
+    "sourceQuery": "UNIT_CODE = 'ROWI'",
+    "sourceFeatureIds": [
+      1837
+    ],
+    "fidelity": "web",
+    "detailedArtifact": "@ripota/parks/boundaries/us-0789.geojson"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "potaReference": "US-0789",
+        "potaName": "Roger Williams National Memorial",
+        "geometryKind": "boundary",
+        "geometryRole": "display",
+        "fidelity": "web"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.4107163682817,
+              41.8314256764934
+            ],
+            [
+              -71.4107385908052,
+              41.831441219328
+            ],
+            [
+              -71.4111757900741,
+              41.8313688391244
+            ],
+            [
+              -71.4111894309917,
+              41.8313553913212
+            ],
+            [
+              -71.4111753409165,
+              41.8311329476066
+            ],
+            [
+              -71.4111411842745,
+              41.8309117233428
+            ],
+            [
+              -71.4107479063346,
+              41.828952675822
+            ],
+            [
+              -71.4106443054296,
+              41.82859924021
+            ],
+            [
+              -71.4106243969662,
+              41.828589134677
+            ],
+            [
+              -71.4098012015011,
+              41.8287302097012
+            ],
+            [
+              -71.4097913038633,
+              41.8287461012637
+            ],
+            [
+              -71.4107163682817,
+              41.8314256764934
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "bbox": [
+    -71.4111894309917,
+    41.828589134677,
+    -71.4097913038633,
+    41.831441219328
+  ]
+}

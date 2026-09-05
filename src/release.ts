@@ -32,6 +32,9 @@ const BUILT_ASSET_NAMES = [
   "source-catalog.json",
   "all.geojson",
   "source-all.geojson",
+  "all-web.geojson",
+  "web-derivations.json",
+  "web-measurements.json",
   "checksums.sha256",
 ] as const;
 const RELEASE_CHECKSUM_NAME = "checksums.release.sha256";

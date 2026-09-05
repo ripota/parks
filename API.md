@@ -106,3 +106,43 @@ status with official POTA provenance, and run the ordinary update/review workflo
 No source query, feature ID, geometry kind, or legacy geometry path is permitted
 for a research-needed mapping. Replacement requires reviewed source configuration
 and all existing source-ID, geometry, county, inventory, and reproducibility gates.
+
+## Opt-in web geometry
+
+```ts
+const webBoundary = import.meta
+  .resolve("@ripota/parks/boundaries-web/us-2870.geojson");
+const webAggregate = import.meta.resolve("@ripota/parks/all-web.geojson");
+```
+
+This explicit tier targets overview/detail maps around zooms 8–16 in Rhode Island;
+use detailed `boundaries/*` for closer inspection. It is not legal, access,
+property, survey, navigation, or activation-eligibility evidence. All detailed
+and source coordinates remain unchanged by web generation.
+
+[JSTS 2.12.1 TopologyPreservingSimplifier](https://github.com/bjornharrtell/jsts/blob/2.12.1/src/org/locationtech/jts/simplify/TopologyPreservingSimplifier.js)
+uses a maximum tolerance of 0.00002 degrees (about 2.23 meters north/south and
+1.67 meters east/west in Rhode Island). The angular distance metric is explicit;
+this is a visualization tolerance, not a claim of survey accuracy. A deterministic
+halving schedule lowers the tolerance when needed to keep absolute area change
+at or below 0.5%. Validation requires valid closed rings and topology, unchanged
+component/hole counts, valid coordinate ranges, and bounds within the tolerance.
+No disconnected parcels or holes are removed. Point geometries are identity
+operations. Activation zones, including US-4582, also retain their exact geometry
+and original 100-foot buffer metadata; the web tier never reinterprets the rule.
+
+Web artifacts use their own schema `web/v1`, `fidelity: "web"`, and an explicit
+link to the detailed artifact. `web-derivations.json` records algorithm/engine
+version, tolerance, coordinate/component/hole counts, areas, and SHA-256 hashes
+of both exact input and output files. `web-measurements.json` records raw/gzip
+bytes for every reference and the aggregate. Packaging deterministically rebuilds
+and checks these measurements; the aggregate and US-2870 must each retain at
+least a 30% gzip reduction. Root/display JavaScript imports no web geometry.
+
+The measured aggregate drops from 728,254 to 239,496 gzip bytes (67.1%); US-2870
+from 187,960 to 9,706 (94.8%). All 50 interior holes are retained. The largest
+per-reference absolute area change is 0.439%. US-4582's unchanged coordinates
+make its metadata-bearing web file slightly larger. The aggregate, derivations,
+and measurements are public release assets; per-reference web files are in the
+tarball, all covered by checksums. See `review/WEB_GEOMETRY.md` in the repository
+for the visual review and representative measurements.
