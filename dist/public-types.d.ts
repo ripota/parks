@@ -13,7 +13,7 @@ export type DisplayReference = Readonly<{
     geometryKind?: GeometryKind;
     displayPoint: DisplayPoint;
     bbox?: readonly [number, number, number, number];
-    artifact?: `@ripota/parks/boundaries/${string}.geojson`;
+    artifact?: `@ripota/parks/boundaries/${string}.geojson` | `@ripota/parks/v3/boundaries/${string}.geojson`;
 }>;
 export type DatasetMetadata = Readonly<{
     schemaVersion: number;
@@ -73,4 +73,26 @@ export type Catalog = Readonly<{
     featureCount: number;
     sourceFeatureCount?: number;
     references: readonly CatalogRecord[];
+}>;
+export type V3CatalogRecord = Omit<CatalogRecord, "source"> & (Readonly<{
+    status: "research-needed";
+    geometryKind: "point";
+    fidelity: "official-point-fallback";
+    source?: never;
+    provenance: Readonly<{
+        kind: "official-pota-coordinate";
+        url: string;
+    }>;
+}> | Readonly<{
+    status: "available" | "point-only";
+    fidelity: "reviewed-display";
+    source: CatalogRecord["source"];
+    provenance: Readonly<{
+        kind: "reviewed-source";
+        url: string;
+    }>;
+}>);
+export type V3Catalog = Omit<Catalog, "references" | "schemaVersion"> & Readonly<{
+    schemaVersion: 3;
+    references: readonly V3CatalogRecord[];
 }>;

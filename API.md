@@ -78,3 +78,31 @@ All reference lists and changed-field keys are sorted; invalid indices retain
 input order. Expected/actual values contain these normalized values. The API
 accepts JSON-like records and has no runtime imports, network, clock, filesystem,
 catalog, or geometry dependencies.
+
+## Opt-in schema v3 and research-needed references
+
+`@ripota/parks/v3/catalog.json`, `/v3/all.geojson`, `/v3/boundaries/*`, and
+`/v3/derivations.json` include every accepted reference, including explicit
+`status: "research-needed"`, `geometryKind: "point"` fallbacks. Their
+`fidelity: "official-point-fallback"` and `provenance.kind:
+"official-pota-coordinate"` identify an official coordinate, not a reviewed
+boundary, access location, or activation area. Fallbacks have no `source` field.
+Reviewed records instead carry `fidelity: "reviewed-display"` and retain source
+IDs and provenance. A reviewed `point-only` record remains distinct from both a
+fallback and a reviewed map-point override.
+
+The lightweight root and display API include every reference; fallback display
+artifacts explicitly point to `/v3/boundaries/*`. Existing v1/v2 schema files and
+paths remain intact. Unversioned geometry catalogs continue to describe only
+reviewed geometry; consumers requiring complete inventory with fallbacks must
+opt into v3 and branch on status/fidelity before reading `source`. Changing the
+default catalog to v3 would require a package major; this release does not do so.
+The checked-in inventory has no research-needed entries; offline fixtures exercise
+the feature without a live refresh. V3 derivations and all artifacts are included
+in the tarball and checksums. Legacy derivations contain reviewed records only.
+
+A maintainer must accept metadata in reviewed configuration, set research-needed
+status with official POTA provenance, and run the ordinary update/review workflow.
+No source query, feature ID, geometry kind, or legacy geometry path is permitted
+for a research-needed mapping. Replacement requires reviewed source configuration
+and all existing source-ID, geometry, county, inventory, and reproducibility gates.

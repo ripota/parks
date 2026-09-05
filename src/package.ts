@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import ts from "typescript";
+import { v3Artifacts } from "./fallback.ts";
 import { bounds, displayModule } from "./display-build.ts";
 
 import {
@@ -105,48 +106,54 @@ export async function buildPackageArtifacts(
   function catalogReferences(
     geometryRole: "display" | "source",
   ): CatalogRecord[] {
-    return snapshot.references.map((reference) => {
-      const manifest = manifestByReference.get(reference.reference);
-      const mapPoint = snapshot.mapPointOverridesByReference.get(
-        reference.reference,
-      );
-      const geojson =
-        geometryRole === "display"
-          ? snapshot.geojsonByReference.get(reference.reference)
-          : snapshot.sourceGeojsonByReference.get(reference.reference);
-      if (!manifest?.geometryKind || !manifest.sourceFeatureIds || !geojson) {
-        throw new Error(
-          `${reference.reference} cannot be included in the package catalog`,
+    return snapshot.references
+      .filter(
+        (reference) =>
+          manifestByReference.get(reference.reference)?.status !==
+          "research-needed",
+      )
+      .map((reference) => {
+        const manifest = manifestByReference.get(reference.reference);
+        const mapPoint = snapshot.mapPointOverridesByReference.get(
+          reference.reference,
         );
-      }
-
-      return {
-        ...reference,
-        ...(mapPoint
-          ? {
-              mapPoint: {
-                latitude: mapPoint.latitude,
-                longitude: mapPoint.longitude,
-                notes: mapPoint.notes,
-              },
-            }
-          : {}),
-        status: manifest.status,
-        geometryKind: manifest.geometryKind,
-        source: {
-          name: manifest.sourceName,
-          url: manifest.sourceUrl,
-          ...(manifest.sourceQuery ? { query: manifest.sourceQuery } : {}),
-          featureIds: manifest.sourceFeatureIds,
-          artifact: `source-features/${reference.reference.toLowerCase()}.geojson`,
-          ...(manifest.notes ? { notes: manifest.notes } : {}),
-        },
-        geojson:
+        const geojson =
           geometryRole === "display"
-            ? { ...geojson, bbox: bounds(geojson) }
-            : geojson,
-      };
-    });
+            ? snapshot.geojsonByReference.get(reference.reference)
+            : snapshot.sourceGeojsonByReference.get(reference.reference);
+        if (!manifest?.geometryKind || !manifest.sourceFeatureIds || !geojson) {
+          throw new Error(
+            `${reference.reference} cannot be included in the package catalog`,
+          );
+        }
+
+        return {
+          ...reference,
+          ...(mapPoint
+            ? {
+                mapPoint: {
+                  latitude: mapPoint.latitude,
+                  longitude: mapPoint.longitude,
+                  notes: mapPoint.notes,
+                },
+              }
+            : {}),
+          status: manifest.status,
+          geometryKind: manifest.geometryKind,
+          source: {
+            name: manifest.sourceName,
+            url: manifest.sourceUrl,
+            ...(manifest.sourceQuery ? { query: manifest.sourceQuery } : {}),
+            featureIds: manifest.sourceFeatureIds,
+            artifact: `source-features/${reference.reference.toLowerCase()}.geojson`,
+            ...(manifest.notes ? { notes: manifest.notes } : {}),
+          },
+          geojson:
+            geometryRole === "display"
+              ? { ...geojson, bbox: bounds(geojson) }
+              : geojson,
+        };
+      });
   }
 
   const displayReferences = catalogReferences("display");
@@ -210,11 +217,17 @@ export async function buildPackageArtifacts(
   const displayAggregate = aggregate(displayReferences, "display");
   const sourceAggregate = aggregate(sourceReferences, "source");
 
+  const v3 = v3Artifacts(
+    snapshot.references,
+    snapshot.manifest,
+    displayReferences,
+  );
   const artifacts = new Map<string, string>([
+    ...v3.artifacts,
     ...(await buildEntry("index")),
     ...(await buildEntry("compare")),
     ...(await buildEntry("public-types")),
-    ...(await buildEntry("display", displayModule(displayReferences))),
+    ...(await buildEntry("display", displayModule(v3.records))),
     ["dist/catalog.json", json(catalog)],
     ["dist/source-catalog.json", json(sourceCatalog)],
     ["dist/all.geojson", json(displayAggregate)],
@@ -268,6 +281,7 @@ export async function buildPackageArtifacts(
   }
   for (const [relativePath, content] of artifacts) {
     if (
+      relativePath.startsWith("dist/v3/") ||
       relativePath.startsWith("dist/boundaries/") ||
       relativePath === "dist/catalog.json" ||
       relativePath === "dist/source-catalog.json" ||

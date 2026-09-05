@@ -31,7 +31,9 @@ export function bounds(
   return result;
 }
 
-export function displayModule(records: CatalogRecord[]): string {
+export function displayModule(
+  records: Omit<CatalogRecord, "source">[],
+): string {
   const display = records.map((record) => ({
     reference: record.reference,
     status: record.status,
@@ -44,10 +46,12 @@ export function displayModule(records: CatalogRecord[]): string {
           source: "official",
         },
     bbox: bounds(record.geojson),
-    artifact: `@ripota/parks/boundaries/${record.reference.toLowerCase()}.geojson`,
+    artifact: `@ripota/parks/${record.status === "research-needed" ? "v3/" : ""}boundaries/${record.reference.toLowerCase()}.geojson`,
   }));
   const dataset = {
-    schemaVersion: 2,
+    schemaVersion: records.some((record) => record.status === "research-needed")
+      ? 3
+      : 2,
     geometryRole: "display",
     referenceCount: records.length,
     featureCount: records.reduce(

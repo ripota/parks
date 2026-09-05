@@ -89,3 +89,6 @@ from `@ripota/parks/types`. See [API contracts and examples](API.md).
 
 Use `@ripota/parks/compare` to compare a caller-fetched inventory offline;
 [API.md](API.md) documents normalization, structured diagnostics, and failure policy.
+
+Opt into `/v3/catalog.json` for explicitly labeled research-needed point fallbacks;
+existing detailed and source paths retain their reviewed contracts. See [API.md](API.md).

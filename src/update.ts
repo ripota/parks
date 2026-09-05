@@ -1,6 +1,6 @@
 #!/usr/bin/env -S node --experimental-strip-types
 
-import { mkdtemp, readdir, rename, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, rename, rm } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -199,8 +199,15 @@ export async function writeCandidateSnapshot(
     path.join(candidateDataDirectory, "manifest.json"),
     json(results.map((result) => result.manifest)),
   );
+  await mkdir(path.join(candidateDataDirectory, "boundaries"), {
+    recursive: true,
+  });
+  await mkdir(path.join(candidateDataDirectory, "source-features"), {
+    recursive: true,
+  });
   const derivationRecords: DerivationRecord[] = [];
   for (const result of results) {
+    if (result.manifest.status === "research-needed") continue;
     const fileName = `${result.manifest.reference.toLowerCase()}.geojson`;
     const sourceContent = json(result.sourceGeojson);
     const displayContent = json(result.displayGeojson);

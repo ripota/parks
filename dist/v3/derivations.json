@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 3,
+  "records": [
+    {
+      "reference": "US-0513",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-0513.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0"
+      },
+      "sha256": "d8270b318420869363eb5b826f0053709063b0fcd1dca358628849633a0e5958"
+    },
+    {
+      "reference": "US-0514",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-0514.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0"
+      },
+      "sha256": "91f0a151d0ec8edbf7cc4a9361a1b7d690ad56dad09406d5c1a8309c2af84646"
+    },
+    {
+      "reference": "US-0515",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-0515.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0"
+      },
+      "sha256": "33a0c9869c320ac0714df53c67b9192c398ed20a774c2e530f7fa85c9ea95395"
+    },
+    {
+      "reference": "US-0516",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-0516.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0"
+      },
+      "sha256": "b65583a35ab263fd5ff78d37388f1b1f6cd8ed1b7a273d3af50c5db90cba964d"
+    },
+    {
+      "reference": "US-0517",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-0517.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services.arcgis.com/QVENGdaPbd4LUkLV/arcgis/rest/services/National_Wildlife_Refuge_System_Boundaries/FeatureServer/0"
+      },
+      "sha256": "6e76149a7e9af636a20ba28c792fd4e0511e01c1ef8ae4830f203e2d2345b3dd"
+    },
+    {
+      "reference": "US-0789",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-0789.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2"
+      },
+      "sha256": "cdbde7a6d7bd1932022ea43faea287f1f667a16a1ae708f983db8220543a96a9"
+    },
+    {
+      "reference": "US-10541",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10541.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "47ae3779510bb8b6e3db451acc45e6d2e9d600db829fed4c2719c886997fb9b0"
+    },
+    {
+      "reference": "US-10542",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10542.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "420afcec68e8be85bf8fbfd44f95dcbdc46df81afb678dae9e6e19eb1628ce19"
+    },
+    {
+      "reference": "US-10543",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10543.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "3ff767b6ea4cefa15d0b19db160e0ee95e7822887120ef11eeecf5618b2fab0a"
+    },
+    {
+      "reference": "US-10544",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10544.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "fe21c6f05553071a288cf05e3c865e1a0f6e6af28137a82d87ed4af655c0694b"
+    },
+    {
+      "reference": "US-10545",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10545.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "5b5e95bb847024334a754e6e6f4884c42b752510353b4d802a82b1fbf32457ba"
+    },
+    {
+      "reference": "US-10546",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10546.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "47b7a5fb13f88bdec9ee8bda3328a561718c2c4622abbcee268f1d6f5404f289"
+    },
+    {
+      "reference": "US-10547",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10547.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "375de63560fb361f1549ff0425c6c2598d3e8146314223a9207be4a6a49a9c87"
+    },
+    {
+      "reference": "US-10548",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-10548.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "c7d54115d4d38d5f5c45b4a77e9a18a96f0c9c49100eb35dad4ac7eed7bedb7a"
+    },
+    {
+      "reference": "US-2868",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2868.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "027dfbab7408a74d31a6c80be6f7e3f939dd30d139a2a564a025538208fb18d3"
+    },
+    {
+      "reference": "US-2869",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2869.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "e5c75ebbc2200f58f7e9cedadbfee4db677a7be648483d1acd6743a2ec87fa7f"
+    },
+    {
+      "reference": "US-2870",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2870.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "441f47e98a0bd735dd1a9b453abca6c23c0672f56e92f50e70a913d409e33ef6"
+    },
+    {
+      "reference": "US-2871",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2871.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "cd3ea4b3a034b866e4a0c797ffd1a9a7f6d1a1d21e73d5b1c330c7a8125c2b9e"
+    },
+    {
+      "reference": "US-2872",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2872.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "e6bbc75d4b33d11ef6266318adc63becf9e4481441d4cf1afc9dacc366fd2f45"
+    },
+    {
+      "reference": "US-2873",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2873.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "7379aebc7a6754ac424a7194caa3e44fb923610408cac7bbb3d1068c1c4768a4"
+    },
+    {
+      "reference": "US-2874",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2874.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "74dc5ec2bf764847f7a567abc7f7fbdb323dd51c3d47132e137971b0a1520180"
+    },
+    {
+      "reference": "US-2875",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2875.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "55903f679a6db1561365010b1829915b9e8337aef775d9baf747717564c50de6"
+    },
+    {
+      "reference": "US-2876",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2876.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "9382766c01a277acd4ebb5e4f9e38adcf429aacc7763f344e8e30c59c8979c27"
+    },
+    {
+      "reference": "US-2877",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2877.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "42dbef6fd7f5cdf6ad7b10241b58986edbd9e99fd682d36a867bb8ae760e3085"
+    },
+    {
+      "reference": "US-2878",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2878.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "8433b6f5843e16e51014445052f8494d74e12ab3acd5d79e421e945dddf46ac2"
+    },
+    {
+      "reference": "US-2879",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2879.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "9277d2e08bf32934d76be8ba4965020a83192dfeaa02b8e6c68cdff45092d1f3"
+    },
+    {
+      "reference": "US-2880",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2880.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "9409528ab0cfcde90129d64ddfc41be49b9414320a363ff78041b7068d05392f"
+    },
+    {
+      "reference": "US-2881",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-2881.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "924bc0085448d1d1c9ee48a3ce6773fd65f8e29f67ab29ebd3a0eef6d39fcd95"
+    },
+    {
+      "reference": "US-4582",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-4582.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services.arcgis.com/hRUr1F8lE8Jq2uJo/arcgis/rest/services/Washington_Rochambeau_National_Historic_Trail_Route/FeatureServer/2"
+      },
+      "sha256": "1a13a89ef37abb27c72b6f37506372683bae4886e1c00b4854667ba927acc5b8"
+    },
+    {
+      "reference": "US-5482",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-5482.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "a4b5a7714fad4addfda3c4d0e62c9816fd58bc3851993be280741b7e61fc4535"
+    },
+    {
+      "reference": "US-5483",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-5483.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "59cc4399c3b65e1abb67786ef3bea331bc75b99be9634087cd9acc9b2cbf9f67"
+    },
+    {
+      "reference": "US-5484",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-5484.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "e04bb4ddeb5bf0f0cf86269f569314aebe7f68455c27769418e0ce3fb02bea94"
+    },
+    {
+      "reference": "US-6979",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6979.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "3352c9571b291f7accb8e5ac8beb45b532a35d98422f05abe21212bc313a1b56"
+    },
+    {
+      "reference": "US-6980",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6980.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "32a019e64d088e273a3711bab4939f53cd93d5d615d31227a404481751dee90c"
+    },
+    {
+      "reference": "US-6981",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6981.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "a76124c7e0f1d10548d571c85c50badd1fa77b587f211dbf7aa371b77a9fd604"
+    },
+    {
+      "reference": "US-6982",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6982.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "a48e76ba6646debdd0fcaa6bc85fde94a901defed9f668fe940797db0bffa663"
+    },
+    {
+      "reference": "US-6983",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6983.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "52cdedb8193143a205993ad46ffd0f48a72313e573740fb4220704f7bbfbe4af"
+    },
+    {
+      "reference": "US-6984",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6984.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "0fee1b5c0d9f3ac77d1f6720d5161a158d24d63c5df203ac2de37b8d4a25ef67"
+    },
+    {
+      "reference": "US-6985",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6985.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "2c97a4a7875c243286dbc4e5489b3002afad4be70db8d1039f2cf37ad53d989d"
+    },
+    {
+      "reference": "US-6986",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6986.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "9f737b0ae0e9e0e549c3d0973baf9539d4a5b1563467c7b08a490abd200329a5"
+    },
+    {
+      "reference": "US-6987",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6987.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "63bcb689a9058ae9d3fcd250d0f047930a687216ee7970fc8f88a5783a2465f4"
+    },
+    {
+      "reference": "US-6988",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6988.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "58c63c329339f30ce53d44241b80cc10794c3d59ff2bfb98af0308636b484b0e"
+    },
+    {
+      "reference": "US-6989",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6989.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "1c7c02a8753d897a3c0a86e1a4ba01214531fc0ac0c3caece156dc1483e47fa9"
+    },
+    {
+      "reference": "US-6990",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6990.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "289f545aaf4789bac1cf7a820421b225d6932dc0fe473f2755f6510fe56c81f1"
+    },
+    {
+      "reference": "US-6991",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6991.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "8282268b6305085697bdcb8d48e3b9ee71b2df61ad6d8432ba605516fe9afba8"
+    },
+    {
+      "reference": "US-6992",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-6992.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "227cdd0cfbeb7604907d2c9e132c7a903bec8bc48968dd3f49c418047a06524d"
+    },
+    {
+      "reference": "US-7508",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7508.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "9731d48b439a0ebdba94e56780c32104865b674c926c18938c129cc675f5e092"
+    },
+    {
+      "reference": "US-7518",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7518.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "41f4508040de2f1a8da5b6fb0157f3808627d6740a446600ca81eff7a28be02f"
+    },
+    {
+      "reference": "US-7714",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7714.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "3a7ffdfcc7760ae380070bd8a61ef5c2d8c9d42210e4d90565a1d8ce893b81fd"
+    },
+    {
+      "reference": "US-7715",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7715.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "9ae3b9038b939b6e83d9d635b60c9487a59cd2a3a20140ee9d1b21a755c623a6"
+    },
+    {
+      "reference": "US-7716",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7716.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "3f9d097240807b1184b2b37f73d94710c1b259e6421532c3e3773a30ef33190e"
+    },
+    {
+      "reference": "US-7717",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7717.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "7bfcb752d2542c4c9905b3efab141b14907b597620ac3d72324addd1c9d0e68b"
+    },
+    {
+      "reference": "US-7718",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7718.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "daf897aae7578fc868a3f8f7c3b28a71803212dcd798143342e97cce1faa91e2"
+    },
+    {
+      "reference": "US-7719",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7719.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "22847699e1e0ff35480bd917afd0230d2d392459024ba1ab63d89ac70419a4df"
+    },
+    {
+      "reference": "US-7720",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7720.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "05e6fcad70b7b9736057cd6b28b090b63aba9540d80eed12e60df94ce21badb7"
+    },
+    {
+      "reference": "US-7721",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7721.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "d33f45f4ec7a6601ef7ea8b81e92eb73bffeb3717bf72002381df08ee824bd93"
+    },
+    {
+      "reference": "US-7722",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7722.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "3574fd78050745fd8f6c158858daae8ee1bd46b71aba7ab0e0f75c078f5e2561"
+    },
+    {
+      "reference": "US-7723",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7723.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "fed19718f318a9c377e3e9c0fbacb6f3ea78abe81226b55b6428122e4eba9402"
+    },
+    {
+      "reference": "US-7865",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7865.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "09f54f4d09038b616e0684ca61c817e17ea77b4bdc4ac9b8d01cba16f23bd034"
+    },
+    {
+      "reference": "US-7971",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-7971.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2"
+      },
+      "sha256": "d5246d69d9d886b8f68bb30fdd87a8915bd9eb88fcc51d847621ca8e141b6a81"
+    },
+    {
+      "reference": "US-8293",
+      "status": "available",
+      "artifact": "dist/v3/boundaries/us-8293.geojson",
+      "operation": "reviewed-display-identity",
+      "provenance": {
+        "kind": "reviewed-source",
+        "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+      },
+      "sha256": "876ad8793b3d943a6cbdc1ad8e96931da5a12b36bbc455ea9944cce257599846"
+    }
+  ]
+}

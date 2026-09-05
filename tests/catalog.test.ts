@@ -251,7 +251,7 @@ describe("reviewed RI POTA snapshot", () => {
       .get("dist/checksums.sha256")!
       .trim()
       .split("\n");
-    expect(checksumLines).toHaveLength(190);
+    expect(checksumLines).toHaveLength(254);
     const manifest = JSON.parse(
       await readFile(path.join(rootDirectory, "data/manifest.json"), "utf8"),
     ) as ManifestRecord[];

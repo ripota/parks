@@ -14,6 +14,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 import { potaCoordinateSource, sources } from "../config/boundary-sources.ts";
 import { writePackageArtifacts } from "../src/package.ts";
+import { fetchReviewedGeometry } from "../src/boundaries.ts";
 import type { GeometryResult } from "../src/boundaries.ts";
 import type { CountyBoundary } from "../src/counties.ts";
 import type {
@@ -409,4 +410,73 @@ describe("transactional snapshot updates", () => {
     expect(await snapshotTrees(root)).toEqual(before);
     await expectNoUpdateDirectories(root);
   });
+});
+
+it("packages research-needed references through an explicit v3 fallback", async () => {
+  const available = manifest("US-0001", "available");
+  const research: ManifestRecord = {
+    reference: "US-0002",
+    status: "research-needed",
+    sourceName: "Parks on the Air",
+    sourceUrl: "https://pota.app/#/park/US-0002",
+    notes: "Boundary research pending.",
+  };
+  const root = await createRepositoryFixture(
+    [available],
+    [available, research],
+  );
+  await updateFixture(root, [available, research], {
+    fetchGeometry: async (reference, mapping) =>
+      mapping.status === "research-needed"
+        ? fetchReviewedGeometry(reference, mapping)
+        : geometryResult(mapping),
+  });
+  const snapshot = await validateSnapshot(root);
+  expect(snapshot.references).toHaveLength(2);
+  expect(snapshot.derivations.records).toHaveLength(1);
+  const catalog = JSON.parse(
+    await readFile(path.join(root, "dist/v3/catalog.json"), "utf8"),
+  );
+  const fallback = catalog.references[1];
+  expect(fallback).toMatchObject({
+    reference: "US-0002",
+    status: "research-needed",
+    fidelity: "official-point-fallback",
+    geometryKind: "point",
+  });
+  expect(fallback.source).toBeUndefined();
+  expect(fallback.geojson.features[0].geometry.coordinates).toEqual([
+    normalized(research).longitude,
+    normalized(research).latitude,
+  ]);
+  const display = await readFile(path.join(root, "dist/display.js"), "utf8");
+  expect(display).toContain("@ripota/parks/v3/boundaries/us-0002.geojson");
+  expect(
+    JSON.parse(await readFile(path.join(root, "dist/v3/all.geojson"), "utf8"))
+      .features,
+  ).toHaveLength(2);
+  expect(
+    await readFile(path.join(root, "dist/checksums.sha256"), "utf8"),
+  ).toContain("dist/v3/boundaries/us-0002.geojson");
+  await expect(
+    fetchReviewedGeometry({ ...normalized(research), latitude: NaN }, research),
+  ).rejects.toThrow("invalid official coordinates");
+  await expect(
+    fetchReviewedGeometry(
+      { ...normalized(research), longitude: 181 },
+      research,
+    ),
+  ).rejects.toThrow("invalid official coordinates");
+  await expect(
+    fetchReviewedGeometry(normalized(research), {
+      ...research,
+      geometryKind: "boundary",
+    }),
+  ).rejects.toThrow("invalid research-needed mapping");
+  await expect(
+    fetchReviewedGeometry(normalized(research), {
+      ...research,
+      sourceFeatureIds: [1],
+    }),
+  ).rejects.toThrow("invalid research-needed mapping");
 });

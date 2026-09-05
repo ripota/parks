@@ -1,3 +1,4 @@
+import { fallbackPoint } from "./fallback.ts";
 import { readFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
@@ -395,7 +396,11 @@ export async function validateSnapshot(
   );
   assert(
     JSON.stringify(derivations.records.map((record) => record.reference)) ===
-      JSON.stringify(referenceIds),
+      JSON.stringify(
+        manifest
+          .filter((record) => record.status !== "research-needed")
+          .map((record) => record.reference),
+      ),
     "reference/derivation parity mismatch",
   );
   const derivationByReference = new Map(
@@ -426,6 +431,12 @@ export async function validateSnapshot(
     );
 
     if (record.status === "research-needed") {
+      fallbackPoint(
+        references.find(
+          (reference) => reference.reference === record.reference,
+        )!,
+        record,
+      );
       assert(
         !record.localGeojson,
         `${record.reference} research record unexpectedly has GeoJSON`,

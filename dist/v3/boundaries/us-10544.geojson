@@ -1,0 +1,93 @@
+{
+  "$schema": "https://ripota.org/schemas/v3/display-geojson.schema.json",
+  "type": "FeatureCollection",
+  "properties": {
+    "schemaVersion": 3,
+    "geometryRole": "display",
+    "geometryKind": "boundary",
+    "potaReference": "US-10544",
+    "potaName": "Jerimoth Hill State Recreation Area",
+    "sourceName": "Rhode Island DEM State Conservation Land",
+    "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+    "sourceQuery": "DEM_AREA = 'Jerimoth Hill'",
+    "sourceFeatureIds": [
+      626,
+      627,
+      782
+    ],
+    "status": "available",
+    "fidelity": "reviewed-display"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "potaReference": "US-10544",
+        "potaName": "Jerimoth Hill State Recreation Area",
+        "geometryKind": "boundary",
+        "geometryRole": "display"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.77887611277681,
+              41.84998088554911
+            ],
+            [
+              -71.77912226872367,
+              41.851062931902874
+            ],
+            [
+              -71.77930318876273,
+              41.851039924302746
+            ],
+            [
+              -71.78047915437561,
+              41.850890367090564
+            ],
+            [
+              -71.78024586444796,
+              41.849768039167984
+            ],
+            [
+              -71.78078831124223,
+              41.84969769917307
+            ],
+            [
+              -71.78067106414426,
+              41.849279288656426
+            ],
+            [
+              -71.77958504347156,
+              41.849416469025336
+            ],
+            [
+              -71.7793197670531,
+              41.84825419418654
+            ],
+            [
+              -71.77787260207757,
+              41.84843883651433
+            ],
+            [
+              -71.77824301548578,
+              41.85006190344337
+            ],
+            [
+              -71.77887611277681,
+              41.84998088554911
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "bbox": [
+    -71.78078831124223,
+    41.84825419418654,
+    -71.77787260207757,
+    41.851062931902874
+  ]
+}

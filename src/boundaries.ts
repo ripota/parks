@@ -1,3 +1,4 @@
+import { fallbackPoint } from "./fallback.ts";
 import {
   displayGeometryRule,
   potaCoordinateSource,
@@ -571,9 +572,12 @@ export async function fetchReviewedGeometry(
     return pointOnlyGeometry(reference, reviewed);
   }
   if (reviewed.status === "research-needed") {
-    throw new Error(
-      `${reference.reference} still needs research and cannot be packaged without an explicit geometry status`,
-    );
+    return {
+      manifest: reviewed,
+      displayGeojson: fallbackPoint(reference, reviewed),
+      sourceGeojson: { type: "FeatureCollection", features: [] },
+      operations: [{ operation: "identity" }],
+    };
   }
   const sourceKey = sourceKeyByName.get(reviewed.sourceName);
   if (!sourceKey) {
