@@ -1,97 +1,77 @@
-# Rhode Island POTA parks data
+# Rhode Island POTA parks
 
-`@ripota/parks` provides typed, lightweight Rhode Island Parks on the Air (POTA) reference metadata by default. Display geometry and reviewed source features are available through explicit package subpaths.
+`@ripota/parks` provides complete, typed visitor records for Rhode Island Parks on the Air references: park type, manager, amenities, access notes, activation advice, fluorescent-orange guidance, and source links.
 
-> [!IMPORTANT]
-> Rhode Island POTA is an unofficial community project. [Official POTA resources](https://parksontheair.com/) remain authoritative for current references and activation rules. These data are for general reference—not legal boundaries, property ownership, access, navigation, or surveying.
-
-## Use reference metadata
-
-The package root is the safe default for forms, validation, lists, browsers, and Workers. It loads only `references.json`; no catalog or GeoJSON data is reachable from its runtime graph.
+## Use park records
 
 ```ts
-import { references, type PotaReference } from "@ripota/parks";
+import { parks, getPark, type Park } from "@ripota/parks";
 
-const park: PotaReference | undefined = references.find(
-  ({ reference }) => reference === "US-0513",
-);
+const park: Park | undefined = getPark("US-0513");
+const managementAreas = parks.filter(({ type }) => type === "management-area");
 ```
 
-## Choose geometry artifacts
+`getPark` trims whitespace and ignores case. Records and their nested collections are readonly in TypeScript. The root loads only park JSON; geometry is available separately.
 
-Geometry-bearing imports are deliberately explicit and can add several megabytes to an application bundle.
+Visitor information is best effort, with links to the relevant managers and rules. Empty amenities and omitted access notes mean undocumented, not unavailable. Orange guidance describes the season in words; it does not calculate today's requirements. Check the linked rules, current notices, and posted signs before visiting. Park type is a directory category, not a legal designation. These records do not grant access or activation permission.
 
-| Need                           | Package export                                  |
-| ------------------------------ | ----------------------------------------------- |
-| Reference metadata             | `@ripota/parks/references.json`                 |
-| Metadata plus display geometry | `@ripota/parks/catalog.json`                    |
-| Display aggregate              | `@ripota/parks/all.geojson`                     |
-| One display boundary           | `@ripota/parks/boundaries/us-NNNN.geojson`      |
-| Metadata plus source features  | `@ripota/parks/source-catalog.json`             |
-| One source-feature collection  | `@ripota/parks/source-features/us-NNNN.geojson` |
-| Review and derivation records  | `@ripota/parks/{manifest,derivations}.json`     |
-| Portable schema-v2 contracts   | `@ripota/parks/schemas/v2/*.schema.json`        |
+## Use JSON without JavaScript
 
-Node ESM consumers use JSON import attributes for JSON exports. Non-JSON extensions resolve as files:
+Download [parks.json for v4.0.0](https://github.com/ripota/parks/releases/download/v4.0.0/parks.json)
+for the same complete records, with no package installation or JavaScript runtime.
+It is a UTF-8 JSON array with one object per POTA reference. Pin the release URL
+in static-site builds or download it alongside your site's other data files.
+
+```python
+import json
+from urllib.request import urlopen
+
+url = "https://github.com/ripota/parks/releases/download/v4.0.0/parks.json"
+with urlopen(url) as response:
+    parks = json.load(response)
+park = next(park for park in parks if park["reference"] == "US-0513")
+print(park["orange"]["details"])
+```
+
+The generated file is also checked in at `dist/parks.json` and included in the
+package. Releases include its SHA-256 digest in `checksums.release.sha256`.
+
+## Choose map and data exports
+
+| Need                                    | Export                                          |
+| --------------------------------------- | ----------------------------------------------- |
+| Complete park records as JSON           | `@ripota/parks/parks.json`                      |
+| Canonical POTA identity only            | `@ripota/parks/references.json`                 |
+| Lightweight map points and bounds       | `@ripota/parks/display`                         |
+| Identity and display geometry           | `@ripota/parks/catalog.json`                    |
+| One detailed boundary                   | `@ripota/parks/boundaries/us-NNNN.geojson`      |
+| Smaller map boundary                    | `@ripota/parks/boundaries-web/us-NNNN.geojson`  |
+| Original normalized source features     | `@ripota/parks/source-features/us-NNNN.geojson` |
+| Offline inventory comparison            | `@ripota/parks/compare`                         |
+| Public types, including `PotaReference` | `@ripota/parks/types`                           |
+
+Node ESM uses JSON import attributes; GeoJSON exports resolve as files:
 
 ```js
 import { readFile } from "node:fs/promises";
+import { parks, getPark } from "@ripota/parks";
+import parkRecords from "@ripota/parks/parks.json" with { type: "json" };
+import { getDisplayReference } from "@ripota/parks/display";
 
-import { references } from "@ripota/parks";
-import catalog from "@ripota/parks/catalog.json" with { type: "json" };
-import derivations from "@ripota/parks/derivations.json" with { type: "json" };
-import manifest from "@ripota/parks/manifest.json" with { type: "json" };
-import referencesJson from "@ripota/parks/references.json" with { type: "json" };
-
-async function readExport(specifier) {
-  return readFile(new URL(import.meta.resolve(specifier)), "utf8");
-}
-
-const aggregate = JSON.parse(await readExport("@ripota/parks/all.geojson"));
-const checksums = await readExport("@ripota/parks/checksums.sha256");
+const park = getPark("us-0513");
+const display = getDisplayReference(park.reference);
 const boundary = JSON.parse(
-  await readExport("@ripota/parks/boundaries/us-0513.geojson"),
+  await readFile(new URL(import.meta.resolve(display.artifact)), "utf8"),
 );
-const sourceFeatures = JSON.parse(
-  await readExport("@ripota/parks/source-features/us-0513.geojson"),
-);
-void catalog;
-void derivations;
-void manifest;
-void referencesJson;
-void aggregate;
-void checksums;
-void boundary;
-void sourceFeatures;
+void [parks, parkRecords, boundary];
 ```
 
-The package checks verify that `references` and `referencesJson` are identical and report minified and Brotli sizes for the root runtime and full catalog.
-
-## Version and compatibility
-
-Package v3 introduces artifact schema v2. `catalog.json`, `all.geojson`, and `boundaries/*` now contain display geometry: touching and overlapping parcels are dissolved while genuine gaps, disconnected parcels, and interior holes remain. Normalized upstream features are explicit under the `source-*` exports; for the statewide trail, the source artifact retains the upstream route while the display artifact contains its derived activation zone.
-
-The lightweight package root introduced in v2 is unchanged. Historical schema-v1 files remain packaged; new artifacts identify the versioned schema-v2 contracts through `$schema`.
-
-Every geometry record labels its kind as `boundary`, `activation-zone`, or `point`. Draft-07 schemas use stable `$id` URLs under `https://ripota.org/schemas/`; repository checks enforce additional geometry, source-identity, inventory, and reproducibility gates.
+See [API contracts](API.md) for all geometry tiers, comparison behavior, and metadata field meanings. Geometry is for general reference and display; it does not establish legal boundaries, ownership, access, or activation eligibility. [Official POTA resources](https://parksontheair.com/) govern reference and activation rules.
 
 ## Install and maintain
 
-Download and install the versioned `ripota-parks-<version>.tgz` from [GitHub Releases](https://github.com/ripota/parks/releases); this package is not published to the npm registry. Pin immutable releases or tags rather than `main` URLs.
+Install the immutable `ripota-parks-4.0.0.tgz` asset from [GitHub Releases](https://github.com/ripota/parks/releases); the package is not published to npm.
 
-Run `mise install`, `npm ci`, and `mise run check` from a clean checkout. Read [CONTRIBUTING.md](CONTRIBUTING.md) before refreshing data or preparing a release. Versioned provenance and limitations live in [DATA_SOURCES.md](DATA_SOURCES.md); redistribution responsibilities live in [DATA_LICENSE.md](DATA_LICENSE.md).
+Version 4 replaces root `references`/`getReference` with `parks`/`getPark`. Move raw identity types to `/types` and use `/references.json` where exact identity-only JSON is needed. Existing display, comparison, geometry, and schema-v2/v3 exports retain their contracts.
 
-## Display metadata
-
-Use `@ripota/parks/display` for reviewed map points, bounds, attribution, and
-selective boundary exports without geometry payloads. Readonly types are exported
-from `@ripota/parks/types`. See [API contracts and examples](API.md).
-
-Use `@ripota/parks/compare` to compare a caller-fetched inventory offline;
-[API.md](API.md) documents normalization, structured diagnostics, and failure policy.
-
-Opt into `/v3/catalog.json` for explicitly labeled research-needed point fallbacks;
-existing detailed and source paths retain their reviewed contracts. See [API.md](API.md).
-
-For smaller map payloads, opt into `boundaries-web/*` or `all-web.geojson`.
-[API.md](API.md) explains fidelity, provenance, size budgets, and limitations.
+Maintain visitor records in `config/park-metadata.json`, then run `mise run package` and `mise run check`. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the separate snapshot-refresh and release workflows. Provenance lives in [DATA_SOURCES.md](DATA_SOURCES.md); redistribution responsibilities are in [DATA_LICENSE.md](DATA_LICENSE.md).

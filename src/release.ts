@@ -28,6 +28,7 @@ export type ReleaseInfo = {
 type DownloadAssets = (directory: string) => Promise<void>;
 
 const BUILT_ASSET_NAMES = [
+  "parks.json",
   "catalog.json",
   "source-catalog.json",
   "all.geojson",

@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { build } from "esbuild";
 import { brotliCompressSync } from "node:zlib";
 import { expect, it } from "vitest";
-import { getReference } from "../dist/index.js";
+import { getPark } from "../dist/index.js";
 import {
   dataset,
   displayReferences,
@@ -15,10 +15,10 @@ it("provides reviewed presentation points and exact exported bounds", async () =
     source: "reviewed",
     latitude: 41.7445710002769,
   });
-  expect(getReference("us-4582")?.latitude).not.toBe(
+  expect(getPark("us-4582")?.latitude).not.toBe(
     getDisplayReference("US-4582")?.displayPoint.latitude,
   );
-  expect(getReference("unknown")).toBeUndefined();
+  expect(getPark("unknown")).toBeUndefined();
   expect(getDisplayReference("unknown")).toBeUndefined();
   expect(dataset.referenceCount).toBe(displayReferences.length);
   for (const record of displayReferences) {

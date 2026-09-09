@@ -29,6 +29,7 @@ The initial offline check must pass before a data refresh.
 
 | Path                              | Ownership                                                                  |
 | --------------------------------- | -------------------------------------------------------------------------- |
+| `config/park-metadata.json`       | Maintained visitor metadata for every accepted reference                   |
 | `config/reviewed-sources.json`    | Human-reviewed per-reference mappings, queries, and source IDs             |
 | `config/map-point-overrides.json` | Explicit display-point exceptions when official coordinates are unsuitable |
 | `config/boundary-sources.ts`      | Human-reviewed service endpoints and shared derivation rules               |
@@ -38,6 +39,30 @@ The initial offline check must pass before a data refresh.
 | `src/`, `tests/`                  | Updater, validation, packaging, release, and regression logic              |
 
 Resolve blocked updates in reviewed configuration or pipeline code. Never make an update pass by weakening validation or patching `data/` or `dist/` directly.
+
+## Visitor metadata maintenance
+
+Edit `config/park-metadata.json` for park type, manager, amenities, access notes,
+activation advice, orange guidance, and supporting source URLs. It is a complete
+reference-keyed inventory: packaging rejects missing or extra references, unknown
+fields/enums, invalid URLs, and metadata that attempts to override identity.
+The closed authoring contract is `schemas/park-metadata.schema.json`.
+
+Use concise paraphrases supported by official manager pages or rules. Directory
+type is descriptive, not a legal classification. List only documented amenities;
+leave optional access notes absent when undocumented. Orange guidance is written
+for non-hunting visitors: retain seasonal windows, amounts, exceptions, and any
+location-dependent scope in the details. Do not derive it from park names or
+hunting permission alone. A source without a square-inch amount must not acquire
+an invented one. Link the governing rule or manager guidance and include supporting
+URLs in `sources`.
+
+Run `mise run package` and `mise run check`; review `dist/parks.json` and root
+payload measurements. Offline packaging combines metadata with the accepted
+identity snapshot and does not refresh upstream data. Update the visitor-metadata
+review note in DATA_SOURCES.md when sources or material guidance change. New
+accepted references require both reviewed geometry configuration and visitor
+metadata; all existing source and geometry gates still apply.
 
 ## Refresh and review
 
@@ -72,7 +97,7 @@ Do not bypass a reported gate. Inspect `git status` and the error, preserve unre
 
 [`src/release.ts`](src/release.ts) is the executable source of truth for asset construction, required filenames, publication state, and digest comparison. The [tag workflow](.github/workflows/release.yml) invokes it; the `release-assets` Mise task exposes safe local build and verification commands.
 
-The contract includes display and source-feature catalogs and aggregates, the data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Per-reference source features and derivation metadata remain available inside the tarball and tagged repository. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
+The contract includes complete visitor records in standalone `parks.json`, display and source-feature catalogs and aggregates, the data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Per-reference source features and derivation metadata remain available inside the tarball and tagged repository. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
 
 ### Prepare and rehearse
 

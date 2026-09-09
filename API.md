@@ -1,9 +1,66 @@
 # Consumer API contracts
 
+## Complete park records
+
+```ts
+import {
+  parks,
+  getPark,
+  type Park,
+  type ParkType,
+  type ParkAmenity,
+  type OrangeGuidance,
+} from "@ripota/parks";
+import type { PotaReference } from "@ripota/parks/types";
+const park = getPark("  us-0513  ");
+```
+
+`parks: readonly Park[]` contains every accepted reference in canonical order.
+`getPark(reference: string): Park | undefined` trims whitespace, ignores case,
+and returns undefined for unknown or malformed strings. Neither API fetches data.
+`parks.json` exports identical records for JSON consumers. It is a UTF-8 JSON
+array, with one object per accepted reference in canonical order, available as a
+[standalone versioned download](https://github.com/ripota/parks/releases/download/v4.0.0/parks.json),
+checked in at `dist/parks.json`, and exported at `@ripota/parks/parks.json`.
+All fields below are the same in JSON and JavaScript. Pin a release URL for
+reproducible builds; no authentication, package installation, or JS runtime is
+needed. The release checksum manifest covers the standalone JSON too.
+
+A `Park` retains all eight POTA identity fields (`reference`, `name`, `latitude`,
+`longitude`, `grid`, `counties`, `locationDesc`, `potaUrl`) and adds:
+
+| Field                   | Meaning                                                                                                                                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                  | Directory category: park, beach, forest, management-area, wildlife-refuge, preserve, historic-site, trail, recreation-area, fishing-access, or campground. It is not a legal designation. |
+| `manager`, `websiteUrl` | Human-readable manager and primary visitor-information link.                                                                                                                              |
+| `amenities`             | Documented parking, restrooms, picnic-tables, shelter, drinking-water, boat-launch, and/or camping. Empty means undocumented; presence does not promise current availability.             |
+| `access`                | Optional short `hours`, `parking`, `fees`, `pets`, and `accessibility` notes. Omitted means undocumented.                                                                                 |
+| `activationNotes`       | Practical setup and location notes; these do not replace manager permission or POTA rules.                                                                                                |
+| `orange`                | `status`, human-readable `season` (string or null), `details`, and `sourceUrl`.                                                                                                           |
+| `sources`               | Source URLs supporting the visitor metadata.                                                                                                                                              |
+
+Orange `status` is `required`, `recommended`, `area-dependent`, or `not-required`
+for non-hunting visitors under the circumstances in `season` and `details`.
+`required` can be seasonal; `area-dependent` means the described location or
+property scope matters. `not-required` is the current reviewed guidance for the
+stated property and scope, not a promise about future rules. A null season means
+no specific recurring season is recorded. Always present the details and link
+alongside the status. This API has no date evaluator or live closure checks.
+Metadata is best effort and may become stale; check the linked current rules.
+
+All park fields and nested collections are readonly TypeScript contracts; runtime
+objects are not frozen. Version 4 removes root `references`, `getReference`, and
+`PotaReference`. The identity-only JSON remains `/references.json`, and its
+`PotaReference` type remains available from `/types`. Consumers that persist an
+identity-only projection should explicitly select those eight fields.
+
+The root graph contains only its entry module and generated park JSON. Its
+budgets are 150 kB minified and 25 kB Brotli. No geometry, network call, or
+wall-clock timestamp enters that graph.
+
 ## Lightweight display metadata and public types
 
 ```ts
-import { references, getReference } from "@ripota/parks";
 import { dataset, getDisplayReference } from "@ripota/parks/display";
 import type {
   Catalog,
@@ -14,27 +71,19 @@ const display = getDisplayReference("US-4582");
 const boundaryUrl = display?.artifact && import.meta.resolve(display.artifact);
 ```
 
-The display entrypoint contains presentation metadata only, including the reviewed
-US-4582 override, standard `[west, south, east, north]` bounds, attribution,
-disclaimer, counts, and the existing explicit boundary export. Each exported
-display boundary and catalog geometry has matching `bbox`; coordinates remain
-unchanged. `displayPoint.source` is `reviewed` for configured overrides and
-`official` otherwise (the type reserves `point-on-surface` for future derivations).
-Official root coordinates remain unchanged. Both lookup functions accept
-case-insensitive IDs and return `undefined` for unknown/malformed IDs; whitespace
-is not trimmed. No fetch occurs. Load a boundary deliberately using its export,
-or keep using `catalog.json` for the complete detailed catalog.
-
-New `/display` and `/types` collections and nested arrays are readonly. The
-existing root `PotaReference` and `references` types remain mutable for source
-compatibility. This is additive package API v3; artifact schema v2 remains intact.
-Packaging reports minified/Brotli sizes; display budgets are 30 kB/8 kB and root
-budgets remain 50 kB/20 kB. No wall-clock timestamp is generated.
+The display entrypoint contains reviewed map points, `[west, south, east, north]`
+bounds, attribution, disclaimer, counts, and boundary exports. Official park
+coordinates remain unchanged. `displayPoint.source` is `reviewed` for configured
+overrides and `official` otherwise (the type reserves `point-on-surface`). Unlike
+`getPark`, the existing `getDisplayReference` lookup does not trim whitespace.
+It ignores case and returns undefined for unknown IDs. Collections are readonly;
+the display payload budgets remain 30 kB minified / 8 kB Brotli. Geometry and
+artifact schema versions remain unchanged by package v4.
 
 ## Offline inventory comparison
 
 ```ts
-import { references } from "@ripota/parks";
+import { parks } from "@ripota/parks";
 import {
   diffReferences,
   type ReferenceInput,
@@ -45,7 +94,7 @@ import {
 const response = await fetch("https://api.pota.app/location/parks/US-RI");
 if (!response.ok) throw new Error(`POTA returned ${response.status}`);
 const current = await response.json();
-const diff = diffReferences(references, current);
+const diff = diffReferences(parks, current);
 if (
   diff.added.length ||
   diff.missing.length ||

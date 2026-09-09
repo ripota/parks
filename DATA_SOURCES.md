@@ -1,5 +1,25 @@
 # Sources, attribution, and limitations
 
+## Visitor metadata in package v4.0.0
+
+Visitor metadata was assembled on 2026-09-09 for all 61 accepted POTA references.
+`config/park-metadata.json` is the maintained source; offline packaging combines
+it with the unchanged accepted identity snapshot into `dist/parks.json`.
+Each record links its primary manager page, orange guidance, and supporting
+sources. The records paraphrase public information from RI DEM/RI Parks, the
+Water Resources Board, USFWS, NPS, Westerly Land Trust, and other named managers.
+No upstream geometry was refreshed as part of this metadata release.
+
+Directory types are practical categories, not determinations of legal ownership
+or designation. Amenities are documented facilities, with no promise of current
+availability; empty lists and missing access notes mean undocumented. Hours,
+fees, restrictions, hunting seasons, and orange guidance can change. Orange
+statuses describe non-hunting visitors and must be read with their season,
+details, location scope, and source link. These best-effort summaries do not
+replace current manager notices, posted signs, or permission for radio setup.
+They do not grant access or establish valid activation boundaries. Existing
+source-specific rights and redistribution limitations below remain applicable.
+
 Reviewed for the `v3.0.1` snapshot on 2026-09-01. The exact service URL, query, feature IDs, geometry kind, local path, and record-specific research notes are preserved in [`data/manifest.json`](data/manifest.json) and [`config/reviewed-sources.json`](config/reviewed-sources.json). Reproducible source-to-display lineage is preserved in [`data/derivations.json`](data/derivations.json). Evergreen redistribution responsibilities are in [DATA_LICENSE.md](DATA_LICENSE.md).
 
 ## Snapshot origin and inventory

@@ -1,4 +1,4 @@
-import type { PotaReference } from "./index.ts";
+import type { PotaReference } from "./public-types.ts";
 
 export type { PotaReference };
 

@@ -1,21 +1,18 @@
-import referencesJson from "../data/references.json" with { type: "json" };
+import parksJson from "../dist/parks.json" with { type: "json" };
+import type { Park } from "./public-types.js";
 
-export type PotaReference = {
-  reference: string;
-  name: string;
-  latitude: number;
-  longitude: number;
-  grid: string;
-  counties: string[];
-  locationDesc: string;
-  potaUrl: string;
-};
+export type {
+  Park,
+  ParkType,
+  ParkAmenity,
+  OrangeGuidance,
+} from "./public-types.js";
 
-export const references: PotaReference[] = referencesJson;
+/** Complete park records, generated offline from the accepted identity snapshot. */
+export const parks: readonly Park[] = parksJson as readonly Park[];
 
-/** Case-insensitive lookup; unknown or malformed IDs return undefined. */
-export function getReference(reference: string): PotaReference | undefined {
-  return references.find(
-    (record) => record.reference === reference.toUpperCase(),
-  );
+/** Trimmed, case-insensitive lookup; unknown or malformed IDs return undefined. */
+export function getPark(reference: string): Park | undefined {
+  const normalized = reference.trim().toUpperCase();
+  return parks.find((park) => park.reference === normalized);
 }

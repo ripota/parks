@@ -1,4 +1,62 @@
-/** Readonly opt-in contracts; the existing root PotaReference stays mutable. */
+/** Canonical POTA identity used by the source snapshot and geometry pipeline. */
+export type PotaReference = {
+  reference: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+  grid: string;
+  counties: string[];
+  locationDesc: string;
+  potaUrl: string;
+};
+
+export type ParkType =
+  | "park"
+  | "beach"
+  | "forest"
+  | "management-area"
+  | "wildlife-refuge"
+  | "preserve"
+  | "historic-site"
+  | "trail"
+  | "recreation-area"
+  | "fishing-access"
+  | "campground";
+export type ParkAmenity =
+  | "parking"
+  | "restrooms"
+  | "picnic-tables"
+  | "shelter"
+  | "drinking-water"
+  | "boat-launch"
+  | "camping";
+export type OrangeGuidance = Readonly<{
+  status: "required" | "recommended" | "area-dependent" | "not-required";
+  season: string | null;
+  details: string;
+  sourceUrl: string;
+}>;
+/** Best-effort visitor guidance; check the linked manager before visiting. */
+export type Park = Readonly<Omit<PotaReference, "counties">> &
+  Readonly<{
+    counties: readonly string[];
+    type: ParkType;
+    manager: string;
+    websiteUrl: string;
+    amenities: readonly ParkAmenity[];
+    access: Readonly<{
+      hours?: string;
+      parking?: string;
+      fees?: string;
+      pets?: string;
+      accessibility?: string;
+    }>;
+    activationNotes: readonly string[];
+    orange: OrangeGuidance;
+    sources: readonly string[];
+  }>;
+
+/** Readonly opt-in map contracts. */
 export type GeometryKind = "boundary" | "activation-zone" | "point";
 export type ReviewStatus = "available" | "point-only" | "research-needed";
 export type DisplayPoint = Readonly<{

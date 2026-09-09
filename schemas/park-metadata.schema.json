@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ripota.org/schemas/park-metadata.schema.json",
+  "title": "Maintained park visitor metadata",
+  "type": "object",
+  "minProperties": 1,
+  "additionalProperties": false,
+  "patternProperties": {
+    "^US-[0-9]+$": {
+      "$ref": "#/definitions/metadata"
+    }
+  },
+  "definitions": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "manager",
+        "websiteUrl",
+        "amenities",
+        "access",
+        "activationNotes",
+        "orange",
+        "sources"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "park",
+            "beach",
+            "forest",
+            "management-area",
+            "wildlife-refuge",
+            "preserve",
+            "historic-site",
+            "trail",
+            "recreation-area",
+            "fishing-access",
+            "campground"
+          ]
+        },
+        "manager": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "websiteUrl": {
+          "type": "string",
+          "format": "http-url"
+        },
+        "amenities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "parking",
+              "restrooms",
+              "picnic-tables",
+              "shelter",
+              "drinking-water",
+              "boat-launch",
+              "camping"
+            ]
+          }
+        },
+        "access": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hours": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "parking": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "fees": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "pets": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "accessibility": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            }
+          }
+        },
+        "activationNotes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1200
+          }
+        },
+        "orange": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "season", "details", "sourceUrl"],
+          "properties": {
+            "status": {
+              "enum": [
+                "required",
+                "recommended",
+                "area-dependent",
+                "not-required"
+              ]
+            },
+            "season": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "details": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1200
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "http-url"
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "format": "http-url"
+          }
+        }
+      }
+    }
+  }
+}

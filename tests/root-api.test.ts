@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { describe, expect, it } from "vitest";
 
-import { references } from "../dist/index.js";
+import { parks, getPark } from "../dist/index.js";
 import {
   measurePackagePayloads,
   type PackagePayloadMeasurements,
@@ -29,13 +29,44 @@ function payloadMeasurements(): Promise<PackagePayloadMeasurements> {
   return measurementsPromise;
 }
 
-describe("lightweight root API", () => {
-  it("is identical to the canonical raw reference metadata", async () => {
+const identity = ({
+  reference,
+  name,
+  latitude,
+  longitude,
+  grid,
+  counties,
+  locationDesc,
+  potaUrl,
+}: (typeof parks)[number]) => ({
+  reference,
+  name,
+  latitude,
+  longitude,
+  grid,
+  counties,
+  locationDesc,
+  potaUrl,
+});
+
+describe("park root API", () => {
+  it("looks up normalized references and removes the old root aliases", async () => {
+    expect(getPark("  us-0513 ")).toBe(
+      parks.find((park) => park.reference === "US-0513"),
+    );
+    expect(getPark("unknown")).toBeUndefined();
+    expect(getPark("")).toBeUndefined();
+    const root = await import("../dist/index.js");
+    expect(Object.keys(root).sort()).toEqual(["getPark", "parks"]);
+  });
+  it("preserves the canonical raw reference identity", async () => {
     const referencesJson = await readJson<PotaReference[]>(
       "data/references.json",
     );
 
-    expect(references).toEqual(referencesJson);
+    expect(parks.map(identity)).toEqual(referencesJson);
+    expect(parks).toHaveLength(61);
+    expect(parks).toEqual(await readJson("dist/parks.json"));
   });
 
   it("matches every catalog record after catalog-only fields are removed", async () => {
@@ -51,17 +82,17 @@ describe("lightweight root API", () => {
       }) => reference,
     );
 
-    expect(catalogMetadata).toEqual(references);
+    expect(catalogMetadata).toEqual(parks.map(identity));
     expect(catalog.schemaVersion).toBe(2);
     expect(catalog.geometryRole).toBe("display");
   });
 
-  it("has a closed runtime graph containing only the entry and references JSON", async () => {
+  it("has a closed runtime graph containing only the entry and parks JSON", async () => {
     const measurements = await payloadMeasurements();
 
     expect(measurements.rootInputs).toEqual([
-      "data/references.json",
       "dist/index.js",
+      "dist/parks.json",
     ]);
     const runtimeGraphText = (
       await Promise.all(
@@ -78,8 +109,8 @@ describe("lightweight root API", () => {
   it("stays below the accepted minified and Brotli budgets", async () => {
     const measurements = await payloadMeasurements();
 
-    expect(measurements.root.minifiedBytes).toBeLessThan(50_000);
-    expect(measurements.root.brotliBytes).toBeLessThan(20_000);
+    expect(measurements.root.minifiedBytes).toBeLessThan(150_000);
+    expect(measurements.root.brotliBytes).toBeLessThan(25_000);
     expect(measurements.root.minifiedBytes).toBeLessThan(
       measurements.catalog.minifiedBytes,
     );
@@ -88,7 +119,7 @@ describe("lightweight root API", () => {
     );
   });
 
-  it("publishes package API v3 with artifact schema v2", async () => {
+  it("publishes package API v4 with artifact schema v2", async () => {
     const packageJson = await readJson<{
       version: string;
       exports: Record<string, unknown>;
@@ -98,7 +129,7 @@ describe("lightweight root API", () => {
       properties: { schemaVersion: number };
     }>("dist/all.geojson");
 
-    expect(packageJson.version).toMatch(/^3\./);
+    expect(packageJson.version).toMatch(/^4\./);
     expect(packageJson.exports["."]).toEqual({
       types: "./dist/index.d.ts",
       default: "./dist/index.js",

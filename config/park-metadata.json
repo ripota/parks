@@ -1,0 +1,1580 @@
+{
+  "US-0513": {
+    "type": "wildlife-refuge",
+    "manager": "U.S. Fish and Wildlife Service",
+    "websiteUrl": "https://www.fws.gov/refuge/block-island/visit-us",
+    "amenities": [],
+    "access": {
+      "hours": "Open daily, sunrise to sunset.",
+      "pets": "Pets are not allowed; service animals are welcome."
+    },
+    "activationNotes": [
+      "Reach Block Island by ferry or plane; the refuge is about four miles from the ferry landing.",
+      "Plan for a walk to the North Light and bring drinking water.",
+      "Stay out of posted closed areas and designated hunt areas restricted to permitted hunters."
+    ],
+    "orange": {
+      "status": "recommended",
+      "season": "During hunting season, generally October through February.",
+      "details": "The refuge recommends blaze orange for visitors during hunting season. No minimum area is specified.",
+      "sourceUrl": "https://www.fws.gov/sites/default/files/documents/2026-08/block_island_nwr_hunt_program_2026-27.pdf"
+    },
+    "sources": [
+      "https://www.fws.gov/refuge/block-island/visit-us",
+      "https://www.fws.gov/refuge/block-island/visit-us/activities/hunting",
+      "https://www.fws.gov/sites/default/files/documents/2026-08/block_island_nwr_hunt_program_2026-27.pdf"
+    ]
+  },
+  "US-0514": {
+    "type": "wildlife-refuge",
+    "manager": "U.S. Fish and Wildlife Service",
+    "websiteUrl": "https://www.fws.gov/refuge/john-h-chafee/visit-us",
+    "amenities": ["boat-launch"],
+    "access": {
+      "hours": "Open daily, sunrise to sunset.",
+      "pets": "Pets are not allowed, apart from permitted hunting dogs and service animals.",
+      "accessibility": "The Sprague Bridge kayak launch is not wheelchair or stroller accessible."
+    },
+    "activationNotes": [
+      "Public access is concentrated at the Sprague Bridge kayak launch and designated shoreline access points; there are no managed refuge trails.",
+      "The refuge headquarters address is in Charlestown, away from the refuge; use the visitor map to choose an access point.",
+      "Hunt units are restricted to permitted hunters."
+    ],
+    "orange": {
+      "status": "recommended",
+      "season": "During fall and winter hunting seasons, generally September through January.",
+      "details": "Wearing orange near active hunting areas is a practical precaution. The refuge does not publish a general orange requirement for ordinary visitors.",
+      "sourceUrl": "https://www.fws.gov/refuge/john-h-chafee/visit-us/activities/hunting"
+    },
+    "sources": [
+      "https://www.fws.gov/refuge/john-h-chafee/visit-us",
+      "https://www.fws.gov/refuge/john-h-chafee/visit-us/activities/hunting"
+    ]
+  },
+  "US-0515": {
+    "type": "wildlife-refuge",
+    "manager": "U.S. Fish and Wildlife Service",
+    "websiteUrl": "https://www.fws.gov/refuge/ninigret/visit-us",
+    "amenities": ["parking"],
+    "access": {
+      "hours": "Trails are open sunrise to sunset. Kettle Pond Visitor Center is open daily, 10 am to 4 pm.",
+      "parking": "Choose the Kettle Pond headquarters or a Salt Pond trail entrance; they are separate parts of the refuge.",
+      "pets": "Leashed dogs are allowed on Kettle Pond Visitor Center trails except Toupoysett Pond Trail. Pets are not allowed on the other refuge trails."
+    },
+    "activationNotes": [
+      "Stay on designated trails and avoid disturbing vegetation.",
+      "Salt Pond trails close to general visitors during special deer hunts; check current refuge notices before visiting.",
+      "Connecting trails enter Burlingame State Park and Management Area, where different orange rules apply."
+    ],
+    "orange": {
+      "status": "recommended",
+      "season": "During hunting seasons: September through January, and April through May in the Barrier Beach and Lewis Tract units.",
+      "details": "The refuge recommends blaze orange for visitors during hunting season. No minimum area is specified.",
+      "sourceUrl": "https://www.fws.gov/sites/default/files/documents/2026-08/ninigret_nwr_hunt_program_2026-27.pdf"
+    },
+    "sources": [
+      "https://www.fws.gov/refuge/ninigret/visit-us",
+      "https://www.fws.gov/refuge/ninigret/visit-us/activities/hunting",
+      "https://www.fws.gov/sites/default/files/documents/2026-08/ninigret_nwr_hunt_program_2026-27.pdf"
+    ]
+  },
+  "US-0516": {
+    "type": "wildlife-refuge",
+    "manager": "U.S. Fish and Wildlife Service",
+    "websiteUrl": "https://www.fws.gov/refuge/sachuest-point/visit-us",
+    "amenities": ["parking", "restrooms", "drinking-water"],
+    "access": {
+      "hours": "Trails: sunrise to sunset. Visitor center: daily, 10 am to 3 pm. Exterior restroom: 6:30 am to 4:30 pm.",
+      "parking": "Parking at the end of Sachuest Point Road is limited on busy weekends; carpool when possible.",
+      "pets": "Pets are not allowed; trained service animals must remain leashed.",
+      "accessibility": "Flint Point Loop, Island Rocks platform, and the Sakonnet overlook are accessible. Price Neck has steep, rugged terrain."
+    },
+    "activationNotes": [
+      "Bicycles are not allowed on refuge trails; use the racks by the parking area.",
+      "Keep equipment clear of trails and protected habitat; check posted refuge rules before setting up.",
+      "Occasional special deer hunts may affect access; check refuge notices."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "No general orange requirement for ordinary refuge visits. Follow posted instructions during any special hunt.",
+      "sourceUrl": "https://www.fws.gov/refuge/sachuest-point/visit-us/activities/hunting"
+    },
+    "sources": [
+      "https://www.fws.gov/refuge/sachuest-point/visit-us",
+      "https://www.fws.gov/refuge/sachuest-point/visit-us/activities/hunting"
+    ]
+  },
+  "US-0517": {
+    "type": "wildlife-refuge",
+    "manager": "U.S. Fish and Wildlife Service",
+    "websiteUrl": "https://www.fws.gov/refuge/trustom-pond/visit-us",
+    "amenities": ["parking", "restrooms"],
+    "access": {
+      "hours": "Trails are open sunrise to sunset, except during posted closures. The contact station opens when volunteers are available.",
+      "parking": "Use the refuge entrance at 1040 Matunuck Schoolhouse Road in South Kingstown.",
+      "pets": "Pets are not allowed; service animals are welcome.",
+      "accessibility": "Restrooms, the contact station, and most trails are wheelchair accessible. Otter Point and Farm Pond platforms are barrier free; Osprey Point has stairs."
+    },
+    "activationNotes": [
+      "The refuge closes to other activities during its limited deer hunting sessions; check the current hunt page before visiting.",
+      "Stay on designated trails. There are no picnic areas or campsites, and fires are prohibited."
+    ],
+    "orange": {
+      "status": "area-dependent",
+      "season": "State-managed hunting areas: second Saturday in September through the last day of February, and third Saturday in April through May 31.",
+      "details": "Field 1 is managed with DEM as part of South Shore Management Area and follows state orange rules. Ordinary refuge trails have no general orange requirement; special deer hunts close the refuge to other visitors.",
+      "sourceUrl": "https://www.fws.gov/refuge/trustom-pond/visit-us/activities/hunting"
+    },
+    "sources": [
+      "https://www.fws.gov/refuge/trustom-pond/visit-us",
+      "https://www.fws.gov/refuge/trustom-pond/visit-us/activities/hunting",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    ]
+  },
+  "US-0789": {
+    "type": "historic-site",
+    "manager": "National Park Service",
+    "websiteUrl": "https://www.nps.gov/rowi/planyourvisit/index.htm",
+    "amenities": ["parking", "restrooms", "picnic-tables", "drinking-water"],
+    "access": {
+      "hours": "Memorial grounds are open dawn to dusk. Visitor center hours vary seasonally.",
+      "parking": "Free visitor parking has a two-hour limit and is for people actively visiting the memorial.",
+      "pets": "Leashed pets are allowed on the grounds; pets are not allowed in public buildings, except service animals.",
+      "accessibility": "Brick paths, a wheelchair-accessible visitor center, accessible restroom stalls, and picnic tables with extended tops."
+    },
+    "activationNotes": [
+      "Stakes, poles, and objects inserted into the ground are prohibited; do not tie or hang equipment from trees.",
+      "Generators and inverters require a permit. Park outlets may not be used to charge personal equipment.",
+      "Keep radio audio at a reasonable volume and leave pathways clear."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange clothing is not required for ordinary visits to the memorial grounds.",
+      "sourceUrl": "https://www.nps.gov/rowi/learn/management/compendium.htm"
+    },
+    "sources": [
+      "https://www.nps.gov/rowi/planyourvisit/basicinfo.htm",
+      "https://www.nps.gov/rowi/planyourvisit/accessibility.htm",
+      "https://www.nps.gov/rowi/learn/management/compendium.htm"
+    ]
+  },
+  "US-10541": {
+    "type": "fishing-access",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/publiclands",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Use the fishing-access parcel shown on the park map; adjacent conservation parcels have different rules."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "The mapped fishing-access parcel is not a hunting management area. Wear orange if continuing into the adjacent Gull Cove Wildlife Management Area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://dem.ri.gov/publiclands"
+    ]
+  },
+  "US-10542": {
+    "type": "fishing-access",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://www.ri.gov/press/view/31815",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Coastal fishing access near Point Judith; keep paths and emergency access clear and account for exposed wind and surf."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://www.ri.gov/press/view/31815"
+    ]
+  },
+  "US-10543": {
+    "type": "historic-site",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/events/park-ranger-led-walk-butts-hill-fort-0",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Small memorial site; use a compact setup that leaves monuments and public access unobstructed."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/events/park-ranger-led-walk-butts-hill-fort-0"
+    ]
+  },
+  "US-10544": {
+    "type": "recreation-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://www.ri.gov/press/view/23207",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Short woodland walk from Route 101 to the high point; bring a compact portable station."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "State forest land falls within the seasonal management-area orange rule even though hunting is not permitted on the summit parcel. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://www.ri.gov/press/view/23207"
+    ]
+  },
+  "US-10545": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/agriculture-and-forest-environment/forest-environment/state-land-stewardship-new-growth-forests",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit.",
+      "Hunting, horseback riding, and cycling are prohibited. Use a portable setup that does not disturb the ground or vegetation."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Hillsdale/De Coppet is a management area; its hunting prohibition does not remove the seasonal visitor orange requirement. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://dem.ri.gov/natural-resources-bureau/agriculture-and-forest-environment/forest-environment/state-land-stewardship-new-growth-forests"
+    ]
+  },
+  "US-10546": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-10547": {
+    "type": "recreation-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "The reference includes both Silver Spring Lake fishing access and adjoining management-area land; match the setup location to the map."
+    ],
+    "orange": {
+      "status": "area-dependent",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Required on the Silver Spring Management Area parcel; the lakeside fishing-access parcel is separate. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting"
+    ]
+  },
+  "US-10548": {
+    "type": "fishing-access",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/freshwater-fishing/public-boat-launching-sites",
+    "amenities": ["boat-launch"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Gravel boat ramp; keep launching access clear. Only electric trolling motors are allowed on Barber Pond."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/freshwater-fishing/public-boat-launching-sites"
+    ]
+  },
+  "US-2868": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/beavertail-state-park",
+    "amenities": ["parking"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "parking": "Four scenic overlooks provide vehicle access."
+    },
+    "activationNotes": [
+      "Open coastal overlooks can be windy; keep a compact setup clear of paths and cliff edges."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Hunting here is limited to archery by regulation, so the orange-clothing exemption applies to all visitors.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/beavertail-state-park",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    ]
+  },
+  "US-2869": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/blackstone-bikeway-and-visitors-center",
+    "amenities": ["parking"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "parking": "Visitor-center lot is reached from I-295 northbound; the bikeway has other access points."
+    },
+    "activationNotes": [
+      "Keep antennas and feed lines clear of the busy shared-use bikeway."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/blackstone-bikeway-and-visitors-center"
+    ]
+  },
+  "US-2870": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/brenton-point-state-park",
+    "amenities": ["parking", "restrooms", "picnic-tables"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Dogs must remain on a leash of six feet or less."
+    },
+    "activationNotes": [
+      "Restrooms generally operate May–October. Picnic-site reservations apply seasonally; exposed lawns can be windy."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/brenton-point-state-park"
+    ]
+  },
+  "US-2871": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/burlingame-state-park",
+    "amenities": [
+      "parking",
+      "restrooms",
+      "picnic-tables",
+      "shelter",
+      "boat-launch",
+      "camping"
+    ],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "fees": "Day-use beach access is free; campground and pavilion reservations may carry fees.",
+      "pets": "Leashed dogs on connecting trails; no pets in the picnic area April 1–September 30, except service animals."
+    },
+    "activationNotes": [
+      "John Vincent Gormley Trail loops around Watchaug Pond and passes through the management area.",
+      "Restrooms generally operate May–October. Pavilion reservations are seasonal; picnic tables outside the pavilion are first come, first served."
+    ],
+    "orange": {
+      "status": "area-dependent",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Required in Burlingame Management Area and North Camp, including connecting woodland trails. The developed picnic/beach and campground areas have different use rules. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://riparks.ri.gov/parks/burlingame-state-park"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/burlingame-state-park"
+    ]
+  },
+  "US-2872": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/colt-state-park",
+    "amenities": [
+      "parking",
+      "restrooms",
+      "picnic-tables",
+      "boat-launch",
+      "shelter"
+    ],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Dogs must remain on a leash of six feet or less; seasonal bathing-beach restrictions apply.",
+      "accessibility": "Accessible fishing pier and stroller-friendly paths."
+    },
+    "activationNotes": [
+      "Picnic sites and organized gatherings may require reservations or a special use permit; check the park office before choosing a group setup."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/colt-state-park"
+    ]
+  },
+  "US-2873": {
+    "type": "campground",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/campgrounds",
+    "amenities": ["parking", "camping"],
+    "access": {
+      "hours": "Day-use and campground gate rules differ; registered campers have overnight access.",
+      "fees": "Camping reservations and fees apply."
+    },
+    "activationNotes": [
+      "Tent and RV campground; select an authorized campsite or public day-use area for setup."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/campgrounds"
+    ]
+  },
+  "US-2874": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/fort-adams-state-park",
+    "amenities": ["parking", "restrooms", "picnic-tables", "boat-launch"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Dogs must remain on a leash of six feet or less; seasonal bathing-beach restrictions apply."
+    },
+    "activationNotes": [
+      "Picnic sites and organized gatherings may require reservations or a special use permit; check the park office before choosing a group setup.",
+      "Historic fort tours and special events are managed separately by Fort Adams Trust; event days may affect access."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/fort-adams-state-park"
+    ]
+  },
+  "US-2875": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/fort-wetherill-state-park",
+    "amenities": ["parking", "restrooms", "boat-launch"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Dogs must remain on a leash of six feet or less."
+    },
+    "activationNotes": [
+      "Restrooms generally operate May–October. Keep away from cliff edges and keep the boat ramp open."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/fort-wetherill-state-park"
+    ]
+  },
+  "US-2876": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/goddard-memorial-state-park",
+    "amenities": [
+      "parking",
+      "restrooms",
+      "picnic-tables",
+      "boat-launch",
+      "shelter"
+    ],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Dogs must remain on a leash of six feet or less; seasonal bathing-beach restrictions apply.",
+      "accessibility": "Accessible boat ramp and stroller-friendly paths."
+    },
+    "activationNotes": [
+      "Picnic sites and organized gatherings may require reservations or a special use permit; check the park office before choosing a group setup."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/goddard-memorial-state-park"
+    ]
+  },
+  "US-2877": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/haines-memorial-state-park",
+    "amenities": ["parking", "picnic-tables"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "The East Bay Bike Path passes through the park; keep the shared path clear."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/haines-memorial-state-park"
+    ]
+  },
+  "US-2878": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/lincoln-woods-state-park",
+    "amenities": ["parking", "restrooms", "picnic-tables"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Leashed dogs allowed, except on the bathing beach April 1–September 30.",
+      "accessibility": "Accessible shoreline fishing is available seasonally."
+    },
+    "activationNotes": [
+      "Picnic table use requires a park reservation/permit; do not assume a vacant table is available.",
+      "Restroom facilities generally operate May–October."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "The mapped Lincoln Woods forest and park references cover the same developed state park; the seasonal management-area orange rule does not apply to ordinary visits.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/lincoln-woods-state-park"
+    ]
+  },
+  "US-2879": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/rocky-point-state-park",
+    "amenities": ["parking", "restrooms", "picnic-tables", "shelter"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "accessibility": "Accessible fishing pier and stroller-friendly paths.",
+      "pets": "Dogs must remain on a leash of six feet or less."
+    },
+    "activationNotes": [
+      "Passive-use waterfront park. Check the official page for entrance-construction updates."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/rocky-point-state-park"
+    ]
+  },
+  "US-2880": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/other-state-lands/snake-dendame-farm",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "An active farm operates within the park; use public walking trails and avoid farm operations."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Hunting here is limited to archery by regulation, so the orange-clothing exemption applies to all visitors.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/other-state-lands/snake-dendame-farm",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    ]
+  },
+  "US-2881": {
+    "type": "park",
+    "manager": "City of Woonsocket / Rhode Island DEM",
+    "websiteUrl": "https://www.woonsocketri.gov/parks-recreation/pages/world-war-ii-veterans-memorial-park",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Urban park; festivals and city recreation programs can occupy the grounds."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://www.woonsocketri.gov/parks-recreation/pages/world-war-ii-veterans-memorial-park"
+    ]
+  },
+  "US-4582": {
+    "type": "trail",
+    "manager": "National Park Service and partner site managers",
+    "websiteUrl": "https://www.nps.gov/waro/planyourvisit/index.htm",
+    "amenities": [],
+    "access": {
+      "hours": "Access and hours depend on the actual park, historic site, or other property you choose."
+    },
+    "activationNotes": [
+      "This is a historic route connecting many separate properties, rather than a single continuous public hiking trail.",
+      "Choose a publicly accessible site along the route and follow that property's setup, parking, and access rules."
+    ],
+    "orange": {
+      "status": "area-dependent",
+      "season": "Depends on the underlying property.",
+      "details": "The trail has no uniform orange rule. State management areas, refuges, and land-trust preserves along the route use their own rules.",
+      "sourceUrl": "https://www.nps.gov/waro/planyourvisit/index.htm"
+    },
+    "sources": [
+      "https://www.nps.gov/waro/planyourvisit/index.htm",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    ]
+  },
+  "US-5482": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-5483": {
+    "type": "forest",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/lincoln-woods-state-park",
+    "amenities": ["parking", "restrooms", "picnic-tables"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "pets": "Leashed dogs allowed, except on the bathing beach April 1–September 30.",
+      "accessibility": "Accessible shoreline fishing is available seasonally."
+    },
+    "activationNotes": [
+      "Picnic table use requires a park reservation/permit; do not assume a vacant table is available.",
+      "Restroom facilities generally operate May–October.",
+      "Shares the mapped footprint and facilities of Lincoln Woods State Park (US-2878)."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "The mapped Lincoln Woods forest and park references cover the same developed state park; the seasonal management-area orange rule does not apply to ordinary visits.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/lincoln-woods-state-park"
+    ]
+  },
+  "US-5484": {
+    "type": "forest",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/campgrounds",
+    "amenities": ["camping", "shelter", "boat-launch"],
+    "access": {
+      "hours": "Management-area visits: 30 minutes before sunrise to 30 minutes after sunset. Registered camping has separate access rules.",
+      "fees": "Camping reservations and fees apply."
+    },
+    "activationNotes": [
+      "The forest includes a developed campground and surrounding management-area trails; choose the intended area before arrival."
+    ],
+    "orange": {
+      "status": "area-dependent",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Required in the surrounding George Washington Management Area; DEM identifies the developed state campground as exempt. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://dem.ri.gov/events/annual-first-day-hike"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/campgrounds",
+      "https://dem.ri.gov/events/annual-first-day-hike"
+    ]
+  },
+  "US-6979": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/other-state-lands/arcadia-wildlife-management-area",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit.",
+      "Large trail and forest-road network; choose a specific access point before traveling."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/other-state-lands/arcadia-wildlife-management-area"
+    ]
+  },
+  "US-6980": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/other-state-lands/beach-pond",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit.",
+      "Beach Pond crosses the Connecticut border; keep the station within the Rhode Island park boundary."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/other-state-lands/beach-pond"
+    ]
+  },
+  "US-6981": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6982": {
+    "type": "management-area",
+    "manager": "Rhode Island Water Resources Board / Rhode Island DEM",
+    "websiteUrl": "https://wrb.ri.gov/policy_guidelines_brmalanduse.html",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://wrb.ri.gov/policy_guidelines_brmalanduse.html",
+      "https://rules.sos.ri.gov/regulations/part/490-00-00-5"
+    ]
+  },
+  "US-6983": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6984": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6985": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6986": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6987": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for ordinary day use."
+    },
+    "activationNotes": [
+      "Wooded undeveloped park; bring a portable seat and a self-contained setup."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Designated undeveloped state park open to hunting. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    ]
+  },
+  "US-6988": {
+    "type": "preserve",
+    "manager": "Westerly Land Trust and Hopkinton Land Trust",
+    "websiteUrl": "https://westerlylandtrust.org/portfolio/grills-preserve/",
+    "amenities": ["parking"],
+    "access": {
+      "hours": "Hopkinton trails are open sunrise to sunset.",
+      "parking": "The Westerly trail system starts at the public parking area at the end of Bowling Lane in Bradford.",
+      "pets": "Dogs must remain on leash on Hopkinton Land Trust trails."
+    },
+    "activationNotes": [
+      "Trails connect properties on both sides of the Pawcatuck River; the land trusts publish different orange guidance.",
+      "Hopkinton Land Trust prohibits fires, camping, motorized vehicles, digging, and damage to trees or vegetation.",
+      "An orange vest lending station is available at the Westerly Grills Preserve parking lot."
+    ],
+    "orange": {
+      "status": "area-dependent",
+      "season": "Westerly: second Saturday in September through the last day of February, and third Saturday in April through May 31. Hopkinton: follow posted requirements.",
+      "details": "Westerly requires 200 square inches, increasing to 500 during December shotgun deer season. Hopkinton Grills Preserve requires at least 200 square inches and states no seasonal exception; its adjoining Grills Wildlife Sanctuary gives September through May or as posted. Bring orange for the connected trail system.",
+      "sourceUrl": "https://westerlylandtrust.org/orange/"
+    },
+    "sources": [
+      "https://westerlylandtrust.org/portfolio/grills-preserve/",
+      "https://westerlylandtrust.org/orange/",
+      "https://hlt-ri.org/properties/grills-preserve",
+      "https://hlt-ri.org/properties/grills-wildlife-sanctuary"
+    ]
+  },
+  "US-6989": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6990": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6991": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-6992": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for ordinary day use."
+    },
+    "activationNotes": [
+      "Wooded undeveloped park; bring a portable seat and a self-contained setup."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Designated undeveloped state park open to hunting. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    ]
+  },
+  "US-7508": {
+    "type": "park",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/pulaski-state-park",
+    "amenities": ["parking", "shelter"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "fees": "Pavilion rental fees apply."
+    },
+    "activationNotes": [
+      "Pavilion use requires a reservation. Boats and flotation devices are prohibited on Peck Pond."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Pulaski is inside George Washington Management Area; the park expressly applies orange requirements to all visitors. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://riparks.ri.gov/parks/pulaski-state-park"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/pulaski-state-park"
+    ]
+  },
+  "US-7518": {
+    "type": "wildlife-refuge",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/burlingame-state-park",
+    "amenities": [],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+    },
+    "activationNotes": [
+      "Former Audubon refuge now managed with Burlingame State Park. The John Vincent Gormley Trail connects into hunting land."
+    ],
+    "orange": {
+      "status": "recommended",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear orange when exploring the connecting woodland trails; it is required where those trails enter adjoining Burlingame Management Area.",
+      "sourceUrl": "https://riparks.ri.gov/parks/burlingame-state-park"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/burlingame-state-park"
+    ]
+  },
+  "US-7714": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-7715": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-7716": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  },
+  "US-7717": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/charlestown-breachway",
+    "amenities": ["parking", "restrooms", "camping", "boat-launch"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal beach parking fee; day and season passes are available.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "parking": "Small gravel parking lot; spaces can fill early."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas.",
+      "Campground is for self-contained RVs; no tent or pop-up camping. Day-use beach and campground are separate areas."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/charlestown-breachway"
+    ]
+  },
+  "US-7718": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/east-matunuck-state-beach",
+    "amenities": ["parking", "restrooms", "shelter"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal beach parking fee; day and season passes are available.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "accessibility": "Seasonal accessible restrooms and beach wheelchairs are available."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/east-matunuck-state-beach"
+    ]
+  },
+  "US-7719": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/misquamicut-state-beach",
+    "amenities": ["parking", "restrooms", "shelter"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal parking fees are higher than other RI state beaches; consult the official page for current rates.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "accessibility": "Seasonal accessible restrooms and beach wheelchairs are available."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/misquamicut-state-beach"
+    ]
+  },
+  "US-7720": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/roger-w-wheeler-state-beach",
+    "amenities": ["parking", "restrooms", "shelter"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal beach parking fee; day and season passes are available.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "accessibility": "Seasonal accessible restrooms and beach wheelchairs are available."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/roger-w-wheeler-state-beach"
+    ]
+  },
+  "US-7721": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/salty-brine-state-beach",
+    "amenities": ["parking", "restrooms", "shelter", "picnic-tables"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal beach parking fee; day and season passes are available.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "accessibility": "Seasonal accessible restrooms and beach wheelchairs are available.",
+      "parking": "Passenger vehicles only; vehicles must fit within marked spaces. Parking is for state beach patrons."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/salty-brine-state-beach"
+    ]
+  },
+  "US-7722": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/scarborough-north-state-beach",
+    "amenities": ["parking", "restrooms", "shelter"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal beach parking fee; day and season passes are available.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "accessibility": "Seasonal accessible restrooms and beach wheelchairs are available."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/scarborough-north-state-beach"
+    ]
+  },
+  "US-7723": {
+    "type": "preserve",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/parks/john-h-chafee-nature-preserve",
+    "amenities": ["parking"],
+    "access": {
+      "hours": "Sunrise to sunset for day use; follow posted gate hours.",
+      "parking": "Limited trailhead parking on Boston Neck Road near Gilbert Stuart Road."
+    },
+    "activationNotes": [
+      "Walk public trails from the roadside lot to reach Rome Point; pack a portable station."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "Orange is not required for ordinary visits to this developed state park or recreation area.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/parks/john-h-chafee-nature-preserve"
+    ]
+  },
+  "US-7865": {
+    "type": "beach",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://riparks.ri.gov/beaches/east-beach",
+    "amenities": ["parking", "restrooms", "camping"],
+    "access": {
+      "hours": "Seasonal gates open at 9 a.m. weekdays and 8:30 a.m. weekends/holidays; gates close at sunset.",
+      "fees": "Seasonal beach parking fee; day and season passes are available.",
+      "pets": "Pets are prohibited on state bathing beaches April 1–September 30, except service animals.",
+      "parking": "Small gravel parking lot; spaces can fill early."
+    },
+    "activationNotes": [
+      "Beach facilities and lifeguards are seasonal; plan for reduced amenities after Labor Day.",
+      "Use designated dune crossings and keep equipment out of swimming areas.",
+      "Sand-trail vehicle access needs a barrier beach permit. Campsites require a self-contained 4WD vehicle; no utility hookups."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "East Beach/Ninigret Conservation Area is a designated undeveloped state park. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
+      "https://riparks.ri.gov/beaches/east-beach",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
+    ]
+  },
+  "US-7971": {
+    "type": "historic-site",
+    "manager": "National Park Service and partner site managers",
+    "websiteUrl": "https://www.nps.gov/blrv/planyourvisit/index.htm",
+    "amenities": ["parking", "picnic-tables"],
+    "access": {
+      "hours": "Hours vary among Old Slater Mill, state parks, and other partner sites; check the selected destination.",
+      "parking": "Old Slater Mill has visitor parking, including accessible spaces; follow its two-hour parking limit.",
+      "pets": "Leashed pets are allowed on NPS grounds; pets are not allowed in public buildings, except service animals.",
+      "accessibility": "Old Slater Mill has accessible parking, a wheelchair-accessible visitor center and tour entrance, and loaner wheelchairs."
+    },
+    "activationNotes": [
+      "The park includes several separate destinations; choose a specific site before traveling.",
+      "On NPS-owned grounds, stakes, poles, and ground-penetrating objects are prohibited; generators and inverters require a permit.",
+      "Use the rules of the actual partner property for setup and access."
+    ],
+    "orange": {
+      "status": "not-required",
+      "season": null,
+      "details": "No general orange requirement at the NPS visitor areas. Follow the actual land manager's rules when visiting partner properties.",
+      "sourceUrl": "https://www.nps.gov/blrv/learn/management/compendium.htm"
+    },
+    "sources": [
+      "https://www.nps.gov/blrv/planyourvisit/index.htm",
+      "https://www.nps.gov/blrv/planyourvisit/accessibility.htm",
+      "https://www.nps.gov/blrv/learn/management/compendium.htm"
+    ]
+  },
+  "US-8293": {
+    "type": "management-area",
+    "manager": "Rhode Island DEM",
+    "websiteUrl": "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
+    "amenities": [],
+    "access": {
+      "hours": "30 minutes before sunrise to 30 minutes after sunset for ordinary visits."
+    },
+    "activationNotes": [
+      "Use designated access points and keep roads, gates, trails, and boat ramps clear.",
+      "Organized groups of 10 or more need a DEM special use permit."
+    ],
+    "orange": {
+      "status": "required",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
+    },
+    "sources": [
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
+    ]
+  }
+}

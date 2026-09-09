@@ -20,6 +20,7 @@ import type {
   GeoJsonFeature,
   GeoJsonFeatureCollection,
 } from "./types.ts";
+import { readParks } from "./park-metadata.ts";
 import { validateSnapshot } from "./validate.ts";
 
 export const SCHEMA_VERSION = 2;
@@ -100,6 +101,7 @@ export async function buildPackageArtifacts(
   dataDirectory = path.join(rootDirectory, "data"),
 ): Promise<Map<string, string>> {
   const snapshot = await validateSnapshot(rootDirectory, dataDirectory);
+  const parks = await readParks(rootDirectory, snapshot.references);
   const manifestByReference = new Map(
     snapshot.manifest.map((record) => [record.reference, record]),
   );
@@ -240,6 +242,7 @@ export async function buildPackageArtifacts(
     ...(await buildEntry("compare")),
     ...(await buildEntry("public-types")),
     ...(await buildEntry("display", displayModule(v3.records))),
+    ["dist/parks.json", json(parks)],
     ["dist/catalog.json", json(catalog)],
     ["dist/source-catalog.json", json(sourceCatalog)],
     ["dist/all.geojson", json(displayAggregate)],
@@ -298,6 +301,7 @@ export async function buildPackageArtifacts(
       relativePath === "dist/all-web.geojson" ||
       relativePath.startsWith("dist/v3/") ||
       relativePath.startsWith("dist/boundaries/") ||
+      relativePath === "dist/parks.json" ||
       relativePath === "dist/catalog.json" ||
       relativePath === "dist/source-catalog.json" ||
       relativePath === "dist/all.geojson" ||

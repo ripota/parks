@@ -1,6 +1,6 @@
 {
   "name": "@ripota/parks",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "Typed Rhode Island Parks on the Air reference metadata with opt-in reviewed geospatial artifacts.",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE",
@@ -63,7 +63,9 @@
     "./all-web.geojson": "./dist/all-web.geojson",
     "./web-derivations.json": "./dist/web-derivations.json",
     "./web-measurements.json": "./dist/web-measurements.json",
-    "./schemas/web/v1/display-geojson.schema.json": "./schemas/web/v1/display-geojson.schema.json"
+    "./schemas/web/v1/display-geojson.schema.json": "./schemas/web/v1/display-geojson.schema.json",
+    "./parks.json": "./dist/parks.json",
+    "./schemas/park-metadata.schema.json": "./schemas/park-metadata.schema.json"
   },
   "scripts": {
     "update": "node --experimental-strip-types src/update.ts",

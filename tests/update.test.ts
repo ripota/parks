@@ -268,6 +268,29 @@ async function createRepositoryFixture(
     reviewedRecords,
   );
   await writeJson(path.join(root, "config/map-point-overrides.json"), []);
+  await writeJson(
+    path.join(root, "config/park-metadata.json"),
+    Object.fromEntries(
+      reviewedRecords.map(({ reference }) => [
+        reference,
+        {
+          type: "park",
+          manager: "Fixture manager",
+          websiteUrl: "https://example.org/park",
+          amenities: [],
+          access: {},
+          activationNotes: [],
+          orange: {
+            status: "recommended",
+            season: null,
+            details: "Fixture guidance",
+            sourceUrl: "https://example.org/park",
+          },
+          sources: ["https://example.org/park"],
+        },
+      ]),
+    ),
+  );
   await writeCandidateSnapshot(
     path.join(root, "data"),
     liveRecords.map(normalized),

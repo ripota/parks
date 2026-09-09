@@ -73,6 +73,8 @@ describe("packed package consumer", () => {
       "package/data/source-features/us-0513.geojson",
       "package/dist/index.js",
       "package/dist/index.d.ts",
+      "package/dist/parks.json",
+      "package/schemas/park-metadata.schema.json",
       "package/dist/catalog.json",
       "package/dist/source-catalog.json",
       "package/dist/all.geojson",
@@ -127,7 +129,7 @@ describe("packed package consumer", () => {
       `
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { references as rootReferences } from "@ripota/parks";
+import { parks as rootReferences, getPark } from "@ripota/parks";
 import namedCatalog from "@ripota/parks/catalog.json" with { type: "json" };
 import sourceCatalog from "@ripota/parks/source-catalog.json" with { type: "json" };
 import referencesJson from "@ripota/parks/references.json" with { type: "json" };
@@ -155,7 +157,11 @@ assert.equal(JSON.parse(await readExport("@ripota/parks/v3/boundaries/us-0513.ge
 const web = JSON.parse(await readExport("@ripota/parks/boundaries-web/us-2870.geojson"));
 assert.equal(web.properties.fidelity, "web");
 assert.equal(JSON.parse(await readExport("@ripota/parks/all-web.geojson")).features.length, rootReferences.length);
-assert.deepEqual(rootReferences, referencesJson);
+const identityKeys = Object.keys(referencesJson[0]);
+assert.deepEqual(rootReferences.map(park => Object.fromEntries(identityKeys.map(key => [key, park[key]]))), referencesJson);
+assert.equal(getPark("  us-0513  ").reference, "US-0513");
+assert.deepEqual(rootReferences, JSON.parse(await readExport("@ripota/parks/parks.json")));
+assert.equal(JSON.parse(await readExport("@ripota/parks/schemas/park-metadata.schema.json")).type, "object");
 assert.equal(rootReferences.length, namedCatalog.referenceCount);
 assert.equal(manifest.length, namedCatalog.referenceCount);
 assert.equal(derivations.records.length, namedCatalog.referenceCount);
@@ -187,7 +193,21 @@ assert.equal(sourceFeatures.properties.geometryRole, "source");
     await writeFile(
       sourcePath,
       `
-import { references, type PotaReference } from "@ripota/parks";
+import { parks, getPark, type Park, type ParkType, type ParkAmenity, type OrangeGuidance } from "@ripota/parks";
+import type { PotaReference } from "@ripota/parks/types";
+// @ts-expect-error the v3 root alias was removed
+import { references } from "@ripota/parks";
+// @ts-expect-error root collections are readonly
+parks.push(parks[0]);
+// @ts-expect-error nested arrays are readonly
+parks[0].amenities.push("parking");
+// @ts-expect-error nested access is readonly
+parks[0].access.hours = "changed";
+// @ts-expect-error nested counties are readonly
+parks[0].counties.push("changed");
+const identity: PotaReference = { ...parks[0], counties: [...parks[0].counties] };
+const metadata: [ParkType, ParkAmenity | undefined, OrangeGuidance] = [parks[0].type, parks[0].amenities[0], parks[0].orange];
+void [identity, metadata, getPark("US-0513")];
 
 import { dataset, displayReferences, getDisplayReference, type DisplayReference } from "@ripota/parks/display";
 import type { Catalog, CatalogRecord, GeoJsonFeatureCollection, GeometryKind, ReviewStatus } from "@ripota/parks/types";
@@ -201,11 +221,11 @@ const status: ReviewStatus | undefined = display?.status;
 const contracts: [Catalog?, CatalogRecord?, GeoJsonFeatureCollection?] = [];
 void [dataset, kind, status, contracts];
 import { diffReferences, type ReferenceDiff, type ReferenceDiffOptions, type ReferenceInput } from "@ripota/parks/compare";
-const diff: ReferenceDiff = diffReferences(references, references, { fields: ["name", "counties"] });
+const diff: ReferenceDiff = diffReferences(parks, parks, { fields: ["name", "counties"] });
 // @ts-expect-error unknown fields are rejected for typed inputs
- diffReferences(references, references, { fields: ["typo"] });
+ diffReferences(parks, parks, { fields: ["typo"] });
 void diff;
-const first: PotaReference = references[0];
+const first: Park = parks[0];
 const label: string = first.name;
 void label;
 `,
