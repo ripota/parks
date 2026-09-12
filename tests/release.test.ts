@@ -64,6 +64,7 @@ describe("release asset integrity", () => {
   it("defines the complete stable-release asset set", () => {
     expect(releaseAssetNames(version)).toEqual([
       "parks.json",
+      "images.json",
       "catalog.json",
       "source-catalog.json",
       "all.geojson",

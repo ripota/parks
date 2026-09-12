@@ -30,6 +30,8 @@ The initial offline check must pass before a data refresh.
 | Path                              | Ownership                                                                  |
 | --------------------------------- | -------------------------------------------------------------------------- |
 | `config/park-metadata.json`       | Maintained visitor metadata for every accepted reference                   |
+| `config/park-images.json`         | Reviewed photo registry and provenance                                     |
+| `assets/images/`                  | Checked-in, optimized WebP masters named with content digests              |
 | `config/reviewed-sources.json`    | Human-reviewed per-reference mappings, queries, and source IDs             |
 | `config/map-point-overrides.json` | Explicit display-point exceptions when official coordinates are unsuitable |
 | `config/boundary-sources.ts`      | Human-reviewed service endpoints and shared derivation rules               |
@@ -64,6 +66,42 @@ review note in DATA_SOURCES.md when sources or material guidance change. New
 accepted references require both reviewed geometry configuration and visitor
 metadata; all existing source and geometry gates still apply.
 
+## Photo maintenance
+
+Add a photo only after checking the exact location, visual quality, creator,
+and file-specific redistribution and adaptation rights. Prefer explicit
+public-domain agency records or reusable licenses. Do not infer permission from
+hosting on a government site, another operator's page, or a repository code
+license. Leave `heroImageId` absent when no suitable approved photo exists;
+there are no placeholder files or completeness target.
+
+1. Review and download the source original or a sufficiently large,
+   publisher-provided rendition as an editorial step outside normal packaging.
+   Keep the exact downloaded file's SHA-256, URL, source page, retrieval date,
+   and rights evidence. Record any source-provided resizing in `transforms`.
+2. Produce an auto-oriented WebP master, normally up to 2400 pixels wide, without
+   enlargement or an imposed crop. Preserve the native aspect ratio. Inspect the
+   encoded image and any likely hero crop. Keep camera/print originals and tiny
+   thumbnails out of the package. Record encoder version, settings, and changes.
+3. Add `assets/images/<id>.<first-12-sha256>.webp` and a matching record in
+   `config/park-images.json`. Supply actual dimensions, bytes, full checksum,
+   accurate alt text, credit, rights, and transformations. Preserve supplied
+   titles in `caption`; a normalized `focalPoint` can suggest a safe crop.
+4. Add the optional `heroImageId` to `config/park-metadata.json`. An optional
+   original `summary` should be a concise, source-supported place description;
+   it is independent of photo coverage. Update the photo provenance section in
+   DATA_SOURCES.md when adding or replacing sources.
+5. Run `mise run package` and `mise run check`. Review the registry, park JSON,
+   checksums, root payload, and installed-tarball consumption. Replacing a photo
+   changes its content filename; remove unreferenced masters in the same change.
+
+Offline validation rejects dangling or orphan IDs, unsafe paths, extra/missing
+files, symlinks, mismatched bytes/digests, and invalid WebP container/dimension
+headers. Header validation does not fully decode pixels; visual review remains
+part of ingestion. Builds copy the reviewed registry and ship the checked-in
+masters unchanged; they do not download, re-encode, or depend on external hosts.
+An empty registry with no park heroes is valid.
+
 ## Refresh and review
 
 1. Establish the clean, passing baseline above.
@@ -97,7 +135,7 @@ Do not bypass a reported gate. Inspect `git status` and the error, preserve unre
 
 [`src/release.ts`](src/release.ts) is the executable source of truth for asset construction, required filenames, publication state, and digest comparison. The [tag workflow](.github/workflows/release.yml) invokes it; the `release-assets` Mise task exposes safe local build and verification commands.
 
-The contract includes complete visitor records in standalone `parks.json`, display and source-feature catalogs and aggregates, the data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Per-reference source features and derivation metadata remain available inside the tarball and tagged repository. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
+The contract includes complete visitor records in standalone `parks.json`, the opt-in photo registry in `images.json`, display and source-feature catalogs and aggregates, the data checksum manifest, npm tarball, and required `checksums.release.sha256` digest manifest. Photo masters, per-reference source features, and derivation metadata remain available inside the tarball and tagged repository. All photo binaries are covered by the data checksum manifest, and the release manifest covers the standalone registry and complete tarball. The tarball is a GitHub release artifact; this project does not publish to the npm registry.
 
 ### Prepare and rehearse
 

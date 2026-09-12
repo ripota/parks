@@ -33,7 +33,8 @@
       "https://www.fws.gov/refuge/block-island/visit-us",
       "https://www.fws.gov/refuge/block-island/visit-us/activities/hunting",
       "https://www.fws.gov/sites/default/files/documents/2026-08/block_island_nwr_hunt_program_2026-27.pdf"
-    ]
+    ],
+    "heroImageId": "block-island-north-light"
   },
   {
     "reference": "US-0514",
@@ -71,7 +72,9 @@
     "sources": [
       "https://www.fws.gov/refuge/john-h-chafee/visit-us",
       "https://www.fws.gov/refuge/john-h-chafee/visit-us/activities/hunting"
-    ]
+    ],
+    "heroImageId": "chafee-marsh",
+    "summary": "Salt marsh and tidal waterways along the lower Pettaquamscutt River."
   },
   {
     "reference": "US-0515",
@@ -110,7 +113,9 @@
       "https://www.fws.gov/refuge/ninigret/visit-us",
       "https://www.fws.gov/refuge/ninigret/visit-us/activities/hunting",
       "https://www.fws.gov/sites/default/files/documents/2026-08/ninigret_nwr_hunt_program_2026-27.pdf"
-    ]
+    ],
+    "heroImageId": "ninigret-coastline",
+    "summary": "Coastal refuge with salt-pond views, grasslands, and walking trails."
   },
   {
     "reference": "US-0516",
@@ -151,7 +156,9 @@
     "sources": [
       "https://www.fws.gov/refuge/sachuest-point/visit-us",
       "https://www.fws.gov/refuge/sachuest-point/visit-us/activities/hunting"
-    ]
+    ],
+    "heroImageId": "sachuest-sunset",
+    "summary": "A rocky coastal refuge with ocean-facing trails and wide views of Rhode Island Sound."
   },
   {
     "reference": "US-0517",
@@ -191,7 +198,9 @@
       "https://www.fws.gov/refuge/trustom-pond/visit-us",
       "https://www.fws.gov/refuge/trustom-pond/visit-us/activities/hunting",
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
-    ]
+    ],
+    "heroImageId": "trustom-pond",
+    "summary": "Woodland paths, open fields, and coastal pond overlooks in South Kingstown."
   },
   {
     "reference": "US-0789",
@@ -234,7 +243,9 @@
       "https://www.nps.gov/rowi/planyourvisit/basicinfo.htm",
       "https://www.nps.gov/rowi/planyourvisit/accessibility.htm",
       "https://www.nps.gov/rowi/learn/management/compendium.htm"
-    ]
+    ],
+    "heroImageId": "roger-williams-well",
+    "summary": "A small urban memorial with shaded lawns and paths in historic Providence."
   },
   {
     "reference": "US-10541",
@@ -336,7 +347,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/events/park-ranger-led-walk-butts-hill-fort-0"
-    ]
+    ],
+    "heroImageId": "patriots-park",
+    "summary": "A small historic park commemorating the Battle of Rhode Island and the First Rhode Island Regiment."
   },
   {
     "reference": "US-10544",
@@ -370,7 +383,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://www.ri.gov/press/view/23207"
-    ]
+    ],
+    "heroImageId": "jerimoth-summit",
+    "summary": "A short woodland walk leads to the rocky summit of Rhode Island’s highest point."
   },
   {
     "reference": "US-10545",
@@ -548,7 +563,8 @@
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/beavertail-state-park",
       "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
-    ]
+    ],
+    "heroImageId": "beavertail-dawn"
   },
   {
     "reference": "US-2869",
@@ -585,7 +601,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/blackstone-bikeway-and-visitors-center"
-    ]
+    ],
+    "heroImageId": "blackstone-canal",
+    "summary": "Canal-side paths and historic mill landscapes along the Blackstone River."
   },
   {
     "reference": "US-2870",
@@ -624,7 +642,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/brenton-point-state-park"
-    ]
+    ],
+    "heroImageId": "brenton-point-shore"
   },
   {
     "reference": "US-2871",
@@ -668,7 +687,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/burlingame-state-park"
-    ]
+    ],
+    "heroImageId": "burlingame-watchaug-pond"
   },
   {
     "reference": "US-2872",
@@ -710,7 +730,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/colt-state-park"
-    ]
+    ],
+    "heroImageId": "colt-pier"
   },
   {
     "reference": "US-2873",
@@ -789,7 +810,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/fort-adams-state-park"
-    ]
+    ],
+    "heroImageId": "fort-adams-cannon"
   },
   {
     "reference": "US-2875",
@@ -828,7 +850,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/fort-wetherill-state-park"
-    ]
+    ],
+    "heroImageId": "fort-wetherill-cliffs"
   },
   {
     "reference": "US-2876",
@@ -870,7 +893,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/goddard-memorial-state-park"
-    ]
+    ],
+    "heroImageId": "goddard-beach"
   },
   {
     "reference": "US-2877",
@@ -949,7 +973,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/lincoln-woods-state-park"
-    ]
+    ],
+    "summary": "Wooded trails, granite boulders, and freshwater recreation around Olney Pond.",
+    "heroImageId": "lincoln-woods-olney-pond"
   },
   {
     "reference": "US-2879",
@@ -990,7 +1016,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/rocky-point-state-park"
-    ]
+    ],
+    "heroImageId": "rocky-point-arch"
   },
   {
     "reference": "US-2880",
@@ -1059,7 +1086,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://www.woonsocketri.gov/parks-recreation/pages/world-war-ii-veterans-memorial-park"
-    ]
+    ],
+    "heroImageId": "wwii-veterans-memorial",
+    "summary": "A city park in Woonsocket with memorial grounds, paths, and mature trees."
   },
   {
     "reference": "US-4582",
@@ -1248,7 +1277,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/other-state-lands/arcadia-wildlife-management-area"
-    ]
+    ],
+    "heroImageId": "arcadia-wood-river"
   },
   {
     "reference": "US-6980",
@@ -1423,7 +1453,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
       "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
-    ]
+    ],
+    "heroImageId": "black-hut-stone-structure",
+    "summary": "Woodland paths, wetlands, and traces of old stone structures in northern Rhode Island."
   },
   {
     "reference": "US-6985",
@@ -1634,7 +1666,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
       "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
-    ]
+    ],
+    "heroImageId": "carbuncle-pond",
+    "summary": "Woodlands and quiet pond shores around Carbuncle Pond in western Coventry."
   },
   {
     "reference": "US-6991",
@@ -1703,7 +1737,9 @@
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/hunting",
       "https://rules.sos.ri.gov/regulations/part/250-60-00-9"
-    ]
+    ],
+    "heroImageId": "jl-curran-woodland",
+    "summary": "A quiet woodland park with stone walls, ponds, and space to explore on foot."
   },
   {
     "reference": "US-7508",
@@ -1741,7 +1777,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/pulaski-state-park"
-    ]
+    ],
+    "heroImageId": "pulaski-pond"
   },
   {
     "reference": "US-7518",
@@ -1843,7 +1880,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
       "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
-    ]
+    ],
+    "heroImageId": "durfee-hill-meadow",
+    "summary": "Rolling meadows and woodland trails in the hills of northwestern Rhode Island."
   },
   {
     "reference": "US-7716",
@@ -1877,7 +1916,9 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
       "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
-    ]
+    ],
+    "heroImageId": "carolina-pond",
+    "summary": "Wooded trails, pond shores, and riverside habitat near Carolina village."
   },
   {
     "reference": "US-7717",
@@ -1921,7 +1962,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/beaches/charlestown-breachway"
-    ]
+    ],
+    "heroImageId": "charlestown-evening"
   },
   {
     "reference": "US-7718",
@@ -1963,7 +2005,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/beaches/east-matunuck-state-beach"
-    ]
+    ],
+    "heroImageId": "east-matunuck-shore"
   },
   {
     "reference": "US-7719",
@@ -2005,7 +2048,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/beaches/misquamicut-state-beach"
-    ]
+    ],
+    "heroImageId": "misquamicut-pavilion"
   },
   {
     "reference": "US-7720",
@@ -2047,7 +2091,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/beaches/roger-w-wheeler-state-beach"
-    ]
+    ],
+    "heroImageId": "roger-wheeler-pavilion"
   },
   {
     "reference": "US-7721",
@@ -2091,7 +2136,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/beaches/salty-brine-state-beach"
-    ]
+    ],
+    "heroImageId": "salty-brine-pavilion"
   },
   {
     "reference": "US-7722",
@@ -2133,7 +2179,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/beaches/scarborough-north-state-beach"
-    ]
+    ],
+    "heroImageId": "scarborough-north-shore"
   },
   {
     "reference": "US-7723",
@@ -2170,7 +2217,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
       "https://riparks.ri.gov/parks/john-h-chafee-nature-preserve"
-    ]
+    ],
+    "heroImageId": "rome-point-dusk"
   },
   {
     "reference": "US-7865",
@@ -2255,7 +2303,9 @@
       "https://www.nps.gov/blrv/planyourvisit/index.htm",
       "https://www.nps.gov/blrv/planyourvisit/accessibility.htm",
       "https://www.nps.gov/blrv/learn/management/compendium.htm"
-    ]
+    ],
+    "heroImageId": "wilkinson-mill",
+    "summary": "Historic mills and river landscapes tell the story of the Blackstone Valley."
   },
   {
     "reference": "US-8293",
@@ -2289,6 +2339,8 @@
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
       "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
-    ]
+    ],
+    "heroImageId": "sapowet-sunset",
+    "summary": "Salt marsh and a stony shoreline with broad views across the Sakonnet River."
   }
 ]

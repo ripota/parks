@@ -268,6 +268,10 @@ async function createRepositoryFixture(
     reviewedRecords,
   );
   await writeJson(path.join(root, "config/map-point-overrides.json"), []);
+  await writeJson(path.join(root, "config/park-images.json"), {
+    schemaVersion: 1,
+    images: [],
+  });
   await writeJson(
     path.join(root, "config/park-metadata.json"),
     Object.fromEntries(

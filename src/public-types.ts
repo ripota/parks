@@ -43,6 +43,10 @@ export type Park = Readonly<Omit<PotaReference, "counties">> &
     type: ParkType;
     manager: string;
     websiteUrl: string;
+    /** Optional editorial introduction; absent when no reviewed summary exists. */
+    summary?: string;
+    /** Resolves through the opt-in images.json registry; absent means no hero. */
+    heroImageId?: string;
     amenities: readonly ParkAmenity[];
     access: Readonly<{
       hours?: string;
@@ -55,6 +59,41 @@ export type Park = Readonly<Omit<PotaReference, "counties">> &
     orange: OrangeGuidance;
     sources: readonly string[];
   }>;
+
+/** A reviewed, locally packaged web master with image-specific attribution. */
+export type ParkImage = Readonly<{
+  id: string;
+  artifact: `@ripota/parks/images/${string}.webp`;
+  width: number;
+  height: number;
+  bytes: number;
+  sha256: string;
+  mimeType: "image/webp";
+  alt: string;
+  caption?: string;
+  /** Normalized coordinates, measured from the top-left corner. */
+  focalPoint?: Readonly<{ x: number; y: number }>;
+  credit: string;
+  source: Readonly<{
+    pageUrl: string;
+    imageUrl: string;
+    /** SHA-256 of the downloaded source before the documented transformations. */
+    sha256: string;
+    retrievedAt: string;
+  }>;
+  rights: Readonly<{
+    kind: "public-domain" | "licensed" | "permission";
+    label: string;
+    url: string;
+    reviewedAt: string;
+  }>;
+  transforms: readonly string[];
+}>;
+
+export type ParkImageRegistry = Readonly<{
+  schemaVersion: 1;
+  images: readonly ParkImage[];
+}>;
 
 /** Readonly opt-in map contracts. */
 export type GeometryKind = "boundary" | "activation-zone" | "point";

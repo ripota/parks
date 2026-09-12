@@ -251,7 +251,24 @@ describe("reviewed RI POTA snapshot", () => {
       .get("dist/checksums.sha256")!
       .trim()
       .split("\n");
-    expect(checksumLines).toHaveLength(319);
+    const imageRegistry = JSON.parse(artifacts.get("dist/images.json")!) as {
+      images: { artifact: string }[];
+    };
+    const imagePaths = imageRegistry.images.map(({ artifact }) =>
+      artifact.replace("@ripota/parks/images/", "assets/images/"),
+    );
+    const checksumPaths = checksumLines.map((line) => line.split("  ")[1]);
+    expect(
+      checksumPaths.filter(
+        (file) =>
+          file !== "dist/images.json" && !file.startsWith("assets/images/"),
+      ),
+    ).toHaveLength(319);
+    expect(
+      checksumPaths.filter((file) => file.startsWith("assets/images/")),
+    ).toEqual([...imagePaths].sort());
+    expect(checksumPaths).toContain("dist/images.json");
+    expect(checksumLines).toHaveLength(320 + imagePaths.length);
     expect(
       checksumLines.some((line) => line.endsWith("  dist/parks.json")),
     ).toBe(true);
@@ -263,7 +280,7 @@ describe("reviewed RI POTA snapshot", () => {
       const [expectedHash, relativePath] = line.split("  ");
       const content =
         artifacts.get(relativePath) ??
-        (await readFile(path.join(rootDirectory, relativePath), "utf8"));
+        (await readFile(path.join(rootDirectory, relativePath)));
       expect(createHash("sha256").update(content).digest("hex")).toBe(
         expectedHash,
       );

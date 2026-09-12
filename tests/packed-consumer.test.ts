@@ -74,6 +74,8 @@ describe("packed package consumer", () => {
       "package/dist/index.js",
       "package/dist/index.d.ts",
       "package/dist/parks.json",
+      "package/dist/images.json",
+      "package/schemas/park-images.schema.json",
       "package/schemas/park-metadata.schema.json",
       "package/dist/catalog.json",
       "package/dist/source-catalog.json",
@@ -188,13 +190,50 @@ assert.equal(sourceFeatures.properties.geometryRole, "source");
     ).resolves.toMatchObject({ stdout: "" });
   });
 
+  it("resolves the image registry and verifies every installed binary and checksum", async () => {
+    const scriptPath = path.join(consumerDirectory, "verify-images.mjs");
+    await writeFile(
+      scriptPath,
+      `
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+import { parks } from "@ripota/parks";
+import registry from "@ripota/parks/images.json" with { type: "json" };
+import schema from "@ripota/parks/schemas/park-images.schema.json" with { type: "json" };
+assert.equal(registry.schemaVersion, 1);
+assert.equal(schema.type, "object");
+const checksums = await readFile(new URL(import.meta.resolve("@ripota/parks/checksums.sha256")), "utf8");
+const ids = new Set(registry.images.map(image => image.id));
+for (const park of parks) {
+  if (park.heroImageId) assert.ok(ids.has(park.heroImageId));
+}
+for (const image of registry.images) {
+  const bytes = await readFile(new URL(import.meta.resolve(image.artifact)));
+  assert.equal(bytes.length, image.bytes);
+  assert.equal(createHash("sha256").update(bytes).digest("hex"), image.sha256);
+  assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+  assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+  assert.ok(checksums.includes(image.sha256 + "  assets/images/" + image.artifact.split("/").at(-1)));
+}
+`,
+    );
+    await expect(
+      execFileAsync(process.execPath, [scriptPath], { cwd: consumerDirectory }),
+    ).resolves.toMatchObject({ stdout: "" });
+  });
+
   it("typechecks the root API from the installed declaration file", async () => {
     const sourcePath = path.join(consumerDirectory, "consumer.ts");
     await writeFile(
       sourcePath,
       `
 import { parks, getPark, type Park, type ParkType, type ParkAmenity, type OrangeGuidance } from "@ripota/parks";
-import type { PotaReference } from "@ripota/parks/types";
+import type { PotaReference, ParkImage, ParkImageRegistry } from "@ripota/parks/types";
+const heroId: string | undefined = parks[0].heroImageId;
+const summary: string | undefined = parks[0].summary;
+const imageTypes: [ParkImage?, ParkImageRegistry?] = [];
+void [heroId, summary, imageTypes];
 // @ts-expect-error the v3 root alias was removed
 import { references } from "@ripota/parks";
 // @ts-expect-error root collections are readonly

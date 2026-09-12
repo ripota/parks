@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ripota.org/schemas/park-images.schema.json",
+  "title": "Reviewed park web masters and image provenance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "images"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "images": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/image" }
+    }
+  },
+  "definitions": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200,
+      "pattern": "\\S"
+    },
+    "url": { "type": "string", "format": "http-url" },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "date": { "type": "string", "format": "calendar-date" },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "artifact",
+        "width",
+        "height",
+        "bytes",
+        "sha256",
+        "mimeType",
+        "alt",
+        "credit",
+        "source",
+        "rights",
+        "transforms"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "artifact": {
+          "type": "string",
+          "pattern": "^@ripota/parks/images/[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-f0-9]{12}\\.webp$"
+        },
+        "width": { "type": "integer", "minimum": 1, "maximum": 16384 },
+        "height": { "type": "integer", "minimum": 1, "maximum": 16384 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/definitions/sha256" },
+        "mimeType": { "const": "image/webp" },
+        "alt": { "$ref": "#/definitions/text" },
+        "caption": { "$ref": "#/definitions/text" },
+        "focalPoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number", "minimum": 0, "maximum": 1 },
+            "y": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "credit": { "$ref": "#/definitions/text" },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pageUrl", "imageUrl", "sha256", "retrievedAt"],
+          "properties": {
+            "pageUrl": { "$ref": "#/definitions/url" },
+            "imageUrl": { "$ref": "#/definitions/url" },
+            "sha256": { "$ref": "#/definitions/sha256" },
+            "retrievedAt": { "$ref": "#/definitions/date" }
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "label", "url", "reviewedAt"],
+          "properties": {
+            "kind": { "enum": ["public-domain", "licensed", "permission"] },
+            "label": { "$ref": "#/definitions/text" },
+            "url": { "$ref": "#/definitions/url" },
+            "reviewedAt": { "$ref": "#/definitions/date" }
+          }
+        },
+        "transforms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/text" }
+        }
+      }
+    }
+  }
+}

@@ -49,6 +49,17 @@
           "type": "string",
           "format": "http-url"
         },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "pattern": "\\S"
+        },
+        "heroImageId": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
         "amenities": {
           "type": "array",
           "uniqueItems": true,

@@ -6,3 +6,4 @@
 *.ts text eol=lf
 *.yml text eol=lf
 mise/tasks/** text eol=lf
+*.webp binary

@@ -17,7 +17,7 @@ Visitor information is best effort, with links to the relevant managers and rule
 
 ## Use JSON without JavaScript
 
-Download [parks.json for v4.0.0](https://github.com/ripota/parks/releases/download/v4.0.0/parks.json)
+Download [parks.json for v4.1.0](https://github.com/ripota/parks/releases/download/v4.1.0/parks.json)
 for the same complete records, with no package installation or JavaScript runtime.
 It is a UTF-8 JSON array with one object per POTA reference. Pin the release URL
 in static-site builds or download it alongside your site's other data files.
@@ -26,7 +26,7 @@ in static-site builds or download it alongside your site's other data files.
 import json
 from urllib.request import urlopen
 
-url = "https://github.com/ripota/parks/releases/download/v4.0.0/parks.json"
+url = "https://github.com/ripota/parks/releases/download/v4.1.0/parks.json"
 with urlopen(url) as response:
     parks = json.load(response)
 park = next(park for park in parks if park["reference"] == "US-0513")
@@ -36,11 +36,21 @@ print(park["orange"]["details"])
 The generated file is also checked in at `dist/parks.json` and included in the
 package. Releases include its SHA-256 digest in `checksums.release.sha256`.
 
+## Optional park photos
+
+A park may have `heroImageId` and a short `summary`. Resolve the ID through
+`@ripota/parks/images.json`; its `artifact` points to a checked-in WebP master
+included in the release tarball. Photos carry individual credits, rights, source
+links, dimensions, and checksums. Generate responsive sizes during your build.
+Omitted heroes need no placeholder. See [image consumption](API.md#park-photos).
+
 ## Choose map and data exports
 
 | Need                                    | Export                                          |
 | --------------------------------------- | ----------------------------------------------- |
 | Complete park records as JSON           | `@ripota/parks/parks.json`                      |
+| Image metadata and provenance           | `@ripota/parks/images.json`                     |
+| Versioned image binary                  | `@ripota/parks/images/<filename>.webp`          |
 | Canonical POTA identity only            | `@ripota/parks/references.json`                 |
 | Lightweight map points and bounds       | `@ripota/parks/display`                         |
 | Identity and display geometry           | `@ripota/parks/catalog.json`                    |
@@ -70,7 +80,7 @@ See [API contracts](API.md) for all geometry tiers, comparison behavior, and met
 
 ## Install and maintain
 
-Install the immutable `ripota-parks-4.0.0.tgz` asset from [GitHub Releases](https://github.com/ripota/parks/releases); the package is not published to npm.
+Install the immutable `ripota-parks-4.1.0.tgz` asset from [GitHub Releases](https://github.com/ripota/parks/releases); the package is not published to npm.
 
 Version 4 replaces root `references`/`getReference` with `parks`/`getPark`. Move raw identity types to `/types` and use `/references.json` where exact identity-only JSON is needed. Existing display, comparison, geometry, and schema-v2/v3 exports retain their contracts.
 

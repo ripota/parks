@@ -27,7 +27,39 @@ describe("maintained park metadata", () => {
       ),
     ).toBe(true);
   });
+  it("preserves optional image metadata and leaves unsourced heroes absent", () => {
+    const data = structuredClone(metadata);
+    const withHero = references[0].reference;
+    const withoutHero = references[1].reference;
+    data[withHero].heroImageId = "coastal-trail";
+    data[withHero].summary = "A coastal trail follows the rocky shoreline.";
+    delete data[withoutHero].heroImageId;
+    delete data[withoutHero].summary;
+    const parks = buildParks(references, data);
+    expect(parks[0].heroImageId).toBe("coastal-trail");
+    expect(parks[0].summary).toBe(data[withHero].summary);
+    expect(parks[1]).not.toHaveProperty("heroImageId");
+    expect(parks[1]).not.toHaveProperty("summary");
+  });
   it.each([
+    [
+      "invalid hero image ID",
+      (data: typeof metadata) => {
+        data[references[0].reference].heroImageId = "../escape";
+      },
+    ],
+    [
+      "null hero placeholder",
+      (data: typeof metadata) => {
+        data[references[0].reference].heroImageId = null;
+      },
+    ],
+    [
+      "blank summary",
+      (data: typeof metadata) => {
+        data[references[0].reference].summary = "   ";
+      },
+    ],
     [
       "missing record",
       (data: typeof metadata) => {

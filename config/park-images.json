@@ -1,0 +1,1109 @@
+{
+  "schemaVersion": 1,
+  "images": [
+    {
+      "id": "arcadia-wood-river",
+      "artifact": "@ripota/parks/images/arcadia-wood-river.ba5d86ad6700.webp",
+      "width": 2400,
+      "height": 1103,
+      "bytes": 1161370,
+      "sha256": "ba5d86ad67009646df4d5c89e146d1b08c46f99afd92614dd743275601a7ae14",
+      "mimeType": "image/webp",
+      "alt": "A beaver lodge and a gnawed tree stand beside the reflective Wood River in Arcadia Management Area.",
+      "caption": "Beaver evidence in Arcadia (02239p)",
+      "credit": "Rhododendrites",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Beaver_evidence_in_Arcadia_(02239p).jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Beaver_evidence_in_Arcadia_%2802239p%29.jpg",
+        "sha256": "61623302685ba3952b2b087073ead7ce95a45c9ede0f1a09e76c2f21455ab6d2",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.52
+      }
+    },
+    {
+      "id": "beavertail-dawn",
+      "artifact": "@ripota/parks/images/beavertail-dawn.d24d7b988903.webp",
+      "width": 2400,
+      "height": 1529,
+      "bytes": 224422,
+      "sha256": "d24d7b988903b07bd9a788ef9b1cdb0a0ea9a31d6dd9f218508749782623252c",
+      "mimeType": "image/webp",
+      "alt": "Beavertail Lighthouse and its red-roofed buildings at dawn, with the moon beside the lit lantern.",
+      "caption": "Dawn, Beavertail Lighthouse, RI (8687634658)",
+      "credit": "Timothy Burling",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Dawn,_Beavertail_Lighthouse,_RI_(8687634658).jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Dawn%2C_Beavertail_Lighthouse%2C_RI_%288687634658%29.jpg",
+        "sha256": "203a25c596fc81288633e395ea2fa634447d0bc70449cb1d8d7c01db8aa1dcde",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.42,
+        "y": 0.47
+      }
+    },
+    {
+      "id": "black-hut-stone-structure",
+      "artifact": "@ripota/parks/images/black-hut-stone-structure.1d2b6e0fdeec.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 914104,
+      "sha256": "1d2b6e0fdeecfccce1ef3ba41c50bee2f027cda426b5e466c05ffd28e422c966",
+      "mimeType": "image/webp",
+      "alt": "An old stone structure partly covered by green vines in the woodland at Black Hut.",
+      "caption": "Stone structure at Black Hut",
+      "credit": "Robert Jackson / N1RWJ",
+      "source": {
+        "pageUrl": "https://rwjblue.com/notes/2026-05-27-black-hut-wildlife-management-area-pota/",
+        "imageUrl": "https://rwjblue.com/images/pota/2026-05-27-black-hut-wildlife-management-area-pota/stone-structure-exterior.jpg",
+        "sha256": "a184d4a49305b167ffd161cc1d7621107a5161ea366babacb0c632c34d857f80",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "blackstone-canal",
+      "artifact": "@ripota/parks/images/blackstone-canal.910e07c9653e.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 1184862,
+      "sha256": "910e07c9653e158df15fd240607ee7dbdd139168cac29c39cdc52027fc6ca07a",
+      "mimeType": "image/webp",
+      "alt": "The Blackstone Canal and towpath run beside the Captain Wilbur Kelly House museum.",
+      "caption": "Blackstone Canal, Quinnville RI",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "credit": "John Phelan",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Blackstone_Canal,_Quinnville_RI.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Blackstone_Canal,_Quinnville_RI.jpg",
+        "sha256": "27d33d24bf47b44dfc40182e674a78d74441ea35e4c5c434f22a57f66c6fc786",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "block-island-north-light",
+      "artifact": "@ripota/parks/images/block-island-north-light.e69e35c9429d.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 445280,
+      "sha256": "e69e35c9429d2236856d635f56f568b067c1ae9b5a8dfdd65523e38d1fae95e9",
+      "mimeType": "image/webp",
+      "alt": "Block Island North Light rises beyond water and coastal vegetation bordering the national wildlife refuge.",
+      "caption": "Block Island North Lighthousse",
+      "credit": "Elizabeth D. Boepple",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Block_Island_North_Lighthousse.JPG",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Block_Island_North_Lighthousse.JPG",
+        "sha256": "d6dda4405cdc9e74ce9aa5d3973cdb8241eec33db92b627ae98c9d7368c9b580",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.53,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "brenton-point-shore",
+      "artifact": "@ripota/parks/images/brenton-point-shore.f8762658ac68.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 499700,
+      "sha256": "f8762658ac687e181a91c0563614c464f11203f929e20d09141523c3d4d93005",
+      "mimeType": "image/webp",
+      "alt": "Sunlight breaks through clouds over the curving shoreline at Brenton Point.",
+      "caption": "Brenton Point in Newport Rhode Island RI USA",
+      "credit": "Swampyank",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Brenton_Point_in_Newport_Rhode_Island_RI_USA.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Brenton_Point_in_Newport_Rhode_Island_RI_USA.jpg",
+        "sha256": "3e5151894e69e9a4f57c71df867f0a8da9f56969b8d6dbdc1366a1dbbc646049",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.52,
+        "y": 0.53
+      }
+    },
+    {
+      "id": "burlingame-watchaug-pond",
+      "artifact": "@ripota/parks/images/burlingame-watchaug-pond.01dcec2eb471.webp",
+      "width": 2400,
+      "height": 1607,
+      "bytes": 366846,
+      "sha256": "01dcec2eb471664191a8ba3fd7bc498936a81b8eb30290b4bfa2bb468430b74f",
+      "mimeType": "image/webp",
+      "alt": "A quiet sandy shore framed by trees on Watchaug Pond.",
+      "caption": "Watchaug Pond",
+      "credit": "Juliancolton",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Watchaug_Pond.JPG",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Watchaug_Pond.JPG",
+        "sha256": "fed7702e9520041e9bbb818d140b56646581f1df5386f9f3db005309b6a510ee",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Watchaug_Pond.JPG",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.53
+      }
+    },
+    {
+      "id": "carbuncle-pond",
+      "artifact": "@ripota/parks/images/carbuncle-pond.e96eb39503c7.webp",
+      "width": 2400,
+      "height": 679,
+      "bytes": 120354,
+      "sha256": "e96eb39503c740d80457a98786bdf496e214cdc3013fc930bb8256c4b17ff214",
+      "mimeType": "image/webp",
+      "alt": "Clouds and the wooded shoreline reflected in the still water of Carbuncle Pond.",
+      "caption": "Carbuncle Pond, Coventry, RI",
+      "credit": "Doug McGrady",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Carbuncle_Pond,_Coventry,_RI_(32127755076).jpg",
+        "imageUrl": "https://live.staticflickr.com/405/32127755076_b61582d546_o.jpg",
+        "sha256": "e36ae26a00d2e67b34caacc44b6b053e334cf35467e0e17ebc6bcd5f35f3bbeb",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "carolina-pond",
+      "artifact": "@ripota/parks/images/carolina-pond.42e5ebadf398.webp",
+      "width": 1280,
+      "height": 960,
+      "bytes": 444174,
+      "sha256": "42e5ebadf398bb79fe91d08375d06a826de44c042c6aa84765fbae13264eebfe",
+      "mimeType": "image/webp",
+      "alt": "Trees reflected in a quiet pond, with flowering plants along the near shore at Carolina Management Area.",
+      "caption": "Carolina trout pond",
+      "credit": "Robert Jackson / N1RWJ",
+      "source": {
+        "pageUrl": "https://rwjblue.com/notes/2026-08-09-carolina-management-area-doublet/",
+        "imageUrl": "https://rwjblue.com/images/pota/2026-08-09-carolina-management-area-doublet/carolina-trout-pond-view.jpg",
+        "sha256": "4a1ebf467e8634d9ad8b661e1cd737d4452caa156a207e94d53cdf878af4c167",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "chafee-marsh",
+      "artifact": "@ripota/parks/images/chafee-marsh.650c764fc426.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 658746,
+      "sha256": "650c764fc426719906c5e389acf1dde01a0d90493d28a328155fbd3862857634",
+      "mimeType": "image/webp",
+      "alt": "Marsh islands and open water at John H. Chafee National Wildlife Refuge.",
+      "credit": "USFWS",
+      "source": {
+        "pageUrl": "https://www.fws.gov/media/chafee-refuge",
+        "imageUrl": "https://www.fws.gov/sites/default/files/2021-11/IMG_0641.jpg",
+        "sha256": "cef5c4fecfbbebaa1a48b18dea5c61cf01cf2959be65bbc1180a4a9888bed3d3",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public Domain (USFWS media record)",
+        "url": "https://www.fws.gov/media/chafee-refuge",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "charlestown-evening",
+      "artifact": "@ripota/parks/images/charlestown-evening.7c7e62201a25.webp",
+      "width": 2048,
+      "height": 1365,
+      "bytes": 502926,
+      "sha256": "7c7e62201a25477658946680f2e4b7273c17b7e574b0c22ce8dfff1e960385fc",
+      "mimeType": "image/webp",
+      "alt": "An evening sky glows above the sandy path, dune fence, and channel at Charlestown Breachway.",
+      "caption": "Breachway, Charlestown, Rhode Island. This week. - Flickr - dennis.weeks8",
+      "credit": "Dennis Weeks",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Breachway,_Charlestown,_Rhode_Island._This_week._-_Flickr_-_dennis.weeks8.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Breachway%2C_Charlestown%2C_Rhode_Island._This_week._-_Flickr_-_dennis.weeks8.jpg",
+        "sha256": "8e0dfb167d39d1fd2e59c4c3215dbc382006b2af41f1f6db11ca88b44bd7a5ba",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.65
+      }
+    },
+    {
+      "id": "colt-pier",
+      "artifact": "@ripota/parks/images/colt-pier.b45aa001d838.webp",
+      "width": 2400,
+      "height": 1602,
+      "bytes": 490820,
+      "sha256": "b45aa001d83877b254df8da9acf5bb31f8761e01453f5158d898deb6f3f567a9",
+      "mimeType": "image/webp",
+      "alt": "The wooden fishing pier extends over blue water at Colt State Park.",
+      "caption": "The Pier at Colt State Park, Bristol, Rhode Island",
+      "credit": "Kenneth C. Zirkel",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Pier_at_Colt_State_Park,_Bristol,_Rhode_Island.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Pier_at_Colt_State_Park%2C_Bristol%2C_Rhode_Island.jpg",
+        "sha256": "69cc595123a1c40bee7513729e4c423c601d1456454de48a19a6ce0def83d906",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.51,
+        "y": 0.54
+      }
+    },
+    {
+      "id": "durfee-hill-meadow",
+      "artifact": "@ripota/parks/images/durfee-hill-meadow.c6838350edec.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 684800,
+      "sha256": "c6838350edeca8fb759e2f842db12b34b5f637ea76e54d85002cf0f9150347e9",
+      "mimeType": "image/webp",
+      "alt": "A sunlit green meadow framed by trees beneath a blue, lightly clouded sky at Durfee Hill.",
+      "caption": "Valley meadow at Durfee Hill",
+      "credit": "Robert Jackson / N1RWJ",
+      "source": {
+        "pageUrl": "https://rwjblue.com/notes/2026-05-29-durfee-hill-wildlife-management-area-pota/",
+        "imageUrl": "https://rwjblue.com/images/pota/2026-05-29-durfee-hill-wildlife-management-area-pota/valley-meadow.jpg",
+        "sha256": "772370a6fa392beee7e0a79fc06ced52e10e6cc35806b48932ceb5812b89f18f",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "east-matunuck-shore",
+      "artifact": "@ripota/parks/images/east-matunuck-shore.4109eb70cb3d.webp",
+      "width": 2304,
+      "height": 1728,
+      "bytes": 580114,
+      "sha256": "4109eb70cb3dae00a8ffe848042130ab8d5cda71dfbefa87ab74212c3d4ddb30",
+      "mimeType": "image/webp",
+      "alt": "A view toward East Matunuck Beach from its rocky western shoreline.",
+      "caption": "East Matunuck Beach - Western Side",
+      "credit": "LaesaMajestas",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:East_Matunuck_Beach_-_Western_Side.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/East_Matunuck_Beach_-_Western_Side.jpg",
+        "sha256": "96bc4cf33cb1c664b2ae64c97b2018ebd6fe3506020111c575097378b0ed5420",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "fort-adams-cannon",
+      "artifact": "@ripota/parks/images/fort-adams-cannon.4a6f2be1dd1b.webp",
+      "width": 2400,
+      "height": 1602,
+      "bytes": 690476,
+      "sha256": "4a6f2be1dd1baba20b319a029ebde131b7fec858e20a1f0fc4260641ffed84e0",
+      "mimeType": "image/webp",
+      "alt": "A cannon stands before the stone walls and buildings of Fort Adams under a blue sky.",
+      "caption": "Fort Adams State Park, Newport, Rhode Island canon",
+      "credit": "Kenneth C. Zirkel",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_Adams_State_Park,_Newport,_Rhode_Island_canon.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Fort_Adams_State_Park%2C_Newport%2C_Rhode_Island_canon.jpg",
+        "sha256": "04cd85aa17301fd1560c3c6ef7cf49769e923ec2051706988cef7e923aa0d2d7",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.57
+      }
+    },
+    {
+      "id": "fort-wetherill-cliffs",
+      "artifact": "@ripota/parks/images/fort-wetherill-cliffs.ffd9e986495d.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 804350,
+      "sha256": "ffd9e986495dc2ac39e6c5f5240feabafb71fe5e100e7b16e2549d58fba8015e",
+      "mimeType": "image/webp",
+      "alt": "Blue water and rocky coastline seen through green shrubs from the cliffs beside Fort Wetherill.",
+      "caption": "On the Cliffs beside Fort Wetherill",
+      "credit": "Mlanni98",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:On_the_Cliffs_beside_Fort_Wetherill.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/On_the_Cliffs_beside_Fort_Wetherill.jpg",
+        "sha256": "ad8f35a27fd53ae0e3fa06342502a251d871bc71737f159903bdbd4bee4f49e3",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.54,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "goddard-beach",
+      "artifact": "@ripota/parks/images/goddard-beach.852f2f290171.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 218914,
+      "sha256": "852f2f2901713fb161b49f075626e19d6a5137a2ec1b4542edfa7dc91c1f7984",
+      "mimeType": "image/webp",
+      "alt": "A sandy beach curves along the calm bay at Goddard Memorial State Park.",
+      "caption": "Goddard Memorial State Park - 2 (8687906766)",
+      "credit": "Joe Bar",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Goddard_Memorial_State_Park_-_2_(8687906766).jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Goddard_Memorial_State_Park_-_2_%288687906766%29.jpg",
+        "sha256": "1aa7179cef7073dd393477ca1d5fc59cb2680fafb72a20b89834451d99a426f3",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "jerimoth-summit",
+      "artifact": "@ripota/parks/images/jerimoth-summit.0f23d53301a6.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 1283854,
+      "sha256": "0f23d53301a697d3c2ee6a9f4cdbb4836847d99b4d47d618cbfdb384c9480016",
+      "mimeType": "image/webp",
+      "alt": "Sunlight falls across the rock outcrop at the wooded summit of Jerimoth Hill.",
+      "caption": "Jerimoth Hill Summit",
+      "focalPoint": {
+        "x": 0.53,
+        "y": 0.65
+      },
+      "credit": "Fredlyfish4",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jerimoth_Hill_Summit.JPG",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Jerimoth_Hill_Summit.JPG",
+        "sha256": "b787a26bd1d59e394f092890413e5e53a8ec82dde37bb2f3b22b2d0f5c99aaaa",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "jl-curran-woodland",
+      "artifact": "@ripota/parks/images/jl-curran-woodland.feeb477f0315.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 908120,
+      "sha256": "feeb477f0315878fa4ae9ce453880ec74ca04b8e2523ac39a7bb66abf022e735",
+      "mimeType": "image/webp",
+      "alt": "Green woodland and large boulders beside a low stone wall at JL Curran State Park.",
+      "caption": "Woodland at JL Curran State Park",
+      "credit": "Robert Jackson / N1RWJ",
+      "source": {
+        "pageUrl": "https://rwjblue.com/notes/2026-06-03-jl-curran-state-park-pota/",
+        "imageUrl": "https://rwjblue.com/images/pota/2026-06-03-jl-curran-state-park-pota/woods-operating-site.jpg",
+        "sha256": "f78df8fb81e19bdf303068f025ac3d25e1f42cb32b5d218ee84131eb4129a87e",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "lincoln-woods-olney-pond",
+      "artifact": "@ripota/parks/images/lincoln-woods-olney-pond.327ad9aa8e2c.webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 451806,
+      "sha256": "327ad9aa8e2cfa7e85e93626dae2a01ede7ffeb2b5e10ffd1328fdfdeb26cba5",
+      "mimeType": "image/webp",
+      "alt": "Autumn trees and the swimming beach reflect in Olney Pond at Lincoln Woods State Park.",
+      "caption": "Lincoln Woods State Park in Rhode Island USA",
+      "credit": "Swampyank",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lincoln_Woods_State_Park_in_Rhode_Island_USA.jpg",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Lincoln_Woods_State_Park_in_Rhode_Island_USA.jpg/1920px-Lincoln_Woods_State_Park_in_Rhode_Island_USA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "sha256": "15ac7dd4db80770104c70ff9d9d3a2dd295c581698a0f35dcc4e57cd6f41890f",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Source is a Wikimedia-published 1920-pixel rendition of the licensed original; its exact downloaded bytes are identified by source.sha256. No upscaling.",
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.58,
+        "y": 0.61
+      }
+    },
+    {
+      "id": "misquamicut-pavilion",
+      "artifact": "@ripota/parks/images/misquamicut-pavilion.c268233f02f2.webp",
+      "width": 1920,
+      "height": 1256,
+      "bytes": 413136,
+      "sha256": "c268233f02f2e1e84089a6e3ab6359bc04ff1133f44865c289b3bdc28edf4775",
+      "mimeType": "image/webp",
+      "alt": "Empty sand, dune fences, lifeguard chairs, and the beachfront pavilion at Misquamicut State Beach.",
+      "caption": "Misquamicut State Beach",
+      "credit": "Juliancolton",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Misquamicut_State_Beach.JPG",
+        "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Misquamicut_State_Beach.JPG/1920px-Misquamicut_State_Beach.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "sha256": "8ca646fbe3819ea620d31d7e204bef54bf9696b6faf70f0dbe6e59b80ba856f9",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Misquamicut_State_Beach.JPG",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Source is a Wikimedia-published 1920-pixel rendition of the licensed original; its exact downloaded bytes are identified by source.sha256. No upscaling.",
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "ninigret-coastline",
+      "artifact": "@ripota/parks/images/ninigret-coastline.749df6e96077.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 411340,
+      "sha256": "749df6e96077de7f9282bdbc7c12fd85798fed2d9fca2f11d946da485d9bd74d",
+      "mimeType": "image/webp",
+      "alt": "Aerial view of the beach, salt pond, and wetlands around Ninigret National Wildlife Refuge.",
+      "credit": "Greg Thompson/USFWS",
+      "source": {
+        "pageUrl": "https://www.fws.gov/media/aerial-view-ninigret-national-wildlife-refuge",
+        "imageUrl": "https://www.fws.gov/sites/default/files/2022-01/ninigret-national-wildlife-refuge-rhode-island-credit-greg-thompson-usfws.jpg",
+        "sha256": "21c9199c92edefd92566dac16eefb97276757ae4a1d3c16157af26183676e9f2",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public Domain (USFWS media record)",
+        "url": "https://www.fws.gov/media/aerial-view-ninigret-national-wildlife-refuge",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "patriots-park",
+      "artifact": "@ripota/parks/images/patriots-park.d492c0e6d67c.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 900716,
+      "sha256": "d492c0e6d67c5c93a6e06adc7330b685bab83880fe0380881b2e65f84ca3c0c8",
+      "mimeType": "image/webp",
+      "alt": "A path across the lawn at Patriots Park leads past its entrance stone to the First Rhode Island Regiment memorial.",
+      "caption": "The Site of the Battle of Rhode Island",
+      "focalPoint": {
+        "x": 0.66,
+        "y": 0.52
+      },
+      "credit": "Kacey Victoria",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Site_of_the_Battle_of_Rhode_Island.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/The_Site_of_the_Battle_of_Rhode_Island.jpg",
+        "sha256": "50c8991ef2ae884d78253ec7784e763bfdf651a0359ab5654b3359d08c666f27",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "pulaski-pond",
+      "artifact": "@ripota/parks/images/pulaski-pond.77be8541dc90.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 700214,
+      "sha256": "77be8541dc90858e19f38b990da1e2d8ae9ebff1a90718288f7864c5a695ff9b",
+      "mimeType": "image/webp",
+      "alt": "A grassy picnic area and paved path lead to the pond at Pulaski State Park.",
+      "caption": "Pulaski State Park near the village of Chepachet in Glocester, Rhode Island",
+      "credit": "Swampyank",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pulaski_State_Park_near_the_village_of_Chepachet_in_Glocester,_Rhode_Island.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Pulaski_State_Park_near_the_village_of_Chepachet_in_Glocester%2C_Rhode_Island.jpg",
+        "sha256": "5cf65b72bda6eeba15dfb2a153774ac8b803ee72c4bdfb28e6c43974c5ed5187",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.52,
+        "y": 0.48
+      }
+    },
+    {
+      "id": "rocky-point-arch",
+      "artifact": "@ripota/parks/images/rocky-point-arch.da4a47925995.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 1071848,
+      "sha256": "da4a47925995b79b48a9fa53eff081f6fa8c9ae4eb708206ce6cda110520954f",
+      "mimeType": "image/webp",
+      "alt": "The tall surviving arch at Rocky Point State Park rises beside bare trees under a blue sky.",
+      "caption": "Rocky Point State Park2",
+      "credit": "Rhododendrites",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Rocky_Point_State_Park2.JPG",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Rocky_Point_State_Park2.JPG",
+        "sha256": "41448685ea8a1d89749bd307586ed7c7bf79227c97229e42448ccd3e002f1232",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.42,
+        "y": 0.43
+      }
+    },
+    {
+      "id": "roger-wheeler-pavilion",
+      "artifact": "@ripota/parks/images/roger-wheeler-pavilion.1d8307d01209.webp",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 421686,
+      "sha256": "1d8307d012097bfa16f64e7c16c93e6cbd1a70cc5a49c80cdbe5053f51b27c39",
+      "mimeType": "image/webp",
+      "alt": "The beach pavilion at Roger W. Wheeler State Beach stands under a blue sky with white clouds.",
+      "caption": "Roger Wheeler State Beach",
+      "credit": "Ajay Suresh",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Roger_Wheeler_State_Beach_(53844731671).jpg",
+        "imageUrl": "https://live.staticflickr.com/65535/53844731671_ba784b844a_o.jpg",
+        "sha256": "23b10750baf3a0406162bf863bb1095d40044725b9147217a91ac25ad3bd7f7d",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.56
+      }
+    },
+    {
+      "id": "roger-williams-well",
+      "artifact": "@ripota/parks/images/roger-williams-well.cea863b91ff8.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 275202,
+      "sha256": "cea863b91ff85ac0dce4017946451df5b390fa614d9cfb5e1261fb938779b991",
+      "mimeType": "image/webp",
+      "alt": "Crabapple trees frame the historic well at Roger Williams National Memorial.",
+      "credit": "NPS photo",
+      "source": {
+        "pageUrl": "https://www.nps.gov/rowi/index.htm",
+        "imageUrl": "https://www.nps.gov/common/uploads/structured_data/0B4D5074-F708-48D7-F777ACFC754336C4.jpg",
+        "sha256": "139587356c7641a9b630578988f559df7ff307e5a2c113cc1dc0a94ddcdc5276",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "NPS-created photograph; public domain in the United States",
+        "url": "https://www.nps.gov/aboutus/disclaimer.htm",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "rome-point-dusk",
+      "artifact": "@ripota/parks/images/rome-point-dusk.b6713f6f3201.webp",
+      "width": 2400,
+      "height": 1222,
+      "bytes": 162690,
+      "sha256": "b6713f6f3201ef009a39661e0c4dd93162b989d99709235286a35e08611c796a",
+      "mimeType": "image/webp",
+      "alt": "Dusk colors reflect in calm water beside the marsh grasses and wooded shoreline at Rome Point.",
+      "caption": "Rome Point, North Kingstown, RI",
+      "credit": "Doug McGrady",
+      "source": {
+        "pageUrl": "https://www.flickr.com/photos/douglas_mcgrady/32020095032/",
+        "imageUrl": "https://live.staticflickr.com/474/32020095032_6e54b3bcb4_o.jpg",
+        "sha256": "648346b8c6849af7e8bc76f4a04ebc2f2dfc6f1df70ab4c4c138da4e6790ee19",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.55
+      }
+    },
+    {
+      "id": "sachuest-sunset",
+      "artifact": "@ripota/parks/images/sachuest-sunset.69e4e579e991.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 282922,
+      "sha256": "69e4e579e991f56cc4caf96f2c068c30fc953e2ca33c30dda293a28e040bd673",
+      "mimeType": "image/webp",
+      "alt": "Sunset over a coastal path and water at Sachuest Point National Wildlife Refuge.",
+      "credit": "U.S. Fish and Wildlife Service; photographer not identified",
+      "source": {
+        "pageUrl": "https://www.fws.gov/media/sachuest-sunset",
+        "imageUrl": "https://www.fws.gov/sites/default/files/images/2025-12/img_6760.jpg",
+        "sha256": "d71c50886c0a8c1d2c993ed98bcac5a5f6966bb102c443bfb2a12ac0d374ac39",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public Domain (USFWS media record)",
+        "url": "https://www.fws.gov/media/sachuest-sunset",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "salty-brine-pavilion",
+      "artifact": "@ripota/parks/images/salty-brine-pavilion.79bb7652617b.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 643606,
+      "sha256": "79bb7652617b35083331f3385a3a7d5d491bcccbf9c1379de919bbaaab303302",
+      "mimeType": "image/webp",
+      "alt": "The white pavilion and entrance sign at Salty Brine State Beach.",
+      "caption": "Salty Brine State Beach",
+      "credit": "Ajay Suresh",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Salty_Brine_State_Beach_(53844731481).jpg",
+        "imageUrl": "https://live.staticflickr.com/65535/53844731481_b1fa0b1126_o.jpg",
+        "sha256": "6ba31fe27efc4e2a154196409b294b2ba3f83f6b6d7ae64f7683192e5dfb1175",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.48
+      }
+    },
+    {
+      "id": "sapowet-sunset",
+      "artifact": "@ripota/parks/images/sapowet-sunset.719cf46bc17d.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 439996,
+      "sha256": "719cf46bc17d251beeeaf2e076e17a58adabf3c1c2acccd0bb886ff3ce8daedc",
+      "mimeType": "image/webp",
+      "alt": "A radio antenna rises from the stony shore at Sapowet as the sun sets over the water.",
+      "caption": "Sunset at Sapowet",
+      "credit": "Robert Jackson / N1RWJ",
+      "source": {
+        "pageUrl": "https://rwjblue.com/notes/2026-05-30-east-bay-pota-rove/",
+        "imageUrl": "https://rwjblue.com/images/pota/2026-05-30-east-bay-pota-rove/img-8978.jpg",
+        "sha256": "86052cc0c1b2c2fa07a8bd8ad35f6c3e2e5ed7923785b1ff7f57eeee8d5a5bc6",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "scarborough-north-shore",
+      "artifact": "@ripota/parks/images/scarborough-north-shore.c5c4ccb51778.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 246430,
+      "sha256": "c5c4ccb51778071a78f74302c9203166eb8dff0df27c73a7f8e98aed98221061",
+      "mimeType": "image/webp",
+      "alt": "Waves roll onto Scarborough North State Beach beside its pavilion.",
+      "caption": "9-10-2021 Scarborough State Beach - 003",
+      "credit": "Wheeler Cowperthwaite",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:9-10-2021_Scarborough_State_Beach_-_003.jpg",
+        "imageUrl": "https://live.staticflickr.com/65535/51451286558_46c99a7074_o.jpg",
+        "sha256": "bdf9a31827d3b50dd95f707c346cb35fa1e9cb86890de0693c75efb5b24464cc",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY 2.0",
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-oriented from source metadata; original composition and aspect ratio retained.",
+        "Resized to at most 2400 pixels wide without enlargement.",
+        "Encoded as WebP using sharp 0.35.4, quality 86, effort 6; embedded metadata stripped."
+      ],
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.58
+      }
+    },
+    {
+      "id": "trustom-pond",
+      "artifact": "@ripota/parks/images/trustom-pond.8246ab94c30b.webp",
+      "width": 2400,
+      "height": 1590,
+      "bytes": 303106,
+      "sha256": "8246ab94c30bd63c0272342bdfb7748e99e7f5c77fd299cf1a2889c8fa0b591d",
+      "mimeType": "image/webp",
+      "alt": "Bright sunlight reflects across Trustom Pond beyond a quiet shoreline.",
+      "credit": "Ashley Spratt/USFWS",
+      "source": {
+        "pageUrl": "https://www.fws.gov/media/trustom-pond-national-wildlife-refuge-0",
+        "imageUrl": "https://www.fws.gov/sites/default/files/banner_images/2021-12/Air1-TrustomPondRefuge-RI-AshleySprattUSFWS.jpg",
+        "sha256": "c75d670c192a7acd78dc065cc0f4266210a0a8a3dcf21c97db7ea9c987720d88",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public Domain (USFWS media record)",
+        "url": "https://www.fws.gov/media/trustom-pond-national-wildlife-refuge-0",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "wilkinson-mill",
+      "artifact": "@ripota/parks/images/wilkinson-mill.43b67b9bf510.webp",
+      "width": 1536,
+      "height": 1152,
+      "bytes": 489314,
+      "sha256": "43b67b9bf510a5c6b7b32448b6691efd6c45f3eb03f75e5d2c3ea29ce89130db",
+      "mimeType": "image/webp",
+      "alt": "The stone walls and bell tower of Wilkinson Mill under a blue sky in Pawtucket.",
+      "caption": "Wilkinson Mill",
+      "credit": "NPS Photo",
+      "source": {
+        "pageUrl": "https://www.nps.gov/media/photo/gallery-item.htm?gid=1A8FFBF1-CC7F-4193-8045-7EA5963DB39C&id=deea79d3-24b1-48d7-8db1-2d95a78d4691",
+        "imageUrl": "https://www.nps.gov/npgallery/GetAsset/deea79d3-24b1-48d7-8db1-2d95a78d4691",
+        "sha256": "89ba5522155adece82b1c51a11f03daddc71d0927a19b45550f35d03af1a3fac",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "public-domain",
+        "label": "Public Domain (NPS individual asset record)",
+        "url": "https://www.nps.gov/npgallery/api/search/execute/albumid/1A8FFBF1-CC7F-4193-8045-7EA5963DB39C?pagesize=500&primarytype=image",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    },
+    {
+      "id": "wwii-veterans-memorial",
+      "artifact": "@ripota/parks/images/wwii-veterans-memorial.6fc1ee152950.webp",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 1807406,
+      "sha256": "6fc1ee152950a71aa679ab6c763fbe981564845f1fc41916dfe82c6b55d05232",
+      "mimeType": "image/webp",
+      "alt": "An obelisk stands among autumn trees at World War II Veterans Memorial State Park in Woonsocket.",
+      "caption": "World War II Veterans Memorial State Park in Woonsocket, RI",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.53
+      },
+      "credit": "Gzub",
+      "source": {
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:World_War_II_Veterans_Memorial_State_Park_in_Woonsocket,_RI.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/World_War_II_Veterans_Memorial_State_Park_in_Woonsocket%2C_RI.jpg",
+        "sha256": "ddd4dd43bbcb216066e25045c1965c4bc5a21b601a77a83d679ac7a4e9adfb44",
+        "retrievedAt": "2026-09-12"
+      },
+      "rights": {
+        "kind": "licensed",
+        "label": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "reviewedAt": "2026-09-12"
+      },
+      "transforms": [
+        "Auto-orient from source metadata.",
+        "Resize to a maximum width of 2400 pixels without enlargement; preserve aspect ratio.",
+        "Encode WebP at quality 86, effort 6 with sharp 0.35.4; strip embedded metadata."
+      ]
+    }
+  ]
+}

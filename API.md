@@ -20,7 +20,7 @@ const park = getPark("  us-0513  ");
 and returns undefined for unknown or malformed strings. Neither API fetches data.
 `parks.json` exports identical records for JSON consumers. It is a UTF-8 JSON
 array, with one object per accepted reference in canonical order, available as a
-[standalone versioned download](https://github.com/ripota/parks/releases/download/v4.0.0/parks.json),
+[standalone versioned download](https://github.com/ripota/parks/releases/download/v4.1.0/parks.json),
 checked in at `dist/parks.json`, and exported at `@ripota/parks/parks.json`.
 All fields below are the same in JSON and JavaScript. Pin a release URL for
 reproducible builds; no authentication, package installation, or JS runtime is
@@ -37,6 +37,8 @@ A `Park` retains all eight POTA identity fields (`reference`, `name`, `latitude`
 | `access`                | Optional short `hours`, `parking`, `fees`, `pets`, and `accessibility` notes. Omitted means undocumented.                                                                                 |
 | `activationNotes`       | Practical setup and location notes; these do not replace manager permission or POTA rules.                                                                                                |
 | `orange`                | `status`, human-readable `season` (string or null), `details`, and `sourceUrl`.                                                                                                           |
+| `heroImageId`           | Optional stable ID in the opt-in image registry; absence means there is no selected photo.                                                                                                |
+| `summary`               | Optional original short description for a card or page introduction. Independent of photo availability.                                                                                   |
 | `sources`               | Source URLs supporting the visitor metadata.                                                                                                                                              |
 
 Orange `status` is `required`, `recommended`, `area-dependent`, or `not-required`
@@ -57,6 +59,62 @@ identity-only projection should explicitly select those eight fields.
 The root graph contains only its entry module and generated park JSON. Its
 budgets are 150 kB minified and 25 kB Brotli. No geometry, network call, or
 wall-clock timestamp enters that graph.
+
+## Park photos
+
+Added in package v4.1.0. Import the registry explicitly; the root does not load
+photo records or image bytes. `ParkImage` and `ParkImageRegistry` are readonly
+contracts exported from `@ripota/parks/types`. The registry has `schemaVersion: 1`
+and `images: readonly ParkImage[]`; its closed schema is exported at
+`@ripota/parks/schemas/park-images.schema.json`.
+
+```js
+import { getPark } from "@ripota/parks";
+import registry from "@ripota/parks/images.json" with { type: "json" };
+
+const park = getPark("US-0516");
+const hero = park?.heroImageId
+  ? registry.images.find(({ id }) => id === park.heroImageId)
+  : undefined;
+const master = hero ? new URL(import.meta.resolve(hero.artifact)) : undefined;
+// Pass master to a build-time image pipeline; emit no photo element if absent.
+```
+
+`artifact` is a package export specifier, not a browser URL. Resolve it during
+server-side or static-site builds, then copy or transform the file into your own
+site assets. Serve those local outputs with width, height, alt text, and a visible
+credit/source/license link. Preserve the supplied title in `caption` when present,
+and disclose changes recorded in `transforms` plus any crop or processing you add.
+Share-alike photo derivatives retain the corresponding photo license; see
+[image rights](DATA_LICENSE.md#photographs).
+
+| Field                                            | Meaning                                                                                                                                                                                                     |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                             | Stable photo identity referenced by `Park.heroImageId`.                                                                                                                                                     |
+| `artifact`                                       | `@ripota/parks/images/<id>.<12-character-sha256>.webp`. The filename changes when bytes change.                                                                                                             |
+| `width`, `height`, `bytes`, `sha256`, `mimeType` | Actual dimensions, byte length, full SHA-256 digest, and `image/webp` media type of the shipped master.                                                                                                     |
+| `alt`, `caption`                                 | Required visual description; optional supplied title or descriptive caption.                                                                                                                                |
+| `focalPoint`                                     | Optional normalized `{x, y}` from top-left, each between 0 and 1. A crop hint, not a required crop.                                                                                                         |
+| `credit`                                         | Attribution to preserve with the displayed image.                                                                                                                                                           |
+| `source`                                         | Source `pageUrl`, exact downloaded `imageUrl` and file `sha256`, and `retrievedAt` date. These URLs document provenance; do not hotlink them at runtime.                                                    |
+| `rights`                                         | Reviewed `kind` (`public-domain`, `licensed`, or `permission`), human-readable `label`, evidence/license `url`, and `reviewedAt` date. This applies to the shipped image, separately from the code license. |
+| `transforms`                                     | Recorded orientation, resizing, encoding, or other changes from the upstream original.                                                                                                                      |
+
+Images are editorially selected web masters, normally up to 2400 pixels wide,
+without enlargement or imposed crop. Native aspect ratios and smaller accepted
+sources are preserved. A sufficiently large source-published rendition can be used; `source.imageUrl` and `source.sha256` identify the exact ingested file, and `transforms` records that choice. The tarball contains those masters, not camera originals
+or precomputed thumbnails. Generate responsive variants appropriate to your
+layout, respecting the actual dimensions and crop quality. Each park may omit
+`heroImageId`; do not invent an image or reserve an empty photo box. `summary`
+can exist independently. A registry may be empty.
+
+Each release includes standalone `images.json`, alongside `parks.json`, and all
+masters inside the same `ripota-parks-<version>.tgz`. Plain-file consumers extract
+`package/assets/images/` and map an artifact's final filename there; they need no
+Node runtime. `checksums.sha256` covers `dist/images.json` and each
+`assets/images/<filename>`. `checksums.release.sha256` covers standalone
+`images.json` and the tarball. Pin both JSON files and the tarball to the same
+release; the standalone registry alone does not contain the image bytes.
 
 ## Lightweight display metadata and public types
 

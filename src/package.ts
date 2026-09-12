@@ -21,6 +21,7 @@ import type {
   GeoJsonFeatureCollection,
 } from "./types.ts";
 import { readParks } from "./park-metadata.ts";
+import { readParkImages, imageAssetRelativePath } from "./park-images.ts";
 import { validateSnapshot } from "./validate.ts";
 
 export const SCHEMA_VERSION = 2;
@@ -41,7 +42,7 @@ function json(value: unknown): string {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
-function sha256(content: string): string {
+function sha256(content: string | Uint8Array): string {
   return createHash("sha256").update(content).digest("hex");
 }
 
@@ -102,6 +103,7 @@ export async function buildPackageArtifacts(
 ): Promise<Map<string, string>> {
   const snapshot = await validateSnapshot(rootDirectory, dataDirectory);
   const parks = await readParks(rootDirectory, snapshot.references);
+  const images = await readParkImages(rootDirectory, parks);
   const manifestByReference = new Map(
     snapshot.manifest.map((record) => [record.reference, record]),
   );
@@ -243,6 +245,7 @@ export async function buildPackageArtifacts(
     ...(await buildEntry("public-types")),
     ...(await buildEntry("display", displayModule(v3.records))),
     ["dist/parks.json", json(parks)],
+    ["dist/images.json", json(images)],
     ["dist/catalog.json", json(catalog)],
     ["dist/source-catalog.json", json(sourceCatalog)],
     ["dist/all.geojson", json(displayAggregate)],
@@ -256,7 +259,14 @@ export async function buildPackageArtifacts(
     );
   }
 
-  const checksumInputs = new Map<string, string>();
+  const checksumInputs = new Map<string, string | Uint8Array>();
+  for (const image of images.images) {
+    const relativePath = imageAssetRelativePath(image);
+    checksumInputs.set(
+      relativePath,
+      await readFile(path.join(rootDirectory, relativePath)),
+    );
+  }
   checksumInputs.set(
     "data/references.json",
     await readFile(path.join(dataDirectory, "references.json"), "utf8"),
@@ -302,6 +312,7 @@ export async function buildPackageArtifacts(
       relativePath.startsWith("dist/v3/") ||
       relativePath.startsWith("dist/boundaries/") ||
       relativePath === "dist/parks.json" ||
+      relativePath === "dist/images.json" ||
       relativePath === "dist/catalog.json" ||
       relativePath === "dist/source-catalog.json" ||
       relativePath === "dist/all.geojson" ||
