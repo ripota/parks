@@ -124,7 +124,7 @@ An override adds an optional `mapPoint` to the full display and source catalogs 
 
 ### Parks on the Air reference list
 
-- **Use:** 61 current `US-RI` reference records from the [official POTA API](https://api.pota.app/location/parks/US-RI).
+- **Use:** 61 current `US-RI` reference records from the [official POTA API](https://api.pota.app/location/parks/US-RI). The 2026-11-21 refresh incorporated the official POTA renames for US-2880 and US-5484.
 - **Attribution:** Parks on the Air (POTA); each catalog record links to its official park page.
 - **Terms finding:** The public API and documentation reviewed for this release did not state a separate machine-readable data license. Only minimal factual interoperability fields are retained. No POTA logo or claim of affiliation is used.
 - **Limitations:** POTA remains authoritative for current references and activation rules. A listed coordinate is not a boundary or an access determination.
@@ -157,7 +157,7 @@ An override adds an optional `mapPoint` to the full display and source catalogs 
 - **Attribution:** National Park Service, Land Resources Division.
 - **Terms finding:** NPS maps and federal agency-authored data are generally public-domain U.S. government works, subject to source metadata and any third-party rights.
 - **Limitations:** The [NPS public-distribution disclaimer](https://www.nps.gov/subjects/gisandmapping/data-disclaimers.htm) says its data are dynamic, not legal documents, carry no warranty of accuracy, reliability, or completeness, and should preferably be acquired directly from NPS.
-- **Snapshot review:** The 2026-09-01 service revision replaced both reviewed object IDs and metadata records. Geometry types, component and vertex counts, and extents are unchanged; coordinates moved only at sub-meter projection precision.
+- **Snapshot review:** The 2026-09-01 service revision replaced both reviewed object IDs and metadata records. Geometry types, component and vertex counts, and extents are unchanged; coordinates moved only at sub-meter projection precision. The 2026-11-21 refresh adopted the next reindex. Both unit queries returned the same park units and vertex counts, with corresponding vertices moving less than 6 millimeters.
 
 ### National Park Service Washington-Rochambeau route
 
