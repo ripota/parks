@@ -65,7 +65,7 @@
         "kind": "reviewed-source",
         "url": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2"
       },
-      "sha256": "cdbde7a6d7bd1932022ea43faea287f1f667a16a1ae708f983db8220543a96a9"
+      "sha256": "6227c393920388336d5ba7f7834c8f04044a857212b26b3b195772e508100292"
     },
     {
       "reference": "US-10541",
@@ -296,7 +296,7 @@
         "kind": "reviewed-source",
         "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
       },
-      "sha256": "9409528ab0cfcde90129d64ddfc41be49b9414320a363ff78041b7068d05392f"
+      "sha256": "195d8d2e05895fafcbf0f4d582291c22437b305076a6f09017ddc2a9c425bd45"
     },
     {
       "reference": "US-2881",
@@ -351,7 +351,7 @@
         "kind": "reviewed-source",
         "url": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0"
       },
-      "sha256": "e04bb4ddeb5bf0f0cf86269f569314aebe7f68455c27769418e0ce3fb02bea94"
+      "sha256": "27b6e8024dbc82c1481066936242945b48a787929ef00603d18421bb254e75fa"
     },
     {
       "reference": "US-6979",
@@ -659,7 +659,7 @@
         "kind": "reviewed-source",
         "url": "https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/NPS_Land_Resources_Division_Boundary_and_Tract_Data_Service/FeatureServer/2"
       },
-      "sha256": "d5246d69d9d886b8f68bb30fdd87a8915bd9eb88fcc51d847621ca8e141b6a81"
+      "sha256": "b5e659bd808cec2f90cb232c26f91e0066de527594a0a182d0a8814b3b657923"
     },
     {
       "reference": "US-8293",

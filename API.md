@@ -20,7 +20,7 @@ const park = getPark("  us-0513  ");
 and returns undefined for unknown or malformed strings. Neither API fetches data.
 `parks.json` exports identical records for JSON consumers. It is a UTF-8 JSON
 array, with one object per accepted reference in canonical order, available as a
-[standalone versioned download](https://github.com/ripota/parks/releases/download/v4.1.0/parks.json),
+[standalone versioned download](https://github.com/ripota/parks/releases/download/v4.1.1/parks.json),
 checked in at `dist/parks.json`, and exported at `@ripota/parks/parks.json`.
 All fields below are the same in JSON and JavaScript. Pin a release URL for
 reproducible builds; no authentication, package installation, or JS runtime is

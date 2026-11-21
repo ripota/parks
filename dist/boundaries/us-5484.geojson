@@ -6,7 +6,7 @@
     "geometryRole": "display",
     "geometryKind": "boundary",
     "potaReference": "US-5484",
-    "potaName": "George Washington Memorial State Forest",
+    "potaName": "George Washington Wildlife Management Area",
     "sourceName": "Rhode Island DEM State Conservation Land",
     "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
     "sourceQuery": "DEM_AREA = 'George Washington Management Area'",
@@ -28,7 +28,7 @@
       "type": "Feature",
       "properties": {
         "potaReference": "US-5484",
-        "potaName": "George Washington Memorial State Forest",
+        "potaName": "George Washington Wildlife Management Area",
         "geometryKind": "boundary",
         "geometryRole": "display"
       },

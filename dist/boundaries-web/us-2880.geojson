@@ -6,7 +6,7 @@
     "geometryRole": "display",
     "geometryKind": "boundary",
     "potaReference": "US-2880",
-    "potaName": "Snake Den State Park",
+    "potaName": "Snake Den/Dame Farm State Park",
     "sourceName": "Rhode Island DEM State Conservation Land",
     "sourceUrl": "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
     "sourceQuery": "DEM_AREA = 'Snake Den State Park'",
@@ -27,7 +27,7 @@
       "type": "Feature",
       "properties": {
         "potaReference": "US-2880",
-        "potaName": "Snake Den State Park",
+        "potaName": "Snake Den/Dame Farm State Park",
         "geometryKind": "boundary",
         "geometryRole": "display",
         "fidelity": "web"

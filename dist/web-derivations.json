@@ -106,8 +106,8 @@
       "inputAreaSquareMeters": 18348.924,
       "outputAreaSquareMeters": 18324.828,
       "areaDeltaSquareMeters": -24.096,
-      "inputSha256": "89f9d70eb30ec8f618beb8c9a13120f4dab6e5605d03a3a652901a0229af26c6",
-      "outputSha256": "a6be9e5ea7dbcb3dde3f40c52a896aa47f4f236beef0ca8ea0163f65cc209dc9"
+      "inputSha256": "addd4db6d4ba9d2ec7fc50f2c20b1d5906501e1a133286bc8348887ea14a97db",
+      "outputSha256": "aac564a4af9c5ce5d7e0210e9825f3ab69a3949a86b7af5052af4a28a18b92bc"
     },
     {
       "reference": "US-10541",
@@ -484,8 +484,8 @@
       "inputAreaSquareMeters": 3593985.58,
       "outputAreaSquareMeters": 3594267.415,
       "areaDeltaSquareMeters": 281.834,
-      "inputSha256": "55857c5fb7abdcbf20c2a61dbc001a831399be650f46293b4a8b893a5117e4ae",
-      "outputSha256": "2d263080f457c1eba7ea90b41ed227c09b361670d303e164c7712a093b8a25b0"
+      "inputSha256": "491e9cc733c433fa642e6c1948ca93313b0e1a72b0f8e3ddb57640ed123f691d",
+      "outputSha256": "fba3a4b149a931b40266e7be511c974458b7cd6951206e04ee03e914befd296d"
     },
     {
       "reference": "US-2881",
@@ -576,8 +576,8 @@
       "inputAreaSquareMeters": 14573508.929,
       "outputAreaSquareMeters": 14572645.358,
       "areaDeltaSquareMeters": -863.57,
-      "inputSha256": "4d4aa4b421e6584e333f6ecb6df99a6a047ef0d5a93bd19be4f72984027eb735",
-      "outputSha256": "b59e107e5b5004f2de20d5bf9a1c7508a45832321c6706cf2671bb343c79d775"
+      "inputSha256": "562b6802551b32f8b9026664407d3f1d1f446af6543af55f984dca299017e0bb",
+      "outputSha256": "290f46d9fde125a0e1be139be233803e11a5f466775a0ad5c299daacec9a60be"
     },
     {
       "reference": "US-6979",
@@ -1078,10 +1078,10 @@
       "componentCount": 10,
       "holeCount": 0,
       "inputAreaSquareMeters": 609028.959,
-      "outputAreaSquareMeters": 608394.705,
+      "outputAreaSquareMeters": 608394.706,
       "areaDeltaSquareMeters": -634.254,
-      "inputSha256": "b487fad4829e561027b949d97cc6c965e21b691a2864387a09378709a14c9de6",
-      "outputSha256": "18814a89818bfe4bb3c94034db5821739dd3c90a8af6208729d7f2a9eb587b35"
+      "inputSha256": "255a8dff7727f9831147ec13ef09195c24858d656d593bcdc683f41812c43d84",
+      "outputSha256": "21afa9ed84fd6234d9398bf832279c1ea3568f66a736b22a24b7213d428f5f18"
     },
     {
       "reference": "US-8293",
