@@ -835,29 +835,34 @@
     ]
   },
   "US-5484": {
-    "type": "forest",
+    "type": "management-area",
     "manager": "Rhode Island DEM",
-    "websiteUrl": "https://riparks.ri.gov/campgrounds",
+    "websiteUrl": "https://riparks.ri.gov/campgrounds/camping-area-descriptions-specific-requirements",
     "amenities": ["camping", "shelter", "boat-launch"],
     "access": {
       "hours": "Management-area visits: 30 minutes before sunrise to 30 minutes after sunset. Registered camping has separate access rules.",
       "fees": "Camping reservations and fees apply."
     },
     "activationNotes": [
-      "The forest includes a developed campground and surrounding management-area trails; choose the intended area before arrival."
+      "George Washington State Campground and its boat ramp are on Bowdish Reservoir. DEM maps the campground as a separate parcel outside the current US-5484 map footprint.",
+      "Pulaski State Park is a day-use facility within the larger management area and has its own POTA reference (US-7508)."
     ],
     "orange": {
       "status": "area-dependent",
       "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
-      "details": "Required in the surrounding George Washington Management Area; DEM identifies the developed state campground as exempt. Wear at least 200 square inches of solid daylight fluorescent orange above the waist, visible from all directions; 500 square inches during shotgun deer season.",
-      "sourceUrl": "https://dem.ri.gov/events/annual-first-day-hike"
+      "details": "Orange is required in the surrounding management area and at Pulaski State Park during these periods. DEM says orange is unnecessary for visits that stay within the developed George Washington State Campground. Wear at least 200 square inches of solid daylight fluorescent orange above the waist and visible from all directions. Wear at least 500 square inches during shotgun deer season.",
+      "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
     },
     "sources": [
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
-      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-      "https://riparks.ri.gov/campgrounds",
-      "https://dem.ri.gov/events/annual-first-day-hike"
+      "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0/query?objectIds=917&outFields=NAME%2CDEM_AREA&outSR=4326&f=geojson",
+      "https://riparks.ri.gov/campgrounds/camping-area-descriptions-specific-requirements",
+      "https://riparks.ri.gov/parks/pulaski-state-park",
+      "https://dem.ri.gov/media/36651/download",
+      "https://riparks.ri.gov/press-releases/rhode-islanders-invited-kick-new-year-firstdayhike-george-washington-state"
     ]
   },
   "US-6979": {

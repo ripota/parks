@@ -10,6 +10,18 @@ sources. The records paraphrase public information from RI DEM/RI Parks, the
 Water Resources Board, USFWS, NPS, Westerly Land Trust, and other named managers.
 No upstream geometry was refreshed as part of this metadata release.
 
+On 2026-11-22, the George Washington record (US-5484) was reviewed against the
+[RI DEM hunting guide](https://dem.ri.gov/media/36651/download) and
+[RI State Parks campground description](https://riparks.ri.gov/campgrounds/camping-area-descriptions-specific-requirements).
+The management area contains a developed state campground and Pulaski State
+Park (US-7508). The visitor record follows the state's
+[seasonal orange rule](https://rules.sos.ri.gov/regulations/part/250-100-00-7)
+and DEM's [campground guidance](https://riparks.ri.gov/press-releases/rhode-islanders-invited-kick-new-year-firstdayhike-george-washington-state).
+Pulaski's [visitor page](https://riparks.ri.gov/parks/pulaski-state-park)
+expressly applies seasonal orange requirements to its visitors.
+DEM publishes the [campground parcel](https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0/query?objectIds=917&outFields=NAME%2CDEM_AREA&outSR=4326&f=geojson)
+as a separate feature (OBJECTID 917) outside the US-5484 display footprint.
+
 Directory types are practical categories, not determinations of legal ownership
 or designation. Amenities are documented facilities, with no promise of current
 availability; empty lists and missing access notes mean undocumented. Hours,
