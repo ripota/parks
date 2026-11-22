@@ -172,27 +172,30 @@
     "summary": "A small urban memorial with shaded lawns and paths in historic Providence."
   },
   "US-10541": {
-    "type": "fishing-access",
+    "type": "recreation-area",
     "manager": "Rhode Island DEM",
-    "websiteUrl": "https://dem.ri.gov/publiclands",
-    "amenities": [],
+    "websiteUrl": "https://dem.ri.gov/press-releases/gull-cove-conserved",
+    "amenities": ["boat-launch"],
     "access": {
-      "hours": "Sunrise to sunset for day use; follow posted gate hours."
+      "hours": "For ordinary management-area visits, 30 minutes before sunrise to 30 minutes after sunset. Follow posted hours at the fishing access."
     },
     "activationNotes": [
-      "Use the fishing-access parcel shown on the park map; adjacent conservation parcels have different rules."
+      "The map shows the Gull Cove fishing-access parcel and the DEM acquisition on the north shore. DEM also manages a 16.75-acre transfer from RIDOT whose current boundary is still unverified."
     ],
     "orange": {
-      "status": "not-required",
-      "season": null,
-      "details": "The mapped fishing-access parcel is not a hunting management area. Wear orange if continuing into the adjacent Gull Cove Wildlife Management Area.",
+      "status": "area-dependent",
+      "season": "Second Saturday in September through the last day of February, and third Saturday in April through the last day of May.",
+      "details": "The fishing-access and boat-launch parcel is managed separately from the hunting area. Within Gull Cove Wildlife Management Area, wear at least 200 square inches of solid daylight fluorescent orange above the waist and visible from all directions. Wear at least 500 square inches during shotgun deer season.",
       "sourceUrl": "https://rules.sos.ri.gov/regulations/part/250-100-00-7"
     },
     "sources": [
       "https://rules.sos.ri.gov/regulations/part/250-100-00-7",
-      "https://rules.sos.ri.gov/regulations/part/250-100-00-8",
+      "https://rules.sos.ri.gov/regulations/part/250-100-00-9",
+      "https://rules.sos.ri.gov/regulations/part/250-60-00-9",
       "https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0",
-      "https://dem.ri.gov/publiclands"
+      "https://dem.ri.gov/press-releases/gull-cove-conserved",
+      "https://dem.ri.gov/media/36651/download",
+      "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/freshwater-fishing/public-boat-launching-sites"
     ]
   },
   "US-10542": {
