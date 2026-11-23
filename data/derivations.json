@@ -165,15 +165,15 @@
       "reference": "US-10541",
       "sourceArtifact": "./source-features/us-10541.geojson",
       "displayArtifact": "./boundaries/us-10541.geojson",
-      "sourceSha256": "70aa5bc6dd00ba3abc98aa938b08e3c77f24e6ba4cb09cd42d14f2f3e213277b",
-      "displaySha256": "51213e81864bcee38cecf6745ae0f942abe7ecdb374e36cb5164b0339e2e4e70",
-      "sourceFeatureCount": 1,
+      "sourceSha256": "46ad22c411c542b13e2d9e92d9a3935cb0457eb5b443e33ea3ae140b1bc87abd",
+      "displaySha256": "c221dc34c1df9ab0f14cd9f84cf4bc31a6b840099020a9962ec508f04dd280ab",
+      "sourceFeatureCount": 2,
       "displayFeatureCount": 1,
-      "componentCount": 1,
+      "componentCount": 6,
       "holeCount": 0,
-      "coordinateCount": 67,
-      "unionInputAreaSquareMeters": 11585.612521935182,
-      "displayAreaSquareMeters": 11585.612521935182,
+      "coordinateCount": 807,
+      "unionInputAreaSquareMeters": 299036.71168063243,
+      "displayAreaSquareMeters": 298975.0865579759,
       "operations": [
         {
           "operation": "unary-union"

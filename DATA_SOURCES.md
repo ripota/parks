@@ -116,7 +116,17 @@ are validated offline. The exact original files are not included in the package.
 
 ## Snapshot origin and inventory
 
-The initial snapshot was extracted from `ripota/ripota.org` commit [`6cbe59be37e5e5545848daf3cd4b65827034ce16`](https://github.com/ripota/ripota.org/commit/6cbe59be37e5e5545848daf3cd4b65827034ce16). This release contains 61 reviewed references: 60 boundary records and one derived Washington-Rochambeau trail activation zone. Schema v2 publishes 61 park-level display features derived from 446 reviewed source features.
+The initial snapshot was extracted from `ripota/ripota.org` commit [`6cbe59be37e5e5545848daf3cd4b65827034ce16`](https://github.com/ripota/ripota.org/commit/6cbe59be37e5e5545848daf3cd4b65827034ce16). This snapshot contains 61 reviewed references: 60 boundary records and one derived Washington-Rochambeau trail activation zone. Schema v2 publishes 61 park-level display features derived from 447 reviewed source features.
+
+On 2026-11-22, Gull Cove (US-10541) was reviewed against the
+[DEM acquisition announcement](https://dem.ri.gov/press-releases/gull-cove-conserved)
+and [State Conservation Land layer](https://risegis.ri.gov/hosting/rest/services/RIDEM/State_Conservation_Land/MapServer/0).
+The mapped boundary includes the existing fishing access (DEM ID 9087,
+OBJECTID 713) and the 71.1-acre Cardi/Vinagro acquisition (DEM ID 5319,
+OBJECTID 51976). The [DEM hunting guide](https://dem.ri.gov/media/36651/download)
+lists the larger WMA at 86 acres. The announced 16.75-acre RIDOT transfer
+awaits verified current GIS geometry. The visitor guidance treats orange as
+area-dependent because DEM maps fishing access and hunting land separately.
 
 Display polygons use a topological unary union to remove internal parcel seams and duplicated overlap without coordinate simplification or convex hulls. After the union, display geometry removes interior rings no larger than 1 square meter; these sub-resolution slivers can arise where nominally shared parcel edges differ by fractions of a millimeter and otherwise render as long straight lines. Source geometry remains unchanged, and the removed ring count, total area, and threshold are recorded per reference. Genuine disconnected components and larger interior holes remain. The pinned JSTS engine produces the geometry and enforces Simple Features validity; display rings are normalized to the GeoJSON right-hand rule. Input and output hashes, feature counts, component counts, holes, coordinates, areas, operations, and exact engine versions are recorded for every reference.
 

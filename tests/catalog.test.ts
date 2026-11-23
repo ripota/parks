@@ -25,7 +25,7 @@ describe("reviewed RI POTA snapshot", () => {
     expect(snapshot.references).toHaveLength(61);
     expect(snapshot.manifest).toHaveLength(61);
     expect(snapshot.displayFeatureCount).toBe(61);
-    expect(snapshot.sourceFeatureCount).toBe(446);
+    expect(snapshot.sourceFeatureCount).toBe(447);
     expect(
       snapshot.manifest.filter((record) => record.geometryKind === "boundary"),
     ).toHaveLength(60);
@@ -49,6 +49,7 @@ describe("reviewed RI POTA snapshot", () => {
     const byReference = new Map(
       manifest.map((record) => [record.reference, record] as const),
     );
+    expect(byReference.get("US-10541")?.sourceFeatureIds).toEqual([713, 51976]);
     expect(byReference.get("US-10547")?.sourceFeatureIds).toEqual(
       expect.arrayContaining([646, 31599]),
     );
@@ -221,7 +222,7 @@ describe("reviewed RI POTA snapshot", () => {
     expect(catalog.geometryRole).toBe("display");
     expect(catalog.referenceCount).toBe(61);
     expect(catalog.featureCount).toBe(61);
-    expect(catalog.sourceFeatureCount).toBe(446);
+    expect(catalog.sourceFeatureCount).toBe(447);
     expect(
       catalog.references.find(({ reference }) => reference === "US-4582")
         ?.mapPoint,
@@ -231,8 +232,8 @@ describe("reviewed RI POTA snapshot", () => {
     });
     expect(aggregate.features).toHaveLength(61);
     expect(sourceCatalog.geometryRole).toBe("source");
-    expect(sourceCatalog.featureCount).toBe(446);
-    expect(sourceAggregate.features).toHaveLength(446);
+    expect(sourceCatalog.featureCount).toBe(447);
+    expect(sourceAggregate.features).toHaveLength(447);
     for (const feature of aggregate.features) {
       expect(feature.properties).toEqual(
         expect.objectContaining({
